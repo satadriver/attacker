@@ -1,0 +1,1 @@
+openssl_path:C:\OpenSSL-Win32\bin

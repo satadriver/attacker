@@ -1,0 +1,22 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<updateConfig configVer="138" checkvalue="E9F12B558A9EF14CF0978EBBACF686AD" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Versions>
+        <VersionInfo fullurl="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_D0614B450_58V155_dsrE3.zip" sdkMin="19" version="155" period="0" forbidDeviceRegex="" md5="4193AE5B3A65831CFC4E41D22F64C759" useCdn="true" grayMin="1" grayMax="10000">
+            <patches>
+                <Patch targetVersion="153" url="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_B449to450_V153to155.patch" md5="0CEE526D14B7564CA1DA2462DDB9EADE" useCellular="true" useCdn="true"/>
+            </patches>
+            <Description versionStr="1.0.155"/>
+        </VersionInfo>
+        <VersionInfo fullurl="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_D1220B383_32V27_WOhQx.zip" sdkMin="11" sdkMax="17" version="27" period="0" forbidDeviceRegex="" md5="FDCFA2D925F42D0011DFF1B2EE4A9C44" useCdn="true" grayMin="1" grayMax="800">
+            <patches/>
+            <Description versionStr="1.0.27"/>
+        </VersionInfo>
+    </Versions>
+    <commands>
+        <command optype="setwebtype" grayMin="1" grayMax="500" opvalue="WV_KIND_CW" module="toolsmp"/>
+        <command sdkMin="11" optype="setwebtype" grayMin="1" grayMax="9000" opvalue="WV_KIND_CW" module="appbrand,support"/>
+        <command sdkMin="11" optype="setwebtype" grayMin="1" grayMax="20" opvalue="WV_KIND_CW" module="tools"/>
+        <command sdkMin="19" apiMin="24" optype="setwebtype" grayMin="9700" grayMax="9999" opvalue="WV_KIND_SYS" module="tools"/>
+    </commands>
+</updateConfig>

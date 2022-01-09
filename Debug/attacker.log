@@ -1,0 +1,5 @@
+﻿  Dingding.cpp
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\xlocale(341): warning C4530: 使用了 C++ 异常处理程序，但未启用展开语义。请指定 /EHsc
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\exception(359): warning C4577: 在未指定异常处理模式的情况下使用了 "noexcept"；不一定会在异常时终止。指定 /EHsc
+  attacker.vcxproj -> D:\vsproject\attacker_thread\Debug\attacker.exe
+  attacker.vcxproj -> D:\vsproject\attacker_thread\Debug\attacker.pdb (Full PDB)

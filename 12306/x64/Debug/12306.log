@@ -1,0 +1,112 @@
+﻿生成启动时间为 2020/4/23 星期四 19:56:32。
+     1>项目“D:\vsproject\attacker_thread\12306\12306.vcxproj”在节点 3 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\vs2012\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\windows.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\winapifamily.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\sdkddkver.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>D:\Program Files (x86)\vs2012\VC\include\excpt.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>D:\Program Files (x86)\vs2012\VC\include\crtdefs.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>D:\Program Files (x86)\vs2012\VC\include\sal.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>D:\Program Files (x86)\vs2012\VC\include\ConcurrencySal.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>D:\Program Files (x86)\vs2012\VC\include\vadefs.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>D:\Program Files (x86)\vs2012\VC\include\stdarg.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\windef.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\minwindef.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\specstrings.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\specstrings_strict.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\specstrings_undef.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\driverspecs.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>c:\program files (x86)\windows kits\8.0\include\shared\sdv_driverspecs.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\winnt.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>D:\Program Files (x86)\vs2012\VC\include\ctype.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\kernelspecs.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\basetsd.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\guiddef.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>D:\Program Files (x86)\vs2012\VC\include\string.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>c:\program files (x86)\windows kits\8.0\include\shared\pshpack4.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>c:\program files (x86)\windows kits\8.0\include\shared\poppack.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\pshpack4.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\poppack.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>c:\program files (x86)\windows kits\8.0\include\shared\pshpack2.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\pshpack2.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>c:\program files (x86)\windows kits\8.0\include\shared\pshpack8.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\apiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\ktmtypes.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\winbase.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\apisetcconv.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\minwinbase.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\processenv.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\fileapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\debugapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\utilapiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\handleapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\errhandlingapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\fibersapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\namedpipeapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\profileapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\heapapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\ioapiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\synchapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\interlockedapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\processthreadsapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\sysinfoapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\memoryapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\threadpoollegacyapiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\threadpoolapiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\bemapiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\jobapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\wow64apiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\libloaderapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\securitybaseapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\namespaceapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\systemtopologyapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\processtopologyapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\securityappcontainer.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\realtimeapiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\winerror.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\timezoneapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\wingdi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\pshpack1.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\winuser.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\tvout.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\winnls.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\datetimeapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\stringapiset.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\wincon.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\consoleapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\winver.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\verrsrc.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\winreg.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\reason.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\winnetwk.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\wnnc.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\cderr.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\dde.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\ddeml.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\dlgs.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\lzexpand.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\mmsystem.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\mmsyscom.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\mciapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\mmiscapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\mmiscapi2.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\playsoundapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\mmeapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\timeapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\joystickapi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\nb30.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\rpc.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\pshpack8.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\rpcdce.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\rpcdcep.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\um\rpcnsi.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\rpcnterr.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\rpcasync.h : error C2471: 无法更新程序数据库“d:\vsproject\attacker_thread\12306\x64\debug\vc110.pdb”
+     1>C:\Program Files (x86)\Windows Kits\8.0\Include\shared\rpcasync.h : fatal error C1003: 错误计数超过 100；正在停止编译
+     1>已完成生成项目“D:\vsproject\attacker_thread\12306\12306.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.60

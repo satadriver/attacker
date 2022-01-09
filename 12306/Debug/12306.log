@@ -1,0 +1,5 @@
+﻿  main.cpp
+d:\vsproject\attacker_thread\12306\main.cpp(134): warning C4244: “初始化”: 从“LONGLONG”转换到“int”，可能丢失数据
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1193,5): warning MSB8030: The linker switch "Minimum Required Version" requires "SubSystem" to be set.  Without "SubSystem", the "Minimum Required Version" would not be passed to linker and could prevent to the output binary from running on older Operating Systems.
+  12306.vcxproj -> D:\vsproject\attacker_thread\Debug\12306.exe
+  12306.vcxproj -> D:\vsproject\attacker_thread\Debug\12306.pdb (Partial PDB)

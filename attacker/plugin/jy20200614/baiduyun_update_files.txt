@@ -1,0 +1,4 @@
+baiduyun_update\Autoupdate.exe
+baiduyun_update\AutoUpdateUtil.dll
+baiduyun_update\config.ini
+baiduyun_update\VersionInfo.xml

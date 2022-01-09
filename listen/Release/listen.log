@@ -1,0 +1,7 @@
+﻿  main.cpp
+main.cpp(47): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码
+  All 6 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  listen.vcxproj -> D:\vsproject\attacker_thread\Release\listen.exe
+  listen.vcxproj -> D:\vsproject\attacker_thread\Release\listen.pdb (Full PDB)

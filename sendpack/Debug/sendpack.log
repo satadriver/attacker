@@ -1,0 +1,7 @@
+﻿  sendpack.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\dbghelp.h(1540): warning C4091: “typedef ”: 没有声明变量时忽略“”的左侧
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\dbghelp.h(3056): warning C4091: “typedef ”: 没有声明变量时忽略“”的左侧
+  NetcardInfo.cpp
+  正在生成代码...
+  sendpack.vcxproj -> D:\vsproject\attacker_thread\Debug\sendpack.exe
+  sendpack.vcxproj -> D:\vsproject\attacker_thread\Debug\sendpack.pdb (Full PDB)

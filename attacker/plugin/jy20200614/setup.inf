@@ -1,0 +1,21 @@
+;*** BEGIN **********************************************************
+;**                                                                **
+;** Automatically generated on: Tue Jun 08 22:42:48 2021           **
+;**                                                                **
+;** MakeCAB Version: 5.00                                 **
+;**                                                                **
+;*** BEGIN **********************************************************
+[disk list]
+1,Disk 1
+[cabinet list]
+1,1,baiduyun_update.cab
+[file list]
+1,1,Autoupdate.exe,2101240
+1,1,AutoUpdateUtil.dll,193016
+1,1,config.ini,114
+1,1,VersionInfo.xml,91
+;*** END ************************************************************
+;**                                                                **
+;** Automatically generated on: Tue Jun 08 22:42:48 2021           **
+;**                                                                **
+;*** END ************************************************************

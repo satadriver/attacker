@@ -1,0 +1,51 @@
+﻿GET /mobile/newUpdateInfo.xml HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 6.0; ZTE BV0701 Build/MRA58K)
+Host: dl.baofeng.com
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+HTTP/1.1 200 OK
+Server: nginx/1.4.2
+Date: Thu, 15 Nov 2018 07:34:06 GMT
+Content-Type: text/xml
+Content-Length: 2147
+Last-Modified: Wed, 26 Sep 2018 08:10:02 GMT
+Connection: keep-alive
+ETag: "5bab3eda-863"
+Expires: Thu, 15 Nov 2018 08:34:06 GMT
+Cache-Control: max-age=3600
+Accept-Ranges: bytes
+
+﻿<?xml version="1.0" encoding="utf-8"?>
+<info>
+	<StormVersion>5107</StormVersion>
+	<StormUrl>http://dl.baofeng.com/mobile/update/AndroidStorm.apk</StormUrl>
+	<StormUrl_v7a>http://dl.baofeng.com/mobile/update/AndroidStorm_v7a.apk</StormUrl_v7a>
+
+	<LibSoVersion_v7a>4</LibSoVersion_v7a>
+	<LibSoUrl_v7a>http://dl.baofeng.com/mobile/codec/4/StormLibApp_v7a.apk</LibSoUrl_v7a>
+	<update version="8">
+	<!--  【该升级文件的版本号】： 每次修改下面内容是该值+1 否则非强制升级用户忽略3次后 不会再提示非强制升级对话框
+  --> 
+  
+	<item>
+		<update_min_version>394100</update_min_version> <!-- 【需要升级的最低版本】： 包含该版本-->
+		<update_max_version>760300</update_max_version> <!-- 【需要升级的最高版本】： 包含该版本-->
+		<to_version>760400</to_version>
+		<channel>all</channel>			<!-- 【渠道号】：全部为all，单一为具体渠道号，多个依逗号分开区分大小写-->
+		<type>0</type>				<!-- 【升级类型】：0代表非强制，1代表强制-->
+		<desc title="7.6.04版本发布" header="【更新内容】" >	    			<!-- 【文案描述】：在客户端显示多行文本-->
+		<content>1. 更新了很多厉害的影片哦！</content>
+		<content>2. 播放体验优化。</content>
+		<content>3. bug修复</content>	
+		</desc>
+		<url>http://dl.baofeng.com/mobile/update/AndroidStorm.apk</url>	<!-- 升级包下载地址-->
+		<v7a_url>http://dl.baofeng.com/mobile/update/AndroidStorm.apk</v7a_url>
+	</item>
+	
+</update>
+</info>
+
+
+
+

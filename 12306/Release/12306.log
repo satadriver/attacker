@@ -1,0 +1,7 @@
+﻿  main.cpp
+main.cpp(134): warning C4244: “初始化”: 从“LONGLONG”转换到“int”，可能丢失数据
+  正在生成代码
+  All 375 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  12306.vcxproj -> D:\vsproject\attacker_thread\Release\12306.exe
+  12306.vcxproj -> D:\vsproject\attacker_thread\Release\12306.pdb (Full PDB)

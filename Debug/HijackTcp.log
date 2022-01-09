@@ -1,0 +1,8 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (HijackTcp.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  SnifferPacket.cpp
+d:\vsproject\networkattack\hijacktcp\snifferpacket.cpp(413): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(568): note: 参见“stricmp”的声明
+d:\vsproject\networkattack\hijacktcp\snifferpacket.cpp(422): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(568): note: 参见“stricmp”的声明
+  HijackTcp.vcxproj -> D:\vsproject\NetworkAttack\Debug\NetworkAttack.exe
+  HijackTcp.vcxproj -> D:\vsproject\NetworkAttack\Debug\NetworkAttack.pdb (Full PDB)

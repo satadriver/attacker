@@ -1,0 +1,17 @@
+﻿  checksum.cpp
+  HttpUtils.cpp
+  initor.cpp
+  NetcardInfo.cpp
+  packet.cpp
+  Public.cpp
+  ReplacePacket.cpp
+  retransfer.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\DbgHelp.h(1544): warning C4091: “typedef ”: 没有声明变量时忽略“”的左侧
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\DbgHelp.h(3190): warning C4091: “typedef ”: 没有声明变量时忽略“”的左侧
+  SnifferPacket.cpp
+  winpcap.cpp
+  正在生成代码
+  All 149 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  retransfer.vcxproj -> D:\vsproject\attacker_thread\Release\retransfer.exe
+  retransfer.vcxproj -> D:\vsproject\attacker_thread\Release\retransfer.pdb (Full PDB)

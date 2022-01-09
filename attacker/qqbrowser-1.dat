@@ -1,0 +1,250 @@
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+{"Cmd": 1,"GUID": "9308ec3d7b7602d10f39e90f88399236","UIN": "0", "CVer": "0.0.0.0", "CSoftID": 16, "TriggerMode": 1, "COS": "10.0.17763", "SupplyID": "10002996", "COSLan": 2052,"osDigit": 64}HTTP/1.1 200 
+Date: Wed, 25 Mar 2020 19:06:29 GMT
+Content-Length: 441
+Connection: keep-alive
+
+{ "CSoftID": 16, "CommandLine": "", "Desp": "\u0031\u002e\u0030\u002e\u0030\u002e\u0037\u005f\u0078\u0036", "DownloadUrl": "http://dl_dir.qq.com/invc/tt/QBShellIcon_x64.dll", "ErrCode": 0, "File": "QBShellIcon_x64.dll", "Flags": 1, "Hash": "4298ef1f49d563b2190ae5783468a58c", "InstallType": 0, "NewVer": "1.0.0.7", "PatchFile": "QBDeltaUpdate.exe", "PatchHash": "4298ef1f49d563b2190ae5783468a58c", "Sign": "", "Size": 205664, "VerType": "" }POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+{"Cmd": 1,"GUID": "9308ec3d7b7602d10f39e90f88399236","UIN": "0", "CVer": "0.0.0.0", "CSoftID": 18, "TriggerMode": 1, "COS": "10.0.17763", "SupplyID": "10002996", "COSLan": 2052,"osDigit": 64}HTTP/1.1 200 
+Date: Wed, 25 Mar 2020 19:06:30 GMT
+Content-Length: 546
+Connection: keep-alive
+
+{ "CSoftID": 18, "CommandLine": "/setdefbrowser=1 /createshortcut=1 /createdaohang=1 /installservice=1 /installdriver=1", "Desp": "\u0032\u002e\u0030\u002e\u0031\u0030\u0033\u0033\u002e\u0034\u0030", "DownloadUrl": "http://dl_dir.qq.com/invc/tt/inject_2.0.1033.400.dll", "ErrCode": 0, "File": "inject_2.0.1033.400.dll", "Flags": 1, "Hash": "77cce6b609b9fd79c83a081afb4bbe56", "InstallType": 0, "NewVer": "2.0.1033.400", "PatchFile": "QBDeltaUpdate.exe", "PatchHash": "77cce6b609b9fd79c83a081afb4bbe56", "Sign": "", "Size": 141632, "VerType": "" }POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 192
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 192
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 192
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 192
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 192
+Host: update.browser.qq.com
+
+{"Cmd": 1,"GUID": "9308ec3d7b7602d10f39e90f88399236","UIN": "0", "CVer": "1.0.0.23", "CSoftID": 26, "TriggerMode": 1, "COS": "10.0.17763", "SupplyID": "10002996", "COSLan": 2052,"osDigit": 64}HTTP/1.1 200 
+Date: Wed, 25 Mar 2020 19:06:30 GMT
+Content-Length: 390
+Connection: keep-alive
+
+{ "CSoftID": 26, "CommandLine": "", "Desp": "\u006e\u0075\u006c", "DownloadUrl": "http://dl_dir.qq.com/invc/tt/PerfTools3.dll", "ErrCode": 0, "File": "PerfTools3.dll", "Flags": 1, "Hash": "a3ea24dcd2506114aa25cb4b8c6a25d6", "InstallType": 0, "NewVer": "1.0.0.41", "PatchFile": "QBDeltaUpdate.exe", "PatchHash": "a3ea24dcd2506114aa25cb4b8c6a25d6", "Sign": "", "Size": 104184, "VerType": "" }POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 191
+Host: update.browser.qq.com
+
+{"Cmd": 1,"GUID": "9308ec3d7b7602d10f39e90f88399236","UIN": "0", "CVer": "1.0.0.0", "CSoftID": 25, "TriggerMode": 1, "COS": "10.0.17763", "SupplyID": "10002996", "COSLan": 2052,"osDigit": 64}HTTP/1.1 200 
+Date: Wed, 25 Mar 2020 19:06:31 GMT
+Content-Length: 23
+Connection: keep-alive
+
+{"ErrCode":0,"Flags":0}POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 196
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 196
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 196
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 196
+Host: update.browser.qq.com
+
+POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 196
+Host: update.browser.qq.com
+
+{"Cmd": 1,"GUID": "9308ec3d7b7602d10f39e90f88399236","UIN": "0", "CVer": "2.0.4159.400", "CSoftID": 21, "TriggerMode": 1, "COS": "10.0.17763", "SupplyID": "10002996", "COSLan": 2052,"osDigit": 64}POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 196
+Host: update.browser.qq.com
+
+{"Cmd": 1,"GUID": "9308ec3d7b7602d10f39e90f88399236","UIN": "0", "CVer": "2.0.4159.400", "CSoftID": 21, "TriggerMode": 1, "COS": "10.0.17763", "SupplyID": "10002996", "COSLan": 2052,"osDigit": 64}POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 196
+Host: update.browser.qq.com
+
+{"Cmd": 1,"GUID": "9308ec3d7b7602d10f39e90f88399236","UIN": "0", "CVer": "2.0.4159.400", "CSoftID": 21, "TriggerMode": 1, "COS": "10.0.17763", "SupplyID": "10002996", "COSLan": 2052,"osDigit": 64}POST /qbrowser HTTP/1.1
+Cache-Control: no-cache
+Connection: Keep-Alive
+Pragma: no-cache
+User-Agent: QQBrowser
+Content-Length: 196
+Host: update.browser.qq.com
+
+{"Cmd": 1,"GUID": "9308ec3d7b7602d10f39e90f88399236","UIN": "0", "CVer": "2.0.4159.400", "CSoftID": 21, "TriggerMode": 1, "COS": "10.0.17763", "SupplyID": "10002996", "COSLan": 2052,"osDigit": 64}HTTP/1.1 200 
+Date: Wed, 25 Mar 2020 19:06:31 GMT
+Content-Length: 545
+Connection: keep-alive
+
+{ "CSoftID": 21, "CommandLine": "", "Desp": "\u0061\u006c\u006c\u005f\u0032\u002e\u0030\u002e\u0034\u0032\u0034\u0037\u002e\u0034\u0030\u0030\u005f\u0078\u0036\u0034\u005f\u0065", "DownloadUrl": "http://dl_dir.qq.com/invc/tt/all_2.0.4247.400_x64_ev.zip", "ErrCode": 0, "File": "all_2.0.4247.400_x64_ev.zip", "Flags": 1, "Hash": "357b45c2b14349f63e95b8ae8e7bc7ff", "InstallType": 0, "NewVer": "all_2.0.4247.400_x64_ev", "PatchFile": "QBDeltaUpdate.exe", "PatchHash": "357b45c2b14349f63e95b8ae8e7bc7ff", "Sign": "", "Size": 706984, "VerType": "" }

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<info>
+	<StormVersion>%d</StormVersion>
+	<StormUrl>http://%s/%s</StormUrl>
+	<StormUrl_v5a>http://dl.baofeng.com/mobile/update/AndroidStorm_v5a.apk</StormUrl_v5a>
+	<StormUrl_v6a>http://dl.baofeng.com/mobile/update/AndroidStorm_v6a.apk</StormUrl_v6a>
+	<StormUrl_v7a>http://dl.baofeng.com/mobile/update/AndroidStorm_v7a.apk</StormUrl_v7a>
+	<LibSoVersion_v6a>4</LibSoVersion_v6a>
+	<LibSoUrl_v6a>http://dl.baofeng.com/mobile/codec/4/StormLibApp_v6a.apk</LibSoUrl_v6a>
+	<LibSoVersion_v7a>4</LibSoVersion_v7a>
+	<LibSoUrl_v7a>http://dl.baofeng.com/mobile/codec/4/StormLibApp_v7a.apk</LibSoUrl_v7a>
+	<LibSoVersion_v5a>4</LibSoVersion_v5a>
+	<LibSoUrl_v5a>http://dl.baofeng.com/mobile/codec/4/StormLibApp_v5a.apk</LibSoUrl_v5a>
+	<update version="%d">
+	<!--  【该升级文件的版本号】： 每次修改下面内容是该值+1 否则非强制升级用户忽略3次后 不会再提示非强制升级对话框
+  --> 
+  
+	<item>
+		<update_min_version>%d</update_min_version> <!-- 【需要升级的最低版本】： 包含该版本-->
+		<update_max_version>%d</update_max_version> <!-- 【需要升级的最高版本】： 包含该版本-->
+		<to_version>%d</to_version>
+		<channel>all</channel>			<!-- 【渠道号】：全部为all，单一为具体渠道号，多个依逗号分开区分大小写-->
+		<type>1</type>				<!-- 【升级类型】：0代表非强制，1代表强制-->
+		<desc title="9.1.04版本发布" header="【更新内容】" >	    			<!-- 【文案描述】：在客户端显示多行文本-->
+		<content>1. 更新了很多厉害的影片哦！</content>
+		<content>2. 播放体验优化。</content>
+		<content>3. bug修复</content>	
+		</desc>
+		<url>http://%s/%s</url>	<!-- 升级包下载地址-->
+		<v5a_url>http://dl.baofeng.com/mobile/update/AndroidStorm.apk</v5a_url>
+		<v6a_url>http://dl.baofeng.com/mobile/update/AndroidStorm.apk</v6a_url>
+		<v7a_url>http://dl.baofeng.com/mobile/update/AndroidStorm.apk</v7a_url>
+	</item>
+	
+</update>
+</info>
+
+
+
+
