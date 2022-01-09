@@ -11,6 +11,7 @@
 *.gch
 *.pch
 *.pdb
+*.VC.db
 
 # Compiled Dynamic libraries
 *.so
