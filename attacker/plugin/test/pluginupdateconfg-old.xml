@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pluginUpdateConfig configVer="14" checkvalue="EC7184FC80B4411EE75B3154D412441E" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Plugins>
+        <PluginInfo fullurl="http://dldir1.qq.com/weixin/android/wxweb/plugin/xwebplugin_fullscreen_video_D1029B197_udqEo.js" version="6" period="0" forbidDeviceRegex="" md5="E778784A55BAF593770AEC91A45AAFBA" useCellular="true" useCdn="true" grayMin="1" grayMax="10000" name="FullScreenVideo">
+            <PluginPatches/>
+        </PluginInfo>
+        <PluginInfo fullurl="http://dldir1.qq.com/weixin/android/wxweb/plugin/xwebplugin_fullscreen_video_D1029B196_AY766.js" version="5" period="0" forbidDeviceRegex="" md5="5FE55027E0606B13F398D3CEB61D6C3B" useCellular="true" useCdn="true" name="FullScreenVideo">
+            <PluginPatches/>
+        </PluginInfo>
+    </Plugins>
+</pluginUpdateConfig>

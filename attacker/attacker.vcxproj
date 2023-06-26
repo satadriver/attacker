@@ -1,0 +1,527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Android\Browser2345.h" />
+    <ClInclude Include="Android\Changba.h" />
+    <ClInclude Include="Android\dnsAttack.h" />
+    <ClInclude Include="Android\DuomiMusic.h" />
+    <ClInclude Include="Android\Jingdong.h" />
+    <ClInclude Include="Android\Kugou.h" />
+    <ClInclude Include="Android\Wgs2gcj.h" />
+    <ClInclude Include="Android\MyLetvPlugin.h" />
+    <ClInclude Include="Android\MeiTuan.h" />
+    <ClInclude Include="Android\MeizuUpdate.h" />
+    <ClInclude Include="Android\MiaoPaiPlugin.h" />
+    <ClInclude Include="Android\MiguMusic.h" />
+    <ClInclude Include="Android\NetEasyNews.h" />
+    <ClInclude Include="Android\oppoPluginUpdate.h" />
+    <ClInclude Include="Android\PlayerCoreNeon.h" />
+    <ClInclude Include="Android\Potato.h" />
+    <ClInclude Include="Android\QiyiVideo.h" />
+    <ClInclude Include="Android\QQNow.h" />
+    <ClInclude Include="Android\QQReader.h" />
+    <ClInclude Include="Android\QQNews.h" />
+    <ClInclude Include="Android\QQTvkPlugin.h" />
+    <ClInclude Include="Android\Qunar.h" />
+    <ClInclude Include="Android\qutoutiao.h" />
+    <ClInclude Include="Android\ShuQi.h" />
+    <ClInclude Include="Android\StormPlayer.h" />
+    <ClInclude Include="Android\TodayHeadline.h" />
+    <ClInclude Include="Android\vivoPlugin.h" />
+    <ClInclude Include="Android\WPSMobile.h" />
+    <ClInclude Include="Android\xiaomi.h" />
+    <ClInclude Include="Android\ximalaya.h" />
+    <ClInclude Include="Android\YoukuPlugin.h" />
+    <ClInclude Include="Android\ztePlugin.h" />
+    <ClInclude Include="attack.h" />
+    <ClInclude Include="attacker.h" />
+    <ClInclude Include="cipher\Base64.h" />
+    <ClInclude Include="cipher\Code.h" />
+    <ClInclude Include="cipher\compression.h" />
+    <ClInclude Include="cipher\CryptoUtils.h" />
+    <ClInclude Include="cipher\RSA.h" />
+    <ClInclude Include="cipher\sha1.h" />
+    <ClInclude Include="cipher\UrlCodec.h" />
+    <ClInclude Include="cipher\zip.h" />
+    <ClInclude Include="Confiig.h" />
+    <ClInclude Include="Deamon.h" />
+    <ClInclude Include="DnsUtils\DnsKeeper.h" />
+    <ClInclude Include="DnsUtils\DnsProxy.h" />
+    <ClInclude Include="DnsUtils\DnsProxyIPV6.h" />
+    <ClInclude Include="DnsUtils\dnsUtils.h" />
+    <ClInclude Include="FileOper.h" />
+    <ClInclude Include="gateWay\gateway.h" />
+    <ClInclude Include="HttpPartial.h" />
+    <ClInclude Include="HttpUtils.h" />
+    <ClInclude Include="informer.h" />
+    <ClInclude Include="NetCardInfo.h" />
+    <ClInclude Include="Packet.h" />
+    <ClInclude Include="PacketProc.h" />
+    <ClInclude Include="PreparePacket.h" />
+    <ClInclude Include="Public.h" />
+    <ClInclude Include="ReplaceNetFile.h" />
+    <ClInclude Include="ReplacePacket.h" />
+    <ClInclude Include="ReplaceSignature.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SdkVersion.h" />
+    <ClInclude Include="security.h" />
+    <ClInclude Include="SnifferPacket.h" />
+    <ClInclude Include="SSL\BaiduLocation.h" />
+    <ClInclude Include="SSL\baiduNetDisk.h" />
+    <ClInclude Include="SSL\Browser2345Android.h" />
+    <ClInclude Include="SSL\DidiAndroid.h" />
+    <ClInclude Include="SSL\informerClient.h" />
+    <ClInclude Include="SSL\InformerUdp.h" />
+    <ClInclude Include="SSL\Kuaiya.h" />
+    <ClInclude Include="SSL\lbspos.h" />
+    <ClInclude Include="SSL\MeituanPatch.h" />
+    <ClInclude Include="SSL\NetEaseNewsUpdate.h" />
+    <ClInclude Include="SSL\peanutShell.h" />
+    <ClInclude Include="SSL\Plugin2345.h" />
+    <ClInclude Include="SSL\Plugin360.h" />
+    <ClInclude Include="ssl\alicdn.h" />
+    <ClInclude Include="SSL\aliProtect.h" />
+    <ClInclude Include="SSL\AmapHotfix.h" />
+    <ClInclude Include="SSL\AttackSplitPacket.h" />
+    <ClInclude Include="SSL\BaiduPromotion.h" />
+    <ClInclude Include="SSL\baofeng.h" />
+    <ClInclude Include="SSL\BrowserDownload.h" />
+    <ClInclude Include="SSL\cboxPlugin.h" />
+    <ClInclude Include="SSL\changbaPlugin.h" />
+    <ClInclude Include="ssl\Dingding.h" />
+    <ClInclude Include="SSL\DouyuPlugin.h" />
+    <ClInclude Include="SSL\Duba.h" />
+    <ClInclude Include="ssl\gtimg.h" />
+    <ClInclude Include="SSL\HuaweiUpdate.h" />
+    <ClInclude Include="SSL\HuYaPlugin.h" />
+    <ClInclude Include="SSL\letvPlugin.h" />
+    <ClInclude Include="SSL\IqiyiPlugin.h" />
+    <ClInclude Include="SSL\ireaderPlugin.h" />
+    <ClInclude Include="SSL\JingdongPlugin.h" />
+    <ClInclude Include="SSL\KugouPlugin.h" />
+    <ClInclude Include="SSL\NotepadPP.h" />
+    <ClInclude Include="SSL\OtherListener.h" />
+    <ClInclude Include="SSL\Pinduoduo.h" />
+    <ClInclude Include="SSL\qitu.h" />
+    <ClInclude Include="SSL\QQ.h" />
+    <ClInclude Include="SSL\qqdownloader.h" />
+    <ClInclude Include="SSL\QQManager.h" />
+    <ClInclude Include="SSL\QQPim.h" />
+    <ClInclude Include="SSL\QQTencentNews.h" />
+    <ClInclude Include="SSL\QunarAndroid.h" />
+    <ClInclude Include="SSL\sogouExplorer.h" />
+    <ClInclude Include="SSL\SSLRetransfer.h" />
+    <ClInclude Include="SSL\SunflowerUpdate.h" />
+    <ClInclude Include="SSL\ThunderUpdate.h" />
+    <ClInclude Include="SSL\weixinAndroidJS.h" />
+    <ClInclude Include="SSL\wgs2gcjPlugin.h" />
+    <ClInclude Include="SSL\windowsupdate.h" />
+    <ClInclude Include="SSL\WireSharkUpdate.h" />
+    <ClInclude Include="SSL\WpsPlugin.h" />
+    <ClInclude Include="SSL\YoukuHotfix.h" />
+    <ClInclude Include="SSL\MiaoPaiUpdate.h" />
+    <ClInclude Include="ssl\momo.h" />
+    <ClInclude Include="ssl\Notepad.h" />
+    <ClInclude Include="ssl\OpenSSLConfig.h" />
+    <ClInclude Include="ssl\HttpAttack.h" />
+    <ClInclude Include="ssl\HttpProxy.h" />
+    <ClInclude Include="ssl\HttpProxyListener.h" />
+    <ClInclude Include="ssl\ImportCert.h" />
+    <ClInclude Include="ssl\MakeCert.h" />
+    <ClInclude Include="ssl\AuthorityCert.h" />
+    <ClInclude Include="ssl\qqMusic.h" />
+    <ClInclude Include="ssl\QQMusicAndroid.h" />
+    <ClInclude Include="ssl\qukan.h" />
+    <ClInclude Include="ssl\ShuqiPlugin.h" />
+    <ClInclude Include="ssl\InformerProc.h" />
+    <ClInclude Include="ssl\PluginServer.h" />
+    <ClInclude Include="ssl\QQAndroid.h" />
+    <ClInclude Include="ssl\QQmtt.h" />
+    <ClInclude Include="ssl\QQVideoSSL.h" />
+    <ClInclude Include="ssl\SSLAttack.h" />
+    <ClInclude Include="ssl\sslEntry.h" />
+    <ClInclude Include="ssl\sslPacket.h" />
+    <ClInclude Include="ssl\SSLProxy.h" />
+    <ClInclude Include="ssl\SSLProxyListener.h" />
+    <ClInclude Include="ssl\sslPublic.h" />
+    <ClInclude Include="ssl\Toutiao.h" />
+    <ClInclude Include="ssl\toutiaoPlugin.h" />
+    <ClInclude Include="ssl\ucmobile.h" />
+    <ClInclude Include="ssl\WeixinAndroid.h" />
+    <ClInclude Include="ssl\WeixinPC.h" />
+    <ClInclude Include="ssl\Youku.h" />
+    <ClInclude Include="SSL\YoukuPC.h" />
+    <ClInclude Include="SSL\zhwnl.h" />
+    <ClInclude Include="ssl\ZipUtils.h" />
+    <ClInclude Include="support\aos_crc64.h" />
+    <ClInclude Include="support\JceStruct.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="Utils\AscHex.h" />
+    <ClInclude Include="Utils\BaseSocket.h" />
+    <ClInclude Include="Utils\checksum.h" />
+    <ClInclude Include="Utils\lock.h" />
+    <ClInclude Include="Utils\simpleJson.h" />
+    <ClInclude Include="Utils\Tools.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="Windows\BaiduCloud.h" />
+    <ClInclude Include="Windows\Haozip.h" />
+    <ClInclude Include="Windows\Iqiyi.h" />
+    <ClInclude Include="Windows\QQMiniBrowser.h" />
+    <ClInclude Include="Windows\qqvideo.h" />
+    <ClInclude Include="Windows\Thunder.h" />
+    <ClInclude Include="Windows\WPS.h" />
+    <ClInclude Include="Windows\YiXin.h" />
+    <ClInclude Include="winpcap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Android\Browser2345.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)/%(RelativeDir)/</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="Android\DnsAttack.cpp" />
+    <ClCompile Include="Android\DuomiMusic.cpp" />
+    <ClCompile Include="Android\Jingdong.cpp" />
+    <ClCompile Include="Android\Kugou.cpp" />
+    <ClCompile Include="Android\Wgs2gcj.cpp" />
+    <ClCompile Include="Android\MyLetvPlugin.cpp" />
+    <ClCompile Include="Android\MeiTuan.cpp" />
+    <ClCompile Include="Android\MeizuUpdate.cpp" />
+    <ClCompile Include="Android\MiaoPaiPlugin.cpp" />
+    <ClCompile Include="Android\MiguMusic.cpp" />
+    <ClCompile Include="Android\NetEasyNews.cpp" />
+    <ClCompile Include="Android\oppoPluginUpdate.cpp" />
+    <ClCompile Include="Android\PlayerCoreNeon.cpp" />
+    <ClCompile Include="Android\Potato.cpp" />
+    <ClCompile Include="Android\QiyiVideo.cpp" />
+    <ClCompile Include="Android\QQNow.cpp" />
+    <ClCompile Include="Android\QQReader.cpp" />
+    <ClCompile Include="Android\QQNews.cpp" />
+    <ClCompile Include="Android\QQTvkPlugin.cpp" />
+    <ClCompile Include="Android\Qunar.cpp" />
+    <ClCompile Include="Android\qutoutiao.cpp" />
+    <ClCompile Include="Android\ShuQi.cpp" />
+    <ClCompile Include="Android\StormPlayer.cpp" />
+    <ClCompile Include="Android\TodayHeadline.cpp" />
+    <ClCompile Include="Android\vivoPlugin.cpp" />
+    <ClCompile Include="Android\WPSMobile.cpp" />
+    <ClCompile Include="Android\xiaomi.cpp" />
+    <ClCompile Include="Android\ximalaya.cpp" />
+    <ClCompile Include="Android\YoukuPlugin.cpp" />
+    <ClCompile Include="Android\ztePlugin.cpp" />
+    <ClCompile Include="attack.cpp" />
+    <ClCompile Include="cipher\Base64.cpp" />
+    <ClCompile Include="cipher\Code.cpp" />
+    <ClCompile Include="cipher\Compression.cpp" />
+    <ClCompile Include="cipher\CryptoUtils.cpp" />
+    <ClCompile Include="cipher\RSA.cpp" />
+    <ClCompile Include="cipher\sha1.cpp" />
+    <ClCompile Include="cipher\UrlCodec.cpp" />
+    <ClCompile Include="cipher\zip.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Deamon.cpp" />
+    <ClCompile Include="DnsUtils\DnsKeeper.cpp" />
+    <ClCompile Include="DnsUtils\DnsProxy.cpp" />
+    <ClCompile Include="DnsUtils\DnsProxyIPV6.cpp" />
+    <ClCompile Include="DnsUtils\dnsUtils.cpp" />
+    <ClCompile Include="FileOper.cpp" />
+    <ClCompile Include="gateWay\gateway.cpp" />
+    <ClCompile Include="HttpPartial.cpp" />
+    <ClCompile Include="HttpUtils.cpp" />
+    <ClCompile Include="informer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="NetCardInfo.cpp" />
+    <ClCompile Include="PacketProc.cpp" />
+    <ClCompile Include="PreparePacket.cpp" />
+    <ClCompile Include="Public.cpp" />
+    <ClCompile Include="ReplaceNetFile.cpp" />
+    <ClCompile Include="ReplacePacket.cpp" />
+    <ClCompile Include="ReplaceSignature.cpp" />
+    <ClCompile Include="SdkVersion.cpp" />
+    <ClCompile Include="security.cpp" />
+    <ClCompile Include="SnifferPacket.cpp" />
+    <ClCompile Include="SSL\AuthorityCert.cpp" />
+    <ClCompile Include="SSL\BaiduLocation.cpp" />
+    <ClCompile Include="SSL\baiduNetDisk.cpp" />
+    <ClCompile Include="SSL\Browser2345Android.cpp" />
+    <ClCompile Include="SSL\DidiAndroid.cpp" />
+    <ClCompile Include="SSL\InformerUdp.cpp" />
+    <ClCompile Include="SSL\Kuaiya.cpp" />
+    <ClCompile Include="SSL\lbspos.cpp" />
+    <ClCompile Include="SSL\MeituanPatch.cpp" />
+    <ClCompile Include="SSL\NetEaseNewsUpdate.cpp" />
+    <ClCompile Include="SSL\peanutShell.cpp" />
+    <ClCompile Include="SSL\Plugin2345.cpp" />
+    <ClCompile Include="SSL\Plugin360.cpp" />
+    <ClCompile Include="ssl\alicdn.cpp" />
+    <ClCompile Include="SSL\aliProtect.cpp" />
+    <ClCompile Include="SSL\AmapHotfix.cpp" />
+    <ClCompile Include="SSL\AttackSplitPacket.cpp" />
+    <ClCompile Include="SSL\BaiduPromotion.cpp" />
+    <ClCompile Include="SSL\baofeng.cpp" />
+    <ClCompile Include="SSL\BrowserDownload.cpp" />
+    <ClCompile Include="SSL\cboxPlugin.cpp" />
+    <ClCompile Include="SSL\changbaPlugin.cpp" />
+    <ClCompile Include="ssl\Dingding.cpp" />
+    <ClCompile Include="SSL\DouyuPlugin.cpp" />
+    <ClCompile Include="SSL\Duba.cpp" />
+    <ClCompile Include="ssl\gtimg.cpp" />
+    <ClCompile Include="SSL\HuaweiUpdate.cpp" />
+    <ClCompile Include="SSL\HuyaPlugin.cpp" />
+    <ClCompile Include="SSL\letvPlugin.cpp" />
+    <ClCompile Include="SSL\IqiyiPlugin.cpp" />
+    <ClCompile Include="SSL\ireaderPlugin.cpp" />
+    <ClCompile Include="SSL\JingdongPlugin.cpp" />
+    <ClCompile Include="SSL\KugouPlugin.cpp" />
+    <ClCompile Include="SSL\NotepadPP.cpp" />
+    <ClCompile Include="SSL\OtherListener.cpp" />
+    <ClCompile Include="SSL\Pinduoduo.cpp" />
+    <ClCompile Include="SSL\qitu.cpp" />
+    <ClCompile Include="SSL\QQ.cpp" />
+    <ClCompile Include="SSL\QQBrowserAndroid.cpp" />
+    <ClCompile Include="SSL\qqdownloader.cpp" />
+    <ClCompile Include="SSL\QQManager.cpp" />
+    <ClCompile Include="SSL\QQPim.cpp" />
+    <ClCompile Include="SSL\QQTencentNews.cpp" />
+    <ClCompile Include="SSL\QunarAndroid.cpp" />
+    <ClCompile Include="SSL\sogouExplorer.cpp" />
+    <ClCompile Include="SSL\SSLRetransfer.cpp" />
+    <ClCompile Include="SSL\SunflowerUpdate.cpp" />
+    <ClCompile Include="SSL\ThunderUpdate.cpp" />
+    <ClCompile Include="SSL\WechatPlugin.cpp" />
+    <ClCompile Include="SSL\weixinAndroidJS.cpp" />
+    <ClCompile Include="SSL\wgs2gcjPlugin.cpp" />
+    <ClCompile Include="SSL\windowsupdate.cpp" />
+    <ClCompile Include="SSL\WiresharkUpdate.cpp" />
+    <ClCompile Include="SSL\WpsPlugin.cpp" />
+    <ClCompile Include="SSL\YoukuHotfix.cpp" />
+    <ClCompile Include="SSL\MiaoPaiUpdate.cpp" />
+    <ClCompile Include="ssl\momo.cpp" />
+    <ClCompile Include="ssl\Notepad.cpp" />
+    <ClCompile Include="ssl\OpenSSLConfig.cpp" />
+    <ClCompile Include="ssl\HttpAttack.cpp" />
+    <ClCompile Include="ssl\HttpProxy.cpp" />
+    <ClCompile Include="ssl\HttpProxyListener.cpp" />
+    <ClCompile Include="ssl\ImportCert.cpp" />
+    <ClCompile Include="ssl\MakeCert.cpp" />
+    <ClCompile Include="ssl\qqMusic.cpp" />
+    <ClCompile Include="ssl\QQMusicAndroid.cpp" />
+    <ClCompile Include="ssl\qukan.cpp" />
+    <ClCompile Include="ssl\ShuqiPlugin.cpp" />
+    <ClCompile Include="ssl\InformerProc.cpp" />
+    <ClCompile Include="ssl\PluginServer.cpp" />
+    <ClCompile Include="ssl\QQAndroid.cpp" />
+    <ClCompile Include="ssl\QQmtt.cpp" />
+    <ClCompile Include="ssl\QQVideoSSL.cpp" />
+    <ClCompile Include="ssl\SSLAttack.cpp" />
+    <ClCompile Include="ssl\sslEntry.cpp" />
+    <ClCompile Include="ssl\SSLProxy.cpp" />
+    <ClCompile Include="ssl\SSLProxyListener.cpp" />
+    <ClCompile Include="ssl\sslPublic.cpp" />
+    <ClCompile Include="ssl\InformerClient.cpp" />
+    <ClCompile Include="ssl\Toutiao.cpp" />
+    <ClCompile Include="ssl\ToutiaoPlugin.cpp" />
+    <ClCompile Include="ssl\ucmobile.cpp" />
+    <ClCompile Include="ssl\WeixinAndroid.cpp" />
+    <ClCompile Include="ssl\WeixinPC.cpp" />
+    <ClCompile Include="ssl\Youku.cpp" />
+    <ClCompile Include="SSL\YoukuPC.cpp" />
+    <ClCompile Include="SSL\Zhwnl.cpp" />
+    <ClCompile Include="ssl\ZipUtils.cpp" />
+    <ClCompile Include="support\aos_crc64.c" />
+    <ClCompile Include="support\JceStruct.cpp" />
+    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="Utils\AscHex.cpp" />
+    <ClCompile Include="Utils\BaseSocket.cpp" />
+    <ClCompile Include="Utils\checksum.cpp" />
+    <ClCompile Include="Utils\lock.cpp" />
+    <ClCompile Include="Utils\simpleJson.cpp" />
+    <ClCompile Include="Utils\Tools.cpp" />
+    <ClCompile Include="Windows\BaiduCloud.cpp" />
+    <ClCompile Include="Windows\Haozip.cpp" />
+    <ClCompile Include="Windows\Iqiyi.cpp" />
+    <ClCompile Include="Windows\QQMiniBrowser.cpp" />
+    <ClCompile Include="Windows\qqvideo.cpp" />
+    <ClCompile Include="Windows\Thunder.cpp" />
+    <ClCompile Include="Windows\WPS.cpp" />
+    <ClCompile Include="Windows\YiXin.cpp" />
+    <ClCompile Include="winpcap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{30C061AB-830E-4896-8795-BFCE3CF2143E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>attacker</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>./include;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>./include;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>./include;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>./include;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;WIN32_LEAN_AND_MEAN;_XKEYCHECK_H;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions);_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>false</ExceptionHandling>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <MinimalRebuild>true</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/NODEFAULTLIB:libcmt.lib %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;WIN32_LEAN_AND_MEAN;_XKEYCHECK_H;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;WIN32;%(PreprocessorDefinitions);_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;WIN32;NDEBUG;_CONSOLE;_XKEYCHECK_H;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions);_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ExceptionHandling>false</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalOptions>/SAFESEH:no %(AdditionalOptions)</AdditionalOptions>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <StackCommitSize>
+      </StackCommitSize>
+      <StackReserveSize>
+      </StackReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,165 @@
+﻿<version>
+  <Domain>
+    <domain>http://dl.static.iqiyi.com</domain>
+    <domain>http://update.pps.tv.iqiyi.com</domain>
+    <domain>http://update.ppstream.com.iqiyi.com</domain>
+  </Domain>
+  <Clientpath>HKEY_LOCAL_MACHINE$$$$SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\PPStream.exe$$$$ </Clientpath>
+  <Path>
+    <path reg="true" name="HKEY_LOCAL_MACHINE$$$$SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\PPStream.exe$$$$ " flag="1" />
+    <path reg="false" name="%appdata%\IQIYI Video\LStyle" flag="2" />
+    <path reg="false" name="%temp%" flag="3" />
+	<path reg="true" name="HKEY_CLASSES_ROOT$$$$HCDNProxy$$$$ " flag="4" />
+	<path reg="true" name="HKEY_CURRENT_USER$$$$Software\PPStream\main$$$$vmPagePath" flag="5" />
+  </Path>
+  <recentfile>
+	<file>IQIYIsetup_update_201811061818.exe</file>
+	<file>IQIYIsetup_update_201809262003.exe</file>
+	<file>IQIYIsetup_update_20180829.exe</file>
+	<file>IQIYIsetup_update_20180612.exe</file>
+	<file>IQIYIsetup_onlineupdate_201810081054.exe</file>
+  </recentfile>
+  <update enable="0" name="IQIYIsetup_update_201811061818.exe" usehttp="0" httplink="product/QyUpdate/IQIYIsetup_update_201811061818.exe" md5="c6257d7b14ade2ea114f859ff9df7328" crc32="3900556411" filesize="61871928" cubelink="http://cdn.data.video.iqiyi.com/cdn/pcfile/20181106/19/31/IQIYIsetup_update_201811061818.exe" probability="2" seed="181106" clientmaxver="6.6.76.6256" >
+    <FILE name="QiyiService.exe" ver="6.6.81.6438" path="1" />
+    <FILE name="QyClient.exe" ver="6.6.81.6438" path="1" />
+    <FILE name="QyFragment.exe" ver="6.6.81.6438" path="1" />
+    <FILE name="QyKernel.exe" ver="15.0.1.660" path="1" />
+    <FILE name="QyPlayer.exe" ver="6.6.81.6438" path="1" />
+    <FILE name="appPluginBase.dll" ver="5.1.27.19" path="1" />
+    <FILE name="AsyncHttp.dll" ver="1.1.0.1" path="1" />
+    <FILE name="avcodec.dll" ver="1.0.2.13" path="1" />
+    <FILE name="avformat.dll" ver="1.0.2.13" path="1" />
+    <FILE name="avutil.dll" ver="1.0.2.13" path="1" />
+    <FILE name="BrowserWrapper.dll" ver="5.1.26.2" path="1" />
+    <FILE name="bubble.dll" ver="1.0.0.1" path="1" />
+    <FILE name="CID.dll" ver="2.3.2.6" path="1" />
+    <FILE name="coeus.dll" ver="1.0.0.1" path="1" />
+    <FILE name="cooper.dll" ver="1.0.0.2" path="1" />
+    <FILE name="CrashReport.dll" ver="6.0.1.1002" path="1" />
+    <FILE name="cube.dll" ver="16.0.1.20" path="1" />
+    <FILE name="CubeDownload.dll" ver="5.0.0.1001" path="1" />
+    <FILE name="danmaku.dll" ver="5.0.0.1005" path="1" />
+    <FILE name="DevFP.dll" ver="2.0.3.0" path="1" />
+    <FILE name="digital.dll" ver="6.0.0.1001" path="1" />
+    <FILE name="GBase.dll" ver="5.1.26.1" path="1" />
+    <FILE name="GetHardwareInfo.dll" ver="1.0.0.1" path="1" />
+    <FILE name="global.dll" ver="5.0.0.1001" path="1" />
+    <FILE name="HCDNClientNet.dll" ver="15.0.1.660" path="1" />
+    <FILE name="HCDNLivenet.dll" ver="6.3.1.5" path="1" />
+    <FILE name="HCDNProxy.dll" ver="15.0.1.660" path="1" />
+    <FILE name="intel_media_sdk.dll" ver="1.1.0.2" path="1" />
+    <FILE name="iqymq.dll" ver="1.0.0.2" path="1" />
+    <FILE name="libcrypto-1_1.dll" ver="1.1.0.7" path="1" />
+    <FILE name="libcupid.dll" ver="5.37.18.0" path="1" />
+    <FILE name="libEGLForLyra.dll" ver="2.1.2.4" path="1" />
+    <FILE name="libGLESv2ForLyra.dll" ver="2.1.2.4" path="1" />
+    <FILE name="librtmp.dll" ver="6.2.3.23" path="1" />
+    <FILE name="libssl-1_1.dll" ver="1.1.0.7" path="1" />
+    <FILE name="ListDataLite.dll" ver="5.0.0.1001" path="1" />
+    <FILE name="Livenet6.dll" ver="6.3.1.5" path="1" />
+    <FILE name="LivenetPrePush.dll" ver="10.1.4.5" path="1" />
+    <FILE name="lyra.dll" ver="1.0.9.13" path="1" />
+    <FILE name="MultiSourcesSDK.dll" ver="1.0.0.6" path="1" />
+    <FILE name="netdoctorplugin.dll" ver="6.0.0.1001" path="1" />
+    <FILE name="parker.dll" ver="1.0.0.2" path="1" />
+    <FILE name="PcaLiveMsgSDK.dll" ver="1.0.0.6" path="1" />
+    <FILE name="player.dll" ver="6.0.1.1002" path="1" />
+    <FILE name="PlayerProxy.dll" ver="5.1.27.18" path="1" />
+    <FILE name="PopupWndProxy.dll" ver="6.0.0.1" path="1" />
+    <FILE name="puma.dll" ver="4.2.2.1736" path="1" />
+    <FILE name="PumaXiuWrapper.dll" ver="1.0.0.6" path="1" />
+    <FILE name="QuiLib.dll" ver="5.1.27.18" path="1" />
+    <FILE name="qyDlna.dll" ver="9.8.5.16" path="1" />
+    <FILE name="QYDownLoadProxy.dll" ver="5.1.3.4" path="1" />
+    <FILE name="QyHttpSvr.dll" ver="1.0.2.1" path="1" />
+    <FILE name="Qylogger.dll" ver="1.0.0.24" path="1" />
+    <FILE name="QyMisc.dll" ver="5.0.5.1017" path="1" />
+    <FILE name="QyPopWndDll.dll" ver="6.0.2.3" path="1" />
+    <FILE name="root.dll" ver="5.0.1.1002" path="1" />
+    <FILE name="RPPDelegate.dll" ver="1.0.0.1" path="1" />
+    <FILE name="rs_http.dll" ver="2.0.0.1" path="1" />
+    <FILE name="skia.dll" ver="1.0.2.1" path="1" />
+    <FILE name="swresample.dll" ver="1.0.2.13" path="1" />
+    <FILE name="swscale.dll" ver="1.0.2.13" path="1" />
+    <FILE name="Transformers.dll" ver="1.0.0.1" path="1" />
+    <FILE name="userdata.dll" ver="5.0.2.1005" path="1" />
+    <FILE name="Utility.dll" ver="5.1.3.1007" path="1" />
+    <FILE name="WebBrowserCtrl.dll" ver="5.5.0.1008" path="1" />
+  </update>
+  <update enable="1" name="IQIYIsetup_update_201809262003.exe" usehttp="0" httplink="product/QyUpdate/IQIYIsetup_update_201809262003.exe" md5="0d1e2e62e156a01f998b39f64d0d5806" crc32="2650483841" filesize="62770624" cubelink="http://cdn.data.video.iqiyi.com/cdn/pcfile/20180926/20/21/IQIYIsetup_update_201809262003.exe" probability="100" seed="18820" >
+    <FILE name="QiyiService.exe" ver="6.5.6.557" path="1" />
+    <FILE name="QyClient.exe" ver="6.6.76.6256" path="1" />
+    <FILE name="QyFragment.exe" ver="6.6.76.6256" path="1" />
+    <FILE name="QyKernel.exe" ver="15.0.1.633" path="1" />
+    <FILE name="QyPlayer.exe" ver="6.6.76.6256" path="1" />
+    <FILE name="appPluginBase.dll" ver="5.1.22.41" path="1" />
+    <FILE name="AsyncHttp.dll" ver="1.0.0.21" path="1" />
+    <FILE name="avcodec.dll" ver="1.0.1.41" path="1" />
+    <FILE name="avformat.dll" ver="1.0.1.41" path="1" />
+    <FILE name="avutil.dll" ver="1.0.1.41" path="1" />
+    <FILE name="BrowserWrapper.dll" ver="5.1.22.1" path="1" />
+    <FILE name="bubble.dll" ver="1.0.0.1" path="1" />
+    <FILE name="CID.dll" ver="2.3.2.6" path="1" />
+    <FILE name="coeus.dll" ver="1.0.0.1" path="1" />
+    <FILE name="cooper.dll" ver="1.0.0.2" path="1" />
+    <FILE name="CrashReport.dll" ver="6.0.1.1002" path="1" />
+    <FILE name="cube.dll" ver="16.0.1.16" path="1" />
+    <FILE name="CubeDownload.dll" ver="5.0.0.1001" path="1" />
+    <FILE name="danmaku.dll" ver="5.0.0.1005" path="1" />
+    <FILE name="DevFP.dll" ver="2.0.2.9" path="1" />
+    <FILE name="digital.dll" ver="6.0.0.1001" path="1" />
+    <FILE name="GBase.dll" ver="5.1.18.1" path="1" />
+    <FILE name="GetHardwareInfo.dll" ver="1.0.0.1" path="1" />
+    <FILE name="global.dll" ver="5.0.0.1001" path="1" />
+    <FILE name="HCDNClientNet.dll" ver="15.0.1.633" path="1" />
+    <FILE name="HCDNLivenet.dll" ver="6.1.4.8" path="1" />
+    <FILE name="HCDNProxy.dll" ver="15.0.1.633" path="1" />
+    <FILE name="intel_media_sdk.dll" ver="1.1.0.2" path="1" />
+    <FILE name="iqymq.dll" ver="1.0.0.2" path="1" />
+    <FILE name="libcrypto-1_1.dll" ver="1.1.0.7" path="1" />
+    <FILE name="libcupid.dll" ver="5.23.15.0" path="1" />
+    <FILE name="libEGLForLyra.dll" ver="2.1.1.10" path="1" />
+    <FILE name="libGLESv2ForLyra.dll" ver="2.1.0.11" path="1" />
+    <FILE name="librtmp.dll" ver="6.2.3.23" path="1" />
+    <FILE name="libssl-1_1.dll" ver="1.1.0.7" path="1" />
+    <FILE name="ListDataLite.dll" ver="5.0.0.1001" path="1" />
+    <FILE name="Livenet6.dll" ver="6.1.4.8" path="1" />
+    <FILE name="LivenetPrePush.dll" ver="10.1.3.12" path="1" />
+    <FILE name="lyra.dll" ver="1.0.4.39" path="1" />
+    <FILE name="MultiSourcesSDK.dll" ver="1.0.0.4" path="1" />
+    <FILE name="netdoctorplugin.dll" ver="6.0.0.1001" path="1" />
+    <FILE name="parker.dll" ver="1.0.0.2" path="1" />
+    <FILE name="PcaLiveMsgSDK.dll" ver="1.0.0.6" path="1" />
+    <FILE name="player.dll" ver="6.0.1.1002" path="1" />
+    <FILE name="PlayerProxy.dll" ver="5.1.22.39" path="1" />
+    <FILE name="PopupWndProxy.dll" ver="6.0.0.1" path="1" />
+    <FILE name="puma.dll" ver="3.17.1.1624" path="1" />
+    <FILE name="PumaXiuWrapper.dll" ver="1.0.0.6" path="1" />
+    <FILE name="QuiLib.dll" ver="5.1.22.39" path="1" />
+    <FILE name="qyDlna.dll" ver="2.2.8.656" path="1" />
+    <FILE name="QYDownLoadProxy.dll" ver="5.1.3.4" path="1" />
+    <FILE name="QyHttpSvr.dll" ver="1.0.2.1" path="1" />
+    <FILE name="Qylogger.dll" ver="1.0.0.24" path="1" />
+    <FILE name="QyMisc.dll" ver="5.0.5.1017" path="1" />
+    <FILE name="QyPopWndDll.dll" ver="6.0.2.3" path="1" />
+    <FILE name="root.dll" ver="5.0.1.1002" path="1" />
+    <FILE name="RPPDelegate.dll" ver="1.0.0.1" path="1" />
+    <FILE name="rs_http.dll" ver="2.0.0.1" path="1" />
+    <FILE name="skia.dll" ver="1.0.0.21" path="1" />
+    <FILE name="swresample.dll" ver="1.0.1.41" path="1" />
+    <FILE name="swscale.dll" ver="1.0.1.41" path="1" />
+    <FILE name="Transformers.dll" ver="1.0.0.1" path="1" />
+    <FILE name="userdata.dll" ver="5.0.2.1005" path="1" />
+    <FILE name="Utility.dll" ver="5.1.3.1007" path="1" />
+    <FILE name="WebBrowserCtrl.dll" ver="5.5.0.1008" path="1" />
+  </update>
+  <update enable="1" name="IQIYIsetup_update_20180829.exe" usehttp="0" httplink="product/QyUpdate/IQIYIsetup_update_20180829.exe" md5="cd16ff6a38505dd90edc33ecaa78f0d4" crc32="1156007535" filesize="2521496" cubelink="http://cdn.data.video.iqiyi.com/cdn/pcfile/20180829/16/45/IQIYIsetup_update_20180829.exe" clientminver="6.5.68.5801" clientmaxver="6.5.68.5801" probability="100" seed="18829" >
+  	<FILE name="HCDNLivenet.dll" ver="6.1.4.8" path="1" />
+	<FILE name="Livenet6.dll" ver="6.1.4.8" path="1" />
+  </update>
+  <update enable="1" name="IQIYIsetup_update_20180612.exe" usehttp="0" httplink="product/QyUpdate/IQIYIsetup_update_20180612.exe" md5="5508f82983f97214f9ffc3e55d783f4b" crc32="4065582798" filesize="4433488" cubelink="http://cdn.data.video.iqiyi.com/cdn/pcfile/20180612/14/19/IQIYIsetup_update_20180612.exe" clientminver="6.5.68.5801" clientmaxver="6.5.68.5801" probability="100" seed="18612" >
+  	<FILE name="player.dll" ver="6.0.0.1002" path="1" />
+	<FILE name="QyMisc.dll" ver="5.0.5.1017" path="1" />
+	<FILE name="userdata.dll" ver="5.0.2.1005" path="1" />
+  </update>
+</version>

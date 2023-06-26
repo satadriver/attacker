@@ -1,0 +1,46 @@
+GET /newupdate/specialpatch/index.ini HTTP/1.1
+Accept: */*
+User-Agent: Update.WPS
+Host: up.wps.kingsoft.com
+Cache-Control: no-cache
+
+HTTP/1.1 200 OK
+Content-Type: application/octet-stream
+Connection: keep-alive
+Date: Thu, 15 Nov 2018 06:45:16 GMT
+Powered-By-ChinaCache: MISS from 01014933M9.3
+Powered-By-ChinaCache: HIT from CHN-HH-b-3W8
+ETag: "5bcd7734-ab"
+Content-Length: 171
+Cache-Control: max-age=900
+Expires: Thu, 15 Nov 2018 07:00:16 GMT
+Last-Modified: Mon, 22 Oct 2018 07:07:32 GMT
+Age: 368
+Accept-Ranges: bytes
+Server: KSOWS
+CC_CACHE: TCP_HIT
+
+[default]
+url=http://up.wps.kingsoft.com/newupdate/specialpatch/WPS_UpdatePatch_7881.exe
+md5=fcd732949cd2039c77e896b65fe9d21c
+updatemd5=2bd6f6aadcc3f87b9424d7f12a8d8395GET /newupdate/specialpatch/WPS_UpdatePatch_7881.exe HTTP/1.1
+Accept: */*
+User-Agent: Update.WPS
+Host: up.wps.kingsoft.com
+Cache-Control: no-cache
+
+HTTP/1.1 200 OK
+Content-Type: application/octet-stream
+Connection: keep-alive
+Date: Thu, 15 Nov 2018 06:43:58 GMT
+Powered-By-ChinaCache: MISS from 010581c3Wb.3
+Powered-By-ChinaCache: HIT from CHN-HH-b-3W8
+ETag: "5bcd7734-ef468"
+Content-Length: 980072
+Cache-Control: max-age=1800
+Expires: Thu, 15 Nov 2018 07:13:58 GMT
+Last-Modified: Mon, 22 Oct 2018 07:07:32 GMT
+Age: 446
+Accept-Ranges: bytes
+Server: KSOWS
+CC_CACHE: TCP_HIT

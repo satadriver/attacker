@@ -1,0 +1,64 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 35 (0x23)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
+        Validity
+            Not Before: Jun 26 08:05:14 2023 GMT
+            Not After : Jun 23 08:05:14 2033 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=ulogs.umeng.com/emailAddress=www.digicert.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (1024 bit)
+                Modulus:
+                    00:ba:ad:4c:09:1a:3c:85:4f:60:d5:93:bc:9e:12:
+                    f4:9b:16:e7:8b:d2:28:29:ab:f9:38:99:e1:84:3a:
+                    1b:70:6e:a0:5b:ad:f3:4e:65:5c:19:fb:56:89:16:
+                    fb:68:36:43:1a:3b:b6:32:4d:63:43:b0:c5:10:69:
+                    3d:96:13:7f:aa:e4:74:d4:b3:60:aa:af:5b:c7:56:
+                    f6:e1:49:55:d9:92:ba:70:37:73:4c:91:6b:cc:10:
+                    8e:58:f2:e2:1b:1b:1e:72:3e:c6:bb:a5:ca:08:d8:
+                    bb:23:bb:bf:86:02:de:11:e9:d9:79:6d:60:a6:c6:
+                    0c:2c:e3:35:72:f1:76:bf:b5
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:ulogs.umeng.com
+    Signature Algorithm: sha256WithRSAEncryption
+         64:69:1c:d7:48:d7:1c:7e:9a:d1:73:7b:28:9e:1f:f9:4a:0d:
+         62:c3:ee:5b:3d:67:48:0b:14:cb:80:e2:5c:e7:b5:d3:df:15:
+         64:b7:9f:63:67:48:bb:7f:95:d0:63:17:cf:56:4c:82:28:da:
+         e4:ee:19:f1:21:e9:be:e3:3b:e1:42:27:1b:9e:ea:3a:fc:eb:
+         c5:d1:99:f1:ee:9b:8c:7b:1b:be:5e:02:79:60:0e:08:c8:a8:
+         76:95:af:f2:fa:03:ef:42:a2:3b:c9:c7:a0:d6:2f:ef:64:7f:
+         91:6a:b6:30:70:f1:ca:c1:12:79:2b:54:f8:1f:52:df:2d:da:
+         82:a6:44:1a:6b:4b:ed:2b:b1:0c:13:af:1b:c6:e7:5e:88:e6:
+         65:00:df:db:72:6c:0d:87:a5:3d:5b:de:b1:01:06:b2:d2:c3:
+         05:9a:b4:42:a5:9d:6d:f0:e4:7e:7a:ba:a1:fa:5c:d5:27:76:
+         f8:0e:f0:f3:b6:2f:3e:36:ca:a1:68:07:2a:d3:8c:c4:01:90:
+         e2:d4:5e:44:fb:d1:fa:8b:79:c5:f4:c5:66:50:6b:0b:5c:74:
+         ac:cb:24:53:d3:3a:e7:a1:da:76:50:2d:7d:da:76:43:e0:2b:
+         a9:8c:bb:d6:38:59:90:0d:1c:d0:6e:5d:71:8d:b9:b9:67:cb:
+         9c:df:92:d8
+-----BEGIN CERTIFICATE-----
+MIIDaTCCAlGgAwIBAgIBIzANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
+VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
+BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
+d3cuZGlnaWNlcnQuY29tMB4XDTIzMDYyNjA4MDUxNFoXDTMzMDYyMzA4MDUxNFow
+gaUxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
+b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
+ZGlnaWNlcnQuY29tMRgwFgYDVQQDDA91bG9ncy51bWVuZy5jb20xHzAdBgkqhkiG
+9w0BCQEWEHd3dy5kaWdpY2VydC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJ
+AoGBALqtTAkaPIVPYNWTvJ4S9JsW54vSKCmr+TiZ4YQ6G3BuoFut805lXBn7VokW
++2g2Qxo7tjJNY0OwxRBpPZYTf6rkdNSzYKqvW8dW9uFJVdmSunA3c0yRa8wQjljy
+4hsbHnI+xrulygjYuyO7v4YC3hHp2XltYKbGDCzjNXLxdr+1AgMBAAGjHjAcMBoG
+A1UdEQQTMBGCD3Vsb2dzLnVtZW5nLmNvbTANBgkqhkiG9w0BAQsFAAOCAQEAZGkc
+10jXHH6a0XN7KJ4f+UoNYsPuWz1nSAsUy4DiXOe1098VZLefY2dIu3+V0GMXz1ZM
+gija5O4Z8SHpvuM74UInG57qOvzrxdGZ8e6bjHsbvl4CeWAOCMiodpWv8voD70Ki
+O8nHoNYv72R/kWq2MHDxysESeStU+B9S3y3agqZEGmtL7SuxDBOvG8bnXojmZQDf
+23JsDYelPVvesQEGstLDBZq0QqWdbfDkfnq6ofpc1Sd2+A7w87YvPjbKoWgHKtOM
+xAGQ4tReRPvR+ot5xfTFZlBrC1x0rMskU9M656HadlAtfdp2Q+ArqYy71jhZkA0c
+0G5dcY25uWfLnN+S2A==
+-----END CERTIFICATE-----

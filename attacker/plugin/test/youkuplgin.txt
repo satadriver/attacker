@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Date: Fri, 23 Nov 2018 01:52:35 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 627
+Connection: keep-alive
+Cache-Control: no-cache
+
+{"data":{"app":{"appId":-1,"versionCode":"111","productId":"2015","packageName":"com.pp.sdk.apk","versionName":"1.1.1","updateDes":"优酷SDK商店插件111版本","downloadUrl":"http://sjzs-api.25pp.com/stat/upgrade?settingId\u003d2167\u0026targetUrl\u003dhttp%3A%2F%2Fandroid-apps.25pp.com%2Fppandroid%2Fplugin%2Fyoukuplugin_111_201808221800.apk\u0026size\u003d727936\u0026md5\u003db1ce63ccec53d33ab995d8e7fc143bfd","updateTime":1534867200000,"size":727936,"isForceUpdate":0,"name":"","iconUrl":"","trailUpdate":0,"backgroundImg":""},"isNeedUpdate":1},"id":"4996153975519921287","state":{"code":2000000,"msg":"Ok","tips":""}}

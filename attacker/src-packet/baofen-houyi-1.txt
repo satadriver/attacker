@@ -1,0 +1,48 @@
+GET /config/AndroidDPLConfig.xml HTTP/1.1
+User-Agent: Dalvik/1.6.0 (Linux; U; Android 4.4.4; Che1-CL10 Build/Che1-CL10)
+Host: app.houyi.baofeng.net
+Connection: Keep-Alive
+Accept-Encoding: gzip
+Cookie: hyid=hy5beeb6693c8d84.55621701
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 16 Nov 2018 12:22:14 GMT
+Content-Type: text/xml; charset=utf8
+Content-Length: 1827
+Last-Modified: Wed, 17 Oct 2018 08:40:01 GMT
+Connection: close
+ETag: "5bc6f561-723"
+Accept-Ranges: bytes
+
+<AndroidDPLConfig>
+<switch>1</switch>
+<delay>100,200</delay>
+<cod>0,1,2,3</cod>
+<cir>50</cir>
+<time>100,200</time>
+<test>0</test>
+<resume_baofeng_switch>1</resume_baofeng_switch>
+<find>sTUT9/B8r+6I/M5z6TSv64K4zXkS07Rui4zH9oIz43JVkve54d5vqROJoU5xJjNMzEc0NFED3Plp
+DEa83g0HMUx7NdSYx4EKE2DTFfcCKO14kffFMU6uNK2S/yO5DGU7yXeUcdGTh2E93buq1V468iv7
+l1tvRXZbY5+dhTsd/xG83FKnBvkqvCGjBeZp3nrFZTx5+YkXlukov9KsRfEhuy2L9/rHZwNGW+8l
+SfUUjgIMi/i5gvQm7r3Vbob7IT25L5NQqUyUTX1DhHpHOufoeCrhZzixKXuu0yYQiI/5O8pJCz5D
+8dCiW4Ksv6Qd0KrtEfeCdAQzgQRIpO3mG5hjcL7f8RGCLxOnpXVDVaFogP1Trp77LpB/MZRqtbJZ
+oQuLk5cpRTAnGG6l+u71K9FOofLjPs9Z0vr8bbFl7ObtUooUjYRU7LzNhgZHqZVg3w3yIpuvobCR
+R/2A8SxmVC6KdRrIYsmNe21P4XN7/uUbqZUfC3habLCxh/0pi8dgLT29cw+QGl6aVxyyhcQ3pTSw
+446GzO1wMnxvcjIi7fwnvxV6hm1u8Ega4cb7eGyz8BQmQcN6vq1q7RhAJesyDq4rtzcOt2x6NTWL
+4NDgYKV8SKCFk4zS+i6OdGR6wxwG0QvyXKEhaaUQzXFjBIfzBtGOaWromB/hDPxPJzGm83k3IjTp
+mWrO67YGPyu6akhMBesmSZGM9CbHjyVJwZIC74zWA0oDVGAdWG0YLGfjs4mx7E+D1xeoCNWh2Rpc
+pLDHQEWHlYtgZ+MSCqh800+qx7ZokfHCwkTeCxmF/f/AcSiNHj9EgzZ0WGVlLj+QaT3MiiuzQGGr
+FpTWEmvEiZi/eJcj8BoS2YllNscRdI6L9+wIParpglpc9mbC+rdsBAcDPddGzICyfi6tzDAe2Xp0
+Qg2P9uH5XufauyT6YDX/PYjlqhD6sILxP4JZSHG+xGI9S6Wlz5rF0KwkjU96RpNe0DQWv+OTVwMD
+mbmTIvxlOBTou0ogSnWji2hKTaufRHUzxs2DYWJlS7B6Irsd0sWWHjmhvHBEfGyHfO/17udbKajN
+wyqeL6d465wJOqXr2l/BuKUoScg9Ka4MvRFayAOfkSh1nPvJi0ZdOqDm0Iv+XOmkN4WJy5WF3FEI
+EdLRUQgIhE8bbb0BGfmgnhpeGLNCKuZIu/idqXPNYVu8mRNbMgs9uspjU2HutGh3jgKwKo1kHcn3
+Hqxl74Z6sv6KVv7GKMlpVLf15oHM8VLCK9c6Us06aay+pjuWeUn55Qt6ilqA7mjkCyeuf3B1MX/4
+MBX++JXz//QS/VkBApeAcwFPKGYen9RG5+HnebHi5BGsLx18n0VYrMpkAyBLTHpVUra4TrBHIyQh
+rYxeHqbfWsjOPCl4rIWezQhrS7eXzda6fSaFhmFP/H3aZJS+nDADWY7dSAI7oNFR6nJZpWzL73qN
+uST0HLyws83LxbJMoRoTYq1mSooj/dmB+0fNWO0XI98EH9QxM5nON4OHvbn0nHOWKMZ+UzHBarbi
+PNwG5YXSxfLeRRTqqX6/FSrUcUwzX1rNVMLcphg+dqA=
+</find>
+</AndroidDPLConfig>

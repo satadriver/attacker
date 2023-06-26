@@ -1,0 +1,1118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\Android">
+      <UniqueIdentifier>{1042c6ce-ac39-4973-b222-3727d55f9657}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Windows">
+      <UniqueIdentifier>{3aa3c94d-cdeb-45b0-a5c6-d841818db5aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ssl">
+      <UniqueIdentifier>{19d17e88-386f-4744-8df4-0c629212b79a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ssl\Android">
+      <UniqueIdentifier>{7621fb11-dce4-47a4-852c-9eacb136a577}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ssl\Windows">
+      <UniqueIdentifier>{7a0121b4-883b-4b27-8712-1f7cae0f363c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Android">
+      <UniqueIdentifier>{929132e8-7b39-4c89-9e21-b51ed8e29b59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Windows">
+      <UniqueIdentifier>{4d11b7da-03f2-45bb-8b2f-ec8b0be1f129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ssl">
+      <UniqueIdentifier>{d4981e40-8e27-49c1-b43e-f80b54a78c42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ssl\Android">
+      <UniqueIdentifier>{c86a9d0e-4c80-4179-9acd-cf2f07e02274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ssl\Windows">
+      <UniqueIdentifier>{26162fe8-226d-472e-b893-4153edb594a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\cipher">
+      <UniqueIdentifier>{3e1f3522-660b-451a-84c6-93b8bfb72caf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\cipher">
+      <UniqueIdentifier>{22e6623e-083e-418a-9faa-098b6fa2790c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Support">
+      <UniqueIdentifier>{805b799a-9998-496d-91e6-c5ef3090dfb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Support">
+      <UniqueIdentifier>{7db77aeb-f702-415d-847a-ce2500a6116d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\DnsUtils">
+      <UniqueIdentifier>{8b94c675-8757-42ed-8a32-e0db59f44399}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\DnsUtils">
+      <UniqueIdentifier>{c0810313-5b8c-4ab1-8275-e16bfb55c49a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Utils">
+      <UniqueIdentifier>{f93f841c-7e11-476b-81c0-b2fa66caf407}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Utils">
+      <UniqueIdentifier>{9235f214-9fa9-4863-b6c5-587ccbe3531f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GateWay">
+      <UniqueIdentifier>{ab82922b-1fe0-4781-acfd-af24cfd10524}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\GateWay">
+      <UniqueIdentifier>{e6d48f0c-1269-4032-82c4-302ce9ceac5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\certUtils">
+      <UniqueIdentifier>{579b537d-290b-4ef3-8bfc-717798663efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\certUtils">
+      <UniqueIdentifier>{484c3839-0ed5-48d7-b9f5-b1862ac1751d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="attack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="attacker.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Confiig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpPartial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NetCardInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Public.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplaceNetFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplacePacket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplaceSignature.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SdkVersion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SnifferPacket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\Browser2345.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\DuomiMusic.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\Kugou.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\MeiTuan.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\MeizuUpdate.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\NetEasyNews.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\PlayerCoreNeon.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\QiyiVideo.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\QQNews.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\QQTvkPlugin.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\StormPlayer.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\TodayHeadline.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\YoukuPlugin.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\BaiduCloud.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Iqiyi.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\QQMiniBrowser.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Thunder.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\WPS.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\YiXin.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\HttpAttack.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\HttpProxy.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\HttpProxyListener.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\ImportCert.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\MakeCert.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\PluginServer.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\SSLAttack.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\sslEntry.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\sslPacket.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\SSLProxy.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\SSLProxyListener.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\sslPublic.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\ZipUtils.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\QQAndroid.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\QQmtt.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\Toutiao.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\WeixinAndroid.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\WeixinPC.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\OpenSSLConfig.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="winpcap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\qqvideo.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\QQVideoSSL.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\xiaomi.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="security.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\ucmobile.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\ximalaya.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\gtimg.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\oppoPluginUpdate.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\ztePlugin.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\Dingding.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="informer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\MiguMusic.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\qqMusic.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\vivoPlugin.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\momo.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\QQReader.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\qutoutiao.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\qukan.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\QQMusicAndroid.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\QQNow.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\ShuQi.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\toutiaoPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\Jingdong.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\Potato.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\alicdn.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\Youku.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\ShuqiPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\Haozip.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\Notepad.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\MiaoPaiPlugin.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\MiaoPaiUpdate.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\YoukuHotfix.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\WpsPlugin.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\IqiyiPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\Qunar.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\JingdongPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\WPSMobile.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="support\aos_crc64.h">
+      <Filter>头文件\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\QQ.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Deamon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\SSLRetransfer.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\QunarAndroid.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\QQTencentNews.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\AttackSplitPacket.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\NotepadPP.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\OtherListener.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\KugouPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\DouyuPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\ireaderPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\letvPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\HuYaPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="support\JceStruct.h">
+      <Filter>头文件\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\changbaPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\Wgs2gcj.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\wgs2gcjPlugin.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\Changba.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\AmapHotfix.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\baofeng.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\aliProtect.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\YoukuPC.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\dnsAttack.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\ThunderUpdate.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\Duba.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\QQManager.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\BrowserDownload.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\BaiduPromotion.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\sogouExplorer.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\Pinduoduo.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\HuaweiUpdate.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="Android\MyLetvPlugin.h">
+      <Filter>头文件\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\cboxPlugin.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\Plugin360.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\qqdownloader.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\lbspos.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\zhwnl.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\MeituanPatch.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\NetEaseNewsUpdate.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\DidiAndroid.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\Kuaiya.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\QQPim.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\Plugin2345.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\WireSharkUpdate.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\windowsupdate.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\AuthorityCert.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\weixinAndroidJS.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="DnsUtils\DnsProxy.h">
+      <Filter>头文件\DnsUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="DnsUtils\dnsUtils.h">
+      <Filter>头文件\DnsUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="DnsUtils\DnsKeeper.h">
+      <Filter>头文件\DnsUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Tools.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="cipher\compression.h">
+      <Filter>头文件\cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="cipher\CryptoUtils.h">
+      <Filter>头文件\cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\AscHex.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\checksum.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\BaseSocket.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="cipher\Base64.h">
+      <Filter>头文件\cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="cipher\Code.h">
+      <Filter>头文件\cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="cipher\RSA.h">
+      <Filter>头文件\cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="cipher\sha1.h">
+      <Filter>头文件\cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="cipher\UrlCodec.h">
+      <Filter>头文件\cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="cipher\zip.h">
+      <Filter>头文件\cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\lock.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ssl\InformerProc.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\informerClient.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketProc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gateWay\gateway.h">
+      <Filter>头文件\GateWay</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\InformerUdp.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="DnsUtils\DnsProxyIPV6.h">
+      <Filter>头文件\DnsUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\BaiduLocation.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="PreparePacket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\SunflowerUpdate.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\simpleJson.h">
+      <Filter>头文件\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\baiduNetDisk.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\Browser2345Android.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\qitu.h">
+      <Filter>头文件\ssl\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="SSL\peanutShell.h">
+      <Filter>头文件\ssl\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="attack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpPartial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpUtils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NetCardInfo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Public.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplaceNetFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplacePacket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplaceSignature.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SdkVersion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SnifferPacket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\Browser2345.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\DuomiMusic.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\Kugou.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\MeiTuan.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\MeizuUpdate.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\NetEasyNews.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\PlayerCoreNeon.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\QiyiVideo.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\QQNews.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\QQTvkPlugin.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\StormPlayer.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\TodayHeadline.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\YoukuPlugin.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\BaiduCloud.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\Iqiyi.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\QQMiniBrowser.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\Thunder.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\WPS.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\YiXin.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\HttpAttack.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\HttpProxy.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\HttpProxyListener.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\ImportCert.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\MakeCert.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\PluginServer.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\SSLAttack.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\sslEntry.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\SSLProxy.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\SSLProxyListener.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\ZipUtils.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\WeixinPC.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\QQAndroid.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\QQmtt.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\Toutiao.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\WeixinAndroid.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\OpenSSLConfig.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="winpcap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="winpcap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="winpcap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="winpcap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\qqvideo.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\QQVideoSSL.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\xiaomi.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="security.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\ucmobile.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\ximalaya.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\gtimg.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\oppoPluginUpdate.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\ztePlugin.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\Dingding.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="informer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\sslPublic.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\MiguMusic.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\qqMusic.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\vivoPlugin.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\momo.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\QQReader.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\qutoutiao.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\qukan.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\QQMusicAndroid.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\QQNow.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\ShuQi.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\ToutiaoPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\Jingdong.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\Potato.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\alicdn.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\Youku.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\ShuqiPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows\Haozip.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\Notepad.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\MiaoPaiPlugin.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\MiaoPaiUpdate.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\YoukuHotfix.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\WpsPlugin.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\IqiyiPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\Qunar.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\JingdongPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\WPSMobile.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="support\aos_crc64.c">
+      <Filter>源文件\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\QQ.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Deamon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\SSLRetransfer.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\QunarAndroid.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\QQTencentNews.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\AttackSplitPacket.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\NotepadPP.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\OtherListener.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\KugouPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\DouyuPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\ireaderPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\letvPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\HuyaPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="support\JceStruct.cpp">
+      <Filter>源文件\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\changbaPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\Wgs2gcj.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\wgs2gcjPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\AmapHotfix.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\baofeng.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\aliProtect.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\YoukuPC.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\DnsAttack.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\ThunderUpdate.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\Duba.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\QQManager.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\BrowserDownload.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\BaiduPromotion.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\sogouExplorer.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\Pinduoduo.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\HuaweiUpdate.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\WechatPlugin.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="Android\MyLetvPlugin.cpp">
+      <Filter>源文件\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\cboxPlugin.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\Plugin360.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\QQBrowserAndroid.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\qqdownloader.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\lbspos.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\Zhwnl.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\MeituanPatch.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\WiresharkUpdate.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\NetEaseNewsUpdate.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\DidiAndroid.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\Kuaiya.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\QQPim.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\Plugin2345.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\windowsupdate.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\weixinAndroidJS.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="DnsUtils\DnsProxy.cpp">
+      <Filter>源文件\DnsUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="DnsUtils\dnsUtils.cpp">
+      <Filter>源文件\DnsUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="DnsUtils\DnsKeeper.cpp">
+      <Filter>源文件\DnsUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Tools.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="cipher\Base64.cpp">
+      <Filter>源文件\cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="cipher\Code.cpp">
+      <Filter>源文件\cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="cipher\Compression.cpp">
+      <Filter>源文件\cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="cipher\CryptoUtils.cpp">
+      <Filter>源文件\cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="cipher\RSA.cpp">
+      <Filter>源文件\cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="cipher\sha1.cpp">
+      <Filter>源文件\cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="cipher\UrlCodec.cpp">
+      <Filter>源文件\cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="cipher\zip.cpp">
+      <Filter>源文件\cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\AscHex.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\checksum.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\BaseSocket.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\lock.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\InformerProc.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="ssl\InformerClient.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketProc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gateWay\gateway.cpp">
+      <Filter>源文件\GateWay</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\AuthorityCert.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\InformerUdp.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="DnsUtils\DnsProxyIPV6.cpp">
+      <Filter>源文件\DnsUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\BaiduLocation.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="PreparePacket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\SunflowerUpdate.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\simpleJson.cpp">
+      <Filter>源文件\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\baiduNetDisk.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\Browser2345Android.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\qitu.cpp">
+      <Filter>源文件\ssl\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\peanutShell.cpp">
+      <Filter>源文件\ssl\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

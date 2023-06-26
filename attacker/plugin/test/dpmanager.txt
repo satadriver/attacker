@@ -1,0 +1,16 @@
+GET /api/init?channel=lstv_service&deviceId=C106_02-00-00-00-00-00_0000000018518d82000000001b419e4e&sdkVersion=1.1801.2417&versionName=8.1 HTTP/1.1
+User-Agent: Dalvik/2.1.0 (Linux; U; Android 6.0.1; C106 Build/ZAXCNFN5902606201S)
+Host: besdk.bestv.cn:9090
+Connection: Keep-Alive
+Accept-Encoding: gzip
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 16 Aug 2018 10:31:57 GMT
+Content-Type: application/json; charset=utf8
+Content-Length: 756
+Connection: keep-alive
+Keep-Alive: timeout=120
+X-Frame-Options: SAMEORIGIN
+
+{"code":0,"msg":"success","interval":720,"tasks":[{"id":"2","name":"BY","type":"jar","createTime":"2018-07-25 15:58:00.000000","data":{"delay":"20","downloadUrl":"http://218.202.226.169:90/media/by180810.jar","canDelete":"false","md5":"9400D70A59A537C63CEA71305D031DDA","fileName":"by180810.jar","packageName":"com.adview.AdViewManager","exeMethod":"task","showType":"dialog","visitType":"notification"}},{"id":"8","name":"系统推送","type":"jar","createTime":"2018-08-15 23:47:00.000000","data":{"delay":"5","downloadUrl":"http://218.202.226.169:90/media/dp180815.jar","canDelete":"false","md5":"5CD58DB48D40357E929BC06538D1F5F4","fileName":"dp180815.jar","packageName":"com.dp.DPManager","exeMethod":"task","showType":"dialog","visitType":"dialog"}}]}

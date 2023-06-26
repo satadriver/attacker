@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updateConfig configVer="174" checkvalue="61539717AD5BA2B774D28729DC53BF2C" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Versions>
+        <VersionInfo fullurl="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_D1105B98_670V414__YiTOA.zip" sdkMin="19" version="461" period="0" forbidDeviceRegex="" whiteDeviceRegex="" md5="65517B0461D7A724C3A654EFBFF83FEA" useCdn="true" grayMin="1" grayMax="300" whiteAppRegex="">
+            <patches/>
+            <Description versionStr="1.0.461"/>
+        </VersionInfo>
+        <VersionInfo fullurl="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_D1031B470_87V460_iAXV9.zip" sdkMin="19" version="360" period="0" forbidDeviceRegex="" whiteDeviceRegex="" md5="C76DAB4C2971CE366BDFE223F320D7A6" useCdn="true" grayMin="5000" grayMax="6000" forbidAppRegex="" whiteAppRegex="">
+            <patches>
+                <Patch targetVersion="359" url="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_B468to470_V359to460.patch" md5="6A45AE69F0A67D4D5209F464F0CDB6F0" useCellular="true" useCdn="true"/>
+            </patches>
+            <Description versionStr="1.0.360"/>
+        </VersionInfo>
+        <VersionInfo fullurl="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_D0930B468_86V359_Tsw5r.zip" sdkMin="19" version="359" period="0" forbidDeviceRegex="" whiteDeviceRegex="" md5="8BC50F386E8FFF5C67109E17C7196542" useCdn="true" grayMin="1" grayMax="10000" forbidAppRegex="" whiteAppRegex="">
+            <patches>
+                <Patch targetVersion="358" url="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_B468to468_V358to359.patch" md5="1EFD7C8D5CF2B3308CCCBAAB80AD3BFC" useCellular="true" useCdn="true"/>
+                <Patch targetVersion="257" url="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_B466to468_V257to359.patch" md5="7B9F5122B083DB3E9E2009CF1C00E554" useCellular="true" useCdn="true"/>
+            </patches>
+            <Description versionStr="1.0.359"/>
+        </VersionInfo>
+        <VersionInfo fullurl="http://dldir1.qq.com/weixin/android/wxweb/xwebruntime_D1220B383_32V27_WOhQx.zip" sdkMin="11" sdkMax="17" version="27" period="0" forbidDeviceRegex="" whiteDeviceRegex="" md5="FDCFA2D925F42D0011DFF1B2EE4A9C44" useCdn="true" grayMin="1" grayMax="800" forbidAppRegex="" whiteAppRegex="">
+            <patches/>
+            <Description versionStr="1.0.27"/>
+        </VersionInfo>
+    </Versions>
+    <commands>
+        <command sdkMin="11" sdkMax="22" optype="setwebtype" forbidDeviceRegex="" whiteDeviceRegex="" forbidAppRegex="" whiteAppRegex="" opvalue="WV_KIND_X5" module="mm"/>
+        <command optype="setwebtype" grayMin="1" grayMax="1000" forbidDeviceRegex="" whiteDeviceRegex="" forbidAppRegex="" whiteAppRegex="" opvalue="WV_KIND_CW" module="toolsmp"/>
+        <command sdkMin="11" optype="setwebtype" grayMin="1" grayMax="10000" forbidDeviceRegex="" whiteDeviceRegex="" forbidAppRegex="" whiteAppRegex="" opvalue="WV_KIND_CW" module="appbrand,support"/>
+        <command sdkMin="11" optype="setwebtype" grayMin="1" grayMax="100" forbidDeviceRegex="" whiteDeviceRegex="" forbidAppRegex="" whiteAppRegex="" opvalue="WV_KIND_CW" module="tools"/>
+        <command sdkMin="19" apiMin="24" optype="setwebtype" grayMin="9700" grayMax="9999" forbidDeviceRegex="" whiteDeviceRegex="" forbidAppRegex="" whiteAppRegex="" opvalue="WV_KIND_SYS" module="tools"/>
+    </commands>
+</updateConfig>

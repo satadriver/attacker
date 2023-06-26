@@ -1,0 +1,47 @@
+# Prerequisites
+*.d
+
+[Dd]ebug/
+[Rr]elease/
+jy20200614/
+
+*.ipch
+*.ipdb
+*.ipdb
+*.iobj
+
+*.db
+
+*.VC.opendb
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+*.pdb
+*.VC.db
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+#*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+#*.lib
+
+# Executables
+*.exe
+*.out
+*.app

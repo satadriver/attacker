@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang='cn'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta content="telephone=no" name="format-detection">
+    <meta name="keywords" content="手机QQ,升级" />
+    <meta name="description" content="腾讯QQ,手机QQ,升级" />
+    <title>版本更新</title>
+    <link rel="stylesheet" href="http://sqimg.qq.com/qq_product_operations/mma/upgrade/download9.css">
+	<style>
+	    #feature li span{margin-left: -10px;}
+	    #feature li {font-size: 14px;}
+	</style>
+</head>
+<body>
+	<div class="navi">
+		<div class="info">
+			<h2 id="apkname"></h2>
+			<p>版本号: <span id="version">7.6.5</span> 大小:<span id="size">51.2M</span></p>
+			<span class="logo"></span>
+		</div>
+		<div id="progress" class="progress_wrapper hide">
+			<div class="progress">
+		        <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
+		          
+		        </div>
+	      	</div>
+	      <a class="close" data-dismiss="modal" aria-hidden="true">×</a>
+      	</div>
+		<div id="btns" class="btns">
+			<a href="javascript:void(0)" id="btn-download" class="button">下载</a>
+			<a href="javascript:void(0)" id="circling" class="circle hide"></a>
+			<a href="javascript:void(0)" id="btn-process" class="circle hide"></a>
+			<a href="javascript:void(0)" id="btn-resume" class="button hide">继续</a>
+			<a href="javascript:void(0)" id="btn-install" class="button hide">安装</a>
+		</div>
+	</div>
+
+	<div id="container" class="container">
+		<ul id="pic_list_ul" class="slide">
+			<li><img src="https://sqimg.qq.com/qq_product_operations/mma/upgrade/and/765/1.jpg"></li>
+			<li><img src="https://sqimg.qq.com/qq_product_operations/mma/upgrade/and/765/2.jpg"></li>
+			<li><img src="https://sqimg.qq.com/qq_product_operations/mma/upgrade/and/765/3.jpg"></li>
+			<li><img src="https://sqimg.qq.com/qq_product_operations/mma/upgrade/and/765/4.jpg"></li>
+		</ul>
+	</div>
+	<div id="feature" class="feature"><h2>新版特性：</h2>
+	<ul>
+	    <li><span>-</span> QQ视频拍摄功能全新升级，拍视频，趣分享，随时随地记录生活精彩一刻。</li>
+		<li><span>-</span> 聊天时可发送会飞的魔性表情给好友，拒绝尬聊，玩出个性。</li>
+		<li><span>-</span> 日迹拍摄支持添加转场特效，不同场景衔接更炫酷，助你轻松拍出大片范儿。</li>
+	</ul></div>
+<script src="//pub.idqqimg.com/qqmobile/jsbridge.js"></script>
+<script src="//sqimg.qq.com/qq_product_operations/mma/upgrade/download2.js" crossorigin="anonymous"></script>
+
+<script>
+	//function func(){alert("this is window onload event!");return;} 
+	
+
+	/*
+    //BJ_REPORT.tryJs().spyAll();
+	function getId(seletor){
+		return document.getElementById(seletor);
+	}
+	var $btn = getId('btn-download');
+	var $process = getId('btn-process');
+	var $resume = getId('btn-resume');
+	var $install = getId('btn-install');
+
+	$btn.addEventListener('click',function(){
+		Upgrade.start();
+		//Upgrade.install();
+	});
+	$process.addEventListener('click',function(){
+		Upgrade.pause();
+	});
+	$resume.addEventListener('click',function(){
+		Upgrade.resume();
+	});
+	$install.addEventListener('click',function(){
+		Upgrade.install();
+	});
+	
+	//window.onload=func;
+	*/
+</script>
+</body>
+</html>

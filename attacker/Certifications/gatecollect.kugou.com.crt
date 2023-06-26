@@ -1,0 +1,64 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 63 (0x3f)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
+        Validity
+            Not Before: Jun 26 08:07:09 2023 GMT
+            Not After : Jun 23 08:07:09 2033 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=gatecollect.kugou.com/emailAddress=www.digicert.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (1024 bit)
+                Modulus:
+                    00:ba:ad:4c:09:1a:3c:85:4f:60:d5:93:bc:9e:12:
+                    f4:9b:16:e7:8b:d2:28:29:ab:f9:38:99:e1:84:3a:
+                    1b:70:6e:a0:5b:ad:f3:4e:65:5c:19:fb:56:89:16:
+                    fb:68:36:43:1a:3b:b6:32:4d:63:43:b0:c5:10:69:
+                    3d:96:13:7f:aa:e4:74:d4:b3:60:aa:af:5b:c7:56:
+                    f6:e1:49:55:d9:92:ba:70:37:73:4c:91:6b:cc:10:
+                    8e:58:f2:e2:1b:1b:1e:72:3e:c6:bb:a5:ca:08:d8:
+                    bb:23:bb:bf:86:02:de:11:e9:d9:79:6d:60:a6:c6:
+                    0c:2c:e3:35:72:f1:76:bf:b5
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:gatecollect.kugou.com
+    Signature Algorithm: sha256WithRSAEncryption
+         6b:8e:a2:27:e8:d8:0d:89:b2:07:a9:f6:f3:e6:4b:23:ba:a8:
+         a4:b4:49:42:4d:bc:5e:43:98:c7:c4:a2:d4:38:0a:ee:cc:24:
+         99:f7:5e:53:c8:ca:9f:92:32:52:88:eb:ab:89:6b:e8:68:d6:
+         e6:88:da:05:fa:97:6e:2d:55:9f:f5:27:cc:19:c6:d6:d5:f0:
+         14:76:2c:8e:67:77:90:62:ac:a5:36:aa:72:32:fb:71:31:9b:
+         63:7a:01:cd:18:05:f3:a4:1c:6c:14:a0:8b:96:61:24:8b:64:
+         a7:db:ed:be:68:d0:50:24:14:f9:47:2a:32:6e:56:39:5e:70:
+         2f:53:4c:f5:35:98:c5:f8:f2:6e:f9:af:83:3f:98:88:20:eb:
+         c2:02:fc:0e:b4:28:f9:0e:a3:f0:f8:8e:98:c3:f9:53:e6:0a:
+         00:f5:f7:fa:83:eb:2c:11:23:c9:bf:2e:d1:aa:b8:27:84:49:
+         fe:21:dc:18:61:60:af:6c:56:43:e9:d6:fd:53:1c:13:88:68:
+         0a:72:36:15:f3:55:cf:c2:d2:0b:a8:fd:f5:78:d7:57:92:53:
+         72:71:14:48:d8:ad:4e:30:73:9a:a7:8b:a4:fd:01:21:11:a4:
+         c9:f9:89:b6:bc:1d:a7:ac:35:8c:a5:f8:66:5f:19:dc:da:5d:
+         1a:1d:0e:1f
+-----BEGIN CERTIFICATE-----
+MIIDdTCCAl2gAwIBAgIBPzANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
+VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
+BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
+d3cuZGlnaWNlcnQuY29tMB4XDTIzMDYyNjA4MDcwOVoXDTMzMDYyMzA4MDcwOVow
+gasxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
+b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
+ZGlnaWNlcnQuY29tMR4wHAYDVQQDDBVnYXRlY29sbGVjdC5rdWdvdS5jb20xHzAd
+BgkqhkiG9w0BCQEWEHd3dy5kaWdpY2VydC5jb20wgZ8wDQYJKoZIhvcNAQEBBQAD
+gY0AMIGJAoGBALqtTAkaPIVPYNWTvJ4S9JsW54vSKCmr+TiZ4YQ6G3BuoFut805l
+XBn7VokW+2g2Qxo7tjJNY0OwxRBpPZYTf6rkdNSzYKqvW8dW9uFJVdmSunA3c0yR
+a8wQjljy4hsbHnI+xrulygjYuyO7v4YC3hHp2XltYKbGDCzjNXLxdr+1AgMBAAGj
+JDAiMCAGA1UdEQQZMBeCFWdhdGVjb2xsZWN0Lmt1Z291LmNvbTANBgkqhkiG9w0B
+AQsFAAOCAQEAa46iJ+jYDYmyB6n28+ZLI7qopLRJQk28XkOYx8Si1DgK7swkmfde
+U8jKn5IyUojrq4lr6GjW5ojaBfqXbi1Vn/UnzBnG1tXwFHYsjmd3kGKspTaqcjL7
+cTGbY3oBzRgF86QcbBSgi5ZhJItkp9vtvmjQUCQU+UcqMm5WOV5wL1NM9TWYxfjy
+bvmvgz+YiCDrwgL8DrQo+Q6j8PiOmMP5U+YKAPX3+oPrLBEjyb8u0aq4J4RJ/iHc
+GGFgr2xWQ+nW/VMcE4hoCnI2FfNVz8LSC6j99XjXV5JTcnEUSNitTjBzmqeLpP0B
+IRGkyfmJtrwdp6w1jKX4Zl8Z3NpdGh0OHw==
+-----END CERTIFICATE-----

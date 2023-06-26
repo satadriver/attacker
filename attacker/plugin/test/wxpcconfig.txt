@@ -1,0 +1,61 @@
+
+
+GET dldir1.qq.com/weixin/Windows/WeChat_2.6.4_update38_ex.xml HTTP/1.1
+Host: dldir1.qq.com
+Accept: */*
+
+
+2018/8/8 12:43:52	ssl server data:
+HTTP/1.1 200 OK
+Server: NWSs
+Date: Wed, 08 Aug 2018 04:37:40 GMT
+Content-Type: application/xml
+Content-Length: 4192
+Connection: keep-alive
+Cache-Control: max-age=600
+Expires: Wed, 08 Aug 2018 04:47:39 GMT
+Last-Modified: Fri, 27 Jul 2018 06:24:53 GMT
+X-NWS-LOG-UUID: edf0bfc1-30e6-4825-8338-70c2190bf840
+X-Cache-Lookup: Hit From Disktank3
+
+<file_component>
+    <file md5="f74259e5e5acbcf35f89a34bfa314d86" length="227528" offset="0" compresslen="123607">AndroidAssistHelper.dll</file>
+    <file md5="9b8dba0518ee4cfe932d677b95872d5a" length="390856" offset="123607" compresslen="207776">TxBugReport.exe</file>
+    <file md5="c8ea01f99f863e909e364ee4d5ad05ca" length="1691" offset="331383" compresslen="987">CEF LICENSE.txt</file>
+    <file md5="34613d49c696f016d419fdbd6c1922b8" length="1989344" offset="332370" compresslen="1984536">CefResources.data</file>
+    <file md5="1c9b45e87528b8bb8cfa884ea0099a85" length="2106216" offset="2316906" compresslen="927662">d3dcompiler_43.dll</file>
+    <file md5="06a1bcb415afb4d80c2cfe09c6bbd252" length="3464896" offset="3244568" compresslen="1465793">d3dcompiler_47.dll</file>
+    <file md5="ab54b14548a4cc76dd7c27414d971111" length="593" offset="4710361" compresslen="514">directui license.txt</file>
+    <file md5="9265d88b580e05c2a3dc371770b04512" length="1426" offset="4710875" compresslen="880">duilib license.txt</file>
+    <file md5="5b730557c170938e4b3bc05c027cc1b6" length="1919168" offset="4711755" compresslen="850576">ffmpegsumo.dll</file>
+    <file md5="d59b13c25b710107cea7ad1462c1b077" length="10207504" offset="5562331" compresslen="4443520">icudtl.dat</file>
+    <file md5="4adbc1c6bf650bce2e96865dc7a80dad" length="88256" offset="10005851" compresslen="46639">libEGL.dll</file>
+    <file md5="decd41f74ebdf26290349dd74162320b" length="3888744" offset="10052490" compresslen="1641059">libFFmpeg.dll</file>
+    <file md5="55438923e609bb0a777bf35b5e032aff" length="1656512" offset="11693549" compresslen="718880">libGLESv2.dll</file>
+    <file md5="ae64840f70bb03a2d9beef33902ee974" length="410958" offset="12412429" compresslen="82816">natives_blob.bin</file>
+    <file md5="b5df61d1b2afcde920915d06e3e39d73" length="9317064" offset="12495245" compresslen="4371081">pdf.dll</file>
+    <file md5="43d2b1e3ef2e59ed73f0070c0d435632" length="1673" offset="16866326" compresslen="998">protobuf-lite LICENSE.txt</file>
+    <file md5="be27ccf455063059a1d660cb809e84b3" length="406208" offset="16867324" compresslen="174348">QbBridge.dll</file>
+    <file md5="0daa3b9837dc3a92cdcbe2803ff6cf8f" length="41678016" offset="17041672" compresslen="19215932">qbcore.dll</file>
+    <file md5="0b4ac315fca949a14a904063f5c7e4ca" length="449780" offset="36257604" compresslen="142071">snapshot_blob.bin</file>
+    <file md5="844c21a30916f9a7c5d3b92403a1830b" length="1670" offset="36399675" compresslen="987">SPEEX LICENSE.txt</file>
+    <file md5="57b1ebafc706957823bcdafd5f85cdd8" length="338120" offset="36400662" compresslen="131444">tinyxml.dll</file>
+    <file md5="edb38a7483d25937ad5c7d918518a64b" length="995032" offset="36532106" compresslen="640268">Uninstall.exe</file>
+    <file md5="8d86661f69493a051b14cf9af53db1cd" length="2523808" offset="37172374" compresslen="1260521">VoipEngine.dll</file>
+    <file md5="a49a3e22519d5c2bf8d7bd0be0045151" length="492744" offset="38432895" compresslen="95519">WeChat.exe</file>
+    <file md5="a64975104a56a08e513afe27995863f4" length="276168" offset="38528414" compresslen="129705">WeChatExt.exe</file>
+    <file md5="44dcbde13db3d5a4fdc9505807715ebd" length="5118112" offset="38658119" compresslen="4171155">WeChatResource.dll</file>
+    <file md5="3b9cdaebd1525521b7f738717f5ae29b" length="856768" offset="42829274" compresslen="390932">WeChatUpdate.exe</file>
+    <file md5="32c0b7ebaed77ba5bc23b2131674a48b" length="1130176" offset="43220206" compresslen="410019">WeChatWeb.exe</file>
+    <file md5="f472747d79658e49835af84ae673effb" length="19797664" offset="43630225" compresslen="8672908">WeChatWin.dll</file>
+    <file md5="71866e6e420574e4f351109f406982e1" length="363208" offset="52303133" compresslen="179820">ssleay32.dll</file>
+    <file md5="6e23b4e7cda684a333a50bc8972efc0c" length="1392840" offset="52482953" compresslen="659221">libeay32.dll</file>
+    <file md5="5c5e3afd499e5146fef1da5ef8a23205" length="1080656" offset="53142174" compresslen="468315">dbghelp.dll</file>
+    <file md5="b8be9e3d9d9485fab75ebe54009f1a4b" length="1152672" offset="53610489" compresslen="385632">WeChatDecoder.exe</file>
+</file_component>
+
+
+GET /weixin/Windows/WeChat_2.6.4_update38_ex.dat HTTP/1.1
+Host: dldir1.qq.com
+Range: bytes=332370-2316905
+Accept: */*
