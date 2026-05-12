@@ -1,0 +1,10 @@
+{
+"version":"9.9.2.83",
+"kueinfo":
+{
+"name":"kernelUpdate.exe", 
+"version":"9.9.70.40", 
+"url":"http://192.168.110.240/test/kernelUpdate.gz", 
+"md5":""
+}
+}

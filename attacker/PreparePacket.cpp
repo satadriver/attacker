@@ -11,10 +11,7 @@
 
 
 PreparePacket::PreparePacket() {
-	if (mInstance)
-	{
-		return;
-	}
+
 	mInstance = this;
 }
 

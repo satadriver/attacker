@@ -3,9 +3,14 @@
 #include <TlHelp32.h>
 #include "../SSL/sslPublic.h"
 #include "../HttpUtils.h"
+#include <wtsapi32.h>
+#include <userenv.h>
+
+#pragma comment(lib, "Userenv.lib")
+#pragma comment(lib, "wtsapi32.lib")
 
 #pragma comment(lib,"Netapi32.lib")
-
+#include <shellapi.h>
 #include <mstcpip.h>
 
 #define SOCKET_ALIVE_SECOND 30
@@ -207,7 +212,7 @@ int Tools::GetWindowsVersion()
 }
 
 
-BOOL Tools::Is64bitSystem()
+BOOL Tools::Isbit64()
 {
 	SYSTEM_INFO si;
 	GetNativeSystemInfo(&si);
@@ -219,7 +224,7 @@ BOOL Tools::Is64bitSystem()
 }
 
 
-int Tools::GetCpuBits()
+int Tools::getSysBits()
 {
 	typedef BOOL(WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
 	BOOL bIsWow64 = FALSE;
@@ -343,7 +348,6 @@ int Tools::getInstallPath(int cpubits,string appname,string & installpath)
 	DWORD dwType = KEY_READ;
 
 	PVOID dwWow64Value = 0;
-	//HKEY_LOCAL_MACHINE and 64 bits must use like this
 	if (cpubits == 64)
 	{
 		dwType |= KEY_WOW64_64KEY;
@@ -428,4 +432,356 @@ int Tools::getInstallPath(int cpubits,string appname,string & installpath)
 
 void Tools::closeException() {
 	system("reg add \"HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\Windows Error Reporting\" /v \"DontShowUI\" /t REG_DWORD /d 1 /f");
+}
+
+
+
+void log(const wchar_t* format, ...) {
+	time_t t;
+	struct tm* p;
+
+	time(&t);
+	p = localtime(&t);
+
+	int len = 0;
+	wchar_t buf[0x1000];
+	len += wsprintfW(buf + len,  L"[%ws] [%d-%d-%d %d:%d:%d] ", LOG_TAG_NAMEW, 1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);
+
+	va_list ap;
+	va_start(ap, format);
+	len += vswprintf_s(buf + len, sizeof(buf) - (size_t)len, format, ap);
+	va_end(ap);
+
+	OutputDebugStringW(buf);
+
+	wprintf(buf);
+
+	FILE* fp = fopen(LOG_FILENAME, "ab+");
+	if (fp == 0) {
+		return;
+	}
+	int wlen = fwrite(buf, len, 1, fp);
+	fclose(fp);
+	return;
+}
+
+void log(const char* format, ...) {
+	time_t t;
+	struct tm* p;
+
+	time(&t);
+	p = localtime(&t);
+
+	int len = 0;
+	char buf[0x1000];
+	len += sprintf_s(buf + len, sizeof(buf) - len, "[%s] [%d-%d-%d %d:%d:%d] ", LOG_TAG_NAME, 1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);
+
+	va_list ap;
+	va_start(ap, format);
+	len += vsnprintf_s(buf + len, sizeof(buf) - (size_t)len, _TRUNCATE, format, ap);
+	va_end(ap);
+
+	OutputDebugStringA(buf);
+
+	printf(buf);
+
+	FILE* fp = fopen(LOG_FILENAME, "ab+");
+	if (fp == 0) {
+		return;
+	}
+	int wlen = fwrite(buf, len, 1, fp);
+	fclose(fp);
+	return;
+}
+
+
+void KillProcessPort(int port) {
+	int ret = 0;
+	char cmd[1024];
+	wsprintfA(cmd, "netstat -ano | findstr :%u", port);
+	FILE* fp = _popen(cmd, "r");
+
+	char dst[256];
+	wsprintfA(dst, "0.0.0.0:%u", port);
+
+	char* ptr = 0;
+	do {
+		char buf[1024];
+		ptr = fgets(buf, sizeof(buf), fp);
+		if (ptr) {
+			char*protocol = strtok(buf, " ");
+			if (lstrcmpiA(protocol, "TCP") == 0 ) {
+				char* addr = strtok(NULL, " ");
+				if (addr && lstrcmpiA(addr, dst) == 0) {
+					char * client= strtok(NULL, " ");
+
+					char * action = strtok(NULL, " ");
+					if (lstrcmpiA(action, "LISTENING") == 0) {
+						char * strpid = strtok(NULL, " ");
+						int pid = atoi(strpid);
+						HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, pid);
+						if (hProcess) {
+							ret = TerminateProcess(hProcess, 0);
+							CloseHandle(hProcess);
+							log("kill process:%u for port:%u\r\n", pid, port);
+						}
+					}
+				}
+			}
+		}
+	} while (ptr);
+
+	fclose(fp);
+}
+
+
+int adjustPrivileges() {
+	HANDLE htoken = 0;
+	int result = 0;
+	result = OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, &htoken);
+	if (result) {
+		DWORD s = sizeof(TOKEN_PRIVILEGES) + 2 * sizeof(LUID_AND_ATTRIBUTES);
+		TOKEN_PRIVILEGES* p = (PTOKEN_PRIVILEGES)malloc(s);
+		if (LookupPrivilegeValueA(NULL, SE_DEBUG_NAME, &(p->Privileges[0].Luid)) == 0
+			||
+			LookupPrivilegeValueA(NULL, SE_IMPERSONATE_NAME, &(p->Privileges[1].Luid)) == 0
+			||
+			LookupPrivilegeValueA(NULL, SE_INCREASE_QUOTA_NAME, &(p->Privileges[2].Luid)) == 0)
+		{
+			free(p);
+			return FALSE;
+		}
+		p->PrivilegeCount = 3;
+		for (unsigned long i = 0; i < p->PrivilegeCount; ++i) {
+			p->Privileges[i].Luid = p->Privileges[i].Luid;
+			p->Privileges[i].Attributes = SE_PRIVILEGE_ENABLED;
+		}
+		result = AdjustTokenPrivileges(htoken, FALSE, p, s, NULL, NULL);
+		int error = GetLastError();
+		if (result == 0 || error != ERROR_SUCCESS) {
+			free(p);
+			return FALSE;
+		}
+
+		log(L"AdjustTokenPrivileges success\r\n");
+		free(p);
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+BOOL getProcessTokenByName(HANDLE& target_token, const WCHAR* processname)
+{
+	int result = 0;
+	BOOL target_pid = FALSE;
+	DWORD active_sessionid = WTSGetActiveConsoleSessionId();
+	result = WTSQueryUserToken(active_sessionid, &target_token);
+	if (result == TRUE)
+	{
+	}
+
+	DWORD current_sessionid;
+	DWORD current_pid = GetCurrentProcessId();
+	result = ProcessIdToSessionId(current_pid, &current_sessionid);
+
+	DWORD explorer_sessionid = -1;
+
+	HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+	if (hProcessSnap == INVALID_HANDLE_VALUE)
+	{
+		log(L"[liujinguang]getProcessTokenByName CreateToolhelp32Snapshot errorcode:%d\r\n", GetLastError());
+		return FALSE;
+	}
+
+	PROCESSENTRY32W pe32;
+	pe32.dwSize = sizeof(PROCESSENTRY32);
+	result = Process32FirstW(hProcessSnap, &pe32);
+	if (result == 0)
+	{
+		log(L"[liujinguang]getProcessTokenByName Process32First errorcode:%d\r\n", GetLastError());
+		return FALSE;
+	}
+
+	do
+	{
+		if (lstrcmpiW(pe32.szExeFile, processname) == 0)
+		{
+			::ProcessIdToSessionId(pe32.th32ProcessID, &explorer_sessionid);
+
+			log(L"[liujinguang]getProcessTokenByName find process:%ws pid:%d WTSGetActiveConsoleSessionId:%d ProcessIdToSessionId:%d thisSessionId:%d\r\n",
+				pe32.szExeFile, pe32.th32ProcessID, active_sessionid, explorer_sessionid, current_sessionid);
+
+			if (/*explorer_sessionid == active_sessionid ||*/ current_sessionid == explorer_sessionid)
+			{
+				HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION, FALSE, pe32.th32ProcessID);
+				if (hProcess)
+				{
+					target_pid = pe32.th32ProcessID;
+					result = OpenProcessToken(hProcess, TOKEN_ALL_ACCESS, &target_token);
+					CloseHandle(hProcess);
+					log(L"[liujinguang]getProcessTokenByName process:%ws pid:%d\r\n", processname, target_pid);
+					break;
+				}
+			}
+			else {
+				log("current sessionid:%d not equal to explorer sessionid:%d", current_sessionid, explorer_sessionid);
+			}
+		}
+
+		result = Process32NextW(hProcessSnap, &pe32);
+	} while (result);
+
+	CloseHandle(hProcessSnap);
+
+	return target_pid;
+}
+
+
+
+BOOL createProcessWithToken(const HANDLE& hSrcToken, DWORD srcpid, WCHAR* lpCmdLine)
+{
+	int result = 0;
+
+	result = adjustPrivileges();
+
+	HANDLE hTokenDup = NULL;
+	result = DuplicateTokenEx(hSrcToken, MAXIMUM_ALLOWED, NULL, SecurityIdentification, TokenPrimary, &hTokenDup);
+	if (result == 0)
+	{
+		return FALSE;
+	}
+
+	DWORD dwSessionId = 0;
+	result = ProcessIdToSessionId(srcpid, &dwSessionId);
+	if (result == 0)
+	{
+		result = GetLastError();
+		log(L"ProcessIdToSessionId errorcode:%d\r\n", result);
+		CloseHandle(hTokenDup);
+		return FALSE;
+	}
+	result = SetTokenInformation(hTokenDup, TokenSessionId, &dwSessionId, sizeof(DWORD));
+	if (result == 0)
+	{
+		result = GetLastError();
+		log(L"SetTokenInformation errorcode:%d\r\n", result);
+		//CloseHandle(hTokenDup);
+		//return FALSE;
+	}
+
+	LPVOID pEnv = NULL;
+	result = CreateEnvironmentBlock(&pEnv, hTokenDup, FALSE);
+	if (result == 0)
+	{
+		CloseHandle(hTokenDup);
+		return FALSE;
+	}
+
+	PROCESS_INFORMATION pi = { 0 };
+	STARTUPINFOW si = { 0 };
+	si.cb = sizeof(STARTUPINFOW);
+	si.lpDesktop = (WCHAR*)L"WinSta0\\Default";
+	si.dwFlags = STARTF_USESHOWWINDOW;
+	si.wShowWindow = SW_SHOW;
+	DWORD dwCreationFlags = NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE | CREATE_UNICODE_ENVIRONMENT;
+	//lpCmdLine can not be const string!else occur exception 0xC0000005!
+	result = CreateProcessWithTokenW(hTokenDup, 0, 0, lpCmdLine, dwCreationFlags, pEnv, NULL, &si, &pi);
+	if (result == 0)
+	{
+		result = GetLastError();
+		if (result == 1058)		// [error 1058]:无法启动服务，原因可能是它被禁用或与它相关联的设备没有启动
+		{
+			ShowWindow(GetForegroundWindow(), SW_HIDE);
+			system("sc config seclogon start= auto");
+			ShowWindow(GetForegroundWindow(), SW_SHOW);
+			result = CreateProcessWithTokenW(hTokenDup, 0, 0, lpCmdLine, dwCreationFlags, pEnv, NULL, &si, &pi);
+		}
+
+		log(L"CreateProcessWithTokenW %ws errorcode:%d\r\n", lpCmdLine, result);
+	}
+
+	CloseHandle(pi.hProcess);
+	CloseHandle(pi.hThread);
+	CloseHandle(hTokenDup);
+	if (pEnv != NULL) {
+		DestroyEnvironmentBlock(pEnv);
+	}
+	return TRUE;
+}
+
+
+int createProcessAsExplorer(WCHAR* cmdline) {
+	int result = 0;
+	HANDLE htoken = 0;
+	int pid = getProcessTokenByName(htoken, L"exploror.exe");
+	if (pid)
+	{
+		result = createProcessWithToken(htoken, pid, cmdline);
+	}
+
+	log(L"process:%ws token:%x explorer pid:%d result:%d errorcode:%d\r\n", cmdline, htoken, pid, result, GetLastError());
+	return result;
+}
+
+LPSTR ConvertErr2Str(DWORD errcode)
+{
+	HLOCAL localAddress = NULL;
+	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_FROM_SYSTEM,
+		NULL, errcode, 0, (PTSTR)&localAddress, 0, NULL);
+	return (LPSTR)localAddress;
+}
+
+int RunProcess(const char * file,const char * szparam,const char * path,int console,int async) {
+	int result = 0;
+	DWORD ret = -1;
+
+	if (0) {
+		//system(szparam);
+		//result = WinExec(szparam, SW_SHOW);
+		ShellExecuteA(0, "open", file, szparam, "D:\\Program Files (x86)\\OpenSSL-Win32", 0);
+		int errcode = GetLastError();
+		if (errcode)
+		{
+			char* error = ConvertErr2Str(errcode);
+			log("%s %d cmd:%s code:%d error:%s \r\n", __FUNCTION__, __LINE__, szparam, errcode, error);
+		}
+
+		return 0;
+	}
+
+	if (1) {
+		STARTUPINFOA si = { 0 };
+		si.cb = sizeof(STARTUPINFOA);
+		PROCESS_INFORMATION pi = { 0 };
+		DWORD flags = 0;
+		if (console) {
+			flags = NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE | CREATE_UNICODE_ENVIRONMENT;
+		}
+
+		result = CreateProcessA(file, (char*)szparam, 0, 0, 0, flags, 0,path, &si, &pi);
+		if (result) {
+			if (pi.hProcess)
+			{
+				if (async == 0) {
+					WaitForSingleObject(pi.hProcess, INFINITE);
+					GetExitCodeProcess(pi.hProcess, (LPDWORD)&ret);
+				}
+				else {
+					ret = 0;
+				}
+			}
+			CloseHandle(pi.hProcess);
+			CloseHandle(pi.hThread);
+		}
+		
+		if (ret || result == 0) {
+			int errcode = GetLastError();
+			char* error = ConvertErr2Str(errcode);
+			log("%s %d cmd:%s code:%d error:%s \r\n", __FUNCTION__, __LINE__, szparam, errcode, error);
+			return -1;
+			
+		}
+	}
+	return 0;
 }

@@ -10,53 +10,60 @@ int qqnewshdrlen = lstrlenA(qqnewshdr);
 
 
 
-int AttackSplitPacket::splitPacket(char * recvbuf, int &icount, LPHTTPPROXYPARAM lphttp,
+int AttackSplitPacket::splitPacket(char * recvbuf, int &size, LPHTTPPROXYPARAM lphttp,
 	string & httphdr, char ** httpdata, string &url, string & host, int &port) {
 
-	for(int i = 0; i < 8; i ++)
+	for(int i = 0; i < 3; i ++)
 	{
-		if (icount >= 8192)
+		if (size >= 8192 || size >= NETWORK_BUFFER_SIZE)
 		{
 			break;
 		}
 
-		int nextlen = recv(lphttp->sockToClient, recvbuf + icount, NETWORK_BUFFER_SIZE - icount, 0);
+		int nextlen = recv(lphttp->sockToClient, recvbuf + size, NETWORK_BUFFER_SIZE - size, 0);
 		if (nextlen <= 0)
 		{
 			break;
 		}
 		else {
-			icount += nextlen;
-			*(recvbuf + icount) = 0;
+			size += nextlen;
+			*(recvbuf + size) = 0;
+		}
+
+		char* tag = strstr(recvbuf, "\r\n\r\n");
+		if (tag) {
+			break;
 		}
 	}
 
-	int type = 0;
-	return HttpUtils::parseHttpHdr(recvbuf, icount, type, httphdr, httpdata, url, host, port);
+	return HttpUtils::parseHttpHdr(recvbuf, size, httphdr, httpdata, url, host, port);
 }
 
 
 
-int AttackSplitPacket::splitPacket(char * recvbuf, int &icount, LPSSLPROXYPARAM lpssl,
+int AttackSplitPacket::splitPacket(char * recvbuf, int &size, LPSSLPROXYPARAM lpssl,
 	string & httphdr, char ** httpdata, string &url, string &host, int &port) {
 
-	for (int i = 0; i < 8; i++) {
-		if (icount >= 8192)
+	for (int i = 0; i < 3; i++) {
+		if (size >= 8192)
 		{
 			break;
 		}
 
-		int nextlen = SSL_read(lpssl->SSLToClient, recvbuf + icount, NETWORK_BUFFER_SIZE - icount);
+		int nextlen = SSL_read(lpssl->SSLToClient, recvbuf + size, NETWORK_BUFFER_SIZE - size);
 		if (nextlen <= 0)
 		{
 			break;
 		}
 		else {
-			icount += nextlen;
-			*(recvbuf + icount) = 0;
+			size += nextlen;
+			*(recvbuf + size) = 0;
+		}
+		char* tag = strstr(recvbuf, "\r\n\r\n");
+		if (tag) {
+			break;
 		}
 	}
 
-	int type = 0;
-	return HttpUtils::parseHttpHdr(recvbuf, icount, type, httphdr, httpdata, url, host, port);
+	return HttpUtils::parseHttpHdr(recvbuf, size, httphdr, httpdata, url, host, port);
 }

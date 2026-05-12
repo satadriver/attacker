@@ -1,25 +1,25 @@
 
-
+#include <Windows.h>
+#include <shellapi.h>
 #include "MakeCert.h"
 #include "sslPublic.h"
 #include "../attacker.h"
 #include <io.h>
+#include "Utils/Tools.h"
 
-
-//带括号的是正版 https://blog.csdn.net/oldmtn/article/details/52208747
 
 
 //(openssl x509 -req -in ca/ca-req.csr -out ca/ca-cert.pem -signkey ca/ca-key.pem -days 3650)
 int MakeCert::makeCRTSelf(string csrfn, string password, string certfn, string cakeyfn) {
-
-	char* signcmdformat = "openssl x509 -req -days 3650 -passin pass:%s -in %s -signkey %s -out %s";
+	string exe = gOpensslWinPath + "openssl.exe";
+	char* signcmdformat = " x509 -req -days 3650 -passin pass:%s -in \"%s\" -signkey \"%s\" -out \"%s\"";
 	char szcmd[1024];
-	int len = wsprintfA(szcmd, signcmdformat, password.c_str(), csrfn.c_str(), cakeyfn.c_str(), certfn.c_str());
+	int len = wsprintfA(szcmd, signcmdformat,  password.c_str(), csrfn.c_str(), cakeyfn.c_str(), certfn.c_str());
 
-	int ret = system(szcmd);
+	int ret = RunProcess(exe.c_str(),szcmd,gOpensslRoot.c_str(),0,0);
 	if (ret)
 	{
-		printf("makeCRTSelf error:%u\r\n", GetLastError());
+		log("makeCRTSelf error:%u\r\n", GetLastError());
 		return FALSE;
 	}
 
@@ -35,15 +35,15 @@ int MakeCert::makeCRTSelf(string csrfn, string password, string certfn, string c
 
 //openssl x509 -req -in subcacsr.csr -out subcacrt.crt -passin pass:12345678 -signkey subca.key -CA cacrt.crt -CAkey cakey.key -CAcreateserial -days 3650
 int MakeCert::makeCRT(string csrfn, string password, string subcakey, string cacertfn, string certfn, string cakeyfn) {
-
-	char* signcmdformat = "openssl x509 -req -in %s -passin pass:%s -signkey %s -CA %s -CAkey %s -CAcreateserial -out %s -extensions v3_ca -days 3650";
+	string exe = gOpensslWinPath + "openssl.exe";
+	char* signcmdformat = " x509 -req -in \"%s\" -passin pass:%s -signkey \"%s\" -CA \"%s\" -CAkey \"%s\" -CAcreateserial -out \"%s\" -extensions v3_ca -days 3650";
 	char szcmd[1024];
 	int len = wsprintfA(szcmd, signcmdformat, csrfn.c_str(), password.c_str(), subcakey.c_str(), cacertfn.c_str(), cakeyfn.c_str(), certfn.c_str());
 
-	int ret = system(szcmd);
+	int ret = RunProcess(exe.c_str(), szcmd, gOpensslRoot.c_str(), 0, 0);
 	if (ret)
 	{
-		printf("makeCRT error:%u\r\n", GetLastError());
+		log("makeCRT error:%u\r\n", GetLastError());
 		return FALSE;
 	}
 
@@ -63,19 +63,19 @@ int MakeCert::makeCRT(string csrfn, string password, string subcakey, string cac
 //(openssl req -new -out server/server-req.csr -key server/server-key.pem)
 int MakeCert::makeCSR(string keyfn, string password, string c, string st, string l, string o, string ou, string cn, string e, string outcsrfn) {
 	char* cmdformat =
-		"openssl req -new -key %s "\
+		" req -new -key \"%s\" "\
 		"-passin pass:%s "\
 		"-subj /C=%s/ST=%s/L=%s/O=%s/OU=%s/CN=%s/emailAddress=%s "\
-		"-extensions v3_ca -out %s -days 3650";
-
+		"-extensions v3_ca -out \"%s\" -days 3650";
+	string exe = gOpensslWinPath + "openssl.exe";
 	char szcmd[1024];
-	int len = wsprintfA(szcmd, cmdformat, keyfn.c_str(), password.c_str(),
+	int len = wsprintfA(szcmd, cmdformat, keyfn.c_str(),  password.c_str(),
 		c.c_str(), st.c_str(), l.c_str(), o.c_str(), ou.c_str(), cn.c_str(), e.c_str(), outcsrfn.c_str());
 
-	int ret = system(szcmd);
+	int ret = RunProcess(exe.c_str(), szcmd, gOpensslRoot.c_str(), 0, 0);
 	if (ret)
 	{
-		printf("makeCSR error:%u\r\n", GetLastError());
+		log("makeCSR error:%u\r\n", GetLastError());
 		return FALSE;
 	}
 	return TRUE;
@@ -87,15 +87,15 @@ int MakeCert::makeCSR(string keyfn, string password, string c, string st, string
 
 //openssl ca -in app.csr -out app.crt -cert CA.crt -keyfile CA.key -days 1826 -policy policy_anything
 int MakeCert::makeSuperCRT(string csrfn, string password, string cacertfn, string certfn, string cakeyfn) {
-
-	char* signcmdformat = "openssl ca -extensions v3_ca -passin pass:%s -in %s -out %s -cert %s -keyfile %s -days 3650 -policy policy_anything -batch";
+	string exe = gOpensslWinPath + "openssl.exe";
+	char* signcmdformat = " ca -extensions v3_ca -passin pass:%s -in \"%s\" -out \"%s\" -cert \"%s\" -keyfile \"%s\" -days 3650 -policy policy_anything -batch";
 	char szcmd[1024];
-	int len = wsprintfA(szcmd, signcmdformat, password.c_str(), csrfn.c_str(), certfn.c_str(), cacertfn.c_str(), cakeyfn.c_str());
+	int len = wsprintfA(szcmd, signcmdformat,  password.c_str(), csrfn.c_str(), certfn.c_str(), cacertfn.c_str(), cakeyfn.c_str());
 
-	int ret = system(szcmd);
+	int ret = RunProcess(exe.c_str(), szcmd, gOpensslRoot.c_str(), 0, 0);
 	if (ret)
 	{
-		printf("makeSuperCRT error:%u\r\n", GetLastError());
+		log("makeSuperCRT error:%u\r\n", GetLastError());
 		return FALSE;
 	}
 
@@ -105,13 +105,14 @@ int MakeCert::makeSuperCRT(string csrfn, string password, string cacertfn, strin
 
 //passout代替shell进行密码输入否则会提示输入密码
 int MakeCert::makeKey(string password, string keypath, int bitcnt) {
-	char* cmdformat = "openssl genrsa -passout pass:%s -out \"%s\" %u";
+	string exe = gOpensslWinPath + "openssl.exe";
+	char* cmdformat = " genrsa -passout pass:%s -out \"%s\" %u";
 	char cmd[1024];
-	int len = wsprintfA(cmd, cmdformat, password.c_str(), keypath.c_str(), bitcnt);
-	int ret = system(cmd);
+	int len = wsprintfA(cmd, cmdformat,password.c_str(), keypath.c_str(), bitcnt);
+	int ret = RunProcess(exe.c_str(), cmd, gOpensslRoot.c_str(), 0, 0);
 	if (ret)
 	{
-		printf("makeKey error:%u\r\n", GetLastError());
+		log("makeKey:%s error:%u\r\n", cmd, GetLastError());
 		return FALSE;
 	}
 	return TRUE;
@@ -120,8 +121,9 @@ int MakeCert::makeKey(string password, string keypath, int bitcnt) {
 //openssl req -new -x509 -days 5480 -subj /C=US/ST=California/O=GeoAuth\ Inc./CN=Authentication\ Global\ Root -keyout CA.key -out CA.crt
 int MakeCert::makeSuperCACRT(string keyfn, string password,
 	string c, string st, string l, string o, string ou, string cn, string e, string outcrtfn) {
+	string exe = gOpensslWinPath + "openssl.exe";
 	char* cmdformat =
-		"openssl req -new -x509 -days 3650 -keyout \"%s\" "\
+		" req -new -x509 -days 3650 -keyout \"%s\" "\
 		"-passout pass:%s "\
 		"-subj /C=%s/ST=%s/L=%s/O=%s/OU=%s/CN=%s/emailAddress=%s "\
 		"-extensions v3_ca "		//v3-ca is for version v1 v2 v3 
@@ -131,19 +133,19 @@ int MakeCert::makeSuperCACRT(string keyfn, string password,
 	int len = wsprintfA(szcmd, cmdformat, keyfn.c_str(), password.c_str(),
 		c.c_str(), st.c_str(), l.c_str(), o.c_str(), ou.c_str(), cn.c_str(), e.c_str(), outcrtfn.c_str());
 
-	int ret = system(szcmd);
+	int ret = RunProcess(exe.c_str(), szcmd, gOpensslRoot.c_str(), 0, 0);
 	if (ret)
 	{
-		printf("makSupereCACRT error:%u\r\n", GetLastError());
+		log("makSupereCACRT:%s error:%u\r\n",szcmd, GetLastError());
 		return FALSE;
 	}
 
-	char passwordprotect[] = "openssl rsa -in \"%s\" -out \"%s\" -passin pass:%s";
-	len = wsprintfA(szcmd, passwordprotect, keyfn.c_str(), keyfn.c_str(), password.c_str());
-	ret = system(szcmd);
+	char pwprotect[] = " rsa -in \"%s\" -out \"%s\" -passin pass:%s";
+	len = wsprintfA(szcmd, pwprotect, keyfn.c_str(), keyfn.c_str(), password.c_str());
+	ret = RunProcess(exe.c_str(), szcmd, gOpensslRoot.c_str(), 0, 0);
 	if (ret)
 	{
-		printf("makSupereCACRT remove password protect error:%u\r\n", GetLastError());
+		log("makSupereCACRT:%s error:%u\r\n", szcmd, GetLastError());
 		return FALSE;
 	}
 	return TRUE;
@@ -156,21 +158,23 @@ int MakeCert::makeSuperCACRT(string keyfn, string password,
 //-reqexts SAN -config c:\openssl\bin\openssl.cfg -out server.csr
 int MakeCert::makeExtCSR(string keyfn, string password, string c, string st, string l, string o, string ou, string cn, string e, string cfgpath, string outcsrfn) {
 	char* cmdformat =
-		"openssl req -new -key \"%s\" "\
+		"req -new -key \"%s\" "\
 		"-passin pass:%s "\
 		"-subj /C=%s/ST=%s/L=%s/O=%s/OU=%s/CN=%s/emailAddress=%s "\
 		"-extensions v3_ca "
 		"-reqexts SAN -config \"%s\" "
 		"-out \"%s\" -days 3650";
 
+	string exe = gOpensslWinPath + "openssl.exe";
+
 	char szcmd[1024];
 	int len = wsprintfA(szcmd, cmdformat, keyfn.c_str(), password.c_str(),
 		c.c_str(), st.c_str(), l.c_str(), o.c_str(), ou.c_str(), cn.c_str(), e.c_str(), cfgpath.c_str(), outcsrfn.c_str());
 
-	int ret = system(szcmd);
+	int ret = RunProcess(exe.c_str(), szcmd, gOpensslRoot.c_str(), 0, 0);
 	if (ret)
 	{
-		printf("makeCSR:%s error:%u\r\n", szcmd, GetLastError());
+		log("makeCSR:%s error:%u\r\n", szcmd, GetLastError());
 		return FALSE;
 	}
 	return TRUE;
@@ -181,15 +185,17 @@ int MakeCert::makeExtCSR(string keyfn, string password, string c, string st, str
 //openssl ca -in server.csr -md sha256 -keyfile ca.key -cert ca.crt -extensions SAN -config c:\openssl\bin\openssl.cfg -out server.crt
 int MakeCert::makeExtCRT(string cfgpath, string csrfn, string password, string cacertfn, string certfn, string cakeyfn) {
 
-	char* signcmdformat = "openssl ca -extensions SAN -config \"%s\" -passin pass:%s -in \"%s\" -out \"%s\" -cert \"%s\" -keyfile \"%s\" "\
-		"-days 3650 -policy policy_anything -batch";
+	char* signcmdformat = " ca -extensions SAN -config \"%s\" -passin pass:%s -in \"%s\" -out \"%s\" -cert \"%s\" -keyfile \"%s\" "\
+		" -days 3650 -policy policy_anything -batch";
 	char szcmd[1024];
-	int len = wsprintfA(szcmd, signcmdformat, cfgpath.c_str(), password.c_str(), csrfn.c_str(), certfn.c_str(), cacertfn.c_str(), cakeyfn.c_str());
 
-	int ret = system(szcmd);
+	string exe = gOpensslWinPath + "openssl.exe";
+	int len = wsprintfA(szcmd,  signcmdformat,  cfgpath.c_str(), password.c_str(), csrfn.c_str(), certfn.c_str(), cacertfn.c_str(), cakeyfn.c_str());
+
+	int ret = RunProcess(exe.c_str(), szcmd, gOpensslRoot.c_str(), 0, 0);
 	if (ret)
 	{
-		printf("makeSuperCRT error:%u\r\n", GetLastError());
+		log("makeSuperCRT error:%u\r\n", GetLastError());
 		return FALSE;
 	}
 
@@ -220,13 +226,13 @@ int MakeCert::makeCA(string cacsrpath, string cacrtpath, string cakeypath) {
 	ret = makeKey(PRIVATE_KEY_PWD, subcsrkey, MAKE_KEY_LEN);
 	if (ret == FALSE)
 	{
-		printf("make sub ca key error\r\n");
+		log("make sub ca key error\r\n");
 		MessageBoxA(0, "make sub ca key error", "make sub ca key error", MB_OK);
 		exit(0);
 	}
 
 #ifdef DEBUG_MAKE_CERT_V3
-	string cfgpath = gOpensslPath + OPENSSLCONFIG_FILENAME;
+	string cfgpath = gOpensslWinPath + OPENSSLCONFIG_FILENAME;
 	ret = makeSuperCACRT(cakeypath, string(PRIVATE_KEY_PWD),
 		ROOT_CERT_C, ROOT_CERT_ST, ROOT_CERT_L, ROOT_CERT_O, ROOT_CERT_OU, ROOT_CERT_CN, ROOT_CERT_E, cfgpath, cacrtpath);
 	if (ret == FALSE)
@@ -236,12 +242,12 @@ int MakeCert::makeCA(string cacsrpath, string cacrtpath, string cakeypath) {
 		exit(0);
 	}
 #elif defined DEBUG_MAKE_CERT_V3_EXT
-	string cfgpath = gOpensslPath + OPENSSLCONFIG_FILENAME;
+	string cfgpath = gOpensslWinPath + OPENSSLCONFIG_FILENAME;
 	ret = makeSuperCACRT(cakeypath, string(PRIVATE_KEY_PWD),
 		ROOT_CERT_C, ROOT_CERT_ST, ROOT_CERT_L, ROOT_CERT_O, ROOT_CERT_OU, ROOT_CERT_CN, ROOT_CERT_E, cacrtpath);
 	if (ret == FALSE)
 	{
-		printf("ca makSupereCACSR error\r\n");
+		log("ca makSupereCACSR error\r\n");
 		MessageBoxA(0, "ca makSupereCACSR error", "ca makSupereCACSR error", MB_OK);
 		exit(0);
 	}
@@ -279,6 +285,8 @@ int MakeCert::checkCAExist() {
 	string cacsrpath = gLocalPath + CA_CERT_PATH + "\\" + CA_CSR_FILENAME;
 	string cacrtpath = gLocalPath + CA_CERT_PATH + "\\" + CA_CRT_FILENAME;
 
+	CopyFileA((gLocalPath + DIGICERTCA).c_str(), (gLocalPath + CA_CERT_PATH + "\\" + DIGICERTCA).c_str(), 0);
+
 	HANDLE hf = CreateFileA(cakeypath.c_str(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
 	if (hf == INVALID_HANDLE_VALUE)
 	{
@@ -311,124 +319,142 @@ int MakeCert::checkCAExist() {
 
 
 
-//域名得层级是倒叙的
-//.COM 商业机构
-//网络提供商的.net 
-//表示非盈利组织的.org
+HANDLE g_mutext = 0;
+CRITICAL_SECTION g_section = { 0 };
+
+int MakeCert::initCertMutex() {
+	g_mutext = CreateMutexA(NULL, TRUE, NULL);
+	InitializeCriticalSection(&g_section);
+	return 0;
+}
+
 
 int MakeCert::MakesureCertExist(string servername) {
 	int ret = 0;
-	if (servername == "")
+	int bret = FALSE;
+
+	//WaitForSingleObject(g_mutext,1000);
+	EnterCriticalSection(&g_section);
+
+	do
 	{
-		return FALSE;
-		servername = "localhost.com";
-	}
-	string crtfn = gLocalPath + CERT_PATH + "\\" + servername + ".crt";
-	string outcsrfn = gLocalPath + CERT_PATH + "\\" + servername + ".csr";
-
-	string subkeyfn = gLocalPath + CA_CERT_PATH + "\\" + SUBCA_KEY_FILENAME;
-
-	string cakeyfn = gLocalPath + CA_CERT_PATH + "\\" + CA_KEY_FILENAME;
-
-	//string cacsrfn = gLocalPath + CA_CERT_PATH + "\\" + CA_CSR_FILENAME;
-
-	string cacrtfn = gLocalPath + CA_CERT_PATH + "\\" + CA_CRT_FILENAME;
-
-	string password = string(PRIVATE_KEY_PWD);
-
-	HANDLE hfcrt = CreateFileA(crtfn.c_str(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
-	if (hfcrt != INVALID_HANDLE_VALUE) {
-		int crtfs = GetFileSize(hfcrt, 0);
-		CloseHandle(hfcrt);
-		if (crtfs > 0)
+		if (servername == "")
 		{
-			return TRUE;
+			break;
 		}
-		else {
-			ret = DeleteFileA(crtfn.c_str());
-		}
-	}
+		string crtfn = gLocalPath + CERT_PATH + "\\" + servername + ".crt";
+		string outcsrfn = gLocalPath + CERT_PATH + "\\" + servername + ".csr";
 
-	string cfgsrcfile = gOpensslPath + OPENSSLCONFIG_FILENAME;
-	string cfgpath = gOpensslPath + OPENSSLCONFIG_FILENAME + "_" + servername;
-	ret = CopyFileA(cfgsrcfile.c_str(), cfgpath.c_str(), 0);
-	if (ret == 0)
-	{
-		printf("copy openssl config file from:%s to:%s error code:%u\r\n", cfgsrcfile.c_str(), cfgpath.c_str(), GetLastError());
-		return FALSE;
-	}
+		string subkeyfn = gLocalPath + CA_CERT_PATH + "\\" + SUBCA_KEY_FILENAME;
 
-	//multi dns format:
-	//"\n[ SAN ]\nsubjectAltName=DNS:qq1.com\n"
-	//"\n[ SAN ]\nsubjectAltName=DNS:qq2.com\n"
-	//"\n[ SAN ]\nsubjectAltName=DNS:qq3.com\n"
+		string cakeyfn = gLocalPath + CA_CERT_PATH + "\\" + CA_KEY_FILENAME;
 
+		//string cacsrfn = gLocalPath + CA_CERT_PATH + "\\" + CA_CSR_FILENAME;
 
-//#define __CERT_IMPORT_TEST
-#ifdef _DEBUG
-#ifdef __CERT_IMPORT_TEST
-	char* dns = (char*)servername.c_str();
-	int dnslen = servername.length();
-	int flag = 0;
-	for (int i = dnslen - 1; i >= 0; i--)
-	{
-		if (dns[i] == '.')
-		{
-			flag++;
-			if (flag == 2)
+		string cacrtfn = gLocalPath + CA_CERT_PATH + "\\" + CA_CRT_FILENAME;
+
+		string password = string(PRIVATE_KEY_PWD);
+
+		HANDLE hfcrt = CreateFileA(crtfn.c_str(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, 0,
+			OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+		if (hfcrt != INVALID_HANDLE_VALUE) {
+			int crtfs = GetFileSize(hfcrt, 0);
+			CloseHandle(hfcrt);
+			if (crtfs > 0)
 			{
-				dns[i] = '0';
-				flag = 0;
+				bret = TRUE;
 				break;
 			}
+			else {
+				ret = DeleteFileA(crtfn.c_str());
+			}
 		}
-	}
+
+		string cfgsrcfile = gOpensslWinPath + OPENSSLCONFIG_FILENAME;
+		string cfgpath = gOpensslWinPath + "demoCA\\mycerts\\"+ OPENSSLCONFIG_FILENAME + "_" + servername;
+		ret = CopyFileA(cfgsrcfile.c_str(), cfgpath.c_str(), 0);
+		if (ret == 0)
+		{
+			log("copy openssl config file from:%s to:%s error:%u\r\n", cfgsrcfile.c_str(), cfgpath.c_str(), GetLastError());
+			break;
+		}
+
+		//multi dns format:
+		//"\n[ SAN ]\nsubjectAltName=DNS:qq1.com\n"
+		//"\n[ SAN ]\nsubjectAltName=DNS:qq2.com\n"
+		//"\n[ SAN ]\nsubjectAltName=DNS:qq3.com\n"
+
+
+	//#define __CERT_IMPORT_TEST
+#ifdef _DEBUG
+#ifdef __CERT_IMPORT_TEST
+		char* dns = (char*)servername.c_str();
+		int dnslen = servername.length();
+		int flag = 0;
+		for (int i = dnslen - 1; i >= 0; i--)
+		{
+			if (dns[i] == '.')
+			{
+				flag++;
+				if (flag == 2)
+				{
+					dns[i] = '0';
+					flag = 0;
+					break;
+				}
+			}
+		}
 #endif
 #endif
 
 #define SUBJECT_NAME_LIMIT 1024
-	char szout[1024];
-	char szbuf[SUBJECT_NAME_LIMIT];
-	int altnamelen = wsprintfA(szbuf, "\n[ SAN ]\nsubjectAltName=DNS:%s\n", servername.c_str());
-	HANDLE hfcfg = CreateFileA(cfgpath.c_str(), GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
-	if (hfcfg == INVALID_HANDLE_VALUE)
-	{
-		printf("CreateFileA openssl config file:%s,error code:%u\r\n", cfgpath.c_str(), GetLastError());
-		return FALSE;
-	}
-	ret = SetFilePointer(hfcfg, 0, 0, FILE_END);
-	DWORD dwcnt = 0;
-	ret = WriteFile(hfcfg, szbuf, altnamelen, &dwcnt, 0);
-	ret = FlushFileBuffers(hfcfg);
-	CloseHandle(hfcfg);
-	if (ret == FALSE)
-	{
-		printf("WriteFile openssl config file:%s,error code:%u\r\n", szbuf, GetLastError());
-		return FALSE;
-	}
+		char szout[1024];
+		char szbuf[SUBJECT_NAME_LIMIT];
+		int altnamelen = wsprintfA(szbuf, "\n[ SAN ]\nsubjectAltName=DNS:%s\n", servername.c_str());
+		HANDLE hfcfg = CreateFileA(cfgpath.c_str(), GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+			0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+		if (hfcfg == INVALID_HANDLE_VALUE)
+		{
+			log("CreateFileA openssl config file:%s,error code:%u\r\n", cfgpath.c_str(), GetLastError());
+			break;
+		}
+		ret = SetFilePointer(hfcfg, 0, 0, FILE_END);
+		DWORD dwcnt = 0;
+		ret = WriteFile(hfcfg, szbuf, altnamelen, &dwcnt, 0);
+		ret = FlushFileBuffers(hfcfg);
+		CloseHandle(hfcfg);
+		if (ret == FALSE)
+		{
+			log("WriteFile openssl config file:%s,error code:%u\r\n", szbuf, GetLastError());
+			break;
+		}
 
-	//nRetCode = makeCSR(subkeyfn, password, 
-	//	ROOT_CERT_C, ROOT_CERT_ST, ROOT_CERT_L, ROOT_CERT_O, ROOT_CERT_OU, servername, ROOT_CERT_E,  outcsrfn);
-	ret = DeleteFileA(outcsrfn.c_str());
-	ret = MakeCert::makeExtCSR(subkeyfn, password,
-		ROOT_CERT_C, ROOT_CERT_ST, ROOT_CERT_L, ROOT_CERT_O, ROOT_CERT_OU, servername.c_str(), ROOT_CERT_E, cfgpath, outcsrfn);
-	if (ret == FALSE)
-	{
-		int outlen = wsprintfA(szout, "makeExtCSR:%s error code:%u\r\n", servername.c_str(), GetLastError());
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
-		return FALSE;
-	}
+		//nRetCode = makeCSR(subkeyfn,password,ROOT_CERT_C,ROOT_CERT_ST,ROOT_CERT_L,ROOT_CERT_O,ROOT_CERT_OU,servername,ROOT_CERT_E,outcsrfn);
+		ret = DeleteFileA(outcsrfn.c_str());
+		ret = MakeCert::makeExtCSR(subkeyfn, password,
+			ROOT_CERT_C, ROOT_CERT_ST, ROOT_CERT_L, ROOT_CERT_O, ROOT_CERT_OU, servername.c_str(), ROOT_CERT_E, cfgpath, outcsrfn);
+		if (ret == FALSE)
+		{
+			log( "makeExtCSR:%s error code:%u\r\n", servername.c_str(), GetLastError());
+			break;
+		}
 
-	ret = MakeCert::makeExtCRT(cfgpath, outcsrfn, password, cacrtfn, crtfn, cakeyfn);
-	if (ret == FALSE)
-	{
-		int outlen = wsprintfA(szout, "makeExtCRT:%s error code:%u\r\n", servername.c_str(), GetLastError());
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
-		return FALSE;
-	}
+		ret = MakeCert::makeExtCRT(cfgpath, outcsrfn, password, cacrtfn, crtfn, cakeyfn);
+		if (ret == FALSE)
+		{
+			log( "makeExtCRT:%s error code:%u\r\n", servername.c_str(), GetLastError());
+			break;
+		}
 
-	ret = DeleteFileA(cfgpath.c_str());
-	ret = DeleteFileA(outcsrfn.c_str());
+		//ret = DeleteFileA(cfgpath.c_str());
+		//ret = DeleteFileA(outcsrfn.c_str());
 
-	return TRUE;
+		bret = TRUE;
+	} while (0);
+
+	//ReleaseMutex(g_mutext);
+
+	LeaveCriticalSection(&g_section);
+
+	return bret;
 }

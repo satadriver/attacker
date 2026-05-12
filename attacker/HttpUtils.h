@@ -16,7 +16,7 @@ class HttpUtils {
 public:
 	static int getContentLen(string lphttpdata, int len);
 
-	static bool isAscIP(string ip);
+	static int isAscIP(string ip);
 
 	static DWORD getIPFromHost(string host);
 
@@ -32,7 +32,7 @@ public:
 
 	static string HttpUtils::getUrl(const char * lppacket, int len);
 
-	static int parseHttpHdr(const char * packet, int datalen, int &type, string & httphdr,char **httpdata, string &url, string & host,int &port);
+	static int parseHttpHdr(const char * packet, int datalen, string & httphdr,char **httpdata, string &url, string & host,int &port);
 
 	static int isHttpPacket(const char * lpdata);
 

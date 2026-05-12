@@ -8,27 +8,24 @@
 #include "sslPublic.h"
 #include "../utils/Lock.h"
 
-#define PEEK_SERVERNAME_BUF_SIZE 2048
 
 
-class SslProxy {
+class SSLProxy {
 public:
-	SslProxy();
-	~SslProxy();
+	SSLProxy();
+	~SSLProxy();
 
-	SslProxy * mInstance;
+	SSLProxy* mInstance;
 
-	static int SslProxy::ReadPendingData(char * lpdata, int size, SSL * ssl);
+	static int SSLProxy::ReadPendingData(char * lpdata, int size, SSL * ssl);
 
-	static int SslProxy::SSLProxy(LPSSLPROXYPARAM pstSSLProxyParam);
+	static int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM pstSSLProxyParam);
 
+	static int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM pstSSLProxyParam);
 
+	static int __stdcall SSLProxy::SSL_Proxy(MIM_THREAD_PARAMS * param);
 
-	static int SslProxy::SSLConnectionMain(LPSSLPROXYPARAM pstSSLProxyParam);
-
-	static int __stdcall SslProxy::SSLConnection(LPWORKCONTROL param);
-
-	static int SslProxy::getServerNameFromClientHello(char * data, int len,unsigned char * servername,int & version);
+	static int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * servername,int & version);
 
 };
 

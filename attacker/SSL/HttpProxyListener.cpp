@@ -14,37 +14,30 @@
 #include "sslEntry.h"
 
 HttpProxyListener::HttpProxyListener() {
-	if (mInstance)
-	{
-		return;
-	}
 
 	mInstance = this;
 
 	mSock = BaseSocket::listenPort(HTTP_PORT);
 	if ((mSock == SOCKET_ERROR) || (mSock == INVALID_SOCKET))
 	{
-		printf("HTTP listenPort error\r\n");
-		Public::WriteLogFile("HTTP listenPort error\r\n");
+		log("%s %d error\n", __FUNCTION__, __LINE__);
 		MessageBoxA(0, "HTTPProxyListener listenPort error", "HTTPProxyListener listenPort error", MB_OK);
 		exit(-1);
 	}
-	else
-	{
-		printf("HTTP listener is ready\r\n");
-	}
 
-	gWorkControl.gHTTPEvent = CreateEventA(0, 0, 0, "gHTTPEvent");
+	g_thread_params.gHTTPEvent = CreateEventA(0, 0, 0, "gHTTPEvent");
 
-	gWorkControl.gHTTPListenEvent = CreateEventA(0, 0, TRUE, "gHTTPListenEvent");
-
-	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)HttpProxyListener::listener,
-		this, STACK_SIZE_PARAM_IS_A_RESERVATION, 0));
+	g_thread_params.gHTTPListenEvent = CreateEventA(0, 0, TRUE, "gHTTPListenEvent");
+	HANDLE ht = CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)HttpProxyListener::listener,
+		this, STACK_SIZE_PARAM_IS_A_RESERVATION, 0);
+	if(ht)
+		CloseHandle(ht);
 
 	int cnt = HTTP_WORK_THREAD_CNT;
-	for (int i = 0; i < cnt; i++)
-	{
-		CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HttpProxy::HTTPProxy, &gWorkControl, 0, 0));
+	for (int i = 0; i < cnt; i++){
+		ht = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HttpProxy::HTTPProxy, &g_thread_params, 0, 0);
+		if(ht)
+			CloseHandle(ht);
 	}
 }
 
@@ -62,56 +55,47 @@ int __stdcall HttpProxyListener::listener(HttpProxyListener * instance)
 	{
 		while (TRUE)
 		{
-			ret = WaitForSingleObject(gWorkControl.gHTTPListenEvent, INFINITE);
+			ret = WaitForSingleObject(g_thread_params.gHTTPListenEvent, INFINITE);
 
-			int iClientSockSize = sizeof(sockaddr_in);
+			int css = sizeof(sockaddr_in);
 			sockaddr_in saClient = { 0 };
-			int sockClient = accept(instance->mSock, (sockaddr*)&saClient, &iClientSockSize);
+			int sockClient = accept(instance->mSock, (sockaddr*)&saClient, &css);
 			if (sockClient != INVALID_SOCKET && sockClient > 0)
 			{
-				LPHTTPPROXYPARAM pstHttpProxyParam = (LPHTTPPROXYPARAM)new HTTPPROXYPARAM;
-				memset(pstHttpProxyParam, 0, sizeof(HTTPPROXYPARAM));
-				pstHttpProxyParam->usPort = HTTP_PORT;
-				pstHttpProxyParam->timeclient = time(0);
-				pstHttpProxyParam->timeserver = pstHttpProxyParam->timeclient;
-				pstHttpProxyParam->sockToClient = sockClient;
-				pstHttpProxyParam->saToClient = saClient;
+				LPHTTPPROXYPARAM hpp = (LPHTTPPROXYPARAM)new HTTPPROXYPARAM;
+				memset(hpp, 0, sizeof(HTTPPROXYPARAM));
+				hpp->usPort = HTTP_PORT;
+				hpp->timeclient = time(0);
+				hpp->timeserver = hpp->timeclient;
+				hpp->sockToClient = sockClient;
+				hpp->saToClient = saClient;
 
-				Deamon::addHttp(pstHttpProxyParam);
+				Deamon::addHttp(hpp);
 
-				gWorkControl.gHTTPProxyParam = pstHttpProxyParam;
+				g_thread_params.gHTTPProxyParam = hpp;
 
-				ret = SetEvent(gWorkControl.gHTTPEvent);
+				ret = SetEvent(g_thread_params.gHTTPEvent);
 			}
 			else
 			{
-				wsprintfA(szout, "HTTP监听线程accept错误码:%d\n", WSAGetLastError());
-				Public::WriteLogFile(szout);
-				printf(szout);
+				log( "HTTP监听线程accept错误码:%d\n", WSAGetLastError());
 
 				closesocket(instance->mSock);
 
 				instance->mSock = BaseSocket::listenPort(HTTP_PORT);
 				if ((instance->mSock == SOCKET_ERROR) || (instance->mSock == INVALID_SOCKET))
 				{
-					printf("HTTP listenPort error\r\n");
-					Public::WriteLogFile("HTTP listenPort error\r\n");
+					log("HTTP listenPort error for second time\r\n");
 					exit(-1);
-					return FALSE;
 				}
 
-				SetEvent(gWorkControl.gHTTPListenEvent);
+				SetEvent(g_thread_params.gHTTPListenEvent);
 			}
 		}
 	}
 	__except (1)
 	{
-		SYSTEMTIME stSysTm = { 0 };
-		GetLocalTime(&stSysTm);
-		int len = wsprintfA(szout, "HTTP监听线程发生异常,错误码:%u,时间:%d.%d.%d %d:%d:%d\r\n", GetLastError(),
-			stSysTm.wYear, stSysTm.wMonth, stSysTm.wDay, stSysTm.wHour, stSysTm.wMinute, stSysTm.wSecond);
-		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
+		log(szout, "HTTP listener error code:%u\r\n", GetLastError());
 		return FALSE;
 	}
 }

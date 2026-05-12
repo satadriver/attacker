@@ -88,7 +88,7 @@ int Plugin2345::replyPlugin2345(char * dstbuf, int limit, LPHTTPPROXYPARAM lphtt
 		int filesize = CryptoUtils::getUpdateFileMd5(filename, szmd5, hexmd5, TRUE);
 
 		char result[4096];
-		float mbsize = filesize / 1024 / 1024;
+		int mbsize = filesize / 1024 / 1024;
 		string ip = HttpUtils::getIPstr(gServerIP) + "/" + lphttp->username;
 
 		int retlen = sprintf(result, retformat, mbsize, ip.c_str(), WEIXIN_PC_UPDATE_EXE_FILENAME, szmd5);

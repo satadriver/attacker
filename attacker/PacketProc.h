@@ -15,7 +15,9 @@
 using namespace std;
 
 
-
+#define MIN_DNS_PACKET_SIZE			20
+#define MIN_TCP_PACKET_SIZE			4
+#define CAPRAW_ERROR_FILENAME		"capraw_error.txt"
 
 class Packet {
 public:
@@ -34,11 +36,13 @@ public:
 
 	Informer * mInformer;
 
+	Packet();
+
 	Packet(unsigned long serverip, unsigned long localip, string userPluginPath, int mode, pcap_t * pcapt);
 
 	~Packet();
 
-	int getIPHdr(LPMACHEADER mac, LPPPPOEHEADER & pppoe, LPIPHEADER &ip, LPIPV6HEADER &ipv6);
+	int getIPHdr(char * packet,LPMACHEADER & mac, LPPPPOEHEADER & pppoe, LPIPHEADER &ip, LPIPV6HEADER &ipv6);
 
 	int parsePacket(const char * pData, int iCapLen);
 };

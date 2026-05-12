@@ -7,9 +7,16 @@ using namespace std;
 
 class OpenSSLConfig {
 public:
-	static string getOpenSSLPath();
-	static int initOpensslPath(int control);
-	static int getOpenSSLPathFromCfg();
-	static int OpenSSLConfig::reset();
-	static int OpenSSLConfig::addSystemPath(string path);
+	static void GetOpensslPath();
+
+	static string getOpensslInstallPath();
+
+	static int getOpensslPathFromCfg();
+
+	static int InitOpenssl(int control);
+	
+	static int clearOpenssl();
+
+	static int addRunPath(string path);
+	
 };

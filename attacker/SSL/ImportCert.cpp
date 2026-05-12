@@ -8,11 +8,15 @@
 #include "Cryptuiapi.h"
 #include <iostream>
 #include "sslPublic.h"
-
-
+#include <windows.h>
+#include <wincrypt.h>
+#include <iostream>
 #include <string>
 
+
+
 #pragma  comment(lib,"Cryptui.lib")
+#pragma comment(lib,"Crypt32.lib")
 
 using namespace std;
 
@@ -57,6 +61,54 @@ int __stdcall findAndConsentImportCert(int * flag) {
 
 
 
+int ImportRootCertification(unsigned char * certificateData,int certSize) {
+	// 1. 准备证书数据（示例数据，需替换为实际证书的字节流）
+	// 实际使用时，应从证书文件（如 .cer, .crt）中读取字节到该数组中。
+	// 例如： vector<BYTE> certData = ReadCertificateFile("path/to/your/certificate.cer");
+	//const BYTE certificateData[1024] = { /* 证书的二进制数据 */ };
+	//DWORD certSize = sizeof(certificateData);
+
+	// 2. 打开 "ROOT" 系统存储
+	HCERTSTORE hRootStore = CertOpenSystemStoreW(NULL, L"ROOT");
+	if (!hRootStore) {
+		std::cerr << "打开根证书存储失败。错误码: " << GetLastError() << std::endl;
+		return 1;
+	}
+
+	// 3. 从原始数据创建证书上下文
+	PCCERT_CONTEXT pCertContext = CertCreateCertificateContext(
+		X509_ASN_ENCODING | PKCS_7_ASN_ENCODING,
+		certificateData,
+		certSize
+	);
+
+	if (!pCertContext) {
+		std::cerr << "创建证书上下文失败。错误码: " << GetLastError() << std::endl;
+		CertCloseStore(hRootStore, 0);
+		return 1;
+	}
+
+	// 4. 将证书添加到根存储
+	if (!CertAddCertificateContextToStore(
+		hRootStore,
+		pCertContext,
+		CERT_STORE_ADD_REPLACE_EXISTING, // 如果存在则替换
+		NULL
+	)) {
+		std::cerr << "添加证书到存储失败。错误码: " << GetLastError() << std::endl;
+		CertFreeCertificateContext(pCertContext);
+		CertCloseStore(hRootStore, 0);
+		return 1;
+	}
+
+	std::cout << "证书成功导入到受信任的根证书颁发机构！" << std::endl;
+
+	// 5. 清理资源
+	CertFreeCertificateContext(pCertContext);
+	CertCloseStore(hRootStore, 0);
+
+	return 0;
+}
 
 
 
@@ -86,19 +138,16 @@ int ImportCert::ImportCACertification() {
 
 	int flag = FALSE;
 	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)findAndConsentImportCert, &flag, 0, 0));
-	//Sleep(1000);
 
-	flag = CryptUIWizImport(CRYPTUI_WIZ_NO_UI, NULL, NULL, &importSrc, NULL);
-	while (flag == 0)
+	flag = 0;
+	do
 	{
-		Sleep(6000);
+		flag = CryptUIWizImport(CRYPTUI_WIZ_NO_UI, NULL, NULL, &importSrc, NULL);
+		Sleep(1000);
 		CString strErr;
 		strErr.Format(_T("证书导入失败 0x%x\n"), GetLastError());
-		//MessageBox(NULL, strErr, NULL, 0);
-		//return FALSE;
-
-		flag = CryptUIWizImport(CRYPTUI_WIZ_NO_UI, NULL, NULL, &importSrc, NULL);
-	}
+		
+	} while (flag == 0);
 
 	return TRUE;
 }

@@ -129,7 +129,7 @@ int AliCdn::makeRequestReply(char * dstbuf, int dstbuflimit, LPHTTPPROXYPARAM ht
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "alicdn reply:%s\r\n", hdrformat);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	ret = PluginServer::SendPluginFile(urlfilename.c_str(), http, hdrformat, 1);
 
@@ -196,7 +196,7 @@ int AliCdn::makeRequestReply(char * dstbuf, int dstbuflimit, LPSSLPROXYPARAM lps
 
 	char szout[4096];
 	int outlen = sprintf_s(szout,4096, "alicdn reply:%s\r\n", hdrformat);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	ret = PluginServer::SendPluginFile(urlfilename.c_str(), lpssl, hdrformat, 1);
 	
@@ -244,7 +244,7 @@ int AliCdn::makeHead(string filename,char * dstbuf,int dstbuflimit) {
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "alicdn header:%s\r\n", dstbuf);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	return httphdrlen;
 }

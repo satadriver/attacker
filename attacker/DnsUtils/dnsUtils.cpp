@@ -2,6 +2,7 @@
 #include "dnsUtils.h"
 #include <windows.h>
 #include "../Public.h"
+#include "../Utils/Tools.h"
 
 #define MAX_DNS_DOMAIN_NAME_SPLIT_SIZE 64
 
@@ -10,10 +11,7 @@ vector<string> gDnsTargets;
 
 
 DnsUitls::DnsUitls(vector<string> dnses) {
-	if (mInstance)
-	{
-		return;
-	}
+
 	mInstance = this;
 
 	gDnsTargets = dnses;
@@ -30,11 +28,13 @@ int DnsUitls::getDnsName(char * dnsname, char * ascname) {
 
 	char * asc = ascname;
 
+	int cnt = 0;
+
 	while (1)
 	{
 		int sublen = *dns;
 
-		if (sublen == 0  && *(asc - 1) == '.')
+		if (sublen == 0 && cnt > 0 && *(asc - 1) == '.')
 		{
 			*(asc - 1) = 0;
 			break;
@@ -60,11 +60,11 @@ int DnsUitls::getDnsName(char * dnsname, char * ascname) {
 			asc += sublen;
 			*asc = '.';
 			asc++;
+
+			cnt++;
 		}
 		else {
-			char szlog[1024];
-			int len = sprintf(szlog, "parse dns name:%s error\r\n", dns);
-			Public::WriteLogFile("dnserror.txt", szlog, len);
+			log( "%s % dparse dns name:%s error\r\n", __FUNCTION__, __LINE__, dns);
 			return -1;
 		}
 	}
@@ -113,31 +113,36 @@ string DnsUitls::dns2Host(char * dns) {
 
 
 string DnsUitls::host2Dns(string host) {
-	string newstr = "";
+	string dns = "";
 	for (unsigned int j = 0; j < host.length(); ) {
 
 		if (host.c_str()[j] == '.') {
-			newstr.append((char*)&j);
+			dns.append((char*)&j);
 
-			string tmp = host.substr(0, j);
-			newstr.append(tmp);
+			string substr = host.substr(0, j);
+			dns.append(substr);
 
 			host = host.substr(j + 1);
 
 			j = 0;
 		}
 		else {
-			j++;
+			if (isalpha(host.c_str()[j]) || isdigit(host.c_str()[j])) {
+				j++;
+			}
+			else {
+				return "";
+			}
 		}
 	}
 
 	if (host.length() > 0) {
 		int k = host.length();
-		newstr.append((char*)&k);
-		newstr.append(host);
+		dns.append((char*)&k);
+		dns.append(host);
 	}
 
-	return newstr;
+	return dns;
 }
 
 

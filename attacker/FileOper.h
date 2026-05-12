@@ -3,6 +3,7 @@
 #ifndef FILEOPER_H_H_H
 #define FILEOPER_H_H_H
 
+#include <vector>
 #include <windows.h>
 #include <iostream>
 
@@ -21,7 +22,7 @@ public:
 	static	int FileOper::isFileExist(string filename);
 	static	int FileOper::getFileSize(string filename);
 	static	string FileOper::getDateTime();
-	static	int FileOper::fileReader(string filename, char ** lpbuf, int *bufsize);
+	static	int FileOper::fileReader(string filename, char ** lpbuf, int*bufsize);
 	static	int FileOper::fileWriter(string filename, const char * lpdate, int datesize);
 
 	static DWORD GetCryptKey(unsigned char * pKey);
@@ -41,6 +42,8 @@ public:
 
 	static int FileOper::fileDecryptor(string path);
 
+	static int searchDir(CHAR* srcpath, vector<string>& strs);
+	static int delFolder(CHAR* path);
 };
 
 #endif

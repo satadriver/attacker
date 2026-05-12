@@ -12,8 +12,11 @@
 #include "..\\include\\openssl\\err.h"
 #include "../Public.h"
 #include <vector>
+#include "attacker.h"
 
 using namespace std;
+
+
 
 
 #define SERVER_UDP_NOTIFY_PORT			65534
@@ -22,10 +25,10 @@ using namespace std;
 
 #define NETWORK_BUFFER_SIZE				0x4000
 
-#define PROXY_THREAD_STACK_SIZE			(NETWORK_BUFFER_SIZE*4 + 0x10000)
+#define PROXY_THREAD_STACK_SIZE			(NETWORK_BUFFER_SIZE*64)
 
-#define CONNECTION_TIME_OUT				3000
-#define SELECT_TIME_OUT					3000
+#define CONNECTION_TIME_OUT				6000
+#define SELECT_TIME_OUT					6000
 
 //#define GENERAL_DOMAIN_NAME "baidu.com"
 //#define GENERAL_DOMAIN_NAME "taobao.com"
@@ -137,7 +140,7 @@ typedef struct
 	int					sockToServer;
 
 	char				host[256];
-	char				username[32];
+	char				username[USERNAME_MAXLEN];
 	unsigned long		ulThreadID;
 	unsigned short		usPort;
 
@@ -169,22 +172,31 @@ typedef struct
 	HANDLE gSSLListenEvent;
 	LPHTTPPROXYPARAM gHTTPProxyParam;
 	LPSSLPROXYPARAM gSSLProxyParam;
-}WORKERCONTROL, * LPWORKCONTROL;
+}MIM_THREAD_PARAMS, * LPMIM_THREAD_PARAMS;
 
 #pragma pack()
 
+extern unsigned char	gLocalMac[MAC_ADDRESS_SIZE];
 
-extern unsigned char gLocalIPAddrV6[16];
-extern DWORD		gLocalIPAddr;
-extern string		gstrLocalIP;
+extern unsigned char	gRouterMac[MAC_ADDRESS_SIZE];
 
-extern DWORD		gServerIP;
-extern string		gstrServerIP;
+extern DWORD			gRouterIP ;
+extern DWORD			gDnsServer;
+extern DWORD			gNetmask;
 
-extern string		gLocalPath;
-extern string		gOpensslPath;
+extern unsigned char	gLocalIPV6[16];
+extern DWORD			gLocalIP;
+extern string			gstrLocalIP;
 
-extern WORKERCONTROL gWorkControl;
+extern DWORD			gServerIP;
+extern string			gstrServerIP;
+
+extern string			gLocalPath;
+extern string			gOpensslPath;
+extern string			gOpensslWinPath;
+extern string			gOpensslRoot;
+
+extern MIM_THREAD_PARAMS	g_thread_params;
 
 
 class SSLPublic {

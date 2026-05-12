@@ -10,8 +10,8 @@
 
 using namespace std;
 
-#define HTTP_WORK_THREAD_CNT 64
-#define SSL_WORK_THREAD_CNT 64
+#define HTTP_WORK_THREAD_CNT	64
+#define SSL_WORK_THREAD_CNT		64
 
 class SSLEntry {
 public:

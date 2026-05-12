@@ -21,11 +21,11 @@ public:
 
 	static DWORD GetLocalIpAddress();
 
-	static int WriteLogFile(const char* szFileName, unsigned char* strBuffer, int iCounter, const char* tag);
+	static int writeFile(const char* szFileName, unsigned char* strBuffer, int iCounter, const char* tag);
 
-	static DWORD Public::WriteLogFile(const char* pFileName, const char* pData, int datasize);
+	static DWORD Public::writeFile(const char* pFileName, const char* pData, int datasize);
 
-	static DWORD WriteLogFile(const char* pData);
+	static DWORD writeLogFile(const char* pData);
 
 	static DWORD Public::log(const char* format, ...);
 
@@ -51,7 +51,7 @@ public:
 
 	static int Public::zipFiles(vector<string> inzipfns, vector<string> srcfns, string zipfn);
 
-	static DWORD checkInstanceExist();
+	static DWORD singleInstance();
 
 	static DWORD Public::recorduser(unsigned long ip, string app);
 
@@ -59,7 +59,7 @@ public:
 
 	static string winPath2Linux(const char* winpath);
 
-	static int Public::isipstr(const char* str);
+	//static int Public::isipstr(const char* str);
 
 	static int getNameAndPathFromUrl(string url, string& filename, string& path);
 

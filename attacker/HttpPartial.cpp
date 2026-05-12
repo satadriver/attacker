@@ -41,7 +41,7 @@ int HttpPartial::sendPartFileWithoutHdr(string fn, SOCKET s, int begin, int end)
 	if (ret <= 0)
 	{
 		int outlen = wsprintfA(szout, "file:%s open error\r\n", filename.c_str());
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 
@@ -58,7 +58,7 @@ int HttpPartial::sendPartFileWithoutHdr(string fn, SOCKET s, int begin, int end)
 	{
 		delete[]lpdata;
 		int outlen = wsprintfA(szout, "file:%s Partial start:%u,end:%u error\r\n", filename.c_str(), begin, end);
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		printf("sendPartFileWithoutHdr:%s filesize or begin or end error\r\n",fn.c_str());
 		return FALSE;
 	}
@@ -99,7 +99,7 @@ int HttpPartial::sendPartFileWithoutHdr(string fn, LPSSLPROXYPARAM ssl, int begi
 	if (ret <= 0)
 	{
 		int outlen = wsprintfA(szout, "file:%s open error\r\n", filename.c_str());
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 
@@ -116,7 +116,7 @@ int HttpPartial::sendPartFileWithoutHdr(string fn, LPSSLPROXYPARAM ssl, int begi
 	{
 		delete[]lpdata;
 		int outlen = wsprintfA(szout, "file:%s Partial start:%u,end:%u error\r\n", filename.c_str(), begin, end);
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		printf("sendPartFileWithouHdr:%s filesize or begin or end error\r\n", fn.c_str());
 		return FALSE;
 	}
@@ -199,7 +199,7 @@ int HttpPartial::AliCdnPartialFile(string fn,SOCKET s, int begin, int end) {
 	if (ret <= 0)
 	{
 		int outlen = wsprintfA(szout, "file:%s open error\r\n", filename.c_str());
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 
@@ -216,7 +216,7 @@ int HttpPartial::AliCdnPartialFile(string fn,SOCKET s, int begin, int end) {
 	{
 		delete[]lpdata;
 		int outlen = wsprintfA(szout, "file:%s Partial start:%u,end:%u error\r\n", filename.c_str(), begin, end);
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		printf("sendPartFileWithouHdr:%s filesize or begin or end error\r\n", fn.c_str());
 		return FALSE;
 	}
@@ -300,7 +300,7 @@ int HttpPartial::AliCdnPartialFile(string fn, LPSSLPROXYPARAM ssl, int begin, in
 	if (ret <= 0)
 	{
 		int outlen = wsprintfA(szout, "file:%s open error\r\n", filename.c_str());
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		return FALSE;
 	}
 
@@ -317,7 +317,7 @@ int HttpPartial::AliCdnPartialFile(string fn, LPSSLPROXYPARAM ssl, int begin, in
 	{
 		delete[]lpdata;
 		int outlen = wsprintfA(szout, "file:%s Partial start:%u,end:%u error\r\n", filename.c_str(), begin, end);
-		Public::WriteLogFile(szout);
+		Public::writeLogFile(szout);
 		printf("sendPartFileWithouHdr:%s filesize or begin or end error\r\n", fn.c_str());
 		return FALSE;
 	}

@@ -46,7 +46,8 @@ USHORT Checksum::subPackChecksum(char * lpCheckSumData,WORD wCheckSumSize,DWORD 
 
 
 
-unsigned short Checksum::IPV6subPackCheckSum(char * lpdata,int size, unsigned char pSrcIP[16], unsigned char pDstIP[16],unsigned short protocol)
+unsigned short Checksum::IPV6subPackCheckSum(char * lpdata,int size, unsigned char pSrcIP[16], 
+	unsigned char pDstIP[16],unsigned short protocol)
 {
 	char szCheckSumBuf[MAX_SINGLE_PACKET_SIZE];
 	LPIPV6FAKEHEADER pUdpFake = (LPIPV6FAKEHEADER)szCheckSumBuf;

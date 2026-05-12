@@ -10,6 +10,7 @@ using namespace std;
 class MakeCert {
 public:
 	static int MakesureCertExist(string servername);
+	static int MakeCert::initCertMutex();
 	static int makeKey(string passpath, string keypath, int bitcnt);
 
 	static int makeCSR(string keyfn, string password, string c, string st, string l, string o, string ou, string cn, string e, string outcsrfn);

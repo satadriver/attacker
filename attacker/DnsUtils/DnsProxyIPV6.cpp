@@ -3,11 +3,11 @@
 #include <stdio.h>
 #include "../HttpUtils.h"
 #include "../Packet.h"
-#include "../ssl/InformerClient.h"
+#include "../ssl/InformerInterface.h"
 #include <vector>
 #include "dnsUtils.h"
 #include "../Utils/BaseSocket.h"
-
+#include "../Utils/Tools.h"
 
 //2f65:bd0d
 //0000:0000:0000:0000:0000:0000:2f65:bd0d
@@ -25,10 +25,7 @@ unsigned char gIPV6Server[16] = { 0xfe,0x80,0,0,0,0,0,0,0,0,0,0,0,0,0,1 };
 
 
 DnsProxyIPV6::DnsProxyIPV6(unsigned long serverip) {
-	if (mInstance)
-	{
-		return;
-	}
+
 
 	mInstance = this;
 
@@ -76,8 +73,7 @@ int __stdcall DnsProxyIPV6::DnsProxyListener(DnsProxyIPV6 * instance) {
 	instance->mSockDns = BaseSocket::listenUdpIPV6Port(DNS_PORT);
 	if (instance->mSockDns <= 0)
 	{
-		Public::WriteLogFile("DnsProxyListener socket error\r\n");
-		printf("DnsProxyListener socket error\n");
+		log("%s % error\r\n", __FUNCTION__, __LINE__);
 		exit(-1);
 	}
 	else {
@@ -106,7 +102,7 @@ int __stdcall DnsProxyIPV6::DnsProxyListener(DnsProxyIPV6 * instance) {
 			if (dnslen > DNS_PACKET_LIMIT || dnslen <= 0)
 			{
 				int len = wsprintfA(szout, "DnsProxyListener recv length:%d error:%d\r\n", dnslen, WSAGetLastError());
-				Public::WriteLogFile(DNS_LOG_FILENAME, szout, len);
+				Public::writeFile(DNS_LOG_FILENAME, szout, len);
 				printf(szout);
 				continue;
 			}
@@ -144,7 +140,7 @@ int __stdcall DnsProxyIPV6::DnsProxyListener(DnsProxyIPV6 * instance) {
 				if (sendlen != sendsize) {
 					int len = wsprintfA(szout, "DnsProxyListener reply port:%d,dns:%s error\r\n",ntohs(saclient.sin6_port), 
 						lpdns + sizeof(DNSHEADER));
-					Public::WriteLogFile(DNS_LOG_FILENAME, szout, len);
+					Public::writeFile(DNS_LOG_FILENAME, szout, len);
 					printf(szout);
 				}
 				else {
@@ -156,7 +152,7 @@ int __stdcall DnsProxyIPV6::DnsProxyListener(DnsProxyIPV6 * instance) {
 					counter++;
 
 					//string strhost = DnsUitls::dns2Host(lpqueryname);
-					//InformerClient::storeTarget(strhost, G_USERNAME);
+					//InformerInterface::storeTarget(strhost, G_USERNAME);
 				}
 			}
 			else {
@@ -190,13 +186,13 @@ int __stdcall DnsProxyIPV6::DnsProxyListener(DnsProxyIPV6 * instance) {
 						{
 							delete[]lpdata;
 							int len = wsprintfA(szout, "DnsProxyListener insert dns:%s error:%u\r\n", lpqueryname, GetLastError());
-							Public::WriteLogFile(DNS_LOG_FILENAME, szout, len);
+							Public::writeFile(DNS_LOG_FILENAME, szout, len);
 						}
 					}
 					else {
 						delete[]lpdata;
 						int len = wsprintfA(szout, "DnsProxyListener get dns:%s error\r\n", lpqueryname);
-						Public::WriteLogFile(DNS_LOG_FILENAME, szout, len);
+						Public::writeFile(DNS_LOG_FILENAME, szout, len);
 						printf(szout);
 
 						continue;
@@ -213,13 +209,13 @@ int __stdcall DnsProxyIPV6::DnsProxyListener(DnsProxyIPV6 * instance) {
 				if (iRet <= 0)
 				{
 					int len = wsprintfA(szout, "DnsProxyListener send answer dns:%s error\r\n", lpqueryname);
-					Public::WriteLogFile(DNS_LOG_FILENAME, szout, len);
+					Public::writeFile(DNS_LOG_FILENAME, szout, len);
 					printf(szout);
 				}
 			}
 		}
 		__except (1) {
-			Public::WriteLogFile("DnsProxyListener exception\r\n");
+			Public::writeLogFile("DnsProxyListener exception\r\n");
 		}
 	}
 
@@ -267,7 +263,7 @@ unsigned int DnsProxyIPV6::getIPFromDNS(const char * dnsbuf, int sendlen, char *
 			if (instance->mSockQuery <= 0)
 			{
 				instance->mSockQuery = 0;
-				Public::WriteLogFile("getIPFromDNS createDnsSock errror\r\n");
+				Public::writeLogFile("getIPFromDNS createDnsSock errror\r\n");
 				return FALSE;
 			}
 		}
@@ -281,7 +277,7 @@ unsigned int DnsProxyIPV6::getIPFromDNS(const char * dnsbuf, int sendlen, char *
 		{
 			closesocket(instance->mSockQuery);
 			instance->mSockQuery = 0;
-			Public::WriteLogFile("getIPFromDNS send error\r\n");
+			Public::writeLogFile("getIPFromDNS send error\r\n");
 			return FALSE;
 		}
 
@@ -291,12 +287,12 @@ unsigned int DnsProxyIPV6::getIPFromDNS(const char * dnsbuf, int sendlen, char *
 		{
 			closesocket(instance->mSockQuery);
 			instance->mSockQuery = 0;
-			Public::WriteLogFile("getIPFromDNS recv error\r\n");
+			Public::writeLogFile("getIPFromDNS recv error\r\n");
 			return FALSE;
 		}
 	}
 	__except (1) {
-		Public::WriteLogFile("getIPFromDNS excepiton\r\n");
+		Public::writeLogFile("getIPFromDNS excepiton\r\n");
 		closesocket(instance->mSockQuery);
 		instance->mSockQuery = 0;
 		return FALSE;

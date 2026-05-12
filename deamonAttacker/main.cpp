@@ -10,11 +10,12 @@
 
 using namespace std;
 
-#define LOG_FILENAME "deamon.log"
-#define EXE_FILE_NAME "attacker.exe"
-#define MAX_HANDLES_COUNT 10000
-#define MAX_TIME_DURATION 24*60*60
-#define MAX_THREADS_COUNT 1024
+#define LOG_FILENAME			"deamon.log"
+#define EXE_FILE_NAME			"attacker.exe"
+#define MAX_HANDLES_COUNT		10000
+#define MAX_TIME_DURATION		24*60*60
+#define MAX_THREADS_COUNT		1024
+#define NETCARD_SELECTED_FILE	"cardNum.conf"
 
 DWORD WriteLogFile(const char * pData)
 {
@@ -187,7 +188,7 @@ int getcardno() {
 	char * data = 0;
 	int fs = 0;
 	int ret = 0;
-	ret = FileOper::fileReader("cardno.conf", &data, &fs);
+	ret = FileOper::fileReader(NETCARD_SELECTED_FILE, &data, &fs);
 	if (ret <= 0)
 	{
 		return -1;

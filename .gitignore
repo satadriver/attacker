@@ -1,33 +1,36 @@
 # Prerequisites
 *.d
 
-[Dd]ebug/
-[Rr]elease/
-jy20200614/
-
-*.ipch
-*.ipdb
-*.ipdb
-*.iobj
-
-*.db
-
-*.VC.opendb
-
 # Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
 
+*.iobj
+*.VC.db
+*.ipch
+*.pch
+*.ipdb
+*.pdb
+*.ilk
+*.tlog
+*.log
+*.idb
+Thumbs.db
+/.vs
+/x64
+/debug
+/release
+/Debug
+/Release
+
 # Precompiled Headers
 *.gch
 *.pch
-*.pdb
-*.VC.db
 
 # Compiled Dynamic libraries
-*.so
+#*.so
 *.dylib
 #*.dll
 

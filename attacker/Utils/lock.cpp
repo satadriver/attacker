@@ -1,5 +1,6 @@
 #include "lock.h"
 #include "../Public.h"
+#include "../Utils/Tools.h"
 
 #define SLEEP_ONETIME 20
 
@@ -27,10 +28,7 @@ volatile int Lock::enterlock(TOOLSLOCK & lock, ULONGLONG id) {
 				lock.flag = TRUE;
 				lock.id = id;
 
-				char szout[1024];
-				wsprintfA(szout, "waiting for lock:%s,id:%I64u too long,force to break it\r\n", lock.name, lock.id);
-				Public::WriteLogFile(szout);
-				printf(szout);
+				log( "waiting for lock:%s,id:%I64u too long,force to break it\r\n", lock.name, lock.id);
 				break;
 			}
 		}
@@ -52,10 +50,7 @@ volatile int Lock::leavelock(TOOLSLOCK & lock, ULONGLONG id) {
 		return lock.flag;	
 	}
 
-	char szout[1024];
-	wsprintfA(szout, "leavelock:%s,id:%I64u,last id:%I64u,value:%u error\r\n", lock.name, lock.id, id, lock.flag);
-	Public::WriteLogFile(szout);
-	printf(szout);
+	log( "leavelock:%s,id:%I64u,last id:%I64u,value:%u error\r\n", lock.name, lock.id, id, lock.flag);
 
 	return lock.flag;
 }

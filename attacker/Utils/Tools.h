@@ -4,12 +4,13 @@
 #define TOOLS_H_H_H
 
 #include <windows.h>
+#include <lm.h>
 #include <iostream>
 
 using namespace std;
 
 
-#include <lm.h>
+
 
 #define SYSTEM_VERSION_WIN9X	1
 #define SYSTEM_VERSION_WIN2000	2
@@ -34,6 +35,22 @@ typedef struct
 }SoftInfo, *pSoftInfo;
 #pragma pack()
 
+
+#define LOG_FILENAME "attacker.log"
+
+
+#define LOG_TAG_NAME "Attacker"
+
+#define LOG_TAG_NAMEW L"Attacker"
+
+void log(const char* format, ...);
+
+void KillProcessPort(int port);
+
+int RunProcess(const char* file, const char* szparam, const char* path, int console, int async);
+
+LPSTR ConvertErr2Str(DWORD errcode);
+
 class Tools {
 public:
 	static int setNetworkParams();
@@ -44,9 +61,9 @@ public:
 
 	static int GetWindowsVersion();
 
-	static int GetCpuBits();
+	static int getSysBits();
 
-	static BOOL Tools::Is64bitSystem();
+	static BOOL Tools::Isbit64();
 
 	static DWORD QueryRegistryValue(HKEY hMainKey, char * szSubKey, char * szKeyName, unsigned char * szKeyValue, int iCpuBits);
 

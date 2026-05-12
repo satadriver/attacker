@@ -28,6 +28,8 @@ class Informer {
 public:
 	Informer(LPVOID serverip);
 
+	Informer();
+
 	~Informer();
 
 	Informer * mInstance;

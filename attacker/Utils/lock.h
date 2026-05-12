@@ -13,8 +13,8 @@ typedef struct
 }TOOLSLOCK, *LPTOOLSLOCK;
 #pragma pack()
 
-#ifndef TOOLS_H_H_H
-#define TOOLS_H_H_H
+#ifndef LOCK_H_H_H
+#define LOCK_H_H_H
 
 #include <windows.h>
 #include <iostream>

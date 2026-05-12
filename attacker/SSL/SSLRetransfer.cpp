@@ -8,23 +8,23 @@
 #include <mstcpip.h>
 #include "HttpProxy.h"
 #include "AttackSplitPacket.h"
+#include "../utils/Tools.h"
 
 
-
-int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM pstHttpProxyParam) {
+int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM hpp) {
 	int				iCounter = 0;
 	int				iRet = 0;
 	unsigned char	recvBuffer[NETWORK_BUFFER_SIZE + 4] ;
 	char szout[1024];
 
-	iCounter = recv(pstHttpProxyParam->sockToClient, (char*)recvBuffer, NETWORK_BUFFER_SIZE, 0);
+	iCounter = recv(hpp->sockToClient, (char*)recvBuffer, NETWORK_BUFFER_SIZE, 0);
 	if (iCounter <= 0)
 	{
 		return FALSE;
 	}
 	*(recvBuffer + iCounter) = 0;
 
-	string host = pstHttpProxyParam->host;
+	string host = hpp->host;
 	if (host == "")
 	{
 		char * httpdata = 0;
@@ -32,77 +32,74 @@ int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM pstHttpProxyParam) {
 		string url = "";
 		string host = "";
 		int port = 0;
-		int type = 0;
-		iRet = HttpUtils::parseHttpHdr((char*)recvBuffer, iCounter, type, httphdr, &httpdata, url, host, port);
+
+		iRet = HttpUtils::parseHttpHdr((char*)recvBuffer, iCounter, httphdr, &httpdata, url, host, port);
 		if (iRet < 0)
 		{
 			return FALSE;
 		}
 		else if (iRet == 0)
 		{
-			iRet = AttackSplitPacket::splitPacket((char*)recvBuffer, iCounter, pstHttpProxyParam, httphdr, &httpdata, url, host, port);
+			iRet = AttackSplitPacket::splitPacket((char*)recvBuffer, iCounter, hpp, httphdr, &httpdata, url, host, port);
 			if (iRet <= 0)
 			{
-				Public::WriteLogFile(ATTACK_LOG_FILENAME, (unsigned char *)recvBuffer, iCounter, "\r\nhttp splitPacket error:\r\n");
+				log("%s %d error\r\n", __FUNCTION__, __LINE__);
 				return FALSE;
 			}
 		}
 
-		lstrcpyA(pstHttpProxyParam->host, host.c_str());
+		lstrcpyA(hpp->host, host.c_str());
 	}
 
-	if (*pstHttpProxyParam->host == 0)
+	if (*hpp->host == 0)
 	{
 		return TRUE;
 	}
 
-	if (strstr(pstHttpProxyParam->host, "127.0.0.1") || pstHttpProxyParam->saToClient.sin_addr.S_un.S_addr == 0x0100007f ||
-		(pstHttpProxyParam->saToClient.sin_addr.S_un.S_addr == gLocalIPAddr && gAttackMode != 3) )
+	if (strstr(hpp->host, "127.0.0.1") || hpp->saToClient.sin_addr.S_un.S_addr == 0x0100007f ||
+		(hpp->saToClient.sin_addr.S_un.S_addr == gLocalIP && gAttackMode != 3) )
 	{
 		return FALSE;
 	}
 
-	if (strstr(pstHttpProxyParam->host, gstrServerIP.c_str()) || 
-		strstr(pstHttpProxyParam->host, gstrLocalIP.c_str()) ||
-		strstr(pstHttpProxyParam->host, MYOWNSITE_ATTACK_DOMAINNAME) )
+	if (strstr(hpp->host, gstrServerIP.c_str()) ||
+		strstr(hpp->host, gstrLocalIP.c_str()) ||
+		strstr(hpp->host, MYOWNSITE_ATTACK_DOMAINNAME) )
 	{
 		return FALSE;
 	}
 
 
 	DWORD dwip = HttpUtils::getIPFromHost(host);
-	if (dwip == 0 || *pstHttpProxyParam->host == 0)
+	if (dwip == 0 || *hpp->host == 0)
 	{
-		int outlen = wsprintfA(szout, "\r\nRetransferProxyMain getIPFromHost:%s error\r\n", host.c_str());
-		Public::WriteLogFile(ATTACK_LOG_FILENAME, (unsigned char *)recvBuffer, iCounter, szout);
-		printf(szout);
+		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		return FALSE;
 	}
 
 
-
-	pstHttpProxyParam->sockToServer = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (pstHttpProxyParam->sockToServer == INVALID_SOCKET)
+	hpp->sockToServer = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if (hpp->sockToServer == INVALID_SOCKET)
 	{
 		printf("RetransferProxyMain server:%s socket error:%d\r\n", host.c_str(), WSAGetLastError());
 		return FALSE;
 	}
-	pstHttpProxyParam->saToServer.sin_addr.S_un.S_addr = dwip;
-	pstHttpProxyParam->saToServer.sin_family = AF_INET;
-	pstHttpProxyParam->saToServer.sin_port = htons(pstHttpProxyParam->usPort);
+	hpp->saToServer.sin_addr.S_un.S_addr = dwip;
+	hpp->saToServer.sin_family = AF_INET;
+	hpp->saToServer.sin_port = htons(hpp->usPort);
 
 	int overtime = CONNECTION_TIME_OUT;
-	iRet = setsockopt(pstHttpProxyParam->sockToServer, SOL_SOCKET, SO_RCVTIMEO, (char *)&overtime, sizeof(int));
-	iRet += setsockopt(pstHttpProxyParam->sockToServer, SOL_SOCKET, SO_SNDTIMEO, (char *)&overtime, sizeof(int));
+	iRet = setsockopt(hpp->sockToServer, SOL_SOCKET, SO_RCVTIMEO, (char *)&overtime, sizeof(int));
+	iRet += setsockopt(hpp->sockToServer, SOL_SOCKET, SO_SNDTIMEO, (char *)&overtime, sizeof(int));
 	
-	iRet = connect(pstHttpProxyParam->sockToServer, (sockaddr*)&(pstHttpProxyParam->saToServer), sizeof(sockaddr_in));
+	iRet = connect(hpp->sockToServer, (sockaddr*)&(hpp->saToServer), sizeof(sockaddr_in));
 	if (iRet == SOCKET_ERROR)
 	{
 		printf("RetransferProxyMain connect server:%s error:%d\r\n", host.c_str(), WSAGetLastError());
 		return FALSE;
 	}
 
-	iRet = send(pstHttpProxyParam->sockToServer, (char*)recvBuffer, iCounter, 0);
+	iRet = send(hpp->sockToServer, (char*)recvBuffer, iCounter, 0);
 	if (iRet != iCounter)
 	{
 		printf("RetransferProxyMain send server:%s error:%d\r\n",host.c_str(), WSAGetLastError());
@@ -114,16 +111,16 @@ int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM pstHttpProxyParam) {
 	stTmVal.tv_sec = SELECT_TIME_OUT / 1000;
 	stTmVal.tv_usec = 0;
 
-	SOCKET selectsock = pstHttpProxyParam->sockToServer;
-	if (pstHttpProxyParam->sockToClient > pstHttpProxyParam->sockToServer)
+	SOCKET selectsock = hpp->sockToServer;
+	if (hpp->sockToClient > hpp->sockToServer)
 	{
-		selectsock = pstHttpProxyParam->sockToClient;
+		selectsock = hpp->sockToClient;
 	}
 	while (TRUE)
 	{
 		FD_ZERO(&stFdSet);
-		FD_SET(pstHttpProxyParam->sockToClient, &stFdSet);
-		FD_SET(pstHttpProxyParam->sockToServer, &stFdSet);
+		FD_SET(hpp->sockToClient, &stFdSet);
+		FD_SET(hpp->sockToServer, &stFdSet);
 		iRet = select(selectsock + 1, &stFdSet, NULL, NULL, &stTmVal);
 		if (iRet <= 0 || iRet > 2)
 		{
@@ -134,9 +131,9 @@ int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM pstHttpProxyParam) {
 			break;
 		}
 
-		if (FD_ISSET(pstHttpProxyParam->sockToClient, &stFdSet))
+		if (FD_ISSET(hpp->sockToClient, &stFdSet))
 		{
-			iCounter = recv(pstHttpProxyParam->sockToClient, (char*)recvBuffer, NETWORK_BUFFER_SIZE, 0);
+			iCounter = recv(hpp->sockToClient, (char*)recvBuffer, NETWORK_BUFFER_SIZE, 0);
 			if (iCounter <= 0)
 			{
 				break;
@@ -144,17 +141,17 @@ int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM pstHttpProxyParam) {
 
 			*(recvBuffer + iCounter) = 0;
 
-			iRet = send(pstHttpProxyParam->sockToServer, (char*)recvBuffer, iCounter, 0);
+			iRet = send(hpp->sockToServer, (char*)recvBuffer, iCounter, 0);
 			if (iRet != iCounter)
 			{
 				break;
 			}
-			pstHttpProxyParam->timeclient = time(0);
+			hpp->timeclient = time(0);
 		}
 
-		if (FD_ISSET(pstHttpProxyParam->sockToServer, &stFdSet))
+		if (FD_ISSET(hpp->sockToServer, &stFdSet))
 		{
-			iCounter = recv(pstHttpProxyParam->sockToServer, (char*)recvBuffer, NETWORK_BUFFER_SIZE, 0);
+			iCounter = recv(hpp->sockToServer, (char*)recvBuffer, NETWORK_BUFFER_SIZE, 0);
 			if (iCounter <= 0)
 			{
 				break;
@@ -162,13 +159,13 @@ int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM pstHttpProxyParam) {
 
 			*(recvBuffer + iCounter) = 0;
 
-			iRet = send(pstHttpProxyParam->sockToClient, (char*)recvBuffer, iCounter, 0);
+			iRet = send(hpp->sockToClient, (char*)recvBuffer, iCounter, 0);
 			if (iRet != iCounter)
 			{
 				break;
 			}
 
-			pstHttpProxyParam->timeserver = time(0);
+			hpp->timeserver = time(0);
 		}
 	}
 

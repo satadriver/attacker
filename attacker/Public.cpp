@@ -52,7 +52,8 @@ string Public::getDateTime() {
 	GetLocalTime(&sttime);
 
 	char sztime[MAX_PATH] = { 0 };
-	int len = wsprintfA(sztime, "%u/%u/%u %u:%u:%u", sttime.wYear, sttime.wMonth, sttime.wDay, sttime.wHour, sttime.wMinute, sttime.wSecond);
+	int len = wsprintfA(sztime, "%u/%u/%u %u:%u:%u", sttime.wYear, sttime.wMonth, sttime.wDay, 
+		sttime.wHour, sttime.wMinute, sttime.wSecond);
 	return string(sztime);
 }
 
@@ -237,9 +238,11 @@ string Public::getLogPath() {
 }
 
 
+
+
 DWORD Public::log(const char* format, ...)
 {
-	CHAR szbuf[4096];
+	CHAR szbuf[1024];
 
 	va_list   pArgList;
 
@@ -249,110 +252,113 @@ DWORD Public::log(const char* format, ...)
 
 	va_end(pArgList);
 
-	OutputDebugStringA(szbuf);
+	//OutputDebugStringA(szbuf);
 
 	string fn = getLogPath() + ATTACK_LOG_FILENAME;
-	int iRet = 0;
-	FILE* fpFile = 0;
-	iRet = fopen_s(&fpFile, fn.c_str(), "ab+");
-	if (fpFile > 0)
-	{
-		int writelen = nByteWrite;
-		iRet = fwrite(szbuf, 1, writelen, fpFile);
-		fclose(fpFile);
-		if (iRet != writelen)
-		{
-			printf("write file:%s error:%u\n", fn.c_str(), GetLastError());
-			return FALSE;
+	int iret = 0;
+
+	DWORD cnt = 0;
+	do {
+		HANDLE hf = CreateFile(fn.c_str(), GENERIC_WRITE, FILE_SHARE_READ, 0, OPEN_ALWAYS, 0, 0);
+		if (hf == INVALID_HANDLE_VALUE) {
+			iret = GetLastError();
+			if (iret == 32) {
+				Sleep(50);
+				cnt++;
+				if (cnt <= 3) {
+					continue;
+				}
+				else {
+					break;
+				}
+			}
+			else {
+				break;
+			}
 		}
-		return TRUE;
-	}
-	else
-	{
-		printf("file:%s open error:%u\n", fn.c_str(), GetLastError());
-		return FALSE;
-	}
-	return FALSE;
+		else {
+			iret = SetFilePointer(hf, 0, 0, FILE_END);
+			iret = WriteFile(hf, szbuf, nByteWrite, &cnt, 0);
+			CloseHandle(hf);
+			return TRUE;
+		}
+	} while (1);
+
+	printf("write log:%s error:%u\n", fn.c_str(), GetLastError());
+	return -1;
 }
 
-int Public::WriteLogFile(const char* szFileName, unsigned char* strBuffer, int iCounter, const char* tag)
+int Public::writeFile(const char* filename, unsigned char* szbuf, int size, const char* tag)
 {
-	if (iCounter <= 0)
+	if (size <= 0 || filename == 0 || szbuf == 0)
 	{
 		return -1;
 	}
 
-	string fn = getLogPath() + szFileName;
-	int iRet = 0;
-	FILE* fpFile = 0;
-	iRet = fopen_s(&fpFile, fn.c_str(), "ab+");
-	if (fpFile > 0)
-	{
-		int taglen = lstrlenA(tag);
-		if (taglen > 0)
-		{
-			iRet = fwrite(tag, 1, lstrlenA(tag), fpFile);
-		}
+	string fn = getLogPath() + filename;
 
-		iRet = fwrite(strBuffer, 1, iCounter, fpFile);
-		fclose(fpFile);
-		if (iRet != iCounter)
-		{
-			printf("write file:%s error:%u\n", fn.c_str(), GetLastError());
-			return FALSE;
+	int iret = 0;
+
+	DWORD cnt = 0;
+	do {
+		HANDLE hf = CreateFile(fn.c_str(), GENERIC_WRITE, FILE_SHARE_READ, 0, OPEN_ALWAYS, 0, 0);
+		if (hf == INVALID_HANDLE_VALUE) {
+			iret = GetLastError();
+			if (iret == 32) {
+				Sleep(50);
+				cnt++;
+				if (cnt <= 3) {
+					continue;
+				}
+				else {
+					break;
+				}
+			}
+			else {
+				break;
+			}
 		}
-		return TRUE;
-	}
-	else
-	{
-		printf("file:%s open error:%u\n", fn.c_str(), GetLastError());
-		return FALSE;
-	}
-	return FALSE;
+		else {
+			iret = SetFilePointer(hf, 0, 0, FILE_END);
+			int taglen = lstrlenA(tag);
+			if (taglen) {
+				iret = WriteFile(hf, tag, taglen, &cnt, 0);
+			}
+			
+			iret = WriteFile(hf, szbuf, size, &cnt, 0);
+			CloseHandle(hf);
+			return TRUE;
+		}
+	} while (1);
+
+	printf("write log:%s error:%u\n", fn.c_str(), GetLastError());
+	return -1;
 }
 
 
-DWORD Public::WriteLogFile(const char* pFileName, const char* pData, int datasize)
+DWORD Public::writeFile(const char* pFileName, const char* pData, int datasize)
 {
-	return Public::WriteLogFile(pFileName, (unsigned char*)pData, datasize, "");
+	return Public::writeFile(pFileName, (unsigned char*)pData, datasize, "");
 }
 
 
-
-
-
-DWORD Public::WriteLogFile(const char* pData)
+DWORD Public::writeLogFile(const char* szbuf)
 {
+	int iret = 0;
 	string fn = getLogPath() + ATTACK_LOG_FILENAME;
-	int iRet = 0;
-	FILE* fpFile = 0;
-	iRet = fopen_s(&fpFile, fn.c_str(), "ab+");
-	if (fpFile > 0)
-	{
-		int writelen = lstrlenA(pData);
-		iRet = fwrite(pData, 1, writelen, fpFile);
-		fclose(fpFile);
-		if (iRet != writelen)
-		{
-			printf("write file:%s error:%u\n", fn.c_str(), GetLastError());
-			return FALSE;
-		}
-		return TRUE;
-	}
-	else
-	{
-		printf("file:%s open error:%u\n", fn.c_str(), GetLastError());
-		return FALSE;
-	}
-	return FALSE;
+	int len = lstrlenA(szbuf);
+	return Public::writeFile(fn.c_str(), (unsigned char*)szbuf, len, "");
 }
+
+
+
 
 DWORD Public::recordipv6user(unsigned char* ipv6, string app)
 {
 	char log[1024];
 	string time = Public::getDateTime();
 	wsprintfA(log, "attack user:%s,app:%s,time:%s\r\n", HttpUtils::getIPv6str(ipv6).c_str(), app.c_str(), time.c_str());
-	WriteLogFile((const char*)log);
+	writeLogFile((const char*)log);
 	return TRUE;
 }
 
@@ -361,7 +367,7 @@ DWORD Public::recorduser(unsigned long ip, string app)
 	char log[1024];
 	string time = Public::getDateTime();
 	wsprintfA(log, "attack user:%s,app:%s,time:%s\r\n", HttpUtils::getIPstr(ip).c_str(), app.c_str(), time.c_str());
-	WriteLogFile((const char*)log);
+	writeLogFile((const char*)log);
 	return TRUE;
 }
 
@@ -386,7 +392,7 @@ int Public::removespace(char* src, char* dst)
 
 
 
-DWORD Public::checkInstanceExist()
+DWORD Public::singleInstance()
 {
 	HANDLE hMutex = CreateMutexA(NULL, TRUE, ATTACKER_MUTEX_NAME);
 	DWORD dwRet = GetLastError();
@@ -428,7 +434,7 @@ int Public::getNameAndPathFromUrl(string url, string& filename, string& path) {
 }
 
 
-
+/*
 int Public::isipstr(const char* str) {
 	int len = lstrlenA(str);
 	for (int i = 0; i < len; i++)
@@ -444,6 +450,7 @@ int Public::isipstr(const char* str) {
 
 	return TRUE;
 }
+*/
 
 
 

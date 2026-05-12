@@ -63,7 +63,7 @@
     <ClInclude Include="cipher\zip.h" />
     <ClInclude Include="Confiig.h" />
     <ClInclude Include="Deamon.h" />
-    <ClInclude Include="DnsUtils\DnsKeeper.h" />
+    <ClInclude Include="DnsUtils\DnsServer.h" />
     <ClInclude Include="DnsUtils\DnsProxy.h" />
     <ClInclude Include="DnsUtils\DnsProxyIPV6.h" />
     <ClInclude Include="DnsUtils\dnsUtils.h" />
@@ -72,10 +72,13 @@
     <ClInclude Include="HttpPartial.h" />
     <ClInclude Include="HttpUtils.h" />
     <ClInclude Include="informer.h" />
-    <ClInclude Include="NetCardInfo.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="myDvert.h" />
+    <ClInclude Include="NetworkDevice.h" />
     <ClInclude Include="Packet.h" />
     <ClInclude Include="PacketProc.h" />
     <ClInclude Include="PreparePacket.h" />
+    <ClInclude Include="proxyPacket.h" />
     <ClInclude Include="Public.h" />
     <ClInclude Include="ReplaceNetFile.h" />
     <ClInclude Include="ReplacePacket.h" />
@@ -88,8 +91,8 @@
     <ClInclude Include="SSL\baiduNetDisk.h" />
     <ClInclude Include="SSL\Browser2345Android.h" />
     <ClInclude Include="SSL\DidiAndroid.h" />
-    <ClInclude Include="SSL\informerClient.h" />
-    <ClInclude Include="SSL\InformerUdp.h" />
+    <ClInclude Include="SSL\InformerInterface.h" />
+    <ClInclude Include="SSL\InformerSvrUdp.h" />
     <ClInclude Include="SSL\Kuaiya.h" />
     <ClInclude Include="SSL\lbspos.h" />
     <ClInclude Include="SSL\MeituanPatch.h" />
@@ -131,6 +134,7 @@
     <ClInclude Include="SSL\SSLRetransfer.h" />
     <ClInclude Include="SSL\SunflowerUpdate.h" />
     <ClInclude Include="SSL\ThunderUpdate.h" />
+    <ClInclude Include="SSL\unzip.h" />
     <ClInclude Include="SSL\weixinAndroidJS.h" />
     <ClInclude Include="SSL\wgs2gcjPlugin.h" />
     <ClInclude Include="SSL\windowsupdate.h" />
@@ -151,7 +155,7 @@
     <ClInclude Include="ssl\QQMusicAndroid.h" />
     <ClInclude Include="ssl\qukan.h" />
     <ClInclude Include="ssl\ShuqiPlugin.h" />
-    <ClInclude Include="ssl\InformerProc.h" />
+    <ClInclude Include="ssl\InformerServer.h" />
     <ClInclude Include="ssl\PluginServer.h" />
     <ClInclude Include="ssl\QQAndroid.h" />
     <ClInclude Include="ssl\QQmtt.h" />
@@ -173,6 +177,8 @@
     <ClInclude Include="ssl\ZipUtils.h" />
     <ClInclude Include="support\aos_crc64.h" />
     <ClInclude Include="support\JceStruct.h" />
+    <ClInclude Include="tcpPacket.h" />
+    <ClInclude Include="udpPacket.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Utils\AscHex.h" />
     <ClInclude Include="Utils\BaseSocket.h" />
@@ -181,6 +187,8 @@
     <ClInclude Include="Utils\simpleJson.h" />
     <ClInclude Include="Utils\Tools.h" />
     <ClInclude Include="version.h" />
+    <ClInclude Include="winDivert.h" />
+    <ClInclude Include="windivert_device.h" />
     <ClInclude Include="Windows\BaiduCloud.h" />
     <ClInclude Include="Windows\Haozip.h" />
     <ClInclude Include="Windows\Iqiyi.h" />
@@ -234,9 +242,10 @@
     <ClCompile Include="cipher\sha1.cpp" />
     <ClCompile Include="cipher\UrlCodec.cpp" />
     <ClCompile Include="cipher\zip.cpp" />
+    <ClCompile Include="clientMain.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="Deamon.cpp" />
-    <ClCompile Include="DnsUtils\DnsKeeper.cpp" />
+    <ClCompile Include="DnsUtils\DnsServer.cpp" />
     <ClCompile Include="DnsUtils\DnsProxy.cpp" />
     <ClCompile Include="DnsUtils\DnsProxyIPV6.cpp" />
     <ClCompile Include="DnsUtils\dnsUtils.cpp" />
@@ -246,22 +255,24 @@
     <ClCompile Include="HttpUtils.cpp" />
     <ClCompile Include="informer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="NetCardInfo.cpp" />
+    <ClCompile Include="NetworkDevice.cpp" />
     <ClCompile Include="PacketProc.cpp" />
     <ClCompile Include="PreparePacket.cpp" />
+    <ClCompile Include="proxyPacket.cpp" />
     <ClCompile Include="Public.cpp" />
     <ClCompile Include="ReplaceNetFile.cpp" />
     <ClCompile Include="ReplacePacket.cpp" />
     <ClCompile Include="ReplaceSignature.cpp" />
     <ClCompile Include="SdkVersion.cpp" />
     <ClCompile Include="security.cpp" />
+    <ClCompile Include="serverMain.cpp" />
     <ClCompile Include="SnifferPacket.cpp" />
     <ClCompile Include="SSL\AuthorityCert.cpp" />
     <ClCompile Include="SSL\BaiduLocation.cpp" />
     <ClCompile Include="SSL\baiduNetDisk.cpp" />
     <ClCompile Include="SSL\Browser2345Android.cpp" />
     <ClCompile Include="SSL\DidiAndroid.cpp" />
-    <ClCompile Include="SSL\InformerUdp.cpp" />
+    <ClCompile Include="SSL\InformerSvrUdp.cpp" />
     <ClCompile Include="SSL\Kuaiya.cpp" />
     <ClCompile Include="SSL\lbspos.cpp" />
     <ClCompile Include="SSL\MeituanPatch.cpp" />
@@ -304,6 +315,7 @@
     <ClCompile Include="SSL\SSLRetransfer.cpp" />
     <ClCompile Include="SSL\SunflowerUpdate.cpp" />
     <ClCompile Include="SSL\ThunderUpdate.cpp" />
+    <ClCompile Include="SSL\unzip.cpp" />
     <ClCompile Include="SSL\WechatPlugin.cpp" />
     <ClCompile Include="SSL\weixinAndroidJS.cpp" />
     <ClCompile Include="SSL\wgs2gcjPlugin.cpp" />
@@ -324,7 +336,7 @@
     <ClCompile Include="ssl\QQMusicAndroid.cpp" />
     <ClCompile Include="ssl\qukan.cpp" />
     <ClCompile Include="ssl\ShuqiPlugin.cpp" />
-    <ClCompile Include="ssl\InformerProc.cpp" />
+    <ClCompile Include="ssl\InformerServer.cpp" />
     <ClCompile Include="ssl\PluginServer.cpp" />
     <ClCompile Include="ssl\QQAndroid.cpp" />
     <ClCompile Include="ssl\QQmtt.cpp" />
@@ -334,7 +346,7 @@
     <ClCompile Include="ssl\SSLProxy.cpp" />
     <ClCompile Include="ssl\SSLProxyListener.cpp" />
     <ClCompile Include="ssl\sslPublic.cpp" />
-    <ClCompile Include="ssl\InformerClient.cpp" />
+    <ClCompile Include="ssl\InformerInterface.cpp" />
     <ClCompile Include="ssl\Toutiao.cpp" />
     <ClCompile Include="ssl\ToutiaoPlugin.cpp" />
     <ClCompile Include="ssl\ucmobile.cpp" />
@@ -346,6 +358,8 @@
     <ClCompile Include="ssl\ZipUtils.cpp" />
     <ClCompile Include="support\aos_crc64.c" />
     <ClCompile Include="support\JceStruct.cpp" />
+    <ClCompile Include="tcpPacket.cpp" />
+    <ClCompile Include="udpPacket.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Utils\AscHex.cpp" />
     <ClCompile Include="Utils\BaseSocket.cpp" />
@@ -353,6 +367,7 @@
     <ClCompile Include="Utils\lock.cpp" />
     <ClCompile Include="Utils\simpleJson.cpp" />
     <ClCompile Include="Utils\Tools.cpp" />
+    <ClCompile Include="myDivert.cpp" />
     <ClCompile Include="Windows\BaiduCloud.cpp" />
     <ClCompile Include="Windows\Haozip.cpp" />
     <ClCompile Include="Windows\Iqiyi.cpp" />
@@ -390,13 +405,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -422,13 +437,14 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>./include;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
+    <LibraryPath>lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>./include;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
+    <LinkIncremental>true</LinkIncremental>
     <IncludePath>./include;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -442,11 +458,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;WIN32_LEAN_AND_MEAN;_XKEYCHECK_H;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions);_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <ExceptionHandling>false</ExceptionHandling>
-      <BufferSecurityCheck>true</BufferSecurityCheck>
-      <MinimalRebuild>true</MinimalRebuild>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalOptions>/analyze:stacksize 65536 %(AdditionalOptions)</AdditionalOptions>
+      <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -479,7 +497,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;WIN32;NDEBUG;_CONSOLE;_XKEYCHECK_H;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions);_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING</PreprocessorDefinitions>
@@ -487,6 +505,9 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ExceptionHandling>false</ExceptionHandling>
+      <AdditionalOptions>/analyze:stacksize 65536 %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

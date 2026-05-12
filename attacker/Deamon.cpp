@@ -10,27 +10,22 @@
 #include "ssl/HttpAttack.h"
 #include "ssl/SSLAttack.h"
 #include "Public.h"
+#include "Utils/Tools.h"
 
 Deamon *gDeamon = 0;
 
 
 Deamon::Deamon() {
-	if (gDeamon || mInstance)
-	{
-		return;
-	}
-
 	mInstance = this;
 	gDeamon = this;
 
-		LOOP_TIME = CONNECTION_TIME_OUT + 60000;
+	LOOP_TIME = CONNECTION_TIME_OUT + 60000;
 	gOverTime = LOOP_TIME /1000;
 
 	gHttpDeamon.clear();
 	InitializeCriticalSection(&stcsHttp);
 
 	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)clearHttp,this, STACK_SIZE_PARAM_IS_A_RESERVATION, 0));
-
 
 	gSSLDeamon.clear();
 	InitializeCriticalSection(&stcsSSL);
@@ -96,7 +91,7 @@ int __stdcall Deamon::clearHttp(Deamon * instance) {
 		}
 		__except(1) 
 		{
-			printf("clearHttp exceiption\r\n");
+			log("clearHttp exceiption\r\n");
 		}
 
 		LeaveCriticalSection(&instance->stcsHttp);
@@ -106,8 +101,7 @@ int __stdcall Deamon::clearHttp(Deamon * instance) {
 		{
 			cnt = 0;
 			string datetime = Public::getDateTime();
-			int outlen = wsprintfA(szout, "%s clearHttp() alive http proxy thread count:%u\r\n", datetime.c_str(), instance->gHttpDeamon.size());
-			Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+			log( "%s clearHttp() alive http proxy thread count:%u\r\n", datetime.c_str(), instance->gHttpDeamon.size());
 		}
 	}
 	return 0;
@@ -133,19 +127,19 @@ int Deamon::addHttp(LPHTTPPROXYPARAM lphttp) {
 			ret = gDeamon->gHttpDeamon.insert(pair<LPHTTPPROXYPARAM, LPHTTPPROXYPARAM>(lphttp, lphttp));
 			if (ret.second == false)
 			{
-				printf("Deamon insert http error\r\n");
+				log("Deamon insert http error\r\n");
 			}
 			else {
 
 			}
 		}
 		else {
-			printf("Deamon lphttp alread exist\r\n");
+			log("Deamon lphttp alread exist\r\n");
 		}
 	}
 	__except (1)
 	{
-		printf("addHttp exception\r\n");
+		log("addHttp exception\r\n");
 	}
 
 	LeaveCriticalSection(&gDeamon->stcsHttp);
@@ -170,7 +164,7 @@ int Deamon::removeHttp(LPHTTPPROXYPARAM lphttp) {
 	}
 	__except (1)
 	{
-		printf("removeHttp exception\r\n");
+		log("removeHttp exception\r\n");
 	}
 
 	LeaveCriticalSection(&gDeamon->stcsHttp);
@@ -203,19 +197,19 @@ int Deamon::addSSL(LPSSLPROXYPARAM lpssl) {
 			ret = gDeamon->gSSLDeamon.insert(pair<LPSSLPROXYPARAM, LPSSLPROXYPARAM>(lpssl, lpssl));
 			if (ret.second == false)
 			{
-				printf("Deamon insert ssl error\r\n");
+				log("Deamon insert ssl error\r\n");
 			}
 			else {
 
 			}
 		}
 		else {
-			printf("Deamon ssl alread exist\r\n");
+			log("Deamon ssl alread exist\r\n");
 		}
 	}
 	__except (1)
 	{
-		printf("addSSL exception\r\n");
+		log("addSSL exception\r\n");
 	}
 
 	LeaveCriticalSection(&gDeamon->stcsSSL);
@@ -309,7 +303,7 @@ int Deamon::removeSSL(LPSSLPROXYPARAM lpssl) {
 	}
 	__except (1)
 	{
-		printf("removeSSL exception\r\n");
+		log("removeSSL exception\r\n");
 	}
 
 	LeaveCriticalSection(&gDeamon->stcsSSL);
@@ -342,7 +336,7 @@ int __stdcall Deamon::clearSSL(Deamon *instance) {
 			}
 		}
 		__except (1) {
-			printf("clearSSL exception\r\n");
+			log("clearSSL exception\r\n");
 		}
 
 		LeaveCriticalSection(&instance->stcsSSL);
@@ -353,8 +347,7 @@ int __stdcall Deamon::clearSSL(Deamon *instance) {
 		{
 			cnt = 0;
 			string datetime = Public::getDateTime();
-			int outlen = wsprintfA(szout, "%s clearSSL() alive ssl proxy thread count:%u\r\n", datetime.c_str(), instance->gSSLDeamon.size());
-			Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+			log( "%s clearSSL() alive ssl proxy thread count:%u\r\n", datetime.c_str(), instance->gSSLDeamon.size());
 		}
 
 	}

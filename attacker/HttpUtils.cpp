@@ -5,7 +5,7 @@
 #include "attacker.h"
 #include "Packet.h"
 #include "Public.h"
-#include "dnsutils/DnsKeeper.h"
+#include "dnsutils/DnsServer.h"
 #include "Utils/AscHex.h"
 
 using namespace std;
@@ -32,7 +32,6 @@ int HttpUtils::isHttpPacket(const char* lpdata) {
 	{
 		return 5;
 	}
-
 	//HTTP 1.1
 	else if (memcmp(lpdata, "PUT ", 4) == 0)
 	{
@@ -68,12 +67,14 @@ string HttpUtils::getValueFromKey(const char* lphttphdr, string  searchkey) {
 	if (phdr)
 	{
 		phdr += key.length();
-		char* pend = strstr(phdr, "\r\n");
-		int len = pend - phdr;
-		if (pend && len > 0 && len < 256)
+		char* pend = strstr(phdr, "\r\n");	
+		if (pend)
 		{
-			string value = string(phdr, len);
-			return value;
+			int len = pend - phdr;
+			if (len > 0 && len < 256) {
+				string value = string(phdr, len);
+				return value;
+			}
 		}
 	}
 
@@ -110,25 +111,52 @@ int HttpUtils::getContentLen(string httphdr, int len) {
 }
 
 
-bool HttpUtils::isAscIP(string ip) {
-	DWORD j = 0;
-	for (j = 0; j < ip.length(); j++)
+int HttpUtils::isAscIP(string ip) {
+	if (ip.length() >= 16) {
+		return 0;
+	}
+	int len = 0;
+	int num = 0;
+	char str[16];
+	int prev_pos = 0;
+	for (DWORD j = 0; j < ip.length(); j++)
 	{
-		if ((ip.at(j) >= '0' && ip.at(j) <= '9') || ip.at(j) == '.')
+		char c = ip.at(j);
+		if ( c >= '0' && c <= '9')  
 		{
+			str[len++] = c;
+			if (len > 3) {
+				return FALSE;
+			}
 			continue;
 		}
+		else if ( c == '.') {
+			num++;
+			if (j == 0 || (prev_pos - j == 1) ) {
+				return FALSE;
+			}
+			if (len >= 3 && str[0] > '2') {
+				return FALSE;
+			}
+			else if (len >= 3 && str[0] == '2' && str[1] >= '6') {
+				return FALSE;
+			}
+			else if (len >= 3 && str[0] == '2' && str[1] == '5' && str[2] >= '6') {
+				return FALSE;
+			}
+			len = 0;
+
+			prev_pos = j;
+		}
 		else {
-			break;
+			return FALSE;
 		}
 	}
 
-	if (j == ip.length())
-	{
-		return true;
+	if (num != 3) {
+		return FALSE;
 	}
-
-	return false;
+	return TRUE;
 }
 
 
@@ -153,10 +181,9 @@ DWORD HttpUtils::getIPFromHost(string host)
 		{
 			return 0;
 		}
-		return dwip;
 	}
 	else {
-		dwip = DnsKeeper::getDnsFromMap(host);
+		dwip = DnsServer::GetIPFromHost(host);
 	}
 	return dwip;
 }
@@ -167,39 +194,35 @@ DWORD HttpUtils::getIPFromHost(string host)
 
 
 
-int HttpUtils::parseHttpHdr(const char* packet, int datalen, int& type, string& httphdr, char** httpdata, string& url, string& host, int& port) {
+int HttpUtils::parseHttpHdr(const char* packet, int datalen, string& httphdr, char** httpdata, string& url, string& host, int& port) {
 
 	char* data = (char*)packet;
-
-	int flaglen = isHttpPacket(data);
-	if (flaglen <= 0)
+	int taglen = isHttpPacket(data);
+	if (taglen <= 0)
 	{
 		return -1;
 	}
+	data += taglen;
 
-	data += flaglen;
-
+	int flag = 0;
 	if (isHttpConnect(packet))
 	{
-		type = 4;
-	}
-	else if (memcmp(data, "http://", 7) == 0)
+		flag = 1;
+	}	
+	if (memcmp(data, "http://", 7) == 0)
 	{
-		type = 2;
+		flag = 1;
 		data += 7;
 	}
 	else if (memcmp(data, "https://", 8) == 0)
 	{
-		type = 3;
+		flag = 1;
 		data += 8;
-	}
-	else {
-		type = 1;
 	}
 
 	char* httpend = 0;
 
-	if (type == 2 || type == 3 || type == 4)
+	if (flag)
 	{
 		httphdr = data;
 
@@ -214,18 +237,13 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, int& type, string& 
 				{
 					return -1;
 				}
-				else {
-					httpend++;
-				}
 			}
 		}
 
 		string fullurl = string(data, httpend - data);
-
 		int pos = fullurl.find("?");
 		if (pos > 0)
 		{
-			//get url end with "?"
 			fullurl = fullurl.substr(0, pos + 1);
 		}
 
@@ -251,7 +269,6 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, int& type, string& 
 		return TRUE;
 	}
 	else {
-		//http header end with "\r\n\r\n"
 		httpend = strstr((char*)data, "\r\n\r\n");
 		if (httpend <= 0)
 		{
@@ -287,21 +304,9 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, int& type, string& 
 				{
 					return -1;
 				}
-				else {
-					httpend++;
-				}
 			}
 
 			url = string(data, httpend - data);
-
-			//			string fullurl = string(data,httpend - data);
-			// 			int pos = fullurl.find("?");
-			// 			if (pos > 0)
-			// 			{
-			// 				//get url end with "?"
-			// 				fullurl = fullurl.substr(0, pos + 1);
-			// 			}
-			//			url = fullurl;
 
 			int pos = host.find(":");
 			if (pos > 0)
@@ -323,11 +328,6 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, int& type, string& 
 
 
 string HttpUtils::getHttpHeader(const char* data, int len, char** lphttpdata) {
-	int ret = isHttpPacket(data);
-	if (ret <= 0)
-	{
-		return "";
-	}
 
 	char* lphdr = strstr((char*)data, "\r\n\r\n");
 	if (lphdr <= FALSE)
@@ -360,7 +360,7 @@ string HttpUtils::getLongUrl(const char* lppacket, int len) {
 			url = string(lppacket, urllen);
 		}
 		else {
-			url = string(lppacket);
+			//url = string(lppacket);
 		}
 	}
 
@@ -372,16 +372,8 @@ string HttpUtils::getLongUrl(const char* lppacket, int len) {
 
 
 
-string HttpUtils::getUrl(const char* lppacket, int len) {
+string HttpUtils::getUrl(const char* packhdr, int len) {
 	string url = "";
-
-	int offset = isHttpPacket(lppacket);
-	if (offset <= 0)
-	{
-		return url;
-	}
-
-	const char* packhdr = lppacket + offset;
 
 	char* lphdr = strstr((char*)packhdr, " HTTP/1.1\r\n");
 	if (lphdr)
@@ -397,7 +389,7 @@ string HttpUtils::getUrl(const char* lppacket, int len) {
 			url = string(packhdr, urllen);
 		}
 		else {
-			url = string(packhdr);
+			//url = string(packhdr);
 		}
 	}
 

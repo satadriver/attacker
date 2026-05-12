@@ -33,7 +33,6 @@ SOCKET BaseSocket::listenUdpIPV6Port(unsigned int usPort) {
 // 		return -1;
 // 	}
 
-
 	iRet = bind(sockListen, (sockaddr*)&saListen, sizeof(sockaddr_in6));
 	if (iRet)
 	{
@@ -69,7 +68,6 @@ SOCKET BaseSocket::listenUdpPort(unsigned int usPort) {
 // 		return -1;
 // 	}
 
-
 	iRet = bind(sockListen, (sockaddr*)&saListen, sizeof(sockaddr_in));
 	if (iRet)
 	{
@@ -89,7 +87,7 @@ SOCKET BaseSocket::listenPort(unsigned long ip,unsigned int usPort) {
 	int sockListen = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (sockListen < 0)
 	{
-		printf("BaseSocket port:%u socket error\n", usPort);
+		printf("BaseSocket ip:%08x,port:%u socket error\n",ip, usPort);
 		return -1;
 	}
 
@@ -134,7 +132,7 @@ SOCKET BaseSocket::listenPort(unsigned int usPort) {
 	int sockListen = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (sockListen <= 0)
 	{
-		printf("BaseSocket port:%u socket error\n", usPort);
+		printf("%s %d port:%u error\n",__FUNCTION__,__LINE__, usPort);
 		return -1;
 	}
 
@@ -155,7 +153,7 @@ SOCKET BaseSocket::listenPort(unsigned int usPort) {
 	if (iRet )
 	{
 		closesocket(sockListen);
-		printf("BaseSocket port:%u bind error:%d\n", usPort,WSAGetLastError());
+		printf("%s %d port:%u error:%d\n", __FUNCTION__, __LINE__, usPort,WSAGetLastError());
 		return -1;
 	}
 
@@ -163,7 +161,7 @@ SOCKET BaseSocket::listenPort(unsigned int usPort) {
 	if (iRet )
 	{
 		closesocket(sockListen);
-		printf("BaseSocket port:%u listen error\n", usPort);
+		printf("%s %d port:%u error\n", __FUNCTION__, __LINE__, usPort);
 		return -1;
 	}
 
@@ -178,7 +176,7 @@ SOCKET BaseSocket::connectServer(unsigned long ip,int usPort) {
 	int s = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (s == INVALID_SOCKET)
 	{
-		printf("BaseSocket socket port:%u error\n", usPort);
+		printf("%s %d ip:%08x,port:%u error\n", __FUNCTION__, __LINE__,ip, usPort);
 		return INVALID_SOCKET;
 	}
 
@@ -191,7 +189,7 @@ SOCKET BaseSocket::connectServer(unsigned long ip,int usPort) {
 	if (iRet < 0)
 	{
 		closesocket(s);
-		printf("BaseSocket connect port:%u error:%d\n", usPort,WSAGetLastError());
+		printf("%s %d ip:%08x, port:%u error:%d\n", __FUNCTION__, __LINE__, ip, usPort,WSAGetLastError());
 		return INVALID_SOCKET;
 	}
 
@@ -208,7 +206,6 @@ int BaseSocket::readUrl(string url,char * buffer,int bufsize) {
 		printf("InternetOpenA error:%u\r\n", WSAGetLastError());//12150
 		return FALSE;
 	}
-
 
 	HINTERNET internetopenurl = InternetOpenUrlA(internetopen,url.c_str(),0,0, INTERNET_FLAG_RELOAD, 0);
 	if (internetopenurl == NULL)

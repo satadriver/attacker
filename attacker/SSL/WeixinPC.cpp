@@ -5,7 +5,7 @@
 #include "../HttpUtils.h"
 #include "../Public.h"
 #include "../FileOper.h"
-#include "informerClient.h"
+#include "InformerInterface.h"
 
 
 int gWechatPCFlag = 0;

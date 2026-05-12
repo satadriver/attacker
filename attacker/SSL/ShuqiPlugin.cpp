@@ -154,7 +154,7 @@ int ShuqiPlugin::makeShuqiRequestReply(char * dstbuf, int dstbuflimit, LPSSLPROX
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "alicdn reply:%s\r\n", hdrformat);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	ret = PluginServer::SendPluginFile(urlfilename.c_str(), lpssl, hdrformat, 1);
 
@@ -208,7 +208,7 @@ int ShuqiPlugin::makeShuqiHeadReply(char * dstbuf, int dstbuflimit, LPSSLPROXYPA
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "alicdn header:%s\r\n", dstbuf);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	return httphdrlen;
 }
@@ -295,7 +295,7 @@ int ShuqiPlugin::makeShuqiRequestReply(char * dstbuf, int dstbuflimit, LPHTTPPRO
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "alicdn reply:%s\r\n", hdrformat);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	ret = PluginServer::SendPluginFile(urlfilename.c_str(), lphttp, hdrformat, 1);
 
@@ -350,7 +350,7 @@ int ShuqiPlugin::makeShuqiHeadReply(char * dstbuf, int dstbuflimit, LPHTTPPROXYP
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "alicdn header:%s\r\n", dstbuf);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	return httphdrlen;
 }

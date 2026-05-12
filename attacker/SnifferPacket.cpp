@@ -22,7 +22,7 @@
 #include "Packet.h"
 #include <Shlobj.h>
 #include "PacketProc.h"
-
+#include "Utils/Tools.h"
 #include <string>
 
 using namespace std;
@@ -50,12 +50,12 @@ int __stdcall SnifferPacket::peeping(pcap_t * recvpcapT,unsigned long serverIP, 
 			}
 			else if (iRet < 0)
 			{
-				printf("pcap_next_ex error:%s,return value:%d\r\n", pcap_geterr(recvpcapT),iRet);
+				log("%s %d error:%s\r\n", __FUNCTION__, __LINE__, pcap_geterr(recvpcapT));
 				continue;
 			}
-			else if (iCapLen >= WINPCAP_MAX_PACKET_SIZE || iCapLen <= 0 )
+			else if (iCapLen != pHeader->len || iCapLen >= WINPCAP_MAX_PACKET_SIZE || iCapLen <= 0 )
 			{
-				printf("pcap_next_ex error:%s,packet caplen:%u or len:%u error\r\n", pcap_geterr(recvpcapT),pHeader->caplen,pHeader->len);
+				log("%s %d error:%s caplen:%u len:%u\r\n", __FUNCTION__, __LINE__, pcap_geterr(recvpcapT),pHeader->caplen,pHeader->len);
 				continue;
 			}
 
@@ -66,7 +66,7 @@ int __stdcall SnifferPacket::peeping(pcap_t * recvpcapT,unsigned long serverIP, 
 	}
 	__except(1)
 	{
-		printf("packet sniffer exception\r\n");
+		log("%s %d exception\r\n",__FUNCTION__,__LINE__);
 		return FALSE;
 	}
 

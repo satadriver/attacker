@@ -12,7 +12,7 @@
 
 class HttpProxy {
 public:
-	static int __stdcall HTTPProxy(LPWORKCONTROL param);
+	static int __stdcall HTTPProxy(LPMIM_THREAD_PARAMS param);
 
 	static int HttpProxy::HttpProxyMain(LPHTTPPROXYPARAM pstHttpProxyParam);
 };

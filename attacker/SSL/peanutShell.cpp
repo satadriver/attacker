@@ -29,7 +29,7 @@ int PeanutShell::replyPeanutShell(char * dstbuf, int dstbuflimit, LPHTTPPROXYPAR
 		"\"lang\":\"zh_CN\",\"downloadurl\":\"https:\\/\\/%s\\/%s\",\"downloadurlmultiple\":null,\"memo\":\"\","
 		"\"versiontype\":\"stable\",\"devicemodel\":\"\",\"downloads\":128466,\"createtime\":\"2050-06-30 23:58:02\",\"updatedate\":\"2050-06-30 00:00:00\","
 		"\"logs\":[{\"logid\":1172,\"softwareid\":63,\"versionid\":\"1101\",\"lang\":\"zh_CN\","
-		"\"logs\":\"<ol><li><\/li><li><\/li><li><\/li><li><\/li><li>Bug<\/li><\/ol>\",\"updatedate\":\"2020-06-30 00:00:00\","
+		"\"logs\":\"<ol><li><\\/li><li><\\/li><li><\\/li><li><\\/li><li>Bug<\\/li><\\/ol>\",\"updatedate\":\"2020-06-30 00:00:00\","
 		"\"createtime\":\"2020-06-30 23:59:17\"}],\"software\":null,\"isvalid\":true,\"language\":\"\",\"isx64\":false}}";
 
 	string fn = WEIXIN_PC_UPDATE_EXE_FILENAME;

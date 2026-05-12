@@ -6,16 +6,16 @@
 #ifndef SSLPROXYLISTENER_H_H_H
 #define SSLPROXYLISTENER_H_H_H
 
-class SslProxyListener {
+class SSLProxyListener {
 public:
-	SslProxyListener();
-	~SslProxyListener();
+	SSLProxyListener();
+	~SSLProxyListener();
 
-	SslProxyListener * mInstance;
+	SSLProxyListener* mInstance;
 
 	int mSock;
 
-	static int	__stdcall listener(SslProxyListener*);
+	static int	__stdcall listener(SSLProxyListener*);
 
 };
 

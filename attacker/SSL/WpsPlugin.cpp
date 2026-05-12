@@ -114,7 +114,7 @@ int WPSPlugin::sendWpsPlugin(char * dstbuf, int dstbuflimit, string username) {
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "ups plugin reply:%s\r\n", dstbuf);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	return retlen;
 }

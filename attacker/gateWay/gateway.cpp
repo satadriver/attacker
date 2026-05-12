@@ -8,10 +8,7 @@
 
 
 Gateway::Gateway(pcap_t * pcapt,DWORD serverip,DWORD localip,unsigned char * localmac) {
-	if (mInstance)
-	{
-		return;
-	}
+
 	mInstance = this;
 
 	mCnt = 0;

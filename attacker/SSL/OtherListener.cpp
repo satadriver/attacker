@@ -9,16 +9,13 @@
 #include "../utils/BaseSocket.h"
 #include "../utils/Tools.h"
 #include "HttpProxyListener.h"
-
+#include "../Utils/Tools.h"
 
 
 
 
 OtherListener::OtherListener(int port) {
-	if (mInstance)
-	{
-		return;
-	}
+
 	mInstance = this;
 	mPort = port;
 
@@ -36,14 +33,11 @@ int	__stdcall OtherListener::listener(OtherListener * instance){
 	instance->mSock = BaseSocket::listenPort(instance->mPort);
 	if ((instance->mSock == SOCKET_ERROR) || (instance->mSock == INVALID_SOCKET))
 	{
-		printf("HTTP listenPort error\r\n");
-		Public::WriteLogFile("HTTP listenPort error\r\n");
-		MessageBoxA(0, "HTTPProxyListener listenPort error", "HTTPProxyListener listenPort error", MB_OK);
+		char szstr[1024];
+		wsprintfA(szstr, "%s %d error\r\n",__FUNCTION__,__LINE__);
+		log(szstr);
+		MessageBoxA(0, szstr, szstr, MB_OK);
 		exit(-1);
-	}
-	else
-	{
-		printf("HTTP listener is ready\r\n");
 	}
 
 	while (TRUE)
@@ -55,37 +49,34 @@ int	__stdcall OtherListener::listener(OtherListener * instance){
 			int sockClient = accept(instance->mSock, (sockaddr*)&saClient, &iClientSockSize);
 			if (sockClient != INVALID_SOCKET && sockClient > 0)
 			{
-				LPHTTPPROXYPARAM pstHttpProxyParam = (LPHTTPPROXYPARAM)new HTTPPROXYPARAM;
-				memset(pstHttpProxyParam, 0, sizeof(HTTPPROXYPARAM));
-				pstHttpProxyParam->usPort = instance->mPort;
-				pstHttpProxyParam->timeclient = time(0);
-				pstHttpProxyParam->timeserver = pstHttpProxyParam->timeclient;
-				pstHttpProxyParam->sockToClient = sockClient;
-				pstHttpProxyParam->saToClient = saClient;
+				LPHTTPPROXYPARAM hpp = (LPHTTPPROXYPARAM)new HTTPPROXYPARAM;
+				memset(hpp, 0, sizeof(HTTPPROXYPARAM));
+				hpp->usPort = instance->mPort;
+				hpp->timeclient = time(0);
+				hpp->timeserver = hpp->timeclient;
+				hpp->sockToClient = sockClient;
+				hpp->saToClient = saClient;
 
-				Deamon::addHttp(pstHttpProxyParam);
+				Deamon::addHttp(hpp);
 
 				int overtime = CONNECTION_TIME_OUT;
-				ret = setsockopt(pstHttpProxyParam->sockToClient, SOL_SOCKET, SO_RCVTIMEO, (char *)&overtime, sizeof(int));
-				ret += setsockopt(pstHttpProxyParam->sockToClient, SOL_SOCKET, SO_SNDTIMEO, (char *)&overtime, sizeof(int));
+				ret = setsockopt(hpp->sockToClient, SOL_SOCKET, SO_RCVTIMEO, (char *)&overtime, sizeof(int));
+				ret += setsockopt(hpp->sockToClient, SOL_SOCKET, SO_SNDTIMEO, (char *)&overtime, sizeof(int));
 
-				ret = HttpProxy::HttpProxyMain(pstHttpProxyParam);
+				ret = HttpProxy::HttpProxyMain(hpp);
 
-				Deamon::removeHttp(pstHttpProxyParam);
+				Deamon::removeHttp(hpp);
 			}
 			else
 			{
-				wsprintfA(szout, "HTTP监听线程accept错误码:%d\n", WSAGetLastError());
-				Public::WriteLogFile(szout);
-				printf(szout);
+				log( "%s %d error\r\n", __FUNCTION__, __LINE__);
 
 				closesocket(instance->mSock);
 
 				instance->mSock = BaseSocket::listenPort(instance->mPort);
 				if ((instance->mSock == SOCKET_ERROR) || (instance->mSock == INVALID_SOCKET))
 				{
-					printf("OtherListener listenPort error\r\n");
-					Public::WriteLogFile("OtherListener listenPort error\r\n");
+					log("%s %d error\r\n", __FUNCTION__, __LINE__);
 					exit(-1);
 					return FALSE;
 				}
@@ -93,13 +84,7 @@ int	__stdcall OtherListener::listener(OtherListener * instance){
 		}
 		__except (1)
 		{
-			SYSTEMTIME stSysTm = { 0 };
-			GetLocalTime(&stSysTm);
-			int len = wsprintfA(szout, "OtherListener监听线程发生异常,错误码:%u,时间:%d.%d.%d %d:%d:%d\r\n", GetLastError(),
-				stSysTm.wYear, stSysTm.wMonth, stSysTm.wDay, stSysTm.wHour, stSysTm.wMinute, stSysTm.wSecond);
-			printf(szout);
-			Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, len);
-			return FALSE;
+			log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		}
 		
 	}

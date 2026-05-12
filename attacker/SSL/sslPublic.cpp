@@ -8,17 +8,13 @@
 
 using namespace std;
 
-WORKERCONTROL gWorkControl;
+MIM_THREAD_PARAMS g_thread_params;
 
 vector <string> gHostAttackList;
 
-char G_USERNAME[64];
+char G_USERNAME[USERNAME_MAXLEN];
 
 SSLPublic::SSLPublic(vector<string>list) {
-	if (mInstance)
-	{
-		return;
-	}
 
 	mInstance = this;
 	gHostAttackList = list;
@@ -156,7 +152,6 @@ int SSLPublic::freeSSLPort() {
 					cnt++;
 				}
 			}
-
 		}
 	}
 

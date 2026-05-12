@@ -61,7 +61,10 @@ string FileOper::getDateTime() {
 
 
 
-int FileOper::fileReader(string filename, char** lpbuf, int* bufsize) {
+int FileOper::fileReader(string filename, char** lpbuf, int* lpfs) {
+	if(lpbuf == 0 || lpfs == 0) {
+		return FALSE;
+	}
 	int ret = 0;
 
 	FILE* fp = fopen(filename.c_str(), "rb");
@@ -73,29 +76,29 @@ int FileOper::fileReader(string filename, char** lpbuf, int* bufsize) {
 
 	ret = fseek(fp, 0, FILE_END);
 
-	int filesize = ftell(fp);
+	unsigned long filesize = ftell(fp);
 
 	ret = fseek(fp, 0, FILE_BEGIN);
-
-	*bufsize = filesize;
-
-	*lpbuf = new char[filesize + 1024];
-
-	ret = fread(*lpbuf, 1, filesize, fp);
-	fclose(fp);
-	if (ret <= FALSE)
-	{
-		delete* lpbuf;
-		return FALSE;
+	
+	if (*lpbuf == 0 || *lpfs == 0) {
+		*lpfs = filesize;
+		*lpbuf = new char[filesize + 64];
+		ret = fread(*lpbuf, 1, (size_t)filesize, fp);
+		*(*lpbuf + filesize) = 0;
 	}
+	else {
+		ret = fread(*lpbuf, 1, (size_t)*lpfs-1, fp);
+		lpbuf[*lpfs - 1] = 0;
+	}
+	
+	fclose(fp);
 
-	*(*lpbuf + filesize) = 0;
 	return filesize;
 }
 
 
 
-int FileOper::fileWriter(string filename, const char* lpdate, int datesize) {
+int FileOper::fileWriter(string filename, const char* lpdata, int datasize) {
 	int ret = 0;
 
 	FILE* fp = fopen(filename.c_str(), "ab+");
@@ -105,14 +108,14 @@ int FileOper::fileWriter(string filename, const char* lpdate, int datesize) {
 		return FALSE;
 	}
 
-	ret = fwrite(lpdate, 1, datesize, fp);
+	ret = fwrite(lpdata, 1, datasize, fp);
 	fclose(fp);
 	if (ret == FALSE)
 	{
 		return FALSE;
 	}
 
-	return datesize;
+	return datasize;
 }
 
 
@@ -547,10 +550,138 @@ int FileOper::isExecutable(char* data) {
 			}
 		}
 	}
-	else if (memcmp(data, "\x50\x4b\x03\x04", 4) == 0 || memcmp(data, "\x7f\x45\x4c\x46", 4) == 0 || memcmp(data, "dex\n", 4) == 0)
+	else if (memcmp(data, "\x50\x4b\x03\x04", 4) == 0 || 
+		memcmp(data, "\x7f\x45\x4c\x46", 4) == 0 || 
+		memcmp(data, "dex\n", 4) == 0)
 	{
 		return TRUE;
 	}
 
 	return FALSE;
+}
+
+
+
+
+int FileOper::searchDir(CHAR* srcpath,vector<string> &strs) {
+
+	int result = 0;
+
+	CHAR path[MAX_PATH];
+	lstrcpyA(path, srcpath);
+
+	int pathlen = lstrlenA(path);
+	if (path[pathlen - 1] == '\\')
+	{
+
+	}
+	else {
+		lstrcatA(path, "\\");
+	}
+
+	const CHAR* allfiles = "*.*";
+	string searchpath = string(path) + allfiles;
+
+	int cnt = 0;
+
+	WIN32_FIND_DATAA finddata = { 0 };
+	HANDLE hf = FindFirstFileA(searchpath.c_str(), &finddata);
+	if (hf == INVALID_HANDLE_VALUE)
+	{
+		return FALSE;
+	}
+
+	do
+	{
+		if (finddata.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+		{
+			if (lstrcmpiA(finddata.cFileName, ".") == 0 || lstrcmpiA(finddata.cFileName, "..") == 0)
+			{
+
+			}
+			else {
+				CHAR nextpath[MAX_PATH];
+				lstrcpyA(nextpath, path);
+				lstrcatA(nextpath, finddata.cFileName);
+				strs.push_back(finddata.cFileName);
+				cnt++;
+			}
+		}
+		else if (finddata.dwFileAttributes & FILE_ATTRIBUTE_ARCHIVE)
+		{
+			CHAR filename[MAX_PATH];
+			lstrcpyA(filename, path);
+			lstrcatA(filename, finddata.cFileName);			
+		}
+
+		result = FindNextFileA(hf, &finddata);
+	} while (result);
+
+	FindClose(hf);
+
+	return cnt;
+}
+
+
+int FileOper::delFolder(CHAR* srcpath) {
+
+	int result = 0;
+
+	CHAR path[MAX_PATH];
+	lstrcpyA(path, srcpath);
+
+	int pathlen = lstrlenA(path);
+	if (path[pathlen - 1] == '\\')
+	{
+
+	}
+	else {
+		lstrcatA(path, "\\");
+	}
+
+	const CHAR* allfiles = "*.*";
+	string searchpath = string(path) + allfiles;
+
+	int cnt = 0;
+
+	WIN32_FIND_DATAA finddata;
+	HANDLE hf = FindFirstFileA(searchpath.c_str(), &finddata);
+	if (hf == INVALID_HANDLE_VALUE)
+	{
+		return FALSE;
+	}
+
+	do
+	{
+		if (finddata.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+		{
+			if (lstrcmpiA(finddata.cFileName, ".") == 0 || lstrcmpiA(finddata.cFileName, "..") == 0)
+			{
+
+			}
+			else {
+				CHAR nextpath[MAX_PATH];
+				lstrcpyA(nextpath, path);
+				lstrcatA(nextpath, finddata.cFileName);
+				cnt += delFolder(nextpath);
+				cnt += DeleteFileA(nextpath);
+				//RemoveDirectoryW(nextpath);
+			}
+		}
+		else if (finddata.dwFileAttributes & FILE_ATTRIBUTE_ARCHIVE)
+		{
+			CHAR filename[MAX_PATH];
+			lstrcpyA(filename, path);
+			lstrcatA(filename, finddata.cFileName);
+
+			cnt += DeleteFileA(filename);
+			cnt++;
+		}
+
+		result = FindNextFileA(hf, &finddata);
+	} while (result);
+
+	FindClose(hf);
+
+	return cnt;
 }

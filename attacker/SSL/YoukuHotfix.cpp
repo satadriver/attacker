@@ -171,7 +171,7 @@ int YoukuHotfix::makeRequestReply(char * dstbuf, int dstbuflimit, LPSSLPROXYPARA
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "youhotfix reply:%s\r\n", dstbuf);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	return retlen;
 }

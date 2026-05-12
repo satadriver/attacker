@@ -197,41 +197,27 @@ int RSACipher::rsatest() {
 
 
 int maintest() {
-
-
 	// ≤˙…˙RSA√‹‘ø∂‘
 
 	RSA *rsaKey = RSA_generate_key(1024, 65537, NULL, NULL);
 
-
-
 	int keySize = RSA_size(rsaKey);
-
-
 
 	char fData[] = "aaabbbccdskjkfd";
 
 	char tData[128];
 
-
-
 	int  flen = strlen(fData);
 
 	//flen = 15
-
-
 
 	int ret = RSA_public_encrypt(flen, (unsigned char *)fData, (unsigned char *)tData, rsaKey, RSA_PKCS1_PADDING);
 
 	//ret = 128
 
-
-
 	ret = RSA_private_decrypt(128, (unsigned char *)tData, (unsigned char *)fData, rsaKey, RSA_PKCS1_PADDING);
 
 	//ret = 15
-
-
 
 	RSA_free(rsaKey);
 

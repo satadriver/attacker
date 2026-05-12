@@ -11,9 +11,6 @@ using namespace std;
 class SSLRetransfer {
 public:
 
-
 	static int RetransferProxyMain(LPHTTPPROXYPARAM pstHttpProxyParam);
-
-	
 
 };

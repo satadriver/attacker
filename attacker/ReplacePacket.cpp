@@ -103,8 +103,8 @@ int AttackPacket::ReplacePacket(pcap_t * pcapT,const char * lppacket,int packets
 		if (ret )
 		{
 			printf("ReplacePacket pcap_sendpacket error\r\n");
-			Public::WriteLogFile("ReplacePacket pcap_sendpacket error\r\n");
-			Public::WriteLogFile(SENDPACKET_LOG_FILENAME, lppacket, packetsize);
+			Public::writeLogFile("ReplacePacket pcap_sendpacket error\r\n");
+			Public::writeFile(SENDPACKET_LOG_FILENAME, lppacket, packetsize);
 			return FALSE;
 		}
 	}
@@ -128,14 +128,15 @@ int AttackPacket::ReplacePacket(pcap_t * pcapT,const char * lppacket,int packets
 		lpNewTcpHdr->FIN = 0;
 		lpNewTcpHdr->ECN_ECHO = 0;
 		lpNewTcpHdr->PacketChksum = 0;
-		lpNewTcpHdr->PacketChksum = Checksum::subPackChecksum((char*)lpNewTcpHdr,sendmod+iTcpHdrLen,lpNewIPHdr->SrcIP,lpNewIPHdr->DstIP,IPPROTO_TCP);
+		lpNewTcpHdr->PacketChksum = Checksum::subPackChecksum((char*)lpNewTcpHdr,sendmod+iTcpHdrLen,lpNewIPHdr->SrcIP,
+			lpNewIPHdr->DstIP,IPPROTO_TCP);
 		
 		int ret = pcap_sendpacket(pcapT,lpnewpack,sendmod + ipoffset + iIpHdrLen + iTcpHdrLen);
 		if (ret )
 		{
 			printf("ReplacePacket pcap_sendpacket error\r\n");
-			Public::WriteLogFile("ReplacePacket pcap_sendpacket error\r\n");
-			Public::WriteLogFile(SENDPACKET_LOG_FILENAME, lppacket, packetsize);
+			Public::writeLogFile("ReplacePacket pcap_sendpacket error\r\n");
+			Public::writeFile(SENDPACKET_LOG_FILENAME, lppacket, packetsize);
 			return FALSE;
 		}
 	}
@@ -156,14 +157,14 @@ int AttackPacket::ReplacePacket(pcap_t * pcapT,const char * lppacket,int packets
 	lpNewTcpHdr->ACK = 1;
 	lpNewTcpHdr->SeqNum = ntohl(dwSendSeqNum + senddatasize);
 	lpNewTcpHdr->PacketChksum = 0;
-	lpNewTcpHdr->PacketChksum = Checksum::subPackChecksum((char*)lpNewTcpHdr,iTcpHdrLen ,lpNewIPHdr->SrcIP,lpNewIPHdr->DstIP,IPPROTO_TCP);
+	lpNewTcpHdr->PacketChksum = Checksum::subPackChecksum((char*)lpNewTcpHdr,iTcpHdrLen,lpNewIPHdr->SrcIP,lpNewIPHdr->DstIP,IPPROTO_TCP);
 
 	int ret = pcap_sendpacket(pcapT,lpnewpack, ipoffset + iIpHdrLen + iTcpHdrLen);
 	if (ret )
 	{
 		printf("ReplacePacket pcap_sendpacket error\r\n");
-		Public::WriteLogFile("ReplacePacket pcap_sendpacket error\r\n");
-		Public::WriteLogFile(SENDPACKET_LOG_FILENAME, lppacket, packetsize);
+		Public::writeLogFile("ReplacePacket pcap_sendpacket error\r\n");
+		Public::writeFile(SENDPACKET_LOG_FILENAME, lppacket, packetsize);
 		return FALSE;
 	}
 	

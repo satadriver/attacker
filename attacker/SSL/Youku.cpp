@@ -97,7 +97,7 @@ int Youku::replyYoukuApk(char*recvBuffer, int len, int buflimit, LPHTTPPROXYPARA
 
 	char szout[4096];
 	int outlen = sprintf_s(szout, 4096, "youku reply:%s\r\n", lpRespContent);
-	Public::WriteLogFile(ATTACK_LOG_FILENAME, szout, outlen);
+	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
 	return retlen;
 }

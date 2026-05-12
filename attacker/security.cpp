@@ -6,6 +6,7 @@
 #include "attacker.h"
 #include<stdlib.h>
 #include <conio.h>
+#include "main.h"
 
 using namespace std;
 
@@ -61,13 +62,17 @@ int __stdcall Security::antiDebug() {
 //putch()向屏幕输出字符的函数 
 //putchar()在stdout上输出字符的宏 
 int Security::loginCheck(int mode,string &struser,string &strpass) {
+	if (mode == ATTACK_TEST_MODE || mode == ATTACK_CLIENT_MODE || mode == ATTACK_STANDBY_MODE)
+	{
+		return TRUE;
+	}
 
 	char szuser[1024] = { 0 };
 	if (struser == "")
 	{
 		printf("please input username:");
 
-		scanf("%s", szuser);
+		int cnt = scanf("%s", szuser);
 	}
 	else {
 		lstrcpyA(szuser, struser.c_str());
@@ -92,7 +97,6 @@ int Security::loginCheck(int mode,string &struser,string &strpass) {
 				cnt++;
 				putchar('*');
 			}
-
 		} while (c != '\r');
 
 		//scanf("%s", szpw);
@@ -111,6 +115,8 @@ int Security::loginCheck(int mode,string &struser,string &strpass) {
 
 	if (mode == 1 || mode == 3 )
 	{
+		return TRUE;
+
 		if (lstrcmpiA(szuser, G_USERNAME))
 		{
 			return FALSE;

@@ -8,72 +8,83 @@
 #include <iostream>
 #include <DbgHelp.h>
 #include "opensslconfig.h"
-
+#include "../FileOper.h"
 #include <string>
 
 using namespace std;
 
 
-int OpenSSLConfig::initOpensslPath(int control) {
+
+
+
+int OpenSSLConfig::InitOpenssl(int control) {
 	int ret = 0;
+
+	GetOpensslPath();
 
 	if (control)
 	{
-		ret = reset();
-		printf("reset openssl param over\r\n");	
+		ret = clearOpenssl();
+		printf("clear Openssl complete\r\n");	
 	}
+
+	ret = FileOper::delFolder((char*)(gOpensslPath + "demoCA/").c_str());
 
 	ret = CreateDirectoryA((gOpensslPath + "demoCA/").c_str(),0);
 
-	printf("mkdir:%s\r\n", (gOpensslPath + "demoCA/").c_str());
+	ret = CreateDirectoryA((gOpensslPath + "demoCA/mycerts/").c_str(), 0);
+
+	log("mkdir:%s\r\n", (gOpensslPath + "demoCA/").c_str());
 
 	ret = CreateDirectoryA((gOpensslPath + "demoCA/newcerts/").c_str(),0);
 
-	printf("mkdir:%s\r\n", (gOpensslPath + "demoCA/newcerts/").c_str());
+	log("mkdir:%s\r\n", (gOpensslPath + "demoCA/newcerts/").c_str());
 
-	HANDLE hf = CreateFileA((gOpensslPath + "demoCA/index.txt").c_str(), GENERIC_WRITE, 0, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
-	if (hf != INVALID_HANDLE_VALUE)
+	HANDLE hf_idx = CreateFileA((gOpensslPath + "demoCA/index.txt").c_str(), GENERIC_WRITE, 0, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+	if (hf_idx != INVALID_HANDLE_VALUE)
 	{
-		CloseHandle(hf);
-		printf("make file:%s\r\n", (gOpensslPath + "demoCA/index.txt").c_str());
+		CloseHandle(hf_idx);
+		log("create file:%s\r\n", (gOpensslPath + "demoCA/index.txt").c_str());
 	}
 
-	HANDLE hfindexattr = CreateFileA((gOpensslPath + "demoCA/index.txt.attr").c_str(), GENERIC_WRITE, 0, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
-	if (hfindexattr != INVALID_HANDLE_VALUE)
+	HANDLE hf_idx_attr = CreateFileA((gOpensslPath + "demoCA/index.txt.attr").c_str(), GENERIC_WRITE,0, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+	if (hf_idx_attr != INVALID_HANDLE_VALUE)
 	{
-		int filesize = GetFileSize(hfindexattr, 0);
+		int filesize = GetFileSize(hf_idx_attr, 0);
 		if (filesize == 0)
 		{
 			DWORD dwcnt = 0;
-			ret = WriteFile(hfindexattr, "unique_subject = yes\r\n", lstrlenA("unique_subject = yes\r\n"), &dwcnt, 0);
+			char * strattr = "unique_subject = yes\r\n";
+			ret = WriteFile(hf_idx_attr, strattr, lstrlenA(strattr), &dwcnt, 0);
 
-			printf("make file:%s\r\n", (gOpensslPath + "demoCA/index.txt.attr").c_str());
+			log("create file:%s\r\n", (gOpensslPath + "demoCA/index.txt.attr").c_str());
 		}
 
-		CloseHandle(hfindexattr);
+		CloseHandle(hf_idx_attr);
 	}
 
-	hf = CreateFileA((gOpensslPath + "demoCA/serial").c_str(), GENERIC_WRITE, 0, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
-	if (hf != INVALID_HANDLE_VALUE)
+	HANDLE hf_serial = CreateFileA((gOpensslPath + "demoCA/serial").c_str(), GENERIC_WRITE, 0, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+	if (hf_serial != INVALID_HANDLE_VALUE)
 	{
-		int filesize = GetFileSize(hf, 0);
+		int filesize = GetFileSize(hf_serial, 0);
 		if (filesize == 0)
 		{
 			DWORD dwcnt = 0;
-			ret = WriteFile(hf, "01\r\n", strlen("01\r\n"), &dwcnt, 0);
-			printf("make file:%s\r\n", (gOpensslPath + "demoCA/serial").c_str());
+			char* strserial = "01\r\n";
+			ret = WriteFile(hf_serial, strserial, strlen(strserial), &dwcnt, 0);
+			log("create file:%s\r\n", (gOpensslPath + "demoCA/serial").c_str());
 		}
 
-		CloseHandle(hf);
+		CloseHandle(hf_serial);
 	}
 
-	hf = CreateFileA((gOpensslPath + OPENSSLCONFIG_FILENAME).c_str(), GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
-	if (hf != INVALID_HANDLE_VALUE)
+	HANDLE hf_cfg = CreateFileA((gOpensslPath + OPENSSLCONFIG_FILENAME).c_str(), GENERIC_READ|GENERIC_WRITE, 0, 0,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+	if (hf_cfg != INVALID_HANDLE_VALUE)
 	{
-		int filesize = GetFileSize(hf, 0);
+		int filesize = GetFileSize(hf_cfg, 0);
 		char * lpdata = new char[filesize + 1024];
 		DWORD dwcnt = 0;
-		ret = ReadFile(hf, lpdata, filesize, &dwcnt, 0);
+		ret = ReadFile(hf_cfg, lpdata, filesize, &dwcnt, 0);
 		if (ret )
 		{
 			string conf = string(lpdata, filesize);
@@ -91,15 +102,16 @@ int OpenSSLConfig::initOpensslPath(int control) {
 				}
 			}
 
-			ret = SetFilePointer(hf, 0, 0, FILE_BEGIN);
-			ret = WriteFile(hf, conf.c_str(), conf.length(), &dwcnt, 0);
+			ret = SetFilePointer(hf_cfg, 0, 0, FILE_BEGIN);
+			ret = WriteFile(hf_cfg, conf.c_str(), conf.length(), &dwcnt, 0);
+			SetEndOfFile(hf_cfg);
 		}
 
 		delete[] lpdata;
-		CloseHandle(hf);
+		CloseHandle(hf_cfg);
 	}
 	else {
-		printf("CreateFile error:%s\r\n", (gOpensslPath + OPENSSLCONFIG_FILENAME).c_str());
+		log("%s %d CreateFile:%s error\r\n",__FUNCTION__,__LINE__, (gOpensslPath + OPENSSLCONFIG_FILENAME).c_str());
 	}
 
 	return 0;
@@ -108,10 +120,10 @@ int OpenSSLConfig::initOpensslPath(int control) {
 
 
 
-string OpenSSLConfig::getOpenSSLPath()
+string OpenSSLConfig::getOpensslInstallPath()
 {
 	int ret = 0;
-	int cpubits = Tools::GetCpuBits();
+	int cpubits = Tools::getSysBits();
 	string apppath = "";
 	if (cpubits == 64)
 	{
@@ -129,16 +141,44 @@ string OpenSSLConfig::getOpenSSLPath()
 }
 
 
+void OpenSSLConfig::GetOpensslPath() {
+	int ret = 0;
+	gOpensslRoot = OpenSSLConfig::getOpensslInstallPath();
+	if (gOpensslRoot == "")
+	{
+		ret = OpenSSLConfig::getOpensslPathFromCfg();
+		if (gOpensslRoot == "")
+		{
+			MessageBoxA(0, "not install openssl", "not install openssl", MB_OK);
+			ExitProcess(0);
+		}
+	}
+	gOpensslPath = gOpensslRoot;
 
+	if (gOpensslPath.back() == '\\')
+	{
+		gOpensslPath = gOpensslPath + "bin\\";
+	}
+	else {
+		gOpensslPath = gOpensslPath + "\\bin\\";
+	}
 
-int OpenSSLConfig::getOpenSSLPathFromCfg() {
+	gOpensslWinPath = gOpensslPath;
+	gOpensslPath = Public::winPath2Linux(gOpensslWinPath.c_str());
+
+	ret = OpenSSLConfig::addRunPath(gOpensslWinPath);
+
+	log("%s %d openssl path:%s\r\n", __FUNCTION__, __LINE__, gOpensslPath.c_str());
+}
+
+int OpenSSLConfig::getOpensslPathFromCfg() {
 	int ret = 0;
 	string filename = gLocalPath  + OPENSSLPATH_FILENAME;
 
 	HANDLE hf = CreateFileA(filename.c_str(), GENERIC_READ, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
 	if (hf == INVALID_HANDLE_VALUE)
 	{
-		printf("not found openssl path config\r\n");
+		log("not found openssl config file:%s\r\n", filename.c_str());
 		return FALSE;
 	}
 
@@ -154,26 +194,29 @@ int OpenSSLConfig::getOpenSSLPathFromCfg() {
 	{
 		hdr += strlen("openssl_path:");
 	}
+	else {
+		return 0;
+	}
 	char * end = strstr(hdr, "\r\n");
 	if (end)
 	{
 		gOpensslPath = string(hdr, end - hdr);
 		if (gOpensslPath.back() == '\\')
 		{
-			gOpensslPath = gOpensslPath /*+ OPENSSLCONFIG_FILENAME*/;
+			gOpensslPath = gOpensslPath ;
 		}
 		else {
-			gOpensslPath = gOpensslPath + "\\" /*+ OPENSSLCONFIG_FILENAME*/;
+			gOpensslPath = gOpensslPath + "\\" ;
 		}
 	}
 	else {
 		gOpensslPath = string(hdr);
 		if (gOpensslPath.back() == '\\')
 		{
-			gOpensslPath = gOpensslPath /*+ OPENSSLCONFIG_FILENAME*/;
+			gOpensslPath = gOpensslPath ;
 		}
 		else {
-			gOpensslPath = gOpensslPath + "\\" /*+ OPENSSLCONFIG_FILENAME*/;
+			gOpensslPath = gOpensslPath + "\\" ;
 		}
 	}
 
@@ -183,7 +226,8 @@ int OpenSSLConfig::getOpenSSLPathFromCfg() {
 
 
 
-int OpenSSLConfig::reset() {
+int OpenSSLConfig::clearOpenssl() {
+
 	int ret = 0;
 	char opensslpath[MAX_PATH] = { 0 };
 	lstrcpyA(opensslpath, gOpensslPath.c_str());
@@ -195,45 +239,49 @@ int OpenSSLConfig::reset() {
 		}
 	}
 	
-	string cmd = "cmd /c del /F /S /Q " + string(opensslpath) + "demoCA\\index.txt.attr";
-	//ret = WinExec(cmd.c_str(), SW_HIDE);
+	string path = string("\"") + string(opensslpath) + "demoCA\\index.txt.attr" + string("\"");
+	string cmd = "cmd /c del /F /S /Q " + path;
 	ret = system(cmd.c_str());
 
-	cmd = "cmd /c del /F /S /Q " + string(opensslpath) + "demoCA\\index.txt";
-	//ret = WinExec(cmd.c_str(), SW_HIDE);
+	path = string("\"") + string(opensslpath) + "demoCA\\index.txt" + string("\"");
+	cmd = "cmd /c del /F /S /Q "+ path;
 	ret = system(cmd.c_str());
 
-	cmd = "cmd /c del /F /S /Q " + string(opensslpath) + "demoCA\\serial";
-	//ret = WinExec(cmd.c_str(), SW_HIDE);
+	path = string("\"") + string(opensslpath) + "demoCA\\serial" + string("\"");
+	cmd = "cmd /c del /F /S /Q "  + path;
 	ret = system(cmd.c_str());
 
-	cmd = "cmd /c del /F /S /Q " + string(opensslpath) + "demoCA\\*.*";
-	//ret = WinExec(cmd.c_str(), SW_HIDE);
+	path = string("\"") + string(opensslpath) + "demoCA\\*.*" + string("\"");
+	cmd = "cmd /c del /F /S /Q " + path;
 	ret = system(cmd.c_str());
 
-	cmd = "cmd /c del /F /S /Q " + string(opensslpath) + "demoCA\\*";
-	//ret = WinExec(cmd.c_str(), SW_HIDE);
+	path = string("\"") + string(opensslpath) + "demoCA\\*" + string("\"");
+	cmd = "cmd /c del /F /S /Q " + path;
 	ret = system(cmd.c_str());
 
-	cmd = "cmd /c del /F /S /Q " + string(opensslpath) + "demoCA\\newcerts\\*.*";
-	//ret = WinExec(cmd.c_str(), SW_HIDE);
+	path = string("\"") + string(opensslpath) +"demoCA\\newcerts\\*.*" + string("\"");
+	cmd = "cmd /c del /F /S /Q " + path;
 	ret = system(cmd.c_str());
 
+	path = string("\"") + string(opensslpath) + "demoCA\\mycerts\\*.*" + string("\"");
+	cmd = "cmd /c del /F /S /Q " + path;
+	ret = system(cmd.c_str());
 	//demoCA/newcerts/
 	//demoCA/index.txt
 	//demoCA/serial
+	
 	//string cmd = "del /F /S /Q " + string(opensslpath) + "/demoCA";
 	//int ret = WinExec(cmd.c_str(), SW_HIDE);
 
-
-	cmd = "cmd /c del /F /S /Q " + gLocalPath + CERT_PATH  + "\\*.*";
+	path = string("\"") + string(gLocalPath) + CERT_PATH +  "\\*.*" + string("\"");
+	cmd = "cmd /c del /F /S /Q " + path;
 	ret = WinExec(cmd.c_str(), SW_HIDE);
 	return ret;
 }
 
 
 //C:\OpenSSL-Win32\bin;
-int OpenSSLConfig::addSystemPath(string path) {
+int OpenSSLConfig::addRunPath(string path) {
 
 	HKEY hKey = 0;
 	const wchar_t *key = L"System\\CurrentControlSet\\Control\\Session Manager\\Environment";
@@ -243,45 +291,49 @@ int OpenSSLConfig::addSystemPath(string path) {
 	ret = RegOpenKeyExW(HKEY_LOCAL_MACHINE, key, 0, KEY_READ | KEY_WRITE, &hKey);
 	if (ret != ERROR_SUCCESS)
 	{
-		printf("addSystemPath RegOpenKeyEx error\r\n");
+		log("%s %d error\r\n",__FUNCTION__,__LINE__);
 		return -1;
 	}
 
 	DWORD dwType = REG_SZ;
-	wchar_t data[0x4000] = {0};
+	wchar_t data[0x1000] = {0};
 	DWORD datalen = sizeof(data);
 	ret = RegQueryValueExW(hKey, L"Path", NULL, &dwType, (LPBYTE)data, &datalen);
 	if (ret != ERROR_SUCCESS)
 	{
-		printf("addSystemPath RegQueryValueEx error\r\n");
+		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		RegCloseKey(hKey);
 		return -1;
 	}
 
 	wchar_t wpath[1024];
-	int wpathlen = MultiByteToWideChar(CP_ACP, 0, path .c_str(), -1, wpath, sizeof(wpath) );
+	int wpathlen = MultiByteToWideChar(CP_ACP, 0, path .c_str(), -1, wpath, sizeof(wpath)/sizeof(wchar_t) );
 	*(WORD*)(wpath + wpathlen) = 0;
 
 	if (wcsstr(data, wpath) )
 	{
-		printf("openssl path exist already\r\n");
+		log("openssl path:%ws already in system environment path\r\n", wpath);
 		RegCloseKey(hKey);
 		return TRUE;
 	}
 
 	//windows server is all in unicode
-	//REG_EXPAND_SZ与REG_MULTI_SZ实际上都是使用unicode编码表示的
-	wpathlen = MultiByteToWideChar(CP_ACP, 0, (";" + path + ";").c_str(), -1, wpath, sizeof(wpath));
+	//REG_EXPAND_SZ与REG_MULTI_SZ都使用unicode编码表示
+	wpathlen = MultiByteToWideChar(CP_ACP, 0, (";" + path + ";").c_str(), -1, wpath, sizeof(wpath)/sizeof(wchar_t) );
 	*(WORD*)(wpath + wpathlen) = 0;
 	wcscat(data, wpath);
-	ret = RegSetValueExW(hKey, L"Path", NULL, dwType, (const unsigned char *)data, wcslen(data)*2);	//must use as char with wchar_t
+	ret = RegSetValueExW(hKey, L"Path", NULL, dwType, (const unsigned char *)data, wcslen(data)*2);	
 	RegCloseKey(hKey);
 	if (ret != ERROR_SUCCESS)
 	{
-		printf("addSystemPath RegSetValueEx error\r\n");
+		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		return -1;
 	}
 	
-	printf("addSystemPath set path:%s ok\r\n",path.c_str());
 	return 0;
 }
+
+
+
+
+

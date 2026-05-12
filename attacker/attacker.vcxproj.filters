@@ -99,7 +99,7 @@
     <ClInclude Include="HttpUtils.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="NetCardInfo.h">
+    <ClInclude Include="NetworkDevice.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Packet.h">
@@ -507,7 +507,7 @@
     <ClInclude Include="DnsUtils\dnsUtils.h">
       <Filter>头文件\DnsUtils</Filter>
     </ClInclude>
-    <ClInclude Include="DnsUtils\DnsKeeper.h">
+    <ClInclude Include="DnsUtils\DnsServer.h">
       <Filter>头文件\DnsUtils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Tools.h">
@@ -549,10 +549,10 @@
     <ClInclude Include="Utils\lock.h">
       <Filter>头文件\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="ssl\InformerProc.h">
+    <ClInclude Include="ssl\InformerServer.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
-    <ClInclude Include="SSL\informerClient.h">
+    <ClInclude Include="SSL\InformerInterface.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
     <ClInclude Include="PacketProc.h">
@@ -561,7 +561,7 @@
     <ClInclude Include="gateWay\gateway.h">
       <Filter>头文件\GateWay</Filter>
     </ClInclude>
-    <ClInclude Include="SSL\InformerUdp.h">
+    <ClInclude Include="SSL\InformerSvrUdp.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
     <ClInclude Include="DnsUtils\DnsProxyIPV6.h">
@@ -594,6 +594,30 @@
     <ClInclude Include="Utils.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SSL\unzip.h">
+      <Filter>头文件\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="winDivert.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="windivert_device.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myDvert.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="udpPacket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpPacket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="proxyPacket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="attack.cpp">
@@ -614,7 +638,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="NetCardInfo.cpp">
+    <ClCompile Include="NetworkDevice.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Public.cpp">
@@ -1019,7 +1043,7 @@
     <ClCompile Include="DnsUtils\dnsUtils.cpp">
       <Filter>源文件\DnsUtils</Filter>
     </ClCompile>
-    <ClCompile Include="DnsUtils\DnsKeeper.cpp">
+    <ClCompile Include="DnsUtils\DnsServer.cpp">
       <Filter>源文件\DnsUtils</Filter>
     </ClCompile>
     <ClCompile Include="Utils\Tools.cpp">
@@ -1061,10 +1085,10 @@
     <ClCompile Include="Utils\lock.cpp">
       <Filter>源文件\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="ssl\InformerProc.cpp">
+    <ClCompile Include="ssl\InformerServer.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
-    <ClCompile Include="ssl\InformerClient.cpp">
+    <ClCompile Include="ssl\InformerInterface.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
     <ClCompile Include="PacketProc.cpp">
@@ -1076,7 +1100,7 @@
     <ClCompile Include="SSL\AuthorityCert.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
-    <ClCompile Include="SSL\InformerUdp.cpp">
+    <ClCompile Include="SSL\InformerSvrUdp.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
     <ClCompile Include="DnsUtils\DnsProxyIPV6.cpp">
@@ -1107,6 +1131,27 @@
       <Filter>源文件\ssl\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SSL\unzip.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="myDivert.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="udpPacket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpPacket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="proxyPacket.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="clientMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="serverMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
