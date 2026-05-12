@@ -2,3 +2,7 @@ key:,username:jy20200614
 key:cn.bing.com,username:jy20200614
 key:www.bing.com,username:jy20200614
 key:alive.github.com,username:jy20200614
+key:get.sogou.com,username:jy20200614
+key:github.com,username:jy20200614
+key:ping.pinyin.sogou.com,username:jy20200614
+key:oth.eve.mdt.qq.com,username:jy20200614
