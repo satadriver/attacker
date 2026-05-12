@@ -639,10 +639,6 @@ int HttpsAttack::sslAttackProc(char* recvBuffer, int& iCounter, LPSSLPROXYPARAM 
 		return TRUE;
 	}
 
-#ifdef _DEBUG
-
-#endif
-
 	iRet = HttpsAttack::SslAttackPacket((char*)recvBuffer, iCounter, url.c_str(), host.c_str(), httphdr.c_str(),
 		httpdata, pstSSLProxyParam);
 	if (iRet)

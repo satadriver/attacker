@@ -17,7 +17,7 @@ using namespace std;
 
 #define MIN_DNS_PACKET_SIZE			20
 #define MIN_TCP_PACKET_SIZE			4
-#define CAPRAW_ERROR_FILENAME		"capraw_error.txt"
+
 
 class Packet {
 public:

@@ -45,9 +45,6 @@ public:
 
 	Gateway * mInstance;
 
-	int mCnt;
-
-
 	GATEWAYPARAM getGatewayParam();
 
 	int getGateWay();

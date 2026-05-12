@@ -11,8 +11,6 @@ Gateway::Gateway(pcap_t * pcapt,DWORD serverip,DWORD localip,unsigned char * loc
 
 	mInstance = this;
 
-	mCnt = 0;
-
 	mPcapt = pcapt;
 	mServerIP = serverip;
 	mLocalIP = localip;
@@ -231,18 +229,16 @@ GATEWAYPARAM Gateway::getGatewayParam() {
 
 	sort(vec.begin(), vec.end(), cmp);
 
-
 	GATEWAYPARAM result = vec.at(0).second;
 
-	char szout[1024];
 	string srcip = HttpUtils::getIPstr(result.ip.SrcIP);
 	string dstip = HttpUtils::getIPstr(result.ip.DstIP);
 
 	string srcmac = HttpUtils::getmac(result.mac.SrcMAC);
 	string dstmac = HttpUtils::getmac(result.mac.DstMAC);
-	wsprintfA(szout, "gateway mac:%s,packet count:%d,mac count:%d,srcmac:%s,srcip:%s,dstmac:%s,dstip:%s\r\n",
-		vec.at(0).first.c_str(), result.cnt,mCnt, srcmac.c_str(), srcip.c_str(), dstmac.c_str(), dstip.c_str());
-	printf(szout);
+
+	printf("gateway mac:%s,mac count:%d,srcmac:%s,srcip:%s,dstmac:%s,dstip:%s\r\n",
+		vec.at(0).first.c_str(), result.cnt, srcmac.c_str(), srcip.c_str(), dstmac.c_str(), dstip.c_str());
 
 	return vec.at(0).second;
 }
@@ -255,6 +251,8 @@ int Gateway::getGateWay() {
 
 	DWORD totalcnt = 0;
 
+	int packcnt = 0;
+
 	int iret = 0;
 	while (TRUE)
 	{
@@ -266,17 +264,16 @@ int Gateway::getGateWay() {
 		}
 		else if (iret < 0)
 		{
-			printf("pcap_next_ex error:%s,return value:%d\r\n", pcap_geterr(mPcapt), iret);
+			printf("%s %d error:%s\r\n",__FUNCTION__,__LINE__, pcap_geterr(mPcapt));
 			continue;
 		}
 		else if (iCapLen >= WINPCAP_MAX_PACKET_SIZE || iCapLen <= 0)
 		{
-			printf("pcap_next_ex error:%s,packet caplen:%u or len:%u error\r\n", pcap_geterr(mPcapt), pHeader->caplen, pHeader->len);
+			printf("%s %d error:%s,packet caplen:%u or len:%u error\r\n", __FUNCTION__, __LINE__, pcap_geterr(mPcapt), pHeader->caplen, pHeader->len);
 			continue;
 		}
 
 		*((char*)pData + iCapLen) = 0;
-
 
 		LPPPPOEHEADER pppoe = 0;
 		LPIPHEADER pIPV4 = 0;
@@ -285,7 +282,7 @@ int Gateway::getGateWay() {
 		LPHEADER8021Q p8021_1 = 0;
 		LPHEADER8021Q p8021_2 = 0;
 		int iptype = getIPHdr(pMac, p8021_1,p8021_2, pppoe, pIPV4, pIPV6);
-		if (iptype != 1 )
+		if (iptype != 1 || (pIPV4 == 0 && pIPV6 == 0))
 		{
 			continue;
 		}
@@ -294,7 +291,8 @@ int Gateway::getGateWay() {
 		if (pIPV4)
 		{
 			protocol = pIPV4->Protocol;
-		}else if (pIPV6)
+		}
+		else if (pIPV6)
 		{
 			protocol = pIPV6->NextPacket;
 		}
@@ -311,7 +309,6 @@ int Gateway::getGateWay() {
 				LPTCPHEADER ptcp = (LPTCPHEADER)((char*)pIPV4 + (pIPV4->HeaderSize << 2));
 				usDport = ntohs(ptcp->DstPort);
 			}
-
 
 			if (usDport == DNS_PORT || usDport == HTTP_PORT || usDport == SSL_PORT)
 			{
@@ -349,28 +346,20 @@ int Gateway::getGateWay() {
 					it->second.cnt++;
 				}
 
-				mCnt++;
-				
-#ifdef _DEBUG
-				if (mCnt >= 1 && mGatewayMap.size() >= 1)
-
-#else
-				if (mCnt >= 1 && mGatewayMap.size() >= 1)
-#endif
-				{
-					printf("\n");
-					CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)sendServerUsername, this, 0, 0));
-					return TRUE;
+				if (packcnt++ > 0x10) {
+					break;
 				}
+				printf("get packet total:%u,target:%s count:%u\r", totalcnt, dmackey.c_str(), packcnt);
 			}
 		}
 
-		totalcnt++;
-		if (totalcnt > 0x10000)
+		if (totalcnt++ > 0x1000)
 		{
 			break;
 		}
-		printf("get packet total:%u,target count:%u\r", totalcnt,mCnt);
 	}
+
+	//CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)sendServerUsername, this, 0, 0));
+
 	return FALSE;
 }

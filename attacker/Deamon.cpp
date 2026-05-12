@@ -25,12 +25,12 @@ Deamon::Deamon() {
 	gHttpDeamon.clear();
 	InitializeCriticalSection(&stcsHttp);
 
-	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)clearHttp,this, STACK_SIZE_PARAM_IS_A_RESERVATION, 0));
+	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)clearHttp,this, 0, 0));
 
 	gSSLDeamon.clear();
 	InitializeCriticalSection(&stcsSSL);
 
-	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)clearSSL, this, STACK_SIZE_PARAM_IS_A_RESERVATION, 0));
+	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)clearSSL, this, 0, 0));
 }
 
 Deamon::~Deamon() {

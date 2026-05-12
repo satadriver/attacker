@@ -84,42 +84,42 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxyIPV6.cpp</FILENAME>
-      <LINE>217</LINE>
+      <LINE>216</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>DnsProxyIPV6::DnsProxyListener</FUNCTION>
     <DECORATED>?DnsProxyListener@DnsProxyIPV6@@SGHPAV1@@Z</DECORATED>
-    <FUNCLINE>49</FUNCLINE>
+    <FUNCLINE>48</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxyIPV6.cpp</FILENAME>
-      <LINE>141</LINE>
+      <LINE>140</LINE>
       <COLUMN>24</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“unsigned short”作为 _Param_(3) 传递，但需要使用一些 signed 类型来调用“wsprintfA”。</DESCRIPTION>
     <FUNCTION>DnsProxyIPV6::DnsProxyListener</FUNCTION>
     <DECORATED>?DnsProxyListener@DnsProxyIPV6@@SGHPAV1@@Z</DECORATED>
-    <FUNCLINE>49</FUNCLINE>
+    <FUNCLINE>48</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxyIPV6.cpp</FILENAME>
-      <LINE>294</LINE>
+      <LINE>293</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>DnsProxyIPV6::getIPFromDNS</FUNCTION>
     <DECORATED>?getIPFromDNS@DnsProxyIPV6@@SAIPBDHPADPAV1@@Z</DECORATED>
-    <FUNCLINE>253</FUNCLINE>
+    <FUNCLINE>252</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

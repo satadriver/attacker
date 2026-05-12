@@ -14,9 +14,9 @@
 #include <vector>
 #include "attacker.h"
 
+
+
 using namespace std;
-
-
 
 
 #define SERVER_UDP_NOTIFY_PORT			65534
@@ -30,15 +30,9 @@ using namespace std;
 #define CONNECTION_TIME_OUT				6000
 #define SELECT_TIME_OUT					6000
 
-//#define GENERAL_DOMAIN_NAME "baidu.com"
-//#define GENERAL_DOMAIN_NAME "taobao.com"
 
-
-#define SSL_PROXY_FILE			"ssl.dat"
-//#define HTTP_PROXY_FILE			"http.dat"
-
-
-
+#define SSL_PROXY_FILE					"ssl.txt"
+#define HTTP_PROXY_FILE					"http.txt"
 
 #define ROOT_CERT_C			"US"
 #define ROOT_CERT_ST		"California"
@@ -85,25 +79,10 @@ using namespace std;
 //certmgr.msc
 
 /*
-CSR 是Certificate Signing Request的缩写，即证书签名请求，这不是证书，可以简单理解成公钥，生成证书时要把这个提交给权威的证书颁发机构。
-CRT 即 certificate的缩写，即证书。
-X.509 是一种证书格式.对X.509证书来说，认证者总是CA或由CA指定的人，一份X.509证书是一些标准字段的集合，
-这些字段包含有关用户或设备及其相应公钥的信息。
-X.509的证书文件，一般以.crt结尾，根据该文件的内容编码格式，可以分为以下二种格式：
-PEM - Privacy Enhanced Mail,打开看文本格式,以"-----BEGIN..."开头, "-----END..."结尾,内容是BASE64编码.
-Apache和*NIX服务器偏向于使用这种编码格式.
-DER - Distinguished Encoding Rules,打开看是二进制格式,不可读.Java和Windows服务器偏向于使用这种编码格式
+PEM - Privacy Enhanced Mail 文本格式 ,Apache和NgIX服务器偏向于使用这种编码格式.
+DER - Distinguished Encoding Rules 二进制格式, Java和Windows服务器偏向于使用这种编码格式
 */
 
-
-
-
-//#define	PRIVATE_KEY_PWD		"sata19820521"					// 私钥的密码
-//#define	CERT_FILE			"..\\key\\example.crt"			// 伪造的证书
-//#define	KEY_FILE			"..\\key\\example.key"			// 伪造证书的私钥
-//#define	CERT_FILE			"..\\key\\liujinguangscrt.crt"		// 伪造的证书
-//#define	CERT_FILE			"..\\key\\server-cert.pem.crt"		// 伪造的证书
-//#define	KEY_FILE			"..\\key\\server-key.pem"				// 伪造证书的私钥
 
 
 

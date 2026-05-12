@@ -94,8 +94,7 @@ int __stdcall InformerServer::informerListener(InformerServer* instance) {
 		connectinfo.sock = accept(targetServerSock, (sockaddr*)&connectinfo.sa, &iClientSockSize);
 		if (connectinfo.sock != INVALID_SOCKET)
 		{
-			CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)informerProc,
-				(LPVOID)&connectinfo, STACK_SIZE_PARAM_IS_A_RESERVATION, &dwThreadid));
+			CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)informerProc,(LPVOID)&connectinfo, 0, &dwThreadid));
 			Sleep(0);
 		}
 		else

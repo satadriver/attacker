@@ -28,8 +28,7 @@ HttpProxyListener::HttpProxyListener() {
 	g_thread_params.gHTTPEvent = CreateEventA(0, 0, 0, "gHTTPEvent");
 
 	g_thread_params.gHTTPListenEvent = CreateEventA(0, 0, TRUE, "gHTTPListenEvent");
-	HANDLE ht = CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)HttpProxyListener::listener,
-		this, STACK_SIZE_PARAM_IS_A_RESERVATION, 0);
+	HANDLE ht = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HttpProxyListener::listener,this, 0, 0);
 	if(ht)
 		CloseHandle(ht);
 

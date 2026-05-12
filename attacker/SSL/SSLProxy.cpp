@@ -26,7 +26,7 @@
 #include "../Utils/lock.h"
 #include "../cipher/compression.h"
 #include "unzip.h"
-
+#include "../FileOper.h"
 
 //12306
 //username = hong1976080990&password = SpkaHaPUP79MKVukA 
@@ -516,12 +516,12 @@ int SSLProxy::ReadPendingData(char * lpdata, int size, SSL * ssl) {
 }
 
 
-#include "../FileOper.h"
+
 
 int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * servername, int & version) {
 
 #ifdef _DEBUG
-	FileOper::fileWriter("debug.dat", data, len);
+	FileOper::fileWriter("clienthello.dat", data, len);
 #endif
 	SSLHEADER * lphdr = (LPSSLHEADER)data;
 	if (lphdr->contenttype == 0x16 && lphdr->handshaketype == 1)

@@ -1,21 +1,19 @@
 #pragma once
 
+#include <string>
 #include <unordered_map>
 #include <iostream>
 #include <windows.h>
 #include "../utils/Lock.h"
 
-#define IPV4_ONLINE_FILENAME "ipv4_online.txt"
+using namespace std;
+
+#define IPV4_ONLINE_FILENAME			"ipv4_online.txt"
 
 #define CLIENTIP_WAIT_DELAY				600
 #define CLIENTIP_WAIT_SPLITDELAY		30
 
 #define IPV4_REPLACE_IPV6_VALUE			0x12345678
-
-
-
-#include <string>
-using namespace std;
 
 
 struct cmp {

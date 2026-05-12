@@ -112,7 +112,7 @@ int main(int argc, char** argv)
 	HANDLE hMutext = (HANDLE)Public::singleInstance();
 	if (hMutext == FALSE)
 	{
-		printf("program had already been running\n");
+		printf("program has already been running\n");
 		ret = _getch();
 		exit(-1);
 	}
@@ -156,7 +156,7 @@ int main(int argc, char** argv)
 	string adaptername = NetworkDevice::ChooseNetcard(&gLocalIP, &gNetmask, &gRouterIP, gLocalMac, netcard_target,&gDnsServer);
 	if (adaptername == "")
 	{
-		printf("selectNetcard error\r\n");
+		printf("select Netcard error\r\n");
 		ret = _getch();
 		return -1;
 	}
@@ -175,7 +175,7 @@ int main(int argc, char** argv)
 	}
 
 #ifndef _DEBUG
-	ret = Tools::autorun(username, password, netcard_selected);
+	ret = Tools::autorun(username, password, netcard_target);
 	DWORD debugTd = 0;
 	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)Security::antiDebug, 0,
 		STACK_SIZE_PARAM_IS_A_RESERVATION, &debugTd));
@@ -189,7 +189,7 @@ int main(int argc, char** argv)
 		ret = _getch();
 		return -1;
 	}
-	printf("device name:%s,netmask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcapDelay);
+	printf("device:%s,mask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcapDelay);
 
 	//vector、set、map这些容器的end()取出来的值不是最后一个、end的前一个才是最后一个,prev(xxx.end())取出最后一个
 	auto iter = unique(gDnsAttackList.begin(), gDnsAttackList.end());
@@ -251,7 +251,7 @@ int main(int argc, char** argv)
 			printf("\r\nPlease input the number of the server packet:\r\n");
 			//scanf("%d", &packnum);
 			if (packnum < usernames.size() && packnum >= 0) {
-				lstrcpyA(G_USERNAME, usernames[packnum].c_str());
+				//lstrcpyA(G_USERNAME, usernames[packnum].c_str());
 				break;
 			}
 		} while (1);
@@ -272,23 +272,22 @@ int main(int argc, char** argv)
 		ret = access(userpluginPath.c_str(), 0);
 		if (ret)
 		{
-			wsprintfA(szout, "attack data store:%s not exist!\r\n", G_USERNAME);
-			printf(szout);
+			log( "attack data store:%s not exist!\r\n", G_USERNAME);
 			ret=_getch();
 			exit(-1);
 		}
 
-		printf("parsing gateway mac and ip,please wait...\r\n");
-		Gateway* gateway = new Gateway(pcapt, serverIP, gLocalIP, gLocalMac);
-
-		int totalpack = gateway->getGateWay();
-		// 		if (totalpack)
-		// 		{
-		// 			GATEWAYPARAM p = gateway->getGatewayParam();
-		// 			printf("get gate way mac:%s,packet count:%d,mac count:%d,source ip:%s\r\n",
-		// 				HttpUtils::getmac(p.mac.DstMAC).c_str(), p.cnt, gateway->mCnt, HttpUtils::getIPstr(p.ip.SrcIP).c_str());
-		// 		}
-
+		if (0) {
+			printf("parsing gateway mac and ip,please wait...\r\n");
+			Gateway* gateway = new Gateway(pcapt, serverIP, gLocalIP, gLocalMac);
+			int totalpack = gateway->getGateWay();
+			if (totalpack)
+			{
+				GATEWAYPARAM p = gateway->getGatewayParam();
+				printf("gate way mac:%s,mac count:%d,source ip:%s\r\n",
+					HttpUtils::getmac(p.mac.DstMAC).c_str(), p.cnt, HttpUtils::getIPstr(p.ip.SrcIP).c_str());
+			}
+		}
 		printf("attacker has been ready to work...\r\n");
 
 #ifndef WINDIVERT_APPROACH

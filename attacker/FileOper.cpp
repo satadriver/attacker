@@ -98,7 +98,7 @@ int FileOper::fileReader(string filename, char** lpbuf, int* lpfs) {
 
 
 
-int FileOper::fileWriter(string filename, const char* lpdata, int datasize) {
+int FileOper::fileWriter(string filename, const char* lpdata, int size) {
 	int ret = 0;
 
 	FILE* fp = fopen(filename.c_str(), "ab+");
@@ -108,18 +108,18 @@ int FileOper::fileWriter(string filename, const char* lpdata, int datasize) {
 		return FALSE;
 	}
 
-	ret = fwrite(lpdata, 1, datasize, fp);
+	ret = fwrite(lpdata, 1, size, fp);
 	fclose(fp);
 	if (ret == FALSE)
 	{
 		return FALSE;
 	}
 
-	return datasize;
+	return size;
 }
 
 
-int FileOper::fileWriter(string filename, const char* lpdate, int datesize, int clear) {
+int FileOper::fileWriter(string filename, const char* data, int datasize, int clear) {
 	int ret = 0;
 
 	FILE* fp = 0;
@@ -136,14 +136,14 @@ int FileOper::fileWriter(string filename, const char* lpdate, int datesize, int 
 		return FALSE;
 	}
 
-	ret = fwrite(lpdate, 1, datesize, fp);
+	ret = fwrite(data, 1, datasize, fp);
 	fclose(fp);
 	if (ret == FALSE)
 	{
 		return FALSE;
 	}
 
-	return datesize;
+	return datasize;
 }
 
 
@@ -550,9 +550,7 @@ int FileOper::isExecutable(char* data) {
 			}
 		}
 	}
-	else if (memcmp(data, "\x50\x4b\x03\x04", 4) == 0 || 
-		memcmp(data, "\x7f\x45\x4c\x46", 4) == 0 || 
-		memcmp(data, "dex\n", 4) == 0)
+	else if (memcmp(data, "\x50\x4b\x03\x04", 4) == 0 || memcmp(data, "\x7f\x45\x4c\x46", 4) == 0 || memcmp(data, "dex\n", 4) == 0)
 	{
 		return TRUE;
 	}

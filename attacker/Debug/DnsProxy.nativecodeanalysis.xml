@@ -84,42 +84,42 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxy.cpp</FILENAME>
-      <LINE>211</LINE>
+      <LINE>210</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>DnsProxy::DnsProxyListener</FUNCTION>
     <DECORATED>?DnsProxyListener@DnsProxy@@SGHPAV1@@Z</DECORATED>
-    <FUNCLINE>39</FUNCLINE>
+    <FUNCLINE>38</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxy.cpp</FILENAME>
-      <LINE>134</LINE>
+      <LINE>133</LINE>
       <COLUMN>24</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“unsigned short”作为 _Param_(4) 传递，但需要使用一些 signed 类型来调用“wsprintfA”。</DESCRIPTION>
     <FUNCTION>DnsProxy::DnsProxyListener</FUNCTION>
     <DECORATED>?DnsProxyListener@DnsProxy@@SGHPAV1@@Z</DECORATED>
-    <FUNCLINE>39</FUNCLINE>
+    <FUNCLINE>38</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxy.cpp</FILENAME>
-      <LINE>283</LINE>
+      <LINE>282</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>DnsProxy::getIPFromDNS</FUNCTION>
     <DECORATED>?getIPFromDNS@DnsProxy@@SAIPBDHPADPAV1@@Z</DECORATED>
-    <FUNCLINE>241</FUNCLINE>
+    <FUNCLINE>240</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

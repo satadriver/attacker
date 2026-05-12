@@ -29,7 +29,7 @@ public:
 
 	Attack * mInstance;
 
-	int attack(const char *url, const char *szhost,const char * lphttpdata, pcap_t * pcapT, const char * pData, int iCapLen,
+	int attack(const char *url, const char *host,const char * httpdata, pcap_t * pcapT, const char * pData, int iCapLen,
 		char * ip,int type,LPPPPOEHEADER pppoe);
 };
 

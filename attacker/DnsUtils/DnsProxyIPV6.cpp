@@ -36,8 +36,7 @@ DnsProxyIPV6::DnsProxyIPV6(unsigned long serverip) {
 	createQuerySock(DNS_QUERY_TIMEOUT);
 
 	DWORD dnsThreadid = 0;
-	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)DnsProxyIPV6::DnsProxyListener,
-		(LPVOID)mInstance, STACK_SIZE_PARAM_IS_A_RESERVATION, &dnsThreadid));
+	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)DnsProxyIPV6::DnsProxyListener,(LPVOID)mInstance, 0, &dnsThreadid));
 }
 
 

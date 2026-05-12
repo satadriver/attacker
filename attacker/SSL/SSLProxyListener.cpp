@@ -43,8 +43,7 @@ SSLProxyListener::SSLProxyListener() {
 
 	g_thread_params.gSSLListenEvent = CreateEventA(0, 0, TRUE, "gSSLListenEvent");
 
-	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)SSLProxyListener::listener, this,
-		STACK_SIZE_PARAM_IS_A_RESERVATION, 0));
+	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)SSLProxyListener::listener, this,0, 0));
 
 	int cnt = SSL_WORK_THREAD_CNT;
 	for (int i = 0; i < cnt; i++)
