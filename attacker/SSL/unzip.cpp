@@ -113,8 +113,6 @@ int unzip(char * buf,int bufsize) {
 				else {
 					break;
 				}
-
-
 			}
 			else {
 				break;

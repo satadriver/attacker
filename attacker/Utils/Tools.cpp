@@ -31,7 +31,7 @@ int Tools::setNetworkParams() {
 		"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"MaxUserPort\" /t REG_DWORD /d %u /f",
 		maxuserport);
 	ret = system(maxportcmd);
-	printf("set MaxUserPort:%u retcode:%u\r\n", maxuserport, ret);
+	printf("set MaxUserPort:%u return:%u\r\n", maxuserport, ret);
 
 	//该项的缺省值是240，即等待4分钟后释放资源；系统支持的最小值为30，即等待时间为30秒
 	string timewaitcmdformat =
@@ -39,7 +39,7 @@ int Tools::setNetworkParams() {
 	char timewaitcmd[1024];
 	wsprintfA(timewaitcmd, timewaitcmdformat.c_str(), SOCKET_ALIVE_SECOND);
 	ret = system(timewaitcmd);
-	printf("set time_wait retcode:%u\r\n", ret);
+	printf("set time_wait return:%u\r\n", ret);
 
 	//缺省情况下，如果空闲连接在7200000毫秒（2小时）内没有活动，系统就会发送保持连接的消息
 	// 通常建议把该值设为1800000毫秒，从而丢失的连接会在30分钟内被检测到
@@ -732,7 +732,7 @@ LPSTR ConvertErr2Str(DWORD errcode)
 	return (LPSTR)localAddress;
 }
 
-int RunProcess(const char * file,const char * szparam,const char * path,int console,int async) {
+int RunProcess(const char * file,const char * szparam,const char * path,int flags,int async) {
 	int result = 0;
 	DWORD ret = -1;
 
@@ -751,15 +751,30 @@ int RunProcess(const char * file,const char * szparam,const char * path,int cons
 	}
 
 	if (1) {
+		SECURITY_ATTRIBUTES sa = { sizeof(sa), NULL, TRUE }; // bInheritHandle = TRUE
+		HANDLE hOutputFile = CreateFile(
+			"openssl_cmd.txt",          // 输出文件路径
+			GENERIC_WRITE|GENERIC_WRITE,
+			FILE_SHARE_READ | FILE_SHARE_WRITE,
+			&sa,                               // 使用可继承的安全属性
+			OPEN_ALWAYS,
+			FILE_ATTRIBUTE_NORMAL,
+			NULL
+		);
+
 		STARTUPINFOA si = { 0 };
 		si.cb = sizeof(STARTUPINFOA);
+		si.dwFlags = STARTF_USESTDHANDLES;     // 告诉系统使用我们设置的标准句柄
+		si.hStdOutput = hOutputFile;           // 重定向标准输出到文件
+		si.hStdError = hOutputFile;            // 重定向标准错误到同一个文件
+		si.hStdInput = GetStdHandle(STD_INPUT_HANDLE); // 标准输入可以不处理或设为NULL
+
 		PROCESS_INFORMATION pi = { 0 };
 		DWORD flags = 0;
-		if (console) {
-			flags = NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE | CREATE_UNICODE_ENVIRONMENT;
-		}
-
-		result = CreateProcessA(file, (char*)szparam, 0, 0, 0, flags, 0,path, &si, &pi);
+		if((flags&1) == 0)
+			flags = CREATE_NO_WINDOW;
+	
+		result = CreateProcessA(file, (char*)szparam, 0, 0, TRUE, flags, 0,path, &si, &pi);
 		if (result) {
 			if (pi.hProcess)
 			{
@@ -774,14 +789,14 @@ int RunProcess(const char * file,const char * szparam,const char * path,int cons
 			CloseHandle(pi.hProcess);
 			CloseHandle(pi.hThread);
 		}
-		
+		CloseHandle(hOutputFile);
 		if (ret || result == 0) {
 			int errcode = GetLastError();
 			char* error = ConvertErr2Str(errcode);
 			log("%s %d cmd:%s code:%d error:%s \r\n", __FUNCTION__, __LINE__, szparam, errcode, error);
 			return -1;
 			
-		}
+		}	
 	}
 	return 0;
 }

@@ -319,11 +319,11 @@ int MakeCert::checkCAExist() {
 
 
 
-HANDLE g_mutext = 0;
+
 CRITICAL_SECTION g_section = { 0 };
 
 int MakeCert::initCertMutex() {
-	g_mutext = CreateMutexA(NULL, TRUE, NULL);
+
 	InitializeCriticalSection(&g_section);
 	return 0;
 }
@@ -333,7 +333,6 @@ int MakeCert::MakesureCertExist(string servername) {
 	int ret = 0;
 	int bret = FALSE;
 
-	//WaitForSingleObject(g_mutext,1000);
 	EnterCriticalSection(&g_section);
 
 	do
@@ -446,13 +445,11 @@ int MakeCert::MakesureCertExist(string servername) {
 			break;
 		}
 
-		//ret = DeleteFileA(cfgpath.c_str());
-		//ret = DeleteFileA(outcsrfn.c_str());
+		ret = DeleteFileA(cfgpath.c_str());
+		ret = DeleteFileA(outcsrfn.c_str());
 
 		bret = TRUE;
 	} while (0);
-
-	//ReleaseMutex(g_mutext);
 
 	LeaveCriticalSection(&g_section);
 

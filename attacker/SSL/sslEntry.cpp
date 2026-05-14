@@ -66,7 +66,7 @@ string			gOpensslRoot = "";
 //msvcr120.dll
 //libcrypto-1.1.dll
 //libssl-1.1.dll
-int __cdecl SSLEntry::sslEntry(unsigned long serverIP,unsigned long localIP,string path,int control,
+int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,string path,int control,
 	vector<string>gDnsAttackList, vector<string>gHostAttackList,int mode)
 {
 	int	ret = 0;
@@ -96,7 +96,7 @@ int __cdecl SSLEntry::sslEntry(unsigned long serverIP,unsigned long localIP,stri
 
 	MakeCert::initCertMutex();
 
-	ret = ImportCert::ImportCACertification();
+	ret = ImportCert::ImportCACertification(control);
 
 	InformerServer *informerSvc = new InformerServer();
 

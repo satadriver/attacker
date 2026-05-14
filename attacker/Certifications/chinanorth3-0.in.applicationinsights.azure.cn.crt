@@ -1,0 +1,65 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 29 (0x1d)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
+        Validity
+            Not Before: May 14 04:45:25 2026 GMT
+            Not After : May 11 04:45:25 2036 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=chinanorth3-0.in.applicationinsights.azure.cn/emailAddress=www.digicert.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (1024 bit)
+                Modulus:
+                    00:9f:da:4d:30:f2:cb:f3:f6:5a:1f:45:d6:01:6e:
+                    93:95:9f:90:1b:7f:9b:d9:fe:7d:0f:02:9d:f1:0e:
+                    22:8e:3f:36:c2:21:ba:86:09:4b:1e:e6:cd:ed:83:
+                    d6:aa:10:b9:e7:df:f8:97:1d:2f:68:4a:38:44:c1:
+                    f4:60:e7:c1:7c:0c:f7:b1:f3:06:21:f2:4d:4a:e6:
+                    a9:08:09:67:d0:ab:b1:2f:7f:13:7c:84:53:b9:55:
+                    3a:dd:45:5a:ed:28:b4:de:a1:ba:13:c4:52:c7:d1:
+                    7f:be:a6:ac:12:be:93:b8:a6:11:a1:2b:4b:1a:9e:
+                    8d:9b:3e:fb:a2:7e:2d:03:15
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:chinanorth3-0.in.applicationinsights.azure.cn
+    Signature Algorithm: sha256WithRSAEncryption
+         ad:83:12:6a:1b:42:6f:8f:50:1b:4f:ef:49:ee:d7:9f:62:8c:
+         bd:a3:c9:28:a8:cc:04:40:73:93:6a:e8:6f:c2:c0:f9:ae:b0:
+         12:d9:9c:58:b8:8b:a6:e5:ef:41:a1:61:59:48:dd:9f:bb:e8:
+         1b:f6:b5:1c:8f:f9:9a:ab:f2:35:02:74:67:d4:e3:ad:b1:92:
+         0a:0f:8b:1c:23:b6:01:3f:db:16:bb:7c:bd:62:6a:c5:ed:f3:
+         74:87:91:db:8d:90:33:c5:8c:72:9c:58:01:fc:b8:10:25:4d:
+         d0:86:f2:9b:6c:4a:0a:b1:0f:ed:1a:2c:d7:5a:64:8b:70:e5:
+         64:0f:26:c5:38:7e:ca:7f:8c:18:fe:c3:a0:10:a1:25:e5:d3:
+         97:48:e0:91:de:72:0f:e1:f3:5e:96:d7:1e:c4:e4:5a:97:a2:
+         a2:18:5d:00:14:b0:b9:00:b6:b6:5d:14:d8:96:78:3e:2f:75:
+         6a:81:5e:e2:9f:ef:cd:f9:3e:32:33:e4:11:1e:2f:6d:83:9b:
+         db:b9:b5:56:07:fe:ac:4f:04:93:61:dc:2d:71:d5:2a:18:28:
+         35:72:d7:fc:42:2e:09:c0:0d:8a:aa:82:fc:31:72:d0:15:a9:
+         dc:e0:4a:05:2a:d7:c8:68:4e:c5:a8:ed:07:d8:0a:c3:b4:4f:
+         6b:52:05:40
+-----BEGIN CERTIFICATE-----
+MIIDpTCCAo2gAwIBAgIBHTANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
+VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
+BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUxNDA0NDUyNVoXDTM2MDUxMTA0NDUyNVow
+gcMxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
+b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
+ZGlnaWNlcnQuY29tMTYwNAYDVQQDDC1jaGluYW5vcnRoMy0wLmluLmFwcGxpY2F0
+aW9uaW5zaWdodHMuYXp1cmUuY24xHzAdBgkqhkiG9w0BCQEWEHd3dy5kaWdpY2Vy
+dC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAJ/aTTDyy/P2Wh9F1gFu
+k5WfkBt/m9n+fQ8CnfEOIo4/NsIhuoYJSx7mze2D1qoQueff+JcdL2hKOETB9GDn
+wXwM97HzBiHyTUrmqQgJZ9CrsS9/E3yEU7lVOt1FWu0otN6huhPEUsfRf76mrBK+
+k7imEaErSxqejZs++6J+LQMVAgMBAAGjPDA6MDgGA1UdEQQxMC+CLWNoaW5hbm9y
+dGgzLTAuaW4uYXBwbGljYXRpb25pbnNpZ2h0cy5henVyZS5jbjANBgkqhkiG9w0B
+AQsFAAOCAQEArYMSahtCb49QG0/vSe7Xn2KMvaPJKKjMBEBzk2rob8LA+a6wEtmc
+WLiLpuXvQaFhWUjdn7voG/a1HI/5mqvyNQJ0Z9TjrbGSCg+LHCO2AT/bFrt8vWJq
+xe3zdIeR242QM8WMcpxYAfy4ECVN0Ibym2xKCrEP7Ros11pki3DlZA8mxTh+yn+M
+GP7DoBChJeXTl0jgkd5yD+HzXpbXHsTkWpeiohhdABSwuQC2tl0U2JZ4Pi91aoFe
+4p/vzfk+MjPkER4vbYOb27m1Vgf+rE8Ek2HcLXHVKhgoNXLX/EIuCcANiqqC/DFy
+0BWp3OBKBSrXyGhOxajtB9gKw7RPa1IFQA==
+-----END CERTIFICATE-----

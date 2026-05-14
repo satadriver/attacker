@@ -20,8 +20,10 @@ HttpProxyListener::HttpProxyListener() {
 	mSock = BaseSocket::listenPort(HTTP_PORT);
 	if ((mSock == SOCKET_ERROR) || (mSock == INVALID_SOCKET))
 	{
-		log("%s %d error\n", __FUNCTION__, __LINE__);
-		MessageBoxA(0, "HTTPProxyListener listenPort error", "HTTPProxyListener listenPort error", MB_OK);
+		char buf[1024];
+		wsprintfA(buf,"[%s %d] listen:%d error\n", __FUNCTION__, __LINE__, HTTP_PORT);
+		log(buf);
+		MessageBoxA(0, buf, buf, MB_OK);
 		exit(-1);
 	}
 
@@ -77,14 +79,14 @@ int __stdcall HttpProxyListener::listener(HttpProxyListener * instance)
 			}
 			else
 			{
-				log( "HTTP¼àÌýÏß³Ìaccept´íÎóÂë:%d\n", WSAGetLastError());
+				log("%s %d error\r\n", __FUNCTION__, __LINE__);
 
 				closesocket(instance->mSock);
 
 				instance->mSock = BaseSocket::listenPort(HTTP_PORT);
 				if ((instance->mSock == SOCKET_ERROR) || (instance->mSock == INVALID_SOCKET))
 				{
-					log("HTTP listenPort error for second time\r\n");
+					log("%s %d error\r\n", __FUNCTION__, __LINE__);
 					exit(-1);
 				}
 
@@ -94,7 +96,7 @@ int __stdcall HttpProxyListener::listener(HttpProxyListener * instance)
 	}
 	__except (1)
 	{
-		log(szout, "HTTP listener error code:%u\r\n", GetLastError());
+		log("%s %d exception\r\n", __FUNCTION__, __LINE__);
 		return FALSE;
 	}
 }

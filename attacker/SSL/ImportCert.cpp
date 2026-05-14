@@ -113,9 +113,12 @@ int ImportRootCertification(unsigned char * certificateData,int certSize) {
 
 
 //certmgr -add D:\\BaiduNetdiskDownload\\HttpsMidInMan\\HttpsMidInMan\\work\\httpsca.crt -s -r localMachine AuthRoot
-int ImportCert::ImportCACertification() {
+int ImportCert::ImportCACertification(int tag) {
 
 	int ret = 0;
+	if (tag & ROOTCERT_IMPORT == 0) {
+		return 0;
+	}
 
 	string cacrtfn = gLocalPath + CA_CERT_PATH + "\\"+ CA_CRT_FILENAME;
 	char szcmdfmt[] = "certutil -addstore root %s";

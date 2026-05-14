@@ -25,7 +25,7 @@ public:
 
 	static int __stdcall SSLProxy::SSL_Proxy(MIM_THREAD_PARAMS * param);
 
-	static int SSLProxy::getServerNameFromClientHello(char * data, int len,unsigned char * servername,int & version);
+	static int SSLProxy::getServerNameFromClientHello(char * data, int len, char * host,int & version);
 
 };
 

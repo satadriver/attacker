@@ -4,14 +4,14 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
       <FILENAME>sslPublic.cpp</FILENAME>
-      <LINE>151</LINE>
+      <LINE>154</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“unsigned long”作为 _Param_(2) 传递，但需要使用一些 signed 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>SSLPublic::freeSSLPort</FUNCTION>
     <DECORATED>?freeSSLPort@SSLPublic@@SAHXZ</DECORATED>
-    <FUNCLINE>75</FUNCLINE>
+    <FUNCLINE>78</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

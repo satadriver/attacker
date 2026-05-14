@@ -27,8 +27,8 @@ using namespace std;
 
 #define PROXY_THREAD_STACK_SIZE			(NETWORK_BUFFER_SIZE*64)
 
-#define CONNECTION_TIME_OUT				6000
-#define SELECT_TIME_OUT					6000
+#define CONNECTION_TIME_OUT				30000
+#define SELECT_TIME_OUT					30000
 
 
 #define SSL_PROXY_FILE					"ssl.txt"
@@ -85,7 +85,8 @@ DER - Distinguished Encoding Rules 二进制格式, Java和Windows服务器偏向于使用这种
 
 
 
-
+#define OPENSSL_CLEAR_PATH		1
+#define ROOTCERT_IMPORT			2
 
 
 

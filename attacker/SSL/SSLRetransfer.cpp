@@ -15,7 +15,6 @@ int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM hpp) {
 	int				iCounter = 0;
 	int				iRet = 0;
 	unsigned char	recvBuffer[NETWORK_BUFFER_SIZE + 4] ;
-	char szout[1024];
 
 	iCounter = recv(hpp->sockToClient, (char*)recvBuffer, NETWORK_BUFFER_SIZE, 0);
 	if (iCounter <= 0)
@@ -69,14 +68,12 @@ int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM hpp) {
 		return FALSE;
 	}
 
-
 	DWORD dwip = HttpUtils::getIPFromHost(host);
 	if (dwip == 0 || *hpp->host == 0)
 	{
 		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		return FALSE;
 	}
-
 
 	hpp->sockToServer = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (hpp->sockToServer == INVALID_SOCKET)

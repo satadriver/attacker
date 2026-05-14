@@ -598,7 +598,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 int HttpsAttack::sslAttackProc(char* recvBuffer, int& iCounter, LPSSLPROXYPARAM pstSSLProxyParam) {
 	int iRet = 0;
-	char szout[1024];
 
 	char* httpdata = 0;
 	string httphdr = "";

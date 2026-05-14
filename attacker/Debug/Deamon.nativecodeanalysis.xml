@@ -194,7 +194,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>Deamon.cpp</FILENAME>
-      <LINE>92</LINE>
+      <LINE>85</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
@@ -208,70 +208,70 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>Deamon.cpp</FILENAME>
-      <LINE>140</LINE>
+      <LINE>130</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>Deamon::addHttp</FUNCTION>
     <DECORATED>?addHttp@Deamon@@SAHPAUHTTPPROXYPARAM@@@Z</DECORATED>
-    <FUNCLINE>112</FUNCLINE>
+    <FUNCLINE>102</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>Deamon.cpp</FILENAME>
-      <LINE>165</LINE>
+      <LINE>156</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>Deamon::removeHttp</FUNCTION>
     <DECORATED>?removeHttp@Deamon@@SAHPAUHTTPPROXYPARAM@@@Z</DECORATED>
-    <FUNCLINE>149</FUNCLINE>
+    <FUNCLINE>140</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>Deamon.cpp</FILENAME>
-      <LINE>210</LINE>
+      <LINE>201</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>Deamon::addSSL</FUNCTION>
     <DECORATED>?addSSL@Deamon@@SAHPAUSSLPROXYPARAM@@@Z</DECORATED>
-    <FUNCLINE>183</FUNCLINE>
+    <FUNCLINE>174</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>Deamon.cpp</FILENAME>
-      <LINE>304</LINE>
+      <LINE>295</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>Deamon::removeSSL</FUNCTION>
     <DECORATED>?removeSSL@Deamon@@SAHPAUSSLPROXYPARAM@@@Z</DECORATED>
-    <FUNCLINE>288</FUNCLINE>
+    <FUNCLINE>279</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>Deamon.cpp</FILENAME>
-      <LINE>338</LINE>
+      <LINE>326</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>Deamon::clearSSL</FUNCTION>
     <DECORATED>?clearSSL@Deamon@@SGHPAV1@@Z</DECORATED>
-    <FUNCLINE>313</FUNCLINE>
+    <FUNCLINE>304</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

@@ -63,11 +63,8 @@ int Deamon::closeHTTP(LPHTTPPROXYPARAM lphttp) {
 }
 
 int __stdcall Deamon::clearHttp(Deamon * instance) {
-	int ret = 0;
-	char szout[1024];
-	int cnt = 0;
 
-	char buf[NETWORK_BUFFER_SIZE];
+	int cnt = 0;
 	while (true)
 	{
 		Sleep(instance->LOOP_TIME);
@@ -77,31 +74,24 @@ int __stdcall Deamon::clearHttp(Deamon * instance) {
 		__try
 		{
 			unordered_map <LPHTTPPROXYPARAM, LPHTTPPROXYPARAM>::iterator it;
-			for (it = instance->gHttpDeamon.begin(); it != instance->gHttpDeamon.end(); ) {
+			time_t now = time(0);
+			for (it = instance->gHttpDeamon.begin(); it != instance->gHttpDeamon.end(); it++) {
 				LPHTTPPROXYPARAM lphttp = it->second;
-				it++;
-
-				time_t now = time(0);
-
 				if ((now - lphttp->timeclient > instance->gOverTime) || (now - lphttp->timeserver > instance->gOverTime)) {
 					instance->closeHTTP(lphttp);
-					continue;
 				}
 			}
 		}
 		__except(1) 
 		{
-			log("clearHttp exceiption\r\n");
+			log("%s %d exception\r\n", __FUNCTION__, __LINE__);
 		}
 
 		LeaveCriticalSection(&instance->stcsHttp);
 
-		cnt++;
-		if (cnt >= OUTPUT_TIMES)
+		if (cnt++ % OUTPUT_TIMES == 0)
 		{
-			cnt = 0;
-			string datetime = Public::getDateTime();
-			log( "%s clearHttp() alive http proxy thread count:%u\r\n", datetime.c_str(), instance->gHttpDeamon.size());
+			log( "[%s %d] alive http proxy thread count:%u\r\n", __FUNCTION__, __LINE__, instance->gHttpDeamon.size());
 		}
 	}
 	return 0;
@@ -127,22 +117,23 @@ int Deamon::addHttp(LPHTTPPROXYPARAM lphttp) {
 			ret = gDeamon->gHttpDeamon.insert(pair<LPHTTPPROXYPARAM, LPHTTPPROXYPARAM>(lphttp, lphttp));
 			if (ret.second == false)
 			{
-				log("Deamon insert http error\r\n");
+				log("%s %d error\r\n", __FUNCTION__, __LINE__);
 			}
 			else {
 
 			}
 		}
 		else {
-			log("Deamon lphttp alread exist\r\n");
+			log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		}
 	}
 	__except (1)
 	{
-		log("addHttp exception\r\n");
+		log("%s %d exception\r\n", __FUNCTION__, __LINE__);
 	}
 
 	LeaveCriticalSection(&gDeamon->stcsHttp);
+
 	return 0;
 }
 
@@ -164,7 +155,7 @@ int Deamon::removeHttp(LPHTTPPROXYPARAM lphttp) {
 	}
 	__except (1)
 	{
-		log("removeHttp exception\r\n");
+		log("%s %d exception\r\n", __FUNCTION__, __LINE__);
 	}
 
 	LeaveCriticalSection(&gDeamon->stcsHttp);
@@ -197,19 +188,19 @@ int Deamon::addSSL(LPSSLPROXYPARAM lpssl) {
 			ret = gDeamon->gSSLDeamon.insert(pair<LPSSLPROXYPARAM, LPSSLPROXYPARAM>(lpssl, lpssl));
 			if (ret.second == false)
 			{
-				log("Deamon insert ssl error\r\n");
+				log("%s %d error\r\n", __FUNCTION__, __LINE__);
 			}
 			else {
 
 			}
 		}
 		else {
-			log("Deamon ssl alread exist\r\n");
+			log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		}
 	}
 	__except (1)
 	{
-		log("addSSL exception\r\n");
+		log("%s %d exception\r\n", __FUNCTION__, __LINE__);
 	}
 
 	LeaveCriticalSection(&gDeamon->stcsSSL);
@@ -303,7 +294,7 @@ int Deamon::removeSSL(LPSSLPROXYPARAM lpssl) {
 	}
 	__except (1)
 	{
-		log("removeSSL exception\r\n");
+		log("%s %d exception\r\n", __FUNCTION__, __LINE__);
 	}
 
 	LeaveCriticalSection(&gDeamon->stcsSSL);
@@ -311,11 +302,9 @@ int Deamon::removeSSL(LPSSLPROXYPARAM lpssl) {
 }
 
 int __stdcall Deamon::clearSSL(Deamon *instance) {
-	int ret = 0;
-	char szout[1024];
+
 	int cnt = 0;
 
-	char buf[NETWORK_BUFFER_SIZE];
 	while (true)
 	{
 		Sleep(instance->LOOP_TIME);
@@ -323,12 +312,11 @@ int __stdcall Deamon::clearSSL(Deamon *instance) {
 		EnterCriticalSection(&instance->stcsSSL);
 
 		__try {
+			time_t now = time(0);
 			unordered_map <LPSSLPROXYPARAM, LPSSLPROXYPARAM>::iterator it;
-			for (it = instance->gSSLDeamon.begin(); it != instance->gSSLDeamon.end(); ) {
+			for (it = instance->gSSLDeamon.begin(); it != instance->gSSLDeamon.end(); it++) {
 				LPSSLPROXYPARAM lpssl = it->second;
-				it++;
-
-				time_t now = time(0);
+				
 				if ((now - lpssl->timeclient > instance->gOverTime) || (now - lpssl->timeserver > instance->gOverTime)) {
 					instance->closeSSL(lpssl);
 					continue;
@@ -336,20 +324,17 @@ int __stdcall Deamon::clearSSL(Deamon *instance) {
 			}
 		}
 		__except (1) {
-			log("clearSSL exception\r\n");
+			log("%s %d exception\r\n", __FUNCTION__, __LINE__);
 		}
 
 		LeaveCriticalSection(&instance->stcsSSL);
 
-		cnt++;
-
-		if (cnt >= OUTPUT_TIMES)
+		if (cnt++ % OUTPUT_TIMES == 0)
 		{
-			cnt = 0;
-			string datetime = Public::getDateTime();
-			log( "%s clearSSL() alive ssl proxy thread count:%u\r\n", datetime.c_str(), instance->gSSLDeamon.size());
+			log("[%s %d] alive ssl proxy thread count:%u\r\n", __FUNCTION__, __LINE__, instance->gSSLDeamon.size());
 		}
 
 	}
 	return 0;
 }
+

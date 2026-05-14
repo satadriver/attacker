@@ -606,7 +606,28 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>774</LINE>
+      <LINE>773</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>“flags”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“735”行(“d:\vsproject\attacker\attacker\utils\tools.cpp”中)的声明。</DESCRIPTION>
+    <FUNCTION>RunProcess</FUNCTION>
+    <DECORATED>?RunProcess@@YAHPBD00HH@Z</DECORATED>
+    <FUNCLINE>735</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>735</LINE>
+        <COLUMN>76</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+      <FILENAME>Tools.cpp</FILENAME>
+      <LINE>789</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
@@ -660,39 +681,87 @@
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
         <LINE>754</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>755</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>756</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>757</LINE>
+        <LINE>755</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>765</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>766</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>758</LINE>
-        <COLUMN>6</COLUMN>
+        <LINE>767</LINE>
+        <COLUMN>13</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>762</LINE>
-        <COLUMN>9</COLUMN>
+        <LINE>768</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>769</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>770</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>772</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>773</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>774</LINE>
+        <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>进入此分支(假定“((flags&amp;1))==0”)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>775</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>777</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
           <KIND>declaration</KIND>
           <IMPORTANCE>Full</IMPORTANCE>
           <MESSAGE>“pi”是“CreateProcessA”中的输出(在 d:\windows kits\10\include\10.0.19041.0\um\processthreadsapi.h:361 处声明)</MESSAGE>
@@ -701,10 +770,10 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>763</LINE>
+        <LINE>778</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
-          <ID>4</ID>
+          <ID>5</ID>
           <KIND>branch</KIND>
           <IMPORTANCE>Full</IMPORTANCE>
           <MESSAGE>进入此分支(假定“result”)</MESSAGE>
@@ -713,10 +782,10 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>764</LINE>
+        <LINE>779</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
-          <ID>5</ID>
+          <ID>6</ID>
           <KIND>branch</KIND>
           <IMPORTANCE>Full</IMPORTANCE>
           <MESSAGE>跳过此分支(假定“pi.hProcess”为 false)</MESSAGE>
@@ -725,10 +794,10 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>774</LINE>
+        <LINE>789</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
-          <ID>6</ID>
+          <ID>7</ID>
           <KIND>usage</KIND>
           <IMPORTANCE>Full</IMPORTANCE>
           <MESSAGE>“pi”是对“CloseHandle”的输入(在 d:\windows kits\10\include\10.0.19041.0\um\handleapi.h:38 处声明)</MESSAGE>
@@ -737,10 +806,10 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>774</LINE>
+        <LINE>789</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
-          <ID>7</ID>
+          <ID>8</ID>
           <KIND>usage</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>“pi.hProcess”不应为 NULL，因为这与“CloseHandle”上的 SAL 批注不一致</MESSAGE>

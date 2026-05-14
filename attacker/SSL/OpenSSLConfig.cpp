@@ -22,7 +22,7 @@ int OpenSSLConfig::InitOpenssl(int control) {
 
 	GetOpensslPath();
 
-	if (control)
+	if (control& OPENSSL_CLEAR_PATH)
 	{
 		ret = clearOpenssl();
 		printf("clear Openssl complete\r\n");	

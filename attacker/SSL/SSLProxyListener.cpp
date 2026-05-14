@@ -33,11 +33,12 @@ SSLProxyListener::SSLProxyListener() {
 	mSock = BaseSocket::listenPort(SSL_PORT);
 	if ((mSock == SOCKET_ERROR) || (mSock == INVALID_SOCKET))
 	{
-		log("SSL listenPort error\r\n");
-		MessageBoxA(0, "ssl init error", "ssl init error", MB_OK);
+		char buf[1024];
+		wsprintfA(buf, "[%s %d] listen:%d error\n", __FUNCTION__, __LINE__, HTTP_PORT);
+		log(buf);
+		MessageBoxA(0, buf, buf, MB_OK);
 		exit(-1);
 	}
-
 
 	g_thread_params.gSSLEvent = CreateEventA(0, 0, 0, "gSSLEvent");
 
@@ -59,7 +60,7 @@ SSLProxyListener::~SSLProxyListener() {
 
 int __stdcall SSLProxyListener::listener(SSLProxyListener*instance)
 {
-	char szout[1024];
+
 	int ret = 0;
 	while (TRUE)
 	{

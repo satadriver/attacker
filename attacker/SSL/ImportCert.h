@@ -3,5 +3,5 @@
 
 class ImportCert {
 public:
-	static int ImportCACertification();
+	static int ImportCACertification(int flag);
 };

@@ -763,7 +763,7 @@ int HttpAttack::httpAttackPacket(char* recvBuffer, int iCounter, const char* url
 }
 
 
-int HttpAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* szdm, LPHTTPPROXYPARAM pstHttpProxyParam) {
+int HttpAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* szdm, LPHTTPPROXYPARAM hpp) {
 	int iRet = 0;
 
 	if (resultlen <= 0)
@@ -772,7 +772,7 @@ int HttpAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* sz
 		return FALSE;
 	}
 
-	int sendlen = send(pstHttpProxyParam->sockToClient, (char*)recvBuffer, resultlen, 0);
+	int sendlen = send(hpp->sockToClient, (char*)recvBuffer, resultlen, 0);
 	if (sendlen != resultlen)
 	{
 		printf("HTTP send attack error:%d,host:%s\n", GetLastError(), szdm);
@@ -787,9 +787,9 @@ int HttpAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* sz
 
 
 //return value: none zero,shutdown connection;zero,continue connection
-int HttpAttack::httpAttackProc(char* buf, int& iCounter, LPHTTPPROXYPARAM hpp) {
+int HttpAttack::httpAttackProc(char* buf, int& size, LPHTTPPROXYPARAM hpp) {
 
-	int iRet = 0;
+	int ret = 0;
 
 	char* httpdata = 0;
 	string httphdr = "";
@@ -797,8 +797,8 @@ int HttpAttack::httpAttackProc(char* buf, int& iCounter, LPHTTPPROXYPARAM hpp) {
 	string host = "";
 	int port = 0;
 
-	iRet = HttpUtils::parseHttpHdr(buf, iCounter, httphdr, &httpdata, url, host, port);
-	if (iRet < 0)
+	ret = HttpUtils::parseHttpHdr(buf, size, httphdr, &httpdata, url, host, port);
+	if (ret < 0)
 	{
 		if (hpp->host[0] == 0)
 		{
@@ -808,10 +808,10 @@ int HttpAttack::httpAttackProc(char* buf, int& iCounter, LPHTTPPROXYPARAM hpp) {
 			return FALSE;
 		}
 	}
-	else if (iRet == 0)
+	else if (ret == 0)
 	{
-		iRet = AttackSplitPacket::splitPacket(buf, iCounter, hpp, httphdr, &httpdata, url, host, port);
-		if (iRet <= 0)
+		ret = AttackSplitPacket::splitPacket(buf, size, hpp, httphdr, &httpdata, url, host, port);
+		if (ret <= 0)
 		{
 			log("%s %d error:%d\r\n",__FUNCTION__,__LINE__,GetLastError());
 			return TRUE;
@@ -835,8 +835,8 @@ int HttpAttack::httpAttackProc(char* buf, int& iCounter, LPHTTPPROXYPARAM hpp) {
 		return TRUE;
 	}
 
-	iRet = HttpAttack::httpAttackPacket((char*)buf, iCounter, url.c_str(), host.c_str(), httphdr.c_str(),httpdata, hpp);
-	if (iRet)
+	ret = HttpAttack::httpAttackPacket((char*)buf, size, url.c_str(), host.c_str(), httphdr.c_str(),httpdata, hpp);
+	if (ret)
 	{
 		return TRUE;
 	}
