@@ -37,7 +37,7 @@ int __stdcall InformerServer::informerProc(LPCONNECTION_INFO lpclientinfo) {
 
 				string strhost = DnsUitls::dns2Host(lpinfo->host);
 
-				ret = connectinfo.ssltarget->storeTarget(strhost, username);                             
+				ret = connectinfo.interface->storeTarget(strhost, username);
 			}
 			else {
 				//break;
@@ -46,6 +46,7 @@ int __stdcall InformerServer::informerProc(LPCONNECTION_INFO lpclientinfo) {
 		else {
 			int error = GetLastError();
 			//break;
+			log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		}
 	}
 
@@ -59,9 +60,9 @@ InformerServer::InformerServer() {
 
 	mInstance = this;
 	
-	mClients = new InformerInterface();
+	mInterface = new InformerInterface();
 
-	mUdp = new InformerSvrUDP(mClients);
+	mUdpServer = new InformerSvrUDP(mInterface);
 
 	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)informerListener, this, 0, 0));
 
@@ -69,29 +70,31 @@ InformerServer::InformerServer() {
 
 
 InformerServer::~InformerServer() {
-	delete mClients;
+	delete mInterface;
+	delete mUdpServer;
 }
 
 int __stdcall InformerServer::informerListener(InformerServer* instance) {
 
-	int targetServerSock = BaseSocket::listenPort(INFORMER_PORT);
-	if (targetServerSock == INVALID_SOCKET)
+	int serverSock = BaseSocket::listenPort(INFORMER_PORT);
+	if (serverSock == INVALID_SOCKET)
 	{
-		log("%s %d error\r\n",__FUNCTION__,__LINE__);
-		MessageBoxA(0, "TargetServer listen error", "TargetServer listen error", MB_OK);
+		char szout[1024];
+		wsprintfA(szout,"%s %d error\r\n",__FUNCTION__,__LINE__);
+		log(szout);
+		MessageBoxA(0, szout, szout, MB_OK);
 		ExitProcess(0);
-		return -1;
 	}
 
 	CONNECTION_INFO connectinfo = { 0 };
 	while (TRUE)
 	{
-		int iClientSockSize = sizeof(sockaddr_in);
+		int casize = sizeof(sockaddr_in);
 		DWORD dwThreadid = 0;
-		connectinfo.ssltarget = instance->mClients;
-		connectinfo.udptarget = instance->mUdp;
+		connectinfo.interface = instance->mInterface;
+		connectinfo.udptarget = instance->mUdpServer;
 
-		connectinfo.sock = accept(targetServerSock, (sockaddr*)&connectinfo.sa, &iClientSockSize);
+		connectinfo.sock = accept(serverSock, (sockaddr*)&connectinfo.sa, &casize);
 		if (connectinfo.sock != INVALID_SOCKET)
 		{
 			CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)informerProc,(LPVOID)&connectinfo, 0, &dwThreadid));
@@ -103,6 +106,6 @@ int __stdcall InformerServer::informerListener(InformerServer* instance) {
 			continue;
 		}
 	}
-	closesocket(targetServerSock);
+	closesocket(serverSock);
 	return 0;
 }

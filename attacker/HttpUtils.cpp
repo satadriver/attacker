@@ -617,3 +617,12 @@ void HttpUtils::ipv4toipv6(unsigned char* ipv4, unsigned char* ipv6) {
 	memset(ipv6, 0, 16);
 	memcpy(ipv6 + 12, ipv4, 4);
 }
+
+char* HttpUtils::ip2str(unsigned long ip) {
+	in_addr in;
+	in.S_un.S_addr = ip;
+
+	char * strip = inet_ntoa(in);
+
+	return strip;
+}

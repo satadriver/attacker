@@ -1,87 +1,99 @@
-key:edge.microsoft.com,username:jy20200614
-key:ts3.tc.mm.bing.net,username:jy20200614
-key:,username:jy20200614
-key:ts1.tc.mm.bing.net,username:jy20200614
-key:www.qq.com,username:jy20200614
-key:oth.eve.mdt.qq.com,username:jy20200614
-key:snowflake.qq.com,username:jy20200614
-key:dl.pinyin.sogou.com,username:jy20200614
-key:functional.events.data.microsoft.com,username:jy20200614
-key:config.pinyin.sogou.com,username:jy20200614
-key:ctldl.windowsupdate.com,username:jy20200614
-key:wpad.QIANXIN-INC.CN,username:jy20200614
-key:wpad.qianxin-inc.cn,username:jy20200614
-key:pcwup.imtt.qq.com,username:jy20200614
-key:zznm1.ime.hk,username:jy20200614
-key:browser.events.data.msn.cn,username:jy20200614
-key:www.zhihu.com,username:jy20200614
-key:chat.deepseek.com,username:jy20200614
-key:srtb.msn.cn,username:jy20200614
-key:gator.volces.com,username:jy20200614
-key:hif-leim.deepseek.com,username:jy20200614
-key:sb.scorecardresearch.com,username:jy20200614
-key:c.msn.cn,username:jy20200614
-key:assets.msn.cn,username:jy20200614
-key:activity.windows.com,username:jy20200614
-key:zhihu-web-analytics.zhihu.com,username:jy20200614
-key:ntp.msn.cn,username:jy20200614
-key:dns.weixin.qq.com.cn,username:jy20200614
-key:ts4.tc.mm.bing.net,username:jy20200614
-key:badjs.weixinbridge.com,username:jy20200614
-key:s3m6.fenxi.com,username:jy20200614
-key:wx.qlogo.cn,username:jy20200614
-key:www.bing.com,username:jy20200614
-key:g1max.mediav.com,username:jy20200614
-key:rdtxd.mediav.com,username:jy20200614
-key:rtb.iredwhale.com,username:jy20200614
-key:www.deepseek.com,username:jy20200614
-key:yybaddsp.3g.qq.com,username:jy20200614
-key:weixin.qq.com,username:jy20200614
-key:c.bing.com,username:jy20200614
-key:trpcpb.imtt.qq.com,username:jy20200614
-key:mp.weixin.qq.com,username:jy20200614
-key:img-s-msn-com.akamaized.net,username:jy20200614
-key:wup.browser.qq.com,username:jy20200614
-key:th.bing.com,username:jy20200614
-key:dldir1v6.qq.com,username:jy20200614
-key:info.pinyin.sogou.com,username:jy20200614
-key:aefd.nelreports.net,username:jy20200614
-key:api.msn.cn,username:jy20200614
-key:cn.bing.com,username:jy20200614
-key:browser.events.data.msn.com,username:jy20200614
-key:res.servicewechat.com,username:jy20200614
-key:stdl.qq.com,username:jy20200614
-key:res.wx.qq.com,username:jy20200614
-key:chinanorth3-0.in.applicationinsights.azure.cn,username:jy20200614
-key:airplayer-client.i4.cn,username:jy20200614
-key:img-s.msn.cn,username:jy20200614
-key:aka.ms,username:jy20200614
-key:nav-edge.smartscreen.microsoft.com,username:jy20200614
-key:ts2.tc.mm.bing.net,username:jy20200614
-key:s3m5.fenxi.com,username:jy20200614
-key:g1rdtxd.mediav.com,username:jy20200614
-key:checkappexec.microsoft.com,username:jy20200614
-key:hm.baidu.com,username:jy20200614
-key:mnq-service.ldmnq.com,username:jy20200614
-key:oneocsp.microsoft.com,username:jy20200614
-key:szminorshort.weixin.qq.com,username:jy20200614
-key:mobile.events.data.microsoft.com,username:jy20200614
-key:servicewechat.com,username:jy20200614
-key:puv.tt.browser.360.cn,username:jy20200614
-key:d-image.i4.cn,username:jy20200614
-key:ios.pclog.i4.cn,username:jy20200614
-key:ping.pinyin.sogou.com,username:jy20200614
-key:visualstudio-devdiv-c2s.msedge.net,username:jy20200614
-key:az700632.vo.msecnd.net,username:jy20200614
-key:prod.intellicode.vsengsaas.visualstudio.com,username:jy20200614
-key:vortex.data.microsoft.com,username:jy20200614
-key:browser.360.cn,username:jy20200614
-key:tt.browser.360.cn,username:jy20200614
-key:rumt-zh.com,username:jy20200614
-key:app.huabao.360.cn,username:jy20200614
-key:login.live.com,username:jy20200614
-key:substrate.office.com,username:jy20200614
-key:dl-edge.smartscreen.microsoft.com,username:jy20200614
-key:ad.winrar.com.cn,username:jy20200614
-key:ajax.aspnetcdn.com,username:jy20200614
-key:cdn.bootcdn.net,username:jy20200614
+[InformerInterface::online 193]key:sec.sginput.qq.com,username:jy20200614
+[InformerInterface::online 193]key:otheve.beacon.qq.com,username:jy20200614
+[InformerInterface::online 193]key:10.43.41.5,username:jy20200614
+[InformerInterface::online 193]key:clientservices.googleapis.com,username:jy20200614
+[InformerInterface::online 193]key:edge.microsoft.com,username:jy20200614
+[InformerInterface::online 193]key:roaming.svc.cloud.microsoft,username:jy20200614
+[InformerInterface::online 193]key:google.com,username:jy20200614
+[InformerInterface::online 193]key:,username:jy20200614
+[InformerInterface::online 193]key:r._dns-sd._udp.QIANXIN-INC.CN,username:jy20200614
+[InformerInterface::online 193]key:wpad.QIANXIN-INC.CN,username:jy20200614
+[InformerInterface::online 193]key:wpad.qianxin-inc.cn,username:jy20200614
+[InformerInterface::online 193]key:ecs.office.com,username:jy20200614
+[InformerInterface::online 193]key:config.pinyin.sogou.com,username:jy20200614
+[InformerInterface::online 193]key:offline.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:vortex.data.microsoft.com,username:jy20200614
+[InformerInterface::online 193]key:ikki.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:storeedgefd.dsx.mp.microsoft.com,username:jy20200614
+[InformerInterface::online 193]key:shared-https.ydstatic.com,username:jy20200614
+[InformerInterface::online 193]key:rumt-zh.com,username:jy20200614
+[InformerInterface::online 193]key:lb._dns-sd._udp.QIANXIN-INC.CN,username:jy20200614
+[InformerInterface::online 193]key:login.live.com,username:jy20200614
+[InformerInterface::online 193]key:assets.activity.windows.com,username:jy20200614
+[InformerInterface::online 193]key:firestore.googleapis.com,username:jy20200614
+[InformerInterface::online 193]key:mozilla.cloudflare-dns.com,username:jy20200614
+[InformerInterface::online 193]key:dr._dns-sd._udp.QIANXIN-INC.CN,username:jy20200614
+[InformerInterface::online 193]key:prod.intellicode.vsengsaas.visualstudio.com,username:jy20200614
+[InformerInterface::online 193]key:cs3-upgrade-compress-srv.sogou-compress.com,username:jy20200614
+[InformerInterface::online 193]key:firebaseremoteconfig.googleapis.com,username:jy20200614
+[InformerInterface::online 193]key:visualstudio-devdiv-c2s.msedge.net,username:jy20200614
+[InformerInterface::online 193]key:shared.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:api-overmind.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:az700632.vo.msecnd.net,username:jy20200614
+[InformerInterface::online 193]key:dict-subsidiary.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:cidian.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:dict.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:ping.pinyin.sogou.com,username:jy20200614
+[InformerInterface::online 193]key:ydlunacommon-cdn.nosdn.127.net,username:jy20200614
+[InformerInterface::online 193]key:doctrans-service.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:dict-trans.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:app.huabao.360.cn,username:jy20200614
+[InformerInterface::online 193]key:collector.github.com,username:jy20200614
+[InformerInterface::online 193]key:checkappexec.microsoft.com,username:jy20200614
+[InformerInterface::online 193]key:db._dns-sd._udp.0.1.168.192.in-addr.arpa,username:jy20200614
+[InformerInterface::online 193]key:ad.winrar.com.cn,username:jy20200614
+[InformerInterface::online 193]key:cdn.bootcdn.net,username:jy20200614
+[InformerInterface::online 193]key:mnq-service.ldmnq.com,username:jy20200614
+[InformerInterface::online 193]key:hm.baidu.com,username:jy20200614
+[InformerInterface::online 193]key:luna-ai.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:point-center-server.youdao.com,username:jy20200614
+[InformerInterface::online 193]key:fp.msedge.net,username:jy20200614
+[InformerInterface::online 193]key:cs3-upgrade-pdf-srv.sogou-pdf.com,username:jy20200614
+[InformerInterface::online 193]key:lb._dns-sd._udp.0.80.27.172.in-addr.arpa,username:jy20200614
+[InformerInterface::online 193]key:b._dns-sd._udp.0.80.27.172.in-addr.arpa,username:jy20200614
+[InformerInterface::online 193]key:dr._dns-sd._udp.0.80.27.172.in-addr.arpa,username:jy20200614
+[InformerInterface::online 193]key:dr._dns-sd._udp.0.43.168.192.in-addr.arpa,username:jy20200614
+[InformerInterface::online 193]key:www.google.com,username:jy20200614
+[InformerInterface::online 193]key:lb._dns-sd._udp.0.43.168.192.in-addr.arpa,username:jy20200614
+[InformerInterface::online 193]key:www.google.ru,username:jy20200614
+[InformerInterface::online 193]key:th.bing.com,username:jy20200614
+[InformerInterface::online 193]key:wup.browser.qq.com,username:jy20200614
+[InformerInterface::online 193]key:substrate.office.com,username:jy20200614
+[InformerInterface::online 193]key:get.sogou.com,username:jy20200614
+[InformerInterface::online 193]key:www.bing.com,username:jy20200614
+[InformerInterface::online 193]key:dns.google.com,username:jy20200614
+[InformerInterface::online 193]key:s.cn.bing.net,username:jy20200614
+[InformerInterface::online 193]key:google.ru,username:jy20200614
+[InformerInterface::online 193]key:mobile.events.data.microsoft.com,username:jy20200614
+[InformerInterface::online 193]key:qqdata.ab.qq.com,username:jy20200614
+[InformerInterface::online 193]key:galileotelemetry.tencent.com,username:jy20200614
+[InformerInterface::online 193]key:www.sogou.com,username:jy20200614
+[InformerInterface::online 193]key:cs3-update-compress-cdn.sogou-compress.com,username:jy20200614
+[InformerInterface::online 193]key:ctldl.windowsupdate.com,username:jy20200614
+[InformerInterface::online 193]key:1120.mlcrosoft.vip,username:jy20200614
+[InformerInterface::online 193]key:sdkreport.e.qq.com,username:jy20200614
+[InformerInterface::online 193]key:oth.eve.mdt.qq.com,username:jy20200614
+[InformerInterface::online 193]key:az667904.vo.msecnd.net,username:jy20200614
+[InformerInterface::online 193]key:dd.browser.360.cn,username:jy20200614
+[InformerInterface::online 193]key:cloud.browser.360.cn,username:jy20200614
+[InformerInterface::online 193]key:cn.bing.com,username:jy20200614
+[InformerInterface::online 193]key:srtb.msn.cn,username:jy20200614
+[InformerInterface::online 193]key:browser.events.data.msn.cn,username:jy20200614
+[InformerInterface::online 193]key:c.msn.cn,username:jy20200614
+[InformerInterface::online 193]key:sb.scorecardresearch.com,username:jy20200614
+[InformerInterface::online 193]key:assets.msn.cn,username:jy20200614
+[InformerInterface::online 193]key:c.bing.com,username:jy20200614
+[InformerInterface::online 193]key:ts4.tc.mm.bing.net,username:jy20200614
+[InformerInterface::online 193]key:img-s.msn.cn,username:jy20200614
+[InformerInterface::online 193]key:sor.html5.qq.com,username:jy20200614
+[InformerInterface::online 193]key:github.com,username:jy20200614
+[InformerInterface::online 193]key:github.githubassets.com,username:jy20200614
+[InformerInterface::online 193]key:avatars.githubusercontent.com,username:jy20200614
+[InformerInterface::online 193]key:github-cloud.s3.amazonaws.com,username:jy20200614
+[InformerInterface::online 193]key:user-images.githubusercontent.com,username:jy20200614
+[InformerInterface::online 193]key:alive.github.com,username:jy20200614
+[InformerInterface::online 193]key:aks-prod-japaneast.access-point.cloudmessaging.edge.microsoft.com,username:jy20200614
+[InformerInterface::online 193]key:api.github.com,username:jy20200614
+[InformerInterface::online 193]key:api.individual.githubcopilot.com,username:jy20200614
+[InformerInterface::online 193]key:functional.events.data.microsoft.com,username:jy20200614
+[InformerInterface::online 193]key:ntp.msn.cn,username:jy20200614

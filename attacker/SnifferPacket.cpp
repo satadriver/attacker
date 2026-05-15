@@ -28,7 +28,7 @@
 using namespace std;
 
 
-
+extern "C" void clog( const char* format, ...);
 
 int __stdcall SnifferPacket::peeping(pcap_t * pcap,unsigned long serverIP, DWORD localIP,string userPluginPath,int mode)
 {
@@ -50,12 +50,12 @@ int __stdcall SnifferPacket::peeping(pcap_t * pcap,unsigned long serverIP, DWORD
 			}
 			else if (iRet < 0)
 			{
-				log("%s %d error:%s\r\n", __FUNCTION__, __LINE__, pcap_geterr(pcap));
+				colorlog(FOREGROUND_RED,"[%s %d] error:%s\r\n", __FUNCTION__, __LINE__, pcap_geterr(pcap));
 				continue;
 			}
 			else if (iCapLen != pHeader->len || iCapLen >= WINPCAP_MAX_PACKET_SIZE || iCapLen <= 0 )
 			{
-				log("%s %d error:%s caplen:%u len:%u\r\n", __FUNCTION__, __LINE__, pcap_geterr(pcap),pHeader->caplen,pHeader->len);
+				colorlog(FOREGROUND_RED,"[%s %d] error:%s caplen:%u len:%u\r\n", __FUNCTION__, __LINE__, pcap_geterr(pcap),pHeader->caplen,pHeader->len);
 				continue;
 			}
 

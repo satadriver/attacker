@@ -9,7 +9,7 @@ public:
 	~InformerSvrUDP();
 
 	InformerSvrUDP* mUdp;
-	InformerInterface*mClients;
+	InformerInterface*mInterface;
 
 	static int __stdcall informerUdpListener(InformerSvrUDP* instance);
 

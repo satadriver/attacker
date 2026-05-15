@@ -8,7 +8,7 @@
       <COLUMN>7</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“unsigned long”作为 _Param_(3) 传递，但需要使用一些 signed 类型来调用“printf”。</DESCRIPTION>
+    <DESCRIPTION>符号不匹配: 已将“unsigned long”作为 _Param_(5) 传递，但需要使用一些 signed 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>Gateway::getGatewayParam</FUNCTION>
     <DECORATED>?getGatewayParam@Gateway@@QAE?AUGATEWAYPARAM@@XZ</DECORATED>
     <FUNCLINE>221</FUNCLINE>
@@ -22,7 +22,7 @@
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(4) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
+    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(6) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>Gateway::getGateWay</FUNCTION>
     <DECORATED>?getGateWay@Gateway@@QAEHXZ</DECORATED>
     <FUNCLINE>248</FUNCLINE>

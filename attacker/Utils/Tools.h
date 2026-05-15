@@ -43,7 +43,11 @@ typedef struct
 
 #define LOG_TAG_NAMEW L"Attacker"
 
+void log(const wchar_t* format, ...);
 void log(const char* format, ...);
+
+
+extern "C" void colorlog(int c, const char* format, ...);
 
 void KillProcessPort(int port);
 

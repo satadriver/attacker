@@ -81,6 +81,7 @@
 using namespace std;
 
 
+int gAttackToggle = 0;
 int gAttackMode = 0;
 
 
@@ -186,7 +187,8 @@ int main(int argc, char** argv)
 	}
 	printf("device:%s,mask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcapDelay);
 
-	//vector、set、map这些容器的end()取出来的值不是最后一个、end的前一个才是最后一个,prev(xxx.end())取出最后一个
+	// 标准去重模式,vector、set、map这些容器的end()取出来的值不是最后一个、end的前一个才是最后一个,prev(xxx.end())取出最后一个
+	sort(gDnsAttackList.begin(), gDnsAttackList.end());  // 先排序
 	auto iter = unique(gDnsAttackList.begin(), gDnsAttackList.end());
 	gDnsAttackList.erase(iter, gDnsAttackList.end());
 
@@ -210,12 +212,9 @@ int main(int argc, char** argv)
 
 	gServerIP = serverIP;
 	gLocalPath = path;
+	gstrLocalIP = HttpUtils::ip2str(gLocalIP);
+	gstrServerIP = HttpUtils::ip2str(gServerIP);
 
-	in_addr ia = { 0 };
-	ia.S_un.S_addr = gLocalIP;
-	gstrLocalIP = inet_ntoa(ia);
-	ia.S_un.S_addr = gServerIP;
-	gstrServerIP = inet_ntoa(ia);
 	HttpUtils::ipv4toipv6((unsigned char*)&gLocalIP, gLocalIPV6);
 
 	if (gAttackMode == ATTACK_SERVER_MODE || gAttackMode == ATTACK_TEST_MODE) {
@@ -270,7 +269,7 @@ int main(int argc, char** argv)
 			exit(-1);
 		}
 
-		if (0) {
+		if (1) {
 			printf("parsing gateway mac and ip,please wait...\r\n");
 			Gateway* gateway = new Gateway(pcapt, serverIP, gLocalIP, gLocalMac);
 			int totalpack = gateway->getGateWay();

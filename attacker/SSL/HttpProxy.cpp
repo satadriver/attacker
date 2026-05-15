@@ -26,11 +26,11 @@ int HttpProxy::HttpProxyMain(LPHTTPPROXYPARAM hpp) {
 	*(recvBuffer + iCounter) = 0;
 
 	iRet = HttpAttack::httpAttackProc((char*)recvBuffer, iCounter, hpp);
-	if (iRet > 0 )
+	if (iRet > 0)
 	{
 		return FALSE;
 	}
-
+	
 	DWORD dwip = HttpUtils::getIPFromHost(hpp->host);
 	if (dwip == 0) {
 #ifdef _DEBUG

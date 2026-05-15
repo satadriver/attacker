@@ -128,7 +128,7 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	iRet = SSL_set_fd(spp->SSLToServer, spp->sockToServer);
 	if (iRet != 1)
 	{
-		printf("[%s %d]SSL_set_fd errorcode:%d,error string:%s,description:%s,result:%d\n", __FUNCTION__, __LINE__,
+		printf("[%s %d]SSL_set_fd error:%d,state string:%s,description:%s,result:%d\n", __FUNCTION__, __LINE__,
 			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),SSL_state_string_long(spp->SSLToServer), iRet);
 		return FALSE;
 	}
@@ -136,7 +136,7 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	iRet = SSL_connect(spp->SSLToServer);
 	if (iRet != 1)
 	{
-		printf("[%s %d]SSL_connect errorcode:%d,error string:%s,description:%s,result:%d\n", __FUNCTION__, __LINE__,
+		printf("[%s %d]SSL_connect error:%d,state string:%s,description:%s,result:%d\n", __FUNCTION__, __LINE__,
 			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),SSL_state_string_long(spp->SSLToServer), iRet);
 		return FALSE;
 	}
@@ -144,7 +144,7 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	iRet = SSL_write(spp->SSLToServer, recvBuffer, iCounter);
 	if (iRet != iCounter)
 	{
-		printf("[%s %d]SSL_write errorcode:%d,error string:%s,description:%s,return:%d\n", __FUNCTION__, __LINE__,
+		printf("[%s %d]SSL_write error:%d,state string:%s,description:%s,result:%d\n", __FUNCTION__, __LINE__,
 			SSL_get_error(spp->SSLToServer, iRet), SSL_state_string(spp->SSLToServer),SSL_state_string_long(spp->SSLToServer), iRet);
 		return FALSE;
 	}
@@ -366,7 +366,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 	iRet = SSL_set_fd(spp->SSLToClient, spp->sockToClient);
 	if (iRet != 1)
 	{
-		printf("SSL_set_fd %s errorcode:%d,error string:%s,description:%s,return:%d\n", spp->host,
+		printf("[%s %d]SSL_set_fd %s error:%d,state string:%s,description:%s,return:%d\n", __FUNCTION__, __LINE__, spp->host,
 			SSL_get_error(spp->SSLToClient, iRet), SSL_state_string(spp->SSLToClient),SSL_state_string_long(spp->SSLToClient), iRet);
 		return FALSE;
 	}
@@ -376,7 +376,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 	iRet = SSL_accept(spp->SSLToClient);
 	if (iRet != 1)
 	{
-		printf("SSL_accept %s errorcode:%d,error string:%s,description:%s,return:%d\n", spp->host,
+		printf("[%s %d]SSL_accept %s error:%d,state string:%s,description:%s,return:%d\n", __FUNCTION__, __LINE__, spp->host,
 			SSL_get_error(spp->SSLToClient, iRet), SSL_state_string(spp->SSLToClient),SSL_state_string_long(spp->SSLToClient), iRet);
 		return FALSE;
 	}

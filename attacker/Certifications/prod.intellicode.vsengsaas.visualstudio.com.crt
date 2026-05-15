@@ -1,65 +1,65 @@
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number: 53 (0x35)
+        Serial Number: 10 (0xa)
         Signature Algorithm: sha256WithRSAEncryption
         Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
         Validity
-            Not Before: May 14 04:53:27 2026 GMT
-            Not After : May 11 04:53:27 2036 GMT
+            Not Before: May 15 07:53:29 2026 GMT
+            Not After : May 12 07:53:29 2036 GMT
         Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=prod.intellicode.vsengsaas.visualstudio.com/emailAddress=www.digicert.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (1024 bit)
                 Modulus:
-                    00:9f:da:4d:30:f2:cb:f3:f6:5a:1f:45:d6:01:6e:
-                    93:95:9f:90:1b:7f:9b:d9:fe:7d:0f:02:9d:f1:0e:
-                    22:8e:3f:36:c2:21:ba:86:09:4b:1e:e6:cd:ed:83:
-                    d6:aa:10:b9:e7:df:f8:97:1d:2f:68:4a:38:44:c1:
-                    f4:60:e7:c1:7c:0c:f7:b1:f3:06:21:f2:4d:4a:e6:
-                    a9:08:09:67:d0:ab:b1:2f:7f:13:7c:84:53:b9:55:
-                    3a:dd:45:5a:ed:28:b4:de:a1:ba:13:c4:52:c7:d1:
-                    7f:be:a6:ac:12:be:93:b8:a6:11:a1:2b:4b:1a:9e:
-                    8d:9b:3e:fb:a2:7e:2d:03:15
+                    00:ee:36:6f:23:38:69:34:ce:0a:86:bc:59:0c:e8:
+                    02:bf:f0:0d:01:b8:e1:df:de:0e:54:0c:0f:59:84:
+                    8c:7e:06:2b:63:a9:89:08:f0:ab:5b:85:5a:c8:92:
+                    ee:a1:17:a5:b6:4a:19:df:75:1b:af:0e:24:3c:33:
+                    6f:4f:cd:b8:76:5c:01:3b:ba:cb:70:e6:76:99:72:
+                    10:21:0c:8c:00:9f:c9:51:49:95:e0:97:92:dc:aa:
+                    46:92:01:21:c3:90:28:1b:07:de:d7:4b:83:b1:55:
+                    c6:7e:2b:5d:80:2a:1a:32:7f:3e:b5:26:39:50:80:
+                    90:a0:ba:5f:2b:e2:f9:c6:27
                 Exponent: 65537 (0x10001)
         X509v3 extensions:
             X509v3 Subject Alternative Name: 
                 DNS:prod.intellicode.vsengsaas.visualstudio.com
     Signature Algorithm: sha256WithRSAEncryption
-         a9:d2:9c:10:74:15:90:73:e2:b5:9f:e0:16:71:7d:02:80:3a:
-         ef:db:b1:19:29:0c:82:f3:b1:45:23:3d:f0:c6:72:64:9f:a6:
-         25:3e:bb:a6:34:52:47:1d:5a:fc:f3:c4:ea:66:23:d2:45:11:
-         55:cc:fb:b4:17:b5:ae:59:c8:0a:f1:8d:31:55:e5:c8:fa:e1:
-         9a:a6:7a:09:11:cc:68:2b:ae:60:03:2c:a6:9a:cf:0a:b6:57:
-         0a:39:6f:17:39:ce:18:4c:75:86:78:96:b4:6e:2d:a4:c9:d8:
-         00:fe:97:c2:8c:6e:bc:19:d9:89:99:13:62:98:90:93:bf:cb:
-         01:fc:60:b4:2d:94:41:c3:a3:a2:a1:f8:5e:51:6e:78:0d:1d:
-         ce:d6:22:c3:68:6e:a9:4a:02:29:5b:e3:06:21:ed:2c:ec:29:
-         cb:2d:d9:f8:b4:ab:5b:f6:a2:13:e7:14:90:05:27:f4:16:23:
-         8d:c3:63:c7:2f:8f:7c:1c:6d:4f:12:37:3e:ad:0e:5d:b4:18:
-         e8:85:a0:9b:17:f7:46:ab:69:27:60:a0:4b:1e:fa:97:90:a8:
-         2f:d0:0e:b5:1a:01:a3:76:25:97:c0:52:1d:03:69:81:49:65:
-         73:d4:1b:89:aa:f8:02:0e:7f:de:50:3c:93:36:db:18:d1:24:
-         13:19:0e:76
+         cb:80:f7:9b:30:75:ef:b0:48:7e:40:d6:d4:90:12:78:33:a6:
+         f5:e3:a7:af:78:01:9a:9b:5c:3d:cb:4f:6c:4b:6c:1b:87:2a:
+         ee:c2:37:09:a4:57:f9:20:9b:06:7d:87:ad:97:14:42:c3:25:
+         dc:4b:29:e5:9a:32:95:33:cd:d2:cf:39:a0:c3:4f:3b:72:25:
+         29:0b:41:53:c2:1a:b6:ac:0e:14:66:2a:3d:5f:1e:e1:7f:cc:
+         7d:06:07:07:00:21:ea:b3:b6:9a:bf:54:fc:9b:ad:b4:99:eb:
+         4d:24:f9:04:e8:a7:b3:9d:3b:f4:15:6e:0d:35:17:77:10:41:
+         e0:58:9d:13:82:1d:4e:b6:29:3c:ae:1c:ef:c0:07:4c:91:ab:
+         87:c0:cf:bb:c2:62:73:76:c2:f5:60:2f:a0:3f:9a:05:0b:af:
+         3e:7c:1b:1d:2b:e7:8e:ab:8f:f6:85:72:2d:b9:f1:49:64:e3:
+         4c:29:92:20:a6:09:4a:e1:4d:52:25:ca:16:94:26:18:4a:cd:
+         56:55:dd:9b:a7:81:fe:1a:d2:4a:e1:6a:c4:07:6b:a6:8d:ca:
+         b8:0d:d1:e0:ea:d6:5d:3c:06:ad:5b:c5:ac:a0:e5:b3:77:93:
+         12:66:41:99:60:3c:b2:f5:e6:ae:2a:c5:9c:d8:86:f5:7c:7b:
+         49:2b:71:97
 -----BEGIN CERTIFICATE-----
-MIIDoTCCAomgAwIBAgIBNTANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+MIIDoTCCAomgAwIBAgIBCjANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
 EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
 VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
 BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
-d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUxNDA0NTMyN1oXDTM2MDUxMTA0NTMyN1ow
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUxNTA3NTMyOVoXDTM2MDUxMjA3NTMyOVow
 gcExCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
 b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
 ZGlnaWNlcnQuY29tMTQwMgYDVQQDDCtwcm9kLmludGVsbGljb2RlLnZzZW5nc2Fh
 cy52aXN1YWxzdHVkaW8uY29tMR8wHQYJKoZIhvcNAQkBFhB3d3cuZGlnaWNlcnQu
-Y29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCf2k0w8svz9lofRdYBbpOV
-n5Abf5vZ/n0PAp3xDiKOPzbCIbqGCUse5s3tg9aqELnn3/iXHS9oSjhEwfRg58F8
-DPex8wYh8k1K5qkICWfQq7EvfxN8hFO5VTrdRVrtKLTeoboTxFLH0X++pqwSvpO4
-phGhK0sano2bPvuifi0DFQIDAQABozowODA2BgNVHREELzAtgitwcm9kLmludGVs
+Y29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDuNm8jOGk0zgqGvFkM6AK/
+8A0BuOHf3g5UDA9ZhIx+BitjqYkI8KtbhVrIku6hF6W2ShnfdRuvDiQ8M29Pzbh2
+XAE7ustw5naZchAhDIwAn8lRSZXgl5LcqkaSASHDkCgbB97XS4OxVcZ+K12AKhoy
+fz61JjlQgJCgul8r4vnGJwIDAQABozowODA2BgNVHREELzAtgitwcm9kLmludGVs
 bGljb2RlLnZzZW5nc2Fhcy52aXN1YWxzdHVkaW8uY29tMA0GCSqGSIb3DQEBCwUA
-A4IBAQCp0pwQdBWQc+K1n+AWcX0CgDrv27EZKQyC87FFIz3wxnJkn6YlPrumNFJH
-HVr888TqZiPSRRFVzPu0F7WuWcgK8Y0xVeXI+uGapnoJEcxoK65gAyymms8KtlcK
-OW8XOc4YTHWGeJa0bi2kydgA/pfCjG68GdmJmRNimJCTv8sB/GC0LZRBw6Oiofhe
-UW54DR3O1iLDaG6pSgIpW+MGIe0s7CnLLdn4tKtb9qIT5xSQBSf0FiONw2PHL498
-HG1PEjc+rQ5dtBjohaCbF/dGq2knYKBLHvqXkKgv0A61GgGjdiWXwFIdA2mBSWVz
-1BuJqvgCDn/eUDyTNtsY0SQTGQ52
+A4IBAQDLgPebMHXvsEh+QNbUkBJ4M6b146eveAGam1w9y09sS2wbhyruwjcJpFf5
+IJsGfYetlxRCwyXcSynlmjKVM83Szzmgw087ciUpC0FTwhq2rA4UZio9Xx7hf8x9
+BgcHACHqs7aav1T8m620metNJPkE6KeznTv0FW4NNRd3EEHgWJ0Tgh1Otik8rhzv
+wAdMkauHwM+7wmJzdsL1YC+gP5oFC68+fBsdK+eOq4/2hXItufFJZONMKZIgpglK
+4U1SJcoWlCYYSs1WVd2bp4H+GtJK4WrEB2umjcq4DdHg6tZdPAatW8WsoOWzd5MS
+ZkGZYDyy9eauKsWc2Ib1fHtJK3GX
 -----END CERTIFICATE-----

@@ -237,7 +237,7 @@ GATEWAYPARAM Gateway::getGatewayParam() {
 	string srcmac = HttpUtils::getmac(result.mac.SrcMAC);
 	string dstmac = HttpUtils::getmac(result.mac.DstMAC);
 
-	printf("gateway mac:%s,mac count:%d,srcmac:%s,srcip:%s,dstmac:%s,dstip:%s\r\n",
+	printf("[%s %d]gateway mac:%s,total count:%d,srcmac:%s,srcip:%s,dstmac:%s,dstip:%s\r\n", __FUNCTION__, __LINE__,
 		vec.at(0).first.c_str(), result.cnt, srcmac.c_str(), srcip.c_str(), dstmac.c_str(), dstip.c_str());
 
 	return vec.at(0).second;
@@ -264,12 +264,12 @@ int Gateway::getGateWay() {
 		}
 		else if (iret < 0)
 		{
-			printf("%s %d error:%s\r\n",__FUNCTION__,__LINE__, pcap_geterr(mPcapt));
+			printf("[%s %d] error:%s\r\n",__FUNCTION__,__LINE__, pcap_geterr(mPcapt));
 			continue;
 		}
 		else if (iCapLen >= WINPCAP_MAX_PACKET_SIZE || iCapLen <= 0)
 		{
-			printf("%s %d error:%s,packet caplen:%u or len:%u error\r\n", __FUNCTION__, __LINE__, pcap_geterr(mPcapt), pHeader->caplen, pHeader->len);
+			printf("[%s %d] error:%s,packet caplen:%u or len:%u error\r\n", __FUNCTION__, __LINE__, pcap_geterr(mPcapt), pHeader->caplen, pHeader->len);
 			continue;
 		}
 
@@ -346,20 +346,20 @@ int Gateway::getGateWay() {
 					it->second.cnt++;
 				}
 
-				if (packcnt++ > 0x10) {
+				if (packcnt++ > 64) {
 					break;
 				}
-				printf("get packet total:%u,target:%s count:%u\r", totalcnt, dmackey.c_str(), packcnt);
+				printf("[%s %d]packet total:%u,gateway mac:%s,ipv4 packet count:%u\t\t\r", __FUNCTION__, __LINE__, totalcnt, dmackey.c_str(), packcnt);
 			}
 		}
 
-		if (totalcnt++ > 0x1000)
+		if (totalcnt++ > 256)
 		{
 			break;
 		}
 	}
 
-	//CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)sendServerUsername, this, 0, 0));
+	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)sendServerUsername, this, 0, 0));
 
 	return FALSE;
 }

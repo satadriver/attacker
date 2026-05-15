@@ -445,7 +445,7 @@ void log(const wchar_t* format, ...) {
 
 	int len = 0;
 	wchar_t buf[0x1000];
-	len += wsprintfW(buf + len,  L"[%ws] [%d-%d-%d %d:%d:%d] ", LOG_TAG_NAMEW, 1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);
+	len += wsprintfW(buf + len,  L"[%ws %d-%d-%d %d:%d:%d] ", LOG_TAG_NAMEW, 1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);
 
 	va_list ap;
 	va_start(ap, format);
@@ -474,7 +474,7 @@ void log(const char* format, ...) {
 
 	int len = 0;
 	char buf[0x1000];
-	len += sprintf_s(buf + len, sizeof(buf) - len, "[%s] [%d-%d-%d %d:%d:%d] ", LOG_TAG_NAME, 1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);
+	len += sprintf_s(buf + len, sizeof(buf) - len, "[%s %d-%d-%d %d:%d:%d] ", LOG_TAG_NAME, 1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);
 
 	va_list ap;
 	va_start(ap, format);
@@ -494,6 +494,39 @@ void log(const char* format, ...) {
 	return;
 }
 
+void colorlog(int c, const char* format, ...) {
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	SetConsoleTextAttribute(h, c);
+
+	time_t t;
+	struct tm* p;
+
+	time(&t);
+	p = localtime(&t);
+
+	int len = 0;
+	char buf[0x1000];
+	len += sprintf_s(buf + len, sizeof(buf) - len, "[%s %d-%d-%d %d:%d:%d] ", LOG_TAG_NAME, 1900 + p->tm_year, 1 + p->tm_mon, p->tm_mday, p->tm_hour, p->tm_min, p->tm_sec);
+
+	va_list ap;
+	va_start(ap, format);
+	len += vsnprintf_s(buf + len, sizeof(buf) - (size_t)len, _TRUNCATE, format, ap);
+	va_end(ap);
+
+	OutputDebugStringA(buf);
+
+	printf(buf);
+
+	FILE* fp = fopen(LOG_FILENAME, "ab+");
+	if (fp == 0) {
+		return;
+	}
+	int wlen = fwrite(buf, len, 1, fp);
+	fclose(fp);
+
+	SetConsoleTextAttribute(h, FOREGROUND_BLUE | FOREGROUND_RED | FOREGROUND_GREEN);
+}
 
 void KillProcessPort(int port) {
 	int ret = 0;

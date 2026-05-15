@@ -12,15 +12,15 @@
 
 
 
-InformerSvrUDP::InformerSvrUDP(InformerInterface*client) {
-	mClients = client;
+InformerSvrUDP::InformerSvrUDP(InformerInterface*interface) {
+	mInterface = interface;
 	mUdp = this;
 	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)informerUdpListener, this, 0, 0));
 }
 
 
 InformerSvrUDP::~InformerSvrUDP() {
-	delete mClients;
+
 }
 
 
@@ -29,38 +29,39 @@ InformerSvrUDP::~InformerSvrUDP() {
 int __stdcall InformerSvrUDP::informerUdpListener(InformerSvrUDP* instance) {
 	int ret = 0;
 
-	int targetServerSock = BaseSocket::listenUdpPort(INFORMER_PORT);
-	if (targetServerSock == INVALID_SOCKET)
+	int sock = BaseSocket::listenUdpPort(INFORMER_PORT);
+	if (sock == INVALID_SOCKET)
 	{
-		log("%s %d error\r\n", __FUNCTION__, __LINE__);
-		MessageBoxA(0, "TargetServer informerUdpListener error", "TargetServer informerUdpListener error", MB_OK);
+		char szout[1024];
+		wsprintfA(szout, "%s %d error\r\n", __FUNCTION__, __LINE__);
+		log(szout);
+		MessageBoxA(0, szout, szout, MB_OK);
 		ExitProcess(0);
-		return -1;
 	}
 
-	char szbuf[1024];
+	char buf[1024];
 
 	CONNECTION_INFO connectinfo = { 0 };
 	while (TRUE)
 	{
-		int iClientSockSize = sizeof(sockaddr_in);
+		int caSize = sizeof(sockaddr_in);
 
 		connectinfo.udptarget = instance->mUdp;
-		connectinfo.ssltarget = instance->mClients;
+		connectinfo.interface = instance->mInterface;
 
-		int recvlen = recvfrom(targetServerSock, szbuf, sizeof(szbuf), 0,(sockaddr*)&connectinfo.sa, &iClientSockSize);
+		int recvlen = recvfrom(sock, buf, sizeof(buf), 0,(sockaddr*)&connectinfo.sa, &caSize);
 
 		if (recvlen > 0)
 		{
-			*(szbuf + recvlen) = 0;
+			*(buf + recvlen) = 0;
 
 			unsigned long inetip = connectinfo.sa.sin_addr.S_un.S_addr;
 
 			string ip = HttpUtils::getIPstr(inetip);
 
-			string username = string(szbuf);
+			string username = string(buf);
 
-			ret = connectinfo.ssltarget->storeTarget(ip, username);
+			ret = connectinfo.interface->storeTarget(ip, username);
 		}
 		else
 		{
@@ -68,5 +69,5 @@ int __stdcall InformerSvrUDP::informerUdpListener(InformerSvrUDP* instance) {
 			continue;
 		}
 	}
-
+	closesocket(sock);
 }

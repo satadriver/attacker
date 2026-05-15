@@ -1,29 +1,30 @@
-Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_cxcs.microsoft.net
-Check that the request matches the signature
-Signature ok
-Certificate Details:
-        Serial Number: 67 (0x43)
+Ignoring -days; not generating a certificate
+problems making Certificate Request
+12276:error:0D07A097:asn1 encoding routines:ASN1_mbstring_ncopy:string too long:crypto\asn1\a_mbstr.c:107:maxsize=64
+ Number: 60 (0x3c)
         Validity
-            Not Before: May 14 05:10:48 2026 GMT
-            Not After : May 11 05:10:48 2036 GMT
+            Not Before: May 15 08:24:12 2026 GMT
+            Not After : May 12 08:24:12 2036 GMT
         Subject:
             countryName               = US
             stateOrProvinceName       = California
             localityName              = Los Angeles
             organizationName          = DigiCert Inc
             organizationalUnitName    = www.digicert.com
-            commonName                = cxcs.microsoft.net
+            commonName                = ntp.msn.cn
             emailAddress              = www.digicert.com
         X509v3 extensions:
             X509v3 Subject Alternative Name: 
-                DNS:cxcs.microsoft.net
-Certificate is to be certified until May 11 05:10:48 2036 GMT (3650 days)
+                DNS:ntp.msn.cn
+Certificate is to be certified until May 12 08:24:12 2036 GMT (3650 days)
 
 Write out database with 1 new entries
 Data Base Updated
+se Updated
 abase with 1 new entries
 Data Base Updated
-d
-ntries
+with 1 new entries
 Data Base Updated
-ated
+d
+ted
+ed

@@ -12,7 +12,7 @@ typedef struct
 {
 	int sock;
 	sockaddr_in sa;
-	InformerInterface*ssltarget;
+	InformerInterface* interface;
 	InformerSvrUDP* udptarget;
 }CONNECTION_INFO, *LPCONNECTION_INFO;
 
@@ -20,9 +20,9 @@ typedef struct
 
 class InformerServer {
 public:
-	InformerInterface *mClients;
+	InformerInterface *mInterface;
 
-	InformerSvrUDP* mUdp;
+	InformerSvrUDP* mUdpServer;
 
 	InformerServer* mInstance;
 

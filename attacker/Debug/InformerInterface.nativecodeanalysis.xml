@@ -4,14 +4,14 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
       <FILENAME>InformerInterface.cpp</FILENAME>
-      <LINE>85</LINE>
+      <LINE>83</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>“Temp_value_#861”可能是“0”: 这不符合函数“CloseHandle”的规范。</DESCRIPTION>
     <FUNCTION>InformerInterface::{ctor}</FUNCTION>
     <DECORATED>??0InformerInterface@@QAE@XZ</DECORATED>
-    <FUNCLINE>72</FUNCLINE>
+    <FUNCLINE>70</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -21,49 +21,49 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>72</LINE>
+        <LINE>70</LINE>
         <COLUMN>39</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>74</LINE>
+        <LINE>72</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>76</LINE>
+        <LINE>74</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>78</LINE>
+        <LINE>76</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>80</LINE>
+        <LINE>78</LINE>
         <COLUMN>21</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>82</LINE>
+        <LINE>80</LINE>
         <COLUMN>26</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>84</LINE>
+        <LINE>82</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>85</LINE>
+        <LINE>83</LINE>
         <COLUMN>12</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -75,7 +75,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
-        <LINE>85</LINE>
+        <LINE>83</LINE>
         <COLUMN>12</COLUMN>
         <KEYEVENT>
           <ID>2</ID>

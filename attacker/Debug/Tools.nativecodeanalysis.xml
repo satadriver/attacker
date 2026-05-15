@@ -464,70 +464,70 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>513</LINE>
+      <LINE>546</LINE>
       <COLUMN>16</COLUMN>
     </SFA>
     <DEFECTCODE>6400</DEFECTCODE>
     <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“TCP”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
     <FUNCTION>KillProcessPort</FUNCTION>
     <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
-    <FUNCLINE>498</FUNCLINE>
+    <FUNCLINE>531</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>519</LINE>
+      <LINE>552</LINE>
       <COLUMN>18</COLUMN>
     </SFA>
     <DEFECTCODE>6400</DEFECTCODE>
     <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“LISTENING”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
     <FUNCTION>KillProcessPort</FUNCTION>
     <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
-    <FUNCLINE>498</FUNCLINE>
+    <FUNCLINE>531</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>501</LINE>
+      <LINE>534</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“wsprintfA”。</DESCRIPTION>
     <FUNCTION>KillProcessPort</FUNCTION>
     <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
-    <FUNCLINE>498</FUNCLINE>
+    <FUNCLINE>531</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>505</LINE>
+      <LINE>538</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“wsprintfA”。</DESCRIPTION>
     <FUNCTION>KillProcessPort</FUNCTION>
     <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
-    <FUNCLINE>498</FUNCLINE>
+    <FUNCLINE>531</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>548</LINE>
+      <LINE>581</LINE>
       <COLUMN>3</COLUMN>
     </SFA>
     <DEFECTCODE>6011</DEFECTCODE>
     <DESCRIPTION>取消对 NULL 指针“p”的引用。</DESCRIPTION>
     <FUNCTION>adjustPrivileges</FUNCTION>
     <DECORATED>?adjustPrivileges@@YAHXZ</DECORATED>
-    <FUNCLINE>538</FUNCLINE>
+    <FUNCLINE>571</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -537,37 +537,37 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>539</LINE>
+        <LINE>572</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>540</LINE>
+        <LINE>573</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>541</LINE>
+        <LINE>574</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>542</LINE>
+        <LINE>575</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>543</LINE>
+        <LINE>576</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>544</LINE>
+        <LINE>577</LINE>
         <COLUMN>20</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -579,7 +579,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>548</LINE>
+        <LINE>581</LINE>
         <COLUMN>3</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -591,7 +591,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>548</LINE>
+        <LINE>581</LINE>
         <COLUMN>3</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -606,19 +606,19 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>773</LINE>
+      <LINE>806</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>“flags”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“735”行(“d:\vsproject\attacker\attacker\utils\tools.cpp”中)的声明。</DESCRIPTION>
+    <DESCRIPTION>“flags”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“768”行(“d:\vsproject\attacker\attacker\utils\tools.cpp”中)的声明。</DESCRIPTION>
     <FUNCTION>RunProcess</FUNCTION>
     <DECORATED>?RunProcess@@YAHPBD00HH@Z</DECORATED>
-    <FUNCLINE>735</FUNCLINE>
+    <FUNCLINE>768</FUNCLINE>
     <PATH>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>735</LINE>
+        <LINE>768</LINE>
         <COLUMN>76</COLUMN>
       </SFA>
     </PATH>
@@ -627,14 +627,14 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>789</LINE>
+      <LINE>822</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>“pi.hProcess”可能是“0”: 这不符合函数“CloseHandle”的规范。</DESCRIPTION>
     <FUNCTION>RunProcess</FUNCTION>
     <DECORATED>?RunProcess@@YAHPBD00HH@Z</DECORATED>
-    <FUNCLINE>735</FUNCLINE>
+    <FUNCLINE>768</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -644,19 +644,19 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>736</LINE>
+        <LINE>769</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>737</LINE>
+        <LINE>770</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>739</LINE>
+        <LINE>772</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -668,7 +668,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>753</LINE>
+        <LINE>786</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -680,67 +680,67 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>754</LINE>
+        <LINE>787</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>755</LINE>
+        <LINE>788</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>765</LINE>
+        <LINE>798</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>766</LINE>
+        <LINE>799</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>767</LINE>
+        <LINE>800</LINE>
         <COLUMN>13</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>768</LINE>
+        <LINE>801</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>769</LINE>
+        <LINE>802</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>770</LINE>
+        <LINE>803</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>772</LINE>
+        <LINE>805</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>773</LINE>
+        <LINE>806</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>774</LINE>
+        <LINE>807</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -752,13 +752,13 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>775</LINE>
+        <LINE>808</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>777</LINE>
+        <LINE>810</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -770,7 +770,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>778</LINE>
+        <LINE>811</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -782,7 +782,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>779</LINE>
+        <LINE>812</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -794,7 +794,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>789</LINE>
+        <LINE>822</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
@@ -806,7 +806,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>789</LINE>
+        <LINE>822</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>8</ID>
