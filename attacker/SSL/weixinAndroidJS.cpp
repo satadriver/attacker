@@ -1,6 +1,6 @@
 
 #include "weixinAndroidJS.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 //res.servicewechat.com/weapp/public/commlib/327.patch-304
 //res.servicewechat.com/weapp/public/commlib/327.wxapkg
@@ -34,7 +34,7 @@ int WeixinAndroidJS::makeWeixinAndroidJS(char * lpbuffer, int bufsize, int bufli
 	//char * szHttpRespFormat = "HTTP/1.1 200 OK\r\nContent-Encoding: gzip\r\nConnection: keep-alive\r\nContent-Type: application/octet-stream\r\nContent-Length: %u\r\n\r\n";
 	//string filename = Public::getUserUrl(lpssl->username, "weixinjs_new.zip");
 	
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespFormat, 1);
 	return ret;
 }
 

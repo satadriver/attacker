@@ -13,12 +13,11 @@
 
 
 
-string NetCardInfo::selectNetcard(unsigned long* localIP, unsigned long* netmask, unsigned long* netgateip, unsigned char* lpmac) {
+string NetCardInfo::selectNetcard(unsigned long* localIP, unsigned long* netmask, unsigned long* gatewayip, unsigned char* mac) {
 	int	iInterfaceCnt = 0;
 	PIP_ADAPTER_INFO padpterInfo = NetCardInfo::ShowNetCardInfo(&iInterfaceCnt);
 	if (padpterInfo == FALSE)
 	{
-		_getch();
 		return "";
 	}
 
@@ -29,7 +28,6 @@ string NetCardInfo::selectNetcard(unsigned long* localIP, unsigned long* netmask
 	if (iChooseNum < 1 || iChooseNum > iInterfaceCnt)
 	{
 		printf("Interface number out of range,press any key to exit......\n");
-		_getch();
 		return "";
 	}
 	PIP_ADAPTER_INFO pAdapter = NetCardInfo::GetNetCardAdapter(padpterInfo, iChooseNum - 1);
@@ -37,8 +35,8 @@ string NetCardInfo::selectNetcard(unsigned long* localIP, unsigned long* netmask
 	string adaptername = pAdapter->AdapterName;
 	*localIP = inet_addr(pAdapter->IpAddressList.IpAddress.String);
 	*netmask = inet_addr(pAdapter->IpAddressList.IpMask.String);
-	*netgateip = inet_addr(pAdapter->GatewayList.IpAddress.String);
-	memmove(lpmac, pAdapter->Address, MAC_ADDRESS_SIZE);
+	*gatewayip = inet_addr(pAdapter->GatewayList.IpAddress.String);
+	memmove(mac, pAdapter->Address, MAC_ADDRESS_SIZE);
 
 	GlobalFree((char*)padpterInfo);
 	return adaptername;

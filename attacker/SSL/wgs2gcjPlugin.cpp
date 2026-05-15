@@ -1,5 +1,5 @@
 #include "wgs2gcjPlugin.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 
 int Wgs2gcjPlugin::isWgs2gcj(const char * url, const char * host) {
@@ -19,7 +19,7 @@ int Wgs2gcjPlugin::replyWgs2gcjPlugin(char * dstbuf, int dstbuflimit, LPHTTPPROX
 	char * szHttpRespFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/octet-stream\r\nContent-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lphttp->username, "libJni_wgs2gcj.so");
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 	return ret;
 }
 

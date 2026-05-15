@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "deamonAttacker", "deamonAtt
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "12306", "12306\12306.vcxproj", "{2E8E6772-38A5-481B-8E8C-E5D8C708B479}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unzip", "uncompress\uncompress.vcxproj", "{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{2E8E6772-38A5-481B-8E8C-E5D8C708B479}.Release|x64.Build.0 = Release|x64
 		{2E8E6772-38A5-481B-8E8C-E5D8C708B479}.Release|x86.ActiveCfg = Release|Win32
 		{2E8E6772-38A5-481B-8E8C-E5D8C708B479}.Release|x86.Build.0 = Release|Win32
+		{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}.Debug|x64.ActiveCfg = Debug|x64
+		{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}.Debug|x64.Build.0 = Debug|x64
+		{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}.Debug|x86.ActiveCfg = Debug|Win32
+		{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}.Debug|x86.Build.0 = Debug|Win32
+		{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}.Release|x64.ActiveCfg = Release|x64
+		{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}.Release|x64.Build.0 = Release|x64
+		{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}.Release|x86.ActiveCfg = Release|Win32
+		{BB8FA9B0-3383-43CA-B2C2-8C8EE9F8B6DE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

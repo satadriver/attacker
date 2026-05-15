@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Public.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../HttpUtils.h"
 #include "../attack.h"
 #include "sslPublic.h"

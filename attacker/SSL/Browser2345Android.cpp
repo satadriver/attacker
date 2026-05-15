@@ -1,7 +1,7 @@
 #include "Browser2345Android.h"
 #include "../HttpUtils.h"
 #include "../cipher/CryptoUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../utils/simpleJson.h"
 
 string gBrowser2345Key = "";

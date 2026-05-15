@@ -2,7 +2,7 @@
 #include "momo.h"
 #include "../FileOper.h"
 #include "../HttpUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 
 int Momo::isMomoDns(string url, string host) {

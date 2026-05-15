@@ -3,7 +3,7 @@
 #include "../HttpUtils.h"
 #include "../cipher/CryptoUtils.h"
 #include "../version.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 int gQQNewsFlag = 0;
 
@@ -56,7 +56,7 @@ int QQTencentNews::replyQQNews(char*lpbuffer, int len, int buflimit, LPHTTPPROXY
 
 		string filename = Public::getUserUrl(lphttp->username, "video_so.zip");
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 		return 0;
 	}
 	return 0;

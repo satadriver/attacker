@@ -195,7 +195,7 @@
     <ClInclude Include="ssl\MakeCert.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
-    <ClInclude Include="ssl\PluginServer.h">
+    <ClInclude Include="ssl\PayloadServer.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
     <ClInclude Include="ssl\SSLAttack.h">
@@ -731,7 +731,7 @@
     <ClCompile Include="ssl\MakeCert.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
-    <ClCompile Include="ssl\PluginServer.cpp">
+    <ClCompile Include="ssl\PayloadServer.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
     <ClCompile Include="ssl\SSLAttack.cpp">

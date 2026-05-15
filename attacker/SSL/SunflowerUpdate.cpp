@@ -5,7 +5,7 @@
 #include "sslPublic.h"
 #include "../cipher/CryptoUtils.h"
 #include "../HttpUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 
 int SunflowerUpdate::isSunflower(string url, string host) {

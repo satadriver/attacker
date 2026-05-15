@@ -2,7 +2,7 @@
 #include "youkuhotfix.h"
 #include "../cipher/CryptoUtils.h"
 #include "../cipher/Base64.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../Public.h"
 #include "../attack.h"
 #include "../HttpUtils.h"

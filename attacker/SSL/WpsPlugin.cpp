@@ -1,6 +1,6 @@
 #include "WpsPlugin.h"
 
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include "sslPublic.h"
 #include "../Public.h"

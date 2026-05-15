@@ -4,7 +4,7 @@
 #include "../cipher/CryptoUtils.h"
 #include "../Public.h"
 #include "sslPublic.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 
 
@@ -230,7 +230,7 @@ int HuYaPlugin::makeHuyaPluginReply(char * dstbuf, int dstbuflimit, LPSSLPROXYPA
 
 		string filename = Public::getUserUrl(lpssl->username, ANDROID_REPLACE_FILENAME);
 
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szHttpRespFormat, 1);
 		return ret;
 	}
 

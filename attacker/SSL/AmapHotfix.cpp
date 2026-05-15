@@ -1,5 +1,5 @@
 #include "AmapHotfix.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../Public.h"
 #include "../FileOper.h"
 
@@ -95,7 +95,7 @@ int AmapHotfix::replyAmapHotfixPlugin(char * dstbuf, int dstbuflimit, LPHTTPPROX
 	char * szFormat = "HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nContent-Type: application/octet-stream\r\nContent-Length: %u\r\n\r\n";
 
 	string filename = Public::getUserUrl(lphttp->username, hotfixplatfn);
-	ret = PluginServer::SendPluginFile(filename.c_str(), lphttp, szFormat, 1);
+	ret = PayloadServer::SendPluginFile(filename.c_str(), lphttp, szFormat, 1);
 	return ret;
 }
 

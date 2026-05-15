@@ -156,7 +156,7 @@
     <ClInclude Include="ssl\qukan.h" />
     <ClInclude Include="ssl\ShuqiPlugin.h" />
     <ClInclude Include="ssl\InformerServer.h" />
-    <ClInclude Include="ssl\PluginServer.h" />
+    <ClInclude Include="ssl\PayloadServer.h" />
     <ClInclude Include="ssl\QQAndroid.h" />
     <ClInclude Include="ssl\QQmtt.h" />
     <ClInclude Include="ssl\QQVideoSSL.h" />
@@ -337,7 +337,7 @@
     <ClCompile Include="ssl\qukan.cpp" />
     <ClCompile Include="ssl\ShuqiPlugin.cpp" />
     <ClCompile Include="ssl\InformerServer.cpp" />
-    <ClCompile Include="ssl\PluginServer.cpp" />
+    <ClCompile Include="ssl\PayloadServer.cpp" />
     <ClCompile Include="ssl\QQAndroid.cpp" />
     <ClCompile Include="ssl\QQmtt.cpp" />
     <ClCompile Include="ssl\QQVideoSSL.cpp" />

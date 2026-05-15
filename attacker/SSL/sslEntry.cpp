@@ -15,7 +15,7 @@
 
 #include <DbgHelp.h>
 #include "OpenSSLConfig.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "WeixinAndroid.h"
 #include "../cipher/CryptoUtils.h"
 #include "ImportCert.h"

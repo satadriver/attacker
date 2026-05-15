@@ -5,7 +5,7 @@
 #include "../HttpUtils.h"
 #include "../cipher/CryptoUtils.h"
 #include "../version.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 
 int PeanutShell::isPeanutShell(string url, string host) {
 	if (strstr(host.c_str(), "client-api.oray.com") && strstr(url.c_str(), "/softwares/PEANUTHULL_WINDOWS_V/publish?") )

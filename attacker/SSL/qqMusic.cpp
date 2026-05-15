@@ -1,6 +1,6 @@
 
 #include "qqMusic.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../attacker.h"
 #include "sslPublic.h"
 #include "../Public.h"
@@ -10,7 +10,7 @@
 #include "../cipher/CryptoUtils.h"
 #include "../version.h"
 #include "../FileOper.h"
-#include "PluginServer.h"
+#include "PayloadServer.h"
 #include "../Utils/simpleJson.h"
 #include "../cipher/Base64.h"
 
