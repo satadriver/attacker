@@ -9,7 +9,7 @@ using namespace std;
 
 class HttpsAttack {
 public:
-	static int HttpsAttack::sendAttackPacket(char * recvBuffer, int resultlen, const char * szdm, LPSSLPROXYPARAM spp);
+	static int sendAttackPacket(const char * recvBuffer, int resultlen, LPSSLPROXYPARAM spp);
 
 	static int SslAttackPacket(char * lpbuf,int size,const char * url,const char * host, const char * httphdr,
 		const char * httpdata,LPSSLPROXYPARAM spp);

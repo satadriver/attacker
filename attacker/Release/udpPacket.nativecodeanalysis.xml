@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILENAME>udpPacket.cpp</FILENAME>
+      <LINE>217</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6340</DEFECTCODE>
+    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
+    <FUNCTION>udpPacketIPV6</FUNCTION>
+    <DECORATED>?udpPacketIPV6@@YAHPAUpcap@@PAUMACHEADER@@PAUPPPOEHEADER@@PAUIPV6HEADER@@PAUDNSANSWERIPV6@@PAUDNSANSWER@@HKPBDHPAVInformer@@@Z</DECORATED>
+    <FUNCLINE>113</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

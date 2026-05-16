@@ -1,12 +1,12 @@
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number: 57 (0x39)
+        Serial Number: 32 (0x20)
         Signature Algorithm: sha256WithRSAEncryption
         Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
         Validity
-            Not Before: May 15 08:23:45 2026 GMT
-            Not After : May 12 08:23:45 2036 GMT
+            Not Before: May 15 12:36:13 2026 GMT
+            Not After : May 12 12:36:13 2036 GMT
         Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=github.com/emailAddress=www.digicert.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
@@ -26,27 +26,27 @@ Certificate:
             X509v3 Subject Alternative Name: 
                 DNS:github.com
     Signature Algorithm: sha256WithRSAEncryption
-         27:c8:a6:e3:a5:43:9e:81:15:ab:74:7a:69:9d:45:29:a8:12:
-         a9:2d:50:81:94:ee:32:1b:85:14:9f:1a:01:2a:73:98:24:63:
-         ee:2f:b7:8c:fe:8e:2f:0a:d7:53:7f:3b:02:bd:a1:99:72:ac:
-         51:ba:17:a8:43:f0:82:ff:97:71:15:01:11:b6:93:21:54:fd:
-         24:33:0c:4b:05:72:fc:d6:bf:8f:9f:a4:6f:ee:b4:3d:62:d8:
-         8f:fb:c3:a3:8f:14:f4:b5:55:00:68:46:1a:50:dd:ec:92:74:
-         75:93:ad:3d:0b:b4:8b:4e:04:26:ee:7e:c9:1d:b9:3f:ca:58:
-         63:f2:4a:d7:04:e0:07:70:be:ba:e4:72:61:95:16:ba:46:1f:
-         30:26:92:b4:16:d7:c6:49:6b:e5:61:c3:54:c1:8f:c2:f0:39:
-         1e:17:07:c0:ae:b2:13:3a:50:21:79:f0:a7:01:19:54:eb:d5:
-         49:52:06:d3:0c:cf:64:e8:66:1f:b9:05:a0:4b:c9:83:f6:ec:
-         da:89:6c:c9:37:63:8d:12:52:e3:a6:6e:d9:f5:b0:38:82:5e:
-         6c:22:35:6e:69:03:61:0d:ad:b1:42:7f:fb:4b:16:d7:9c:2c:
-         70:c5:75:48:f6:fc:93:59:e8:6f:44:49:2a:9d:34:c2:12:4a:
-         4a:42:ef:3c
+         75:94:ed:56:7f:12:94:4b:15:be:01:6f:77:0c:c6:e1:39:a0:
+         de:31:25:9f:34:0d:e0:be:96:0b:fa:aa:82:9c:d4:a3:10:f4:
+         1e:a2:14:ae:f1:c0:96:31:28:58:9f:e0:3c:a6:34:86:a8:58:
+         73:41:85:72:c9:30:3d:e4:e1:85:ef:c8:f8:58:6c:f6:08:4f:
+         0f:21:01:2b:c0:c0:07:a3:af:c8:01:96:3a:02:e4:75:f4:c5:
+         c8:f2:13:59:28:c9:45:3f:1b:93:c3:4e:1a:78:1c:27:64:55:
+         2a:27:80:e9:94:e7:4a:b1:12:b5:8f:30:51:28:62:10:f5:56:
+         c6:51:53:54:d1:a8:dc:07:93:4d:cf:2c:04:b4:dc:68:ed:bf:
+         3b:ef:c9:b5:9a:0b:c8:57:9f:f2:21:5f:c5:16:65:9b:d8:3d:
+         da:3c:e5:4e:ec:78:30:09:02:7e:4a:ba:ba:5c:b3:c6:2f:88:
+         a1:29:58:5f:38:51:b0:a6:0a:f6:8b:c6:eb:37:5e:95:d2:79:
+         bd:f2:6e:bc:82:8d:88:df:3c:ba:55:93:18:f4:84:df:ec:05:
+         27:a3:50:dc:4f:89:a1:bf:97:c5:db:2e:12:68:9a:46:d6:b4:
+         f9:12:bf:84:0a:73:d6:8c:4a:50:a1:62:31:00:16:53:a7:63:
+         70:cc:e2:a1
 -----BEGIN CERTIFICATE-----
-MIIDXzCCAkegAwIBAgIBOTANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+MIIDXzCCAkegAwIBAgIBIDANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
 EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
 VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
 BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
-d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUxNTA4MjM0NVoXDTM2MDUxMjA4MjM0NVow
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUxNTEyMzYxM1oXDTM2MDUxMjEyMzYxM1ow
 gaAxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
 b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
 ZGlnaWNlcnQuY29tMRMwEQYDVQQDDApnaXRodWIuY29tMR8wHQYJKoZIhvcNAQkB
@@ -54,11 +54,11 @@ FhB3d3cuZGlnaWNlcnQuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDu
 Nm8jOGk0zgqGvFkM6AK/8A0BuOHf3g5UDA9ZhIx+BitjqYkI8KtbhVrIku6hF6W2
 ShnfdRuvDiQ8M29Pzbh2XAE7ustw5naZchAhDIwAn8lRSZXgl5LcqkaSASHDkCgb
 B97XS4OxVcZ+K12AKhoyfz61JjlQgJCgul8r4vnGJwIDAQABoxkwFzAVBgNVHREE
-DjAMggpnaXRodWIuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQAnyKbjpUOegRWrdHpp
-nUUpqBKpLVCBlO4yG4UUnxoBKnOYJGPuL7eM/o4vCtdTfzsCvaGZcqxRuheoQ/CC
-/5dxFQERtpMhVP0kMwxLBXL81r+Pn6Rv7rQ9YtiP+8OjjxT0tVUAaEYaUN3sknR1
-k609C7SLTgQm7n7JHbk/ylhj8krXBOAHcL665HJhlRa6Rh8wJpK0FtfGSWvlYcNU
-wY/C8DkeFwfArrITOlAhefCnARlU69VJUgbTDM9k6GYfuQWgS8mD9uzaiWzJN2ON
-ElLjpm7Z9bA4gl5sIjVuaQNhDa2xQn/7SxbXnCxwxXVI9vyTWehvREkqnTTCEkpK
-Qu88
+DjAMggpnaXRodWIuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQB1lO1WfxKUSxW+AW93
+DMbhOaDeMSWfNA3gvpYL+qqCnNSjEPQeohSu8cCWMShYn+A8pjSGqFhzQYVyyTA9
+5OGF78j4WGz2CE8PIQErwMAHo6/IAZY6AuR19MXI8hNZKMlFPxuTw04aeBwnZFUq
+J4DplOdKsRK1jzBRKGIQ9VbGUVNU0ajcB5NNzywEtNxo7b8778m1mgvIV5/yIV/F
+FmWb2D3aPOVO7HgwCQJ+Srq6XLPGL4ihKVhfOFGwpgr2i8brN16V0nm98m68go2I
+3zy6VZMY9ITf7AUno1DcT4mhv5fF2y4SaJpG1rT5Er+ECnPWjEpQoWIxABZTp2Nw
+zOKh
 -----END CERTIFICATE-----

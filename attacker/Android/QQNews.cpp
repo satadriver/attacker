@@ -5,7 +5,7 @@
 #include "..\\Public.h"
 #include "..\\attacker.h"
 #include "QQNews.h"
-#include "..\\SdkVersion.h"
+#include "../Helper.h"
 #include "../version.h"
 #include "../HttpUtils.h"
 #include "../FileOper.h"
@@ -125,7 +125,7 @@ int QQNews::SetSdkVersion(char * szsdkver, char * lphttphdr, int flag) {
 	char sztmpver[MAX_PATH];
 	lstrcpyA(sztmpver, szsdkver);
 	char * szversions[8] = { 0 };
-	int vercnt = SdkVersion::GetSdkVersion(sztmpver, szversions);
+	int vercnt = Helper::GetSdkVersion(sztmpver, szversions);
 	int versions[8] = { 0 };
 	for (int i = 0; i < vercnt; i++)
 	{

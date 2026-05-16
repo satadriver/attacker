@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILENAME>NetworkDevice.cpp</FILENAME>
+      <LINE>111</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>6340</DEFECTCODE>
+    <DESCRIPTION>符号不匹配: 已将“unsigned int”作为 _Param_(6) 传递，但需要使用一些 signed 类型来调用“printf”。</DESCRIPTION>
+    <FUNCTION>NetworkDevice::DisplayNetCard</FUNCTION>
+    <DECORATED>?DisplayNetCard@NetworkDevice@@SAPAU_IP_ADAPTER_INFO@@PAH@Z</DECORATED>
+    <FUNCLINE>80</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -1,0 +1,22 @@
+{
+	"objects":[
+	{
+		"host":"",
+		"url":"",
+		"md5":"",
+		"filename":"",
+		"regex":"",
+		"respRegex":""
+		
+	},
+	{
+		"host":"",
+		"url":"",
+		"md5":"",
+		"filename":"",
+		"regex":"",
+		"respRegex":""
+	}
+	]
+}
+

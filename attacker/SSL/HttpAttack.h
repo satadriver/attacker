@@ -13,11 +13,11 @@ using namespace std;
 class HttpAttack {
 public:
 
-	static int httpAttackPacket(char * lpbuf, int size, const char * url, const char * host,const char * httphdr,const char * httpdata,
-		LPHTTPPROXYPARAM hpp);
-	static int sendAttackPacket(char * recvBuffer, int resultlen, const char * szdm, LPHTTPPROXYPARAM hpp);
+	static int httpAttackPacket(char * buf, int size, const char * url, const char * host,const char * hdr,const char * data,LPHTTPPROXYPARAM hpp);
+	
+	static int sendAttackPacket(const char * buf, int len, LPHTTPPROXYPARAM hpp);
 
-	static int httpAttackProc(char * recvBuffer, int &iCounter, LPHTTPPROXYPARAM hpp);
+	static int httpAttackProc( char * buf, int &size, LPHTTPPROXYPARAM hpp);
 };
 
 

@@ -5,7 +5,7 @@
 #include <iostream>
 #include "..\\Public.h"
 #include "..\\attacker.h"
-#include "..\\SdkVersion.h"
+
 #include "../HttpUtils.h"
 
 using namespace std;

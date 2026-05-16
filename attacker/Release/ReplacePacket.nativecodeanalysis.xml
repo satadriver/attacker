@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILENAME>ReplacePacket.cpp</FILENAME>
+      <LINE>21</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6340</DEFECTCODE>
+    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
+    <FUNCTION>AttackPacket::ReplacePacket</FUNCTION>
+    <DECORATED>?ReplacePacket@AttackPacket@@SAHPAUpcap@@PBDH1HPADHPAUPPPOEHEADER@@@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILENAME>ReplacePacket.cpp</FILENAME>
+      <LINE>21</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6340</DEFECTCODE>
+    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(5) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
+    <FUNCTION>AttackPacket::ReplacePacket</FUNCTION>
+    <DECORATED>?ReplacePacket@AttackPacket@@SAHPAUpcap@@PBDH1HPADHPAUPPPOEHEADER@@@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

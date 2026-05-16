@@ -3,7 +3,7 @@
 #include "..\\Public.h"
 #include "..\\attacker.h"
 #include <iostream>
-#include "..\\SdkVersion.h"
+#include "../Helper.h"
 #include "QQTvkPlugin.h"
 #include "../version.h"
 #include "../HttpUtils.h"
@@ -54,7 +54,7 @@ int QQTvkPlugin::SetSdkVersion(char * szsdkver, char * lphttphdr) {
 	char sztmpver[MAX_PATH];
 	lstrcpyA(sztmpver, szsdkver);
 	char * szversions[8] = { 0 };
-	int vercnt = SdkVersion::GetSdkVersion(sztmpver, szversions);
+	int vercnt = Helper::GetSdkVersion(sztmpver, szversions);
 	int versions[8] = { 0 };
 	for (int i = 0; i < vercnt; i++)
 	{

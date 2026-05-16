@@ -5,7 +5,7 @@
 #include "..\\Public.h"
 #include "..\\attacker.h"
 #include "qqreader.h"
-#include "..\\SdkVersion.h"
+
 #include "../version.h"
 #include "../HttpUtils.h"
 #include "../FileOper.h"

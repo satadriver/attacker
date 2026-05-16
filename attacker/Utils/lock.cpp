@@ -28,7 +28,7 @@ volatile int Lock::enterlock(TOOLSLOCK & lock, ULONGLONG id) {
 				lock.flag = TRUE;
 				lock.id = id;
 
-				log( "waiting for lock:%s,id:%I64u too long,force to break it\r\n", lock.name, lock.id);
+				log( "waiting for lock:%s id:%I64u too long time,force to break\r\n", lock.name, lock.id);
 				break;
 			}
 		}

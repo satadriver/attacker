@@ -79,6 +79,9 @@
     <Filter Include="源文件\certUtils">
       <UniqueIdentifier>{484c3839-0ed5-48d7-b9f5-b1862ac1751d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="json">
+      <UniqueIdentifier>{754d674a-403f-4ee5-b14c-dd43230d4820}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="attack.h">
@@ -117,7 +120,7 @@
     <ClInclude Include="ReplaceSignature.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SdkVersion.h">
+    <ClInclude Include="Helper.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="SnifferPacket.h">
@@ -255,7 +258,7 @@
     <ClInclude Include="Android\xiaomi.h">
       <Filter>头文件\Android</Filter>
     </ClInclude>
-    <ClInclude Include="security.h">
+    <ClInclude Include="safeGuard.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ssl\ucmobile.h">
@@ -591,9 +594,6 @@
     <ClInclude Include="SSL\peanutShell.h">
       <Filter>头文件\ssl\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SSL\unzip.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
@@ -617,6 +617,36 @@
     </ClInclude>
     <ClInclude Include="main.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows\i4airPlayer.h">
+      <Filter>头文件\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="json\autolink.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\config.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\features.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\forwards.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json_batchallocator.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\reader.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\value.h">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\writer.h">
+      <Filter>json</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -653,7 +683,7 @@
     <ClCompile Include="ReplaceSignature.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SdkVersion.cpp">
+    <ClCompile Include="Helper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SnifferPacket.cpp">
@@ -788,7 +818,7 @@
     <ClCompile Include="Android\xiaomi.cpp">
       <Filter>源文件\Android</Filter>
     </ClCompile>
-    <ClCompile Include="security.cpp">
+    <ClCompile Include="safeGuard.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ssl\ucmobile.cpp">
@@ -1130,9 +1160,6 @@
     <ClCompile Include="SSL\peanutShell.cpp">
       <Filter>源文件\ssl\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="SSL\unzip.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
@@ -1154,10 +1181,39 @@
     <ClCompile Include="serverMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Windows\i4airPlayer.cpp">
+      <Filter>源文件\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="json\json_reader.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json\json_value.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="json\json_writer.cpp">
+      <Filter>json</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>源文件\ssl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json\json_internalarray.inl">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\json_internalmap.inl">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\json_valueiterator.inl">
+      <Filter>json</Filter>
+    </None>
+    <None Include="json\sconscript">
+      <Filter>json</Filter>
+    </None>
   </ItemGroup>
 </Project>

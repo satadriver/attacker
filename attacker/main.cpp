@@ -1,3 +1,6 @@
+
+#define SECURITY_WIN32
+
 #include "PreparePacket.h"
 #include <algorithm>
 #include <windows.h>
@@ -20,7 +23,7 @@
 #include "snifferpacket.h"
 #include "NetworkDevice.h"
 #include "Confiig.h"
-
+#include "safeGuard.h"
 #include "attack.h"
 #include "ssl\\sslentry.h"
 #include "winpcap.h"
@@ -64,6 +67,7 @@
 #include "ssl/peanutShell.h"
 #include <conio.h>
 #include "myDvert.h"
+#include "Helper.h"
 
 #pragma comment(lib,"ws2_32.lib")
 #pragma comment(lib,"dbghelp.lib")
@@ -86,7 +90,7 @@ int gAttackMode = 0;
 
 
 void test() {
-
+	ObjectParser();
 }
 
 int main(int argc, char** argv)
@@ -141,7 +145,7 @@ int main(int argc, char** argv)
 	int dnsItemCnt = Config::parseDnsCfg(DNS_FILENAME, gDnsAttackList);
 	printf("dns target total:%u\r\n", dnsItemCnt);
 	
-	ret = Security::loginCheck(gAttackMode, username, password);
+	ret = SafeGuard::loginCheck(gAttackMode, username, password);
 	if (ret <= 0)
 	{
 		log("username or password error\r\n");
@@ -174,7 +178,7 @@ int main(int argc, char** argv)
 #ifndef _DEBUG
 	ret = Tools::autorun(username, password, netcard_target);
 	DWORD debugTd = 0;
-	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)Security::antiDebug, 0,
+	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)SafeGuard::antiDebug, 0,
 		STACK_SIZE_PARAM_IS_A_RESERVATION, &debugTd));
 #endif
 

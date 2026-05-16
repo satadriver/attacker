@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILENAME>ImportCert.cpp</FILENAME>
+      <LINE>119</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>6313</DEFECTCODE>
+    <DESCRIPTION>运算符不正确: 不能使用按位与来测试零值标志。 应使用相等测试来检查零值标志。</DESCRIPTION>
+    <FUNCTION>ImportCert::ImportCACertification</FUNCTION>
+    <DECORATED>?ImportCACertification@ImportCert@@SAHH@Z</DECORATED>
+    <FUNCLINE>116</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILENAME>ImportCert.cpp</FILENAME>
+      <LINE>119</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>6281</DEFECTCODE>
+    <DESCRIPTION>运算顺序不正确: 关系运算符的优先级高于位运算符。</DESCRIPTION>
+    <FUNCTION>ImportCert::ImportCACertification</FUNCTION>
+    <DECORATED>?ImportCACertification@ImportCert@@SAHH@Z</DECORATED>
+    <FUNCLINE>116</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILENAME>ImportCert.cpp</FILENAME>
+      <LINE>119</LINE>
+      <COLUMN>27</COLUMN>
+    </SFA>
+    <DEFECTCODE>6326</DEFECTCODE>
+    <DESCRIPTION>可能会对两个常量进行比较。</DESCRIPTION>
+    <FUNCTION>ImportCert::ImportCACertification</FUNCTION>
+    <DECORATED>?ImportCACertification@ImportCert@@SAHH@Z</DECORATED>
+    <FUNCLINE>116</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

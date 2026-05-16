@@ -1,0 +1,64 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 96 (0x60)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
+        Validity
+            Not Before: May 16 02:15:14 2026 GMT
+            Not After : May 13 02:15:14 2036 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=yuanbao.tencent.com/emailAddress=www.digicert.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (1024 bit)
+                Modulus:
+                    00:ee:36:6f:23:38:69:34:ce:0a:86:bc:59:0c:e8:
+                    02:bf:f0:0d:01:b8:e1:df:de:0e:54:0c:0f:59:84:
+                    8c:7e:06:2b:63:a9:89:08:f0:ab:5b:85:5a:c8:92:
+                    ee:a1:17:a5:b6:4a:19:df:75:1b:af:0e:24:3c:33:
+                    6f:4f:cd:b8:76:5c:01:3b:ba:cb:70:e6:76:99:72:
+                    10:21:0c:8c:00:9f:c9:51:49:95:e0:97:92:dc:aa:
+                    46:92:01:21:c3:90:28:1b:07:de:d7:4b:83:b1:55:
+                    c6:7e:2b:5d:80:2a:1a:32:7f:3e:b5:26:39:50:80:
+                    90:a0:ba:5f:2b:e2:f9:c6:27
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:yuanbao.tencent.com
+    Signature Algorithm: sha256WithRSAEncryption
+         6b:8b:f8:92:89:3c:08:49:e2:e7:ba:15:cf:09:fb:00:09:d2:
+         97:06:25:9c:78:0f:e5:a2:72:41:09:a8:09:64:42:44:b7:8b:
+         24:42:b2:56:5b:6f:9d:6a:42:30:cb:c6:23:06:b2:39:18:4a:
+         58:e7:55:8f:ce:52:d7:eb:72:aa:29:f9:90:3f:cc:8f:ab:f0:
+         72:44:82:87:7f:0d:df:2e:67:3b:17:81:62:c6:73:de:0b:16:
+         46:e5:53:37:b9:ef:3a:c7:da:20:c7:3b:45:44:d2:be:1f:e3:
+         98:7d:f4:89:61:c8:0e:8b:16:2d:c1:d5:e6:f8:be:86:b7:b8:
+         f2:3a:5d:19:3c:e6:c3:36:dc:47:f1:97:52:27:70:97:97:df:
+         14:c9:29:6c:d0:a5:2d:68:69:7e:f2:e8:23:cb:82:19:a3:d3:
+         42:6d:aa:e8:a4:7a:82:fa:36:38:1e:ef:79:b7:06:c6:ed:53:
+         57:1d:7d:1d:9f:d2:40:38:8e:5c:56:96:a5:cc:9b:ac:c1:40:
+         ea:d4:93:08:6d:dd:b6:64:e3:16:ed:dc:6b:85:43:cf:40:1c:
+         77:14:96:64:44:96:2b:59:a9:1b:08:51:ed:3c:fe:ac:c2:eb:
+         8b:86:cc:aa:5f:cd:13:e0:54:37:3e:70:22:16:ed:cd:67:b1:
+         f9:b8:b5:4f
+-----BEGIN CERTIFICATE-----
+MIIDcTCCAlmgAwIBAgIBYDANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
+VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
+BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUxNjAyMTUxNFoXDTM2MDUxMzAyMTUxNFow
+gakxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
+b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
+ZGlnaWNlcnQuY29tMRwwGgYDVQQDDBN5dWFuYmFvLnRlbmNlbnQuY29tMR8wHQYJ
+KoZIhvcNAQkBFhB3d3cuZGlnaWNlcnQuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GN
+ADCBiQKBgQDuNm8jOGk0zgqGvFkM6AK/8A0BuOHf3g5UDA9ZhIx+BitjqYkI8Ktb
+hVrIku6hF6W2ShnfdRuvDiQ8M29Pzbh2XAE7ustw5naZchAhDIwAn8lRSZXgl5Lc
+qkaSASHDkCgbB97XS4OxVcZ+K12AKhoyfz61JjlQgJCgul8r4vnGJwIDAQABoyIw
+IDAeBgNVHREEFzAVghN5dWFuYmFvLnRlbmNlbnQuY29tMA0GCSqGSIb3DQEBCwUA
+A4IBAQBri/iSiTwISeLnuhXPCfsACdKXBiWceA/lonJBCagJZEJEt4skQrJWW2+d
+akIwy8YjBrI5GEpY51WPzlLX63KqKfmQP8yPq/ByRIKHfw3fLmc7F4FixnPeCxZG
+5VM3ue86x9ogxztFRNK+H+OYffSJYcgOixYtwdXm+L6Gt7jyOl0ZPObDNtxH8ZdS
+J3CXl98UySls0KUtaGl+8ugjy4IZo9NCbaropHqC+jY4Hu95twbG7VNXHX0dn9JA
+OI5cVpalzJuswUDq1JMIbd22ZOMW7dxrhUPPQBx3FJZkRJYrWakbCFHtPP6swuuL
+hsyqX80T4FQ3PnAiFu3NZ7H5uLVP
+-----END CERTIFICATE-----

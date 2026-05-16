@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILENAME>safeGuard.cpp</FILENAME>
+      <LINE>126</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>6400</DEFECTCODE>
+    <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“server”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
+    <FUNCTION>SafeGuard::loginCheck</FUNCTION>
+    <DECORATED>?loginCheck@SafeGuard@@SAHHAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
+    <FUNCLINE>64</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

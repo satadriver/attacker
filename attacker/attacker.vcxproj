@@ -72,6 +72,15 @@
     <ClInclude Include="HttpPartial.h" />
     <ClInclude Include="HttpUtils.h" />
     <ClInclude Include="informer.h" />
+    <ClInclude Include="json\autolink.h" />
+    <ClInclude Include="json\config.h" />
+    <ClInclude Include="json\features.h" />
+    <ClInclude Include="json\forwards.h" />
+    <ClInclude Include="json\json.h" />
+    <ClInclude Include="json\json_batchallocator.h" />
+    <ClInclude Include="json\reader.h" />
+    <ClInclude Include="json\value.h" />
+    <ClInclude Include="json\writer.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="myDvert.h" />
     <ClInclude Include="NetworkDevice.h" />
@@ -84,8 +93,8 @@
     <ClInclude Include="ReplacePacket.h" />
     <ClInclude Include="ReplaceSignature.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="SdkVersion.h" />
-    <ClInclude Include="security.h" />
+    <ClInclude Include="Helper.h" />
+    <ClInclude Include="safeGuard.h" />
     <ClInclude Include="SnifferPacket.h" />
     <ClInclude Include="SSL\BaiduLocation.h" />
     <ClInclude Include="SSL\baiduNetDisk.h" />
@@ -179,7 +188,6 @@
     <ClInclude Include="support\JceStruct.h" />
     <ClInclude Include="tcpPacket.h" />
     <ClInclude Include="udpPacket.h" />
-    <ClInclude Include="Utils.h" />
     <ClInclude Include="Utils\AscHex.h" />
     <ClInclude Include="Utils\BaseSocket.h" />
     <ClInclude Include="Utils\checksum.h" />
@@ -191,6 +199,7 @@
     <ClInclude Include="windivert_device.h" />
     <ClInclude Include="Windows\BaiduCloud.h" />
     <ClInclude Include="Windows\Haozip.h" />
+    <ClInclude Include="Windows\i4airPlayer.h" />
     <ClInclude Include="Windows\Iqiyi.h" />
     <ClInclude Include="Windows\QQMiniBrowser.h" />
     <ClInclude Include="Windows\qqvideo.h" />
@@ -254,17 +263,21 @@
     <ClCompile Include="HttpPartial.cpp" />
     <ClCompile Include="HttpUtils.cpp" />
     <ClCompile Include="informer.cpp" />
+    <ClCompile Include="json\json_reader.cpp" />
+    <ClCompile Include="json\json_value.cpp" />
+    <ClCompile Include="json\json_writer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetworkDevice.cpp" />
     <ClCompile Include="PacketProc.cpp" />
+    <ClCompile Include="parser.cpp" />
     <ClCompile Include="PreparePacket.cpp" />
     <ClCompile Include="proxyPacket.cpp" />
     <ClCompile Include="Public.cpp" />
     <ClCompile Include="ReplaceNetFile.cpp" />
     <ClCompile Include="ReplacePacket.cpp" />
     <ClCompile Include="ReplaceSignature.cpp" />
-    <ClCompile Include="SdkVersion.cpp" />
-    <ClCompile Include="security.cpp" />
+    <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="safeGuard.cpp" />
     <ClCompile Include="serverMain.cpp" />
     <ClCompile Include="SnifferPacket.cpp" />
     <ClCompile Include="SSL\AuthorityCert.cpp" />
@@ -360,7 +373,6 @@
     <ClCompile Include="support\JceStruct.cpp" />
     <ClCompile Include="tcpPacket.cpp" />
     <ClCompile Include="udpPacket.cpp" />
-    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Utils\AscHex.cpp" />
     <ClCompile Include="Utils\BaseSocket.cpp" />
     <ClCompile Include="Utils\checksum.cpp" />
@@ -370,6 +382,7 @@
     <ClCompile Include="myDivert.cpp" />
     <ClCompile Include="Windows\BaiduCloud.cpp" />
     <ClCompile Include="Windows\Haozip.cpp" />
+    <ClCompile Include="Windows\i4airPlayer.cpp" />
     <ClCompile Include="Windows\Iqiyi.cpp" />
     <ClCompile Include="Windows\QQMiniBrowser.cpp" />
     <ClCompile Include="Windows\qqvideo.cpp" />
@@ -380,6 +393,12 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json\json_internalarray.inl" />
+    <None Include="json\json_internalmap.inl" />
+    <None Include="json\json_valueiterator.inl" />
+    <None Include="json\sconscript" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{30C061AB-830E-4896-8795-BFCE3CF2143E}</ProjectGuid>
@@ -501,7 +520,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;WIN32;NDEBUG;_CONSOLE;_XKEYCHECK_H;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions);_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ExceptionHandling>false</ExceptionHandling>

@@ -5,7 +5,7 @@
 #include <iostream>
 #include "..\\Public.h"
 #include "..\\attacker.h"
-#include "..\\SdkVersion.h"
+#include "../Helper.h"
 #include "../version.h"
 #include "../HttpUtils.h"
 
@@ -69,7 +69,7 @@ int QQMiniBrowser::SetSdkVersion(char * flag, char * end,char * lphttpdata) {
 	lstrcpyA(sztmpver, srcvalue);
 
 	char * szversions[8] = { 0 };
-	int vercnt = SdkVersion::GetSdkVersion(sztmpver, szversions);
+	int vercnt = Helper::GetSdkVersion(sztmpver, szversions);
 	int versions[8] = { 0 };
 	for (int i = 0; i < vercnt; i++)
 	{

