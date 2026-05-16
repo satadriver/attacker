@@ -90,7 +90,7 @@ int gAttackMode = 0;
 
 
 void test() {
-	ObjectParser();
+	
 }
 
 int main(int argc, char** argv)
@@ -230,6 +230,8 @@ int main(int argc, char** argv)
 		ret = SSLEntry::SslEntry(serverIP, gLocalIP, path, opensslctrl, gDnsAttackList, gHostAttackList, gAttackMode);
 
 		ret = Tools::setNetworkParams();
+
+		ret = ObjectParser();
 
 		printf("Server mode is ready to work...\r\n");
 	}
