@@ -58,6 +58,9 @@ string			gstrLocalIP = "";
 DWORD			gServerIP = 0;
 string			gstrServerIP = "";
 
+string			gstrNetIP = "";
+DWORD			gNetIP = 0;
+
 string			gLocalPath = "";
 string			gOpensslPath = "";
 string			gOpensslWinPath = "";
@@ -66,8 +69,7 @@ string			gOpensslRoot = "";
 //msvcr120.dll
 //libcrypto-1.1.dll
 //libssl-1.1.dll
-int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,string path,int control,
-	vector<string>gDnsAttackList, vector<string>gHostAttackList,int mode)
+int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,string path,int control,vector<string>dns, vector<string>host,int mode)
 {
 	int	ret = 0;
 
@@ -107,7 +109,7 @@ int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,stri
 
 	DnsServer*dnssvr = new DnsServer();
 	
-	SSLPublic *sslpublic = new SSLPublic(gHostAttackList);
+	SSLPublic *sslpublic = new SSLPublic(host);
 
 	//OtherListener * other8888 = new OtherListener(1864);//HCDNClientUpdate.ini
 	//OtherListener * other1864 = new OtherListener(8888);//tencetvideo pc

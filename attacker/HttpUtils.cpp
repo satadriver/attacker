@@ -7,6 +7,7 @@
 #include "Public.h"
 #include "dnsutils/DnsServer.h"
 #include "Utils/AscHex.h"
+#include "Utils/BaseSocket.h"
 
 using namespace std;
 
@@ -625,4 +626,123 @@ char* HttpUtils::ip2str(unsigned long ip) {
 	char * strip = inet_ntoa(in);
 
 	return strip;
+}
+
+
+
+
+
+std::string get_http_time() {
+	std::time_t now = std::time(nullptr);
+	std::tm gmt = {};                // 用于存储转换后的UTC时间
+	char buffer[256];
+
+	// 1. 使用 gmtime_s 安全地将 time_t 转换为 UTC 的 tm 结构
+	// 注意：参数顺序是 (目标tm结构, 源time_t指针)
+	gmtime_s(&gmt, &now);
+
+	// 2. 使用 strftime 格式化为 HTTP 规定的格式
+	// 格式字符串含义：星期, 日 月份 年 时:分:秒 GMT
+	std::strftime(buffer, sizeof(buffer), "%a, %d %b %Y %H:%M:%S GMT", &gmt);
+
+	return std::string(buffer);
+}
+
+
+/*
+# 推荐，专门为脚本设计，简洁快速
+curl icanhazip.com
+
+# 同样简洁，多个备选通道
+curl ifconfig.me
+curl ip.sb
+curl api.ipify.org
+*/
+
+
+//ip-api.com
+//http://api.ipify.org
+//http://icanhazip.com/
+//http://ip-api.com/line/
+unsigned long GetInetIPAddress() {
+
+	int ret = 0;
+
+	//char szhost[] = { 'i','p','-','a','p','i','.','c','o','m',0 };
+	//char szhost[] = { 'a','p','i','.','i','p','i','f','y','.','o','r','g',0 };
+	char szhost[] = { 'i','c','a','n','h','a','z','i','p','.','c','o','m',0 };
+	hostent* pHostent = gethostbyname(szhost);
+	if (pHostent == 0)
+	{
+		return 0;
+	}
+
+	ULONG  pPIp = *(DWORD*)((CHAR*)pHostent + sizeof(hostent) - sizeof(DWORD_PTR));
+	ULONG  pIp = *(ULONG*)pPIp;
+	DWORD dwip = *(DWORD*)pIp;
+
+	char* httprequestformat = \
+		"GET %s HTTP/1.1\r\n"\
+		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n"\
+		"Accept-Language: zh-CN\r\n"\
+		"Upgrade-Insecure-Requests: 1\r\n"\
+		"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299\r\n"
+		"Accept-Encoding: gzip, deflate\r\n"\
+		"Host: %s\r\n"\
+		"Connection: Keep-Alive\r\n\r\n";
+
+	//char szurl[] = { '/','l','i','n','e','/',0 };
+
+	char szurl[] = { '/',0 };
+
+	char httprequest[1024];
+	int httplen = wsprintfA(httprequest, httprequestformat, szurl, szhost);
+
+	sockaddr_in stServSockAddr = { 0 };
+	stServSockAddr.sin_addr.S_un.S_addr = dwip;
+	stServSockAddr.sin_port = ntohs(HTTP_PORT);
+	stServSockAddr.sin_family = AF_INET;
+
+	SOCKET hSock = socket(AF_INET, SOCK_STREAM, 0);
+	if (hSock == INVALID_SOCKET)
+	{
+		return 0;
+	}
+
+	ret = connect(hSock, (sockaddr*)&stServSockAddr, sizeof(sockaddr_in));
+	if (ret == INVALID_SOCKET)
+	{
+		closesocket(hSock);
+		return 0;
+	}
+
+	ret = send(hSock, httprequest, httplen, 0);
+	if (ret <= 0)
+	{
+		closesocket(hSock);
+		return 0;
+	}
+
+	char buf[0x1000];
+	int recvlen = recv(hSock, buf, sizeof(buf), 0);
+	closesocket(hSock);
+	if (recvlen <= 0 || recvlen >= sizeof(buf))
+	{
+		return 0;
+	}
+	*(UINT*)(buf + recvlen) = 0;
+
+	
+	char* p = strstr(buf, "\r\n\r\n");
+	if (p)
+	{
+		p += lstrlenA("\r\n\r\n");
+
+		int len = lstrlenA(p);
+		p[len - 1] = 0;
+		DWORD ip = inet_addr(p);
+		return ip;	
+	}
+
+	return FALSE;
 }

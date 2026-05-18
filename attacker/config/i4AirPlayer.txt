@@ -1,0 +1,1 @@
+{"code":0,"msg":"Success","data":{"update":0,"newVersion":"%s","url":"%s","fileSize":%d,"fileMd5":"%s","fileType":"exe","versionUpdateDate":"2026-02-02","versionUpdate":"版本:3.0.1.2 [2026-02-02 00:00]\n\n","waitForUpdater":0,"updaterCheckUpdate":0}}

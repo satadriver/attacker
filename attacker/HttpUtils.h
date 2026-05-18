@@ -12,6 +12,10 @@
 
 using namespace std;
 
+std::string get_http_time();
+
+unsigned long GetInetIPAddress();
+
 class HttpUtils {
 public:
 	static int getContentLen(string lphttpdata, int len);

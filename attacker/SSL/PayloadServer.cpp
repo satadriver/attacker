@@ -67,7 +67,7 @@ int PayloadServer::PluginServerProc(LPSSLPROXYPARAM spp ,char * recvbuf, int rec
 		ret = SendPluginFile(destfn.c_str(), spp, contentTypeFormat,flag);
 	}
 
-	return TRUE;
+	return ret;
 }
 
 
@@ -307,7 +307,7 @@ int PayloadServer::PluginServerProc(LPHTTPPROXYPARAM hpp,char * recvbuf,int recv
 		ret = SendPluginFile(destfn.c_str(), hpp, contentTypeFormat,flag);
 	}
 
-	return TRUE;
+	return ret;
 }
 
 
@@ -430,6 +430,7 @@ int PayloadServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, c
 		log( "[%s %d]send file payload:%s ok\r\n", __FUNCTION__, __LINE__, filename.c_str());
 		return TRUE;
 	}
+	return ret;
 }
 
 

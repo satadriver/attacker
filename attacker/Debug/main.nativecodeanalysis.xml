@@ -4,7 +4,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>146</LINE>
+      <LINE>145</LINE>
       <COLUMN>7</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
@@ -18,7 +18,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>285</LINE>
+      <LINE>293</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>

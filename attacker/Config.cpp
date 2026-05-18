@@ -19,11 +19,12 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 
 	printf("parsing config file:%s\r\n", fn.c_str());
 
-	vector <string> DnsAttackList;
+	vector <string> dnslist;
+	dnslist.clear();
 
 	int ret = FileOper::fileReader(fn, &buf, &fs);
 	if (ret <= 0) {
-		return DnsAttackList;
+		return dnslist;
 	}
 
 	int cfglen = Public::removespace(buf, buf);
@@ -134,10 +135,10 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 				{
 					string strmac = value.substr(strlen(macaddr));
 					while (1) {
-						int pos = strmac.find("-");
-						if (pos >= 0)
+						int p = strmac.find("-");
+						if (p >= 0)
 						{
-							strmac = strmac.replace(pos, 1, "");
+							strmac = strmac.replace(p, 1, "");
 						}
 						else {
 							break;
@@ -150,7 +151,7 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 					printf("config gateway mac:%s\r\n", strmac.c_str());
 				}
 				else {
-					DnsAttackList.push_back(value);
+					dnslist.push_back(value);
 					//printf("config host:%s\r\n", value.c_str());
 				}
 			}
@@ -163,13 +164,13 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 		continue;
 	}
 
-	return DnsAttackList;
+	return dnslist;
 }
 
 
 
 
-int Config::parseDnsCfg(string fn, vector <string>& DnsAttackList) {
+int Config::parseDnsCfg(string fn, vector <string>& dns) {
 	int cnt = 0;
 
 	char* buf = 0;
@@ -219,7 +220,7 @@ int Config::parseDnsCfg(string fn, vector <string>& DnsAttackList) {
 			end = strstr(hdr, "]");
 			if (end > 0 && (end - hdr > 0)) {
 				string value = string(hdr, end - hdr);
-				DnsAttackList.push_back(value);
+				dns.push_back(value);
 				//printf("config dns:%s\r\n", value.c_str());
 				cnt++;
 			}
@@ -246,6 +247,7 @@ int Config::shiftDnsFormat(vector<string>& dnses) {
 
 		string old = dnses[i];
 		if (old.length() <= 0) {
+			dnses.erase(dnses.begin() + i);
 			continue;
 		}
 
@@ -253,7 +255,9 @@ int Config::shiftDnsFormat(vector<string>& dnses) {
 		dnses[i] = newstr;
 	}
 
-	sort(dnses.begin(), dnses.end());
+	sort(dnses.begin(), dnses.end());  
+	auto iter = unique(dnses.begin(), dnses.end());
+	dnses.erase(iter, dnses.end());
 
 	return 0;
 }

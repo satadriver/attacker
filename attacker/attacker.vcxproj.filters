@@ -204,7 +204,7 @@
     <ClInclude Include="ssl\SSLAttack.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
-    <ClInclude Include="ssl\sslEntry.h">
+    <ClInclude Include="ssl\SslEntry.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
     <ClInclude Include="ssl\sslPacket.h">
@@ -767,7 +767,7 @@
     <ClCompile Include="ssl\SSLAttack.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
-    <ClCompile Include="ssl\sslEntry.cpp">
+    <ClCompile Include="ssl\SSLEntry.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
     <ClCompile Include="ssl\SSLProxy.cpp">

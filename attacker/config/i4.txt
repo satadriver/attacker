@@ -1,0 +1,24 @@
+GET /winupdater.xhtml?v=1.0.3&params=ZHlnz2lhoDu5hpaQE5F%2FuP0m%2BRDU1cRKHYNSVKIl7TZ4Jd6tFUjYPnUEOWk1p5obfyB%2FpCdJ%2FCRCqX99jkG878GrFq5SNHdV1yyu%2BKsPmJKavCWo%2B6zyC8qylArD4LlkBve%2Faz6BTrj2HhpcP%2BbvlKcXA1Q38ywxNTyOFxxG%2B4g%3D HTTP/1.1
+Host: app4.i4.cn
+User-Agent: User-Agent: Mozilla / 5.0 (Windows NT 10.0; WOW64; Trident / 7.0; rv:11.0) like Gecko
+Accept: */*
+Accept-Encoding: identity
+clientPlatform:1
+pcvs:6.2.2.08
+vsk:G5EKD4YPeEbrW50VTryUd%2BSko9zY1ivOlPGf455V1p3i2PkCmB0KgtZo9fCklukAl%2B3Rp0HoEAVBEMl%2BXXjXOsE4i6OgNZUOuKIE37ZCOE%2Ft77DNUenXlOdotAgX4gfAG5wbjhy4i45Lku5yZIjTHMx7Wo7LWZ5YQZn2gO3w%2Fds%3D
+
+HTTP/1.1 200 
+Server: nginx/1.20.2
+Date: Thu, 14 May 2026 07:58:58 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, json
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Credentials: true
+
+176
+{"code":0,"msg":"Success","data":{"update":0,"newVersion":"3.0.1.2","url":"https://d-updater.i4.cn/i4airplayer/updater/x64/985DF05327464996ABFC07844B023D46.exe","fileSize":4043368,"fileMd5":"985DF05327464996ABFC07844B023D46","fileType":"exe","versionUpdateDate":"2026-02-02","versionUpdate":"版本:3.0.1.2 [2026-02-02 00:00]\n\n","waitForUpdater":0,"updaterCheckUpdate":0}}
+0
+
+

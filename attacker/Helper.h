@@ -25,7 +25,7 @@ struct UpdateData {
 
 extern vector < UpdateData> gUpdateData;
 
-int ObjectParser();
+int ObjectParser(vector<string>& targetHost);
 
 
 class Helper {

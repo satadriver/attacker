@@ -171,6 +171,9 @@ extern string			gstrLocalIP;
 extern DWORD			gServerIP;
 extern string			gstrServerIP;
 
+extern string			gstrNetIP ;
+extern DWORD			gNetIP;
+
 extern string			gLocalPath;
 extern string			gOpensslPath;
 extern string			gOpensslWinPath;

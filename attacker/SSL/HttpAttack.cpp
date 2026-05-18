@@ -56,7 +56,6 @@
 
 int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const char* host, const char* httphdr,const char* httpdata, LPHTTPPROXYPARAM hpp) 
 {
-
 	int ret = 0;
 	int retlen = 0;
 
@@ -73,8 +72,6 @@ int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const cha
 		ret = PayloadServer::PluginServerProc(hpp, buf, size);
 		return ret;
 	}
-
-
 
 	/*
 	if (lphttp->saToClient.sin_addr.S_un.S_addr == 0x0100007f || strstr(lphttp->host, "127.0.0.1") ||

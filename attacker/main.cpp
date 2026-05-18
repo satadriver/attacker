@@ -135,15 +135,16 @@ int main(int argc, char** argv)
 	unsigned long serverIP = 0;
 	char gwmac[64] = { 0 };
 	string servername = "";
-	vector<string> gDnsAttackList = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay,
-		&opensslctrl, &gAttackMode, gwmac, servername);
-	if (gDnsAttackList.size() == 0) {
-		log("parse config file:%s error\r\n", CONFIG_FILENAME);
-		return -1;
+	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay,&opensslctrl, &gAttackMode, gwmac, servername);
+	if (hostlist.size() == 0) {
+		//log("parse config file:%s error\r\n", CONFIG_FILENAME);
+		//return -1;
 	}
 
-	int dnsItemCnt = Config::parseDnsCfg(DNS_FILENAME, gDnsAttackList);
+	int dnsItemCnt = Config::parseDnsCfg(DNS_FILENAME, hostlist);
 	printf("dns target total:%u\r\n", dnsItemCnt);
+
+	ret = ObjectParser(hostlist);
 	
 	ret = SafeGuard::loginCheck(gAttackMode, username, password);
 	if (ret <= 0)
@@ -164,10 +165,14 @@ int main(int argc, char** argv)
 #endif
 	if (gAttackMode == ATTACK_TEST_MODE)
 	{
+		gNetIP = GetInetIPAddress();
+		gstrNetIP = HttpUtils::ip2str(gNetIP);
 		serverIP = gLocalIP;
 	}
 	else if (gAttackMode == ATTACK_SERVER_MODE)
 	{
+		gNetIP = GetInetIPAddress();
+		gstrNetIP = HttpUtils::ip2str(gNetIP);
 		//make sure serverip is correct in this mode
 	}
 	else if (gAttackMode == ATTACK_CLIENT_MODE)
@@ -191,19 +196,24 @@ int main(int argc, char** argv)
 	}
 	printf("device:%s,mask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcapDelay);
 
+	
 	// 标准去重模式,vector、set、map这些容器的end()取出来的值不是最后一个、end的前一个才是最后一个,prev(xxx.end())取出最后一个
-	sort(gDnsAttackList.begin(), gDnsAttackList.end());  // 先排序
-	auto iter = unique(gDnsAttackList.begin(), gDnsAttackList.end());
-	gDnsAttackList.erase(iter, gDnsAttackList.end());
+	sort(hostlist.begin(), hostlist.end());  // 先排序
+	auto iter = unique(hostlist.begin(), hostlist.end());
+	hostlist.erase(iter, hostlist.end());
 
-	vector<string> gHostAttackList = gDnsAttackList;
-	gHostAttackList.push_back(HttpUtils::getIPstr(serverIP));
-	gHostAttackList.push_back(HttpUtils::getIPstr(gLocalIP));
-	gHostAttackList.push_back("127.0.0.1");
+	vector<string> dnslist = hostlist;
+	hostlist.push_back(HttpUtils::getIPstr(serverIP));
+	hostlist.push_back(HttpUtils::getIPstr(gLocalIP));
+	hostlist.push_back(gstrNetIP);
+#ifdef _DEBUG
 
-	ret = Config::shiftDnsFormat(gDnsAttackList);
+#endif
+	//dnslist.push_back("127.0.0.1");
 
-	DnsUitls* dnsutils = new DnsUitls(gDnsAttackList);
+	ret = Config::shiftDnsFormat(dnslist);
+
+	DnsUitls* dnsutils = new DnsUitls(dnslist);
 
 	DWORD cmode = 0;
 	HANDLE hc = GetStdHandle(STD_INPUT_HANDLE);
@@ -227,11 +237,9 @@ int main(int argc, char** argv)
 		ret = Tools::addFirewallPort(SSL_PORT, "SSL", "TCP");
 		ret = Tools::addFirewallPort(INFORMER_PORT, "INFORMER", "TCP");
 
-		ret = SSLEntry::SslEntry(serverIP, gLocalIP, path, opensslctrl, gDnsAttackList, gHostAttackList, gAttackMode);
+		ret = SSLEntry::SslEntry(serverIP, gLocalIP, path, opensslctrl, dnslist, hostlist, gAttackMode);
 
 		ret = Tools::setNetworkParams();
-
-		ret = ObjectParser();
 
 		printf("Server mode is ready to work...\r\n");
 	}

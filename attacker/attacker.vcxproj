@@ -170,7 +170,7 @@
     <ClInclude Include="ssl\QQmtt.h" />
     <ClInclude Include="ssl\QQVideoSSL.h" />
     <ClInclude Include="ssl\SSLAttack.h" />
-    <ClInclude Include="ssl\sslEntry.h" />
+    <ClInclude Include="ssl\SslEntry.h" />
     <ClInclude Include="ssl\sslPacket.h" />
     <ClInclude Include="ssl\SSLProxy.h" />
     <ClInclude Include="ssl\SSLProxyListener.h" />
@@ -355,7 +355,7 @@
     <ClCompile Include="ssl\QQmtt.cpp" />
     <ClCompile Include="ssl\QQVideoSSL.cpp" />
     <ClCompile Include="ssl\SSLAttack.cpp" />
-    <ClCompile Include="ssl\sslEntry.cpp" />
+    <ClCompile Include="ssl\SSLEntry.cpp" />
     <ClCompile Include="ssl\SSLProxy.cpp" />
     <ClCompile Include="ssl\SSLProxyListener.cpp" />
     <ClCompile Include="ssl\sslPublic.cpp" />
