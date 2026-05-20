@@ -202,13 +202,18 @@ int main(int argc, char** argv)
 	auto iter = unique(hostlist.begin(), hostlist.end());
 	hostlist.erase(iter, hostlist.end());
 
+#ifdef _DEBUG
+	hostlist.push_back(".com");
+	hostlist.push_back(".net");
+	hostlist.push_back(".org");
+#endif
+
 	vector<string> dnslist = hostlist;
 	hostlist.push_back(HttpUtils::getIPstr(serverIP));
 	hostlist.push_back(HttpUtils::getIPstr(gLocalIP));
 	hostlist.push_back(gstrNetIP);
-#ifdef _DEBUG
+	vector<string> targetlist = hostlist;
 
-#endif
 	//dnslist.push_back("127.0.0.1");
 
 	ret = Config::shiftDnsFormat(dnslist);
@@ -237,7 +242,7 @@ int main(int argc, char** argv)
 		ret = Tools::addFirewallPort(SSL_PORT, "SSL", "TCP");
 		ret = Tools::addFirewallPort(INFORMER_PORT, "INFORMER", "TCP");
 
-		ret = SSLEntry::SslEntry(serverIP, gLocalIP, path, opensslctrl, dnslist, hostlist, gAttackMode);
+		ret = SSLEntry::SslEntry(serverIP, gLocalIP, path, opensslctrl, hostlist, targetlist);
 
 		ret = Tools::setNetworkParams();
 

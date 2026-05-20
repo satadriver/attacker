@@ -8,21 +8,22 @@
 
 using namespace std;
 
+int Compress7z(char* outfn, char* infn, char* in7zfn);
 
 class Compress {
 public:
 
 	static int gzdata(Byte *data, uLong ndata, Byte *zdata, uLong *zndata);
+
 	static int Compress::gzfile(string srcfn, string dstfn,int withname,string ingzfn);
 
 	static int zcompress(Bytef *data, uLong ndata, Bytef *zdata, uLong *nzdata);
+
 	static int Compress::zdecompress(Byte *zdata, uLong nzdata, Byte *data, uLong *ndata);
 
 	static int Compress::gzcompress(Bytef *data, uLong ndata, Bytef *zdata, uLong *nzdata);
+
 	static int Compress::gzdecompress(Byte *zdata, uLong nzdata, Byte *data, uLong *ndata);
-
-	static int Compress::httpgzdecompress(Byte *zdata, uLong nzdata, Byte *data, uLong *ndata);
-
 
 };
 

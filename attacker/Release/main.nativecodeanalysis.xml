@@ -11,35 +11,35 @@
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(2) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>main</FUNCTION>
     <DECORATED>main</DECORATED>
-    <FUNCLINE>95</FUNCLINE>
+    <FUNCLINE>96</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>282</LINE>
+      <LINE>298</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“unsigned long”作为 _Param_(3) 传递，但需要使用一些 signed 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>main</FUNCTION>
     <DECORATED>main</DECORATED>
-    <FUNCLINE>95</FUNCLINE>
+    <FUNCLINE>96</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>180</LINE>
+      <LINE>186</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>“Temp_value_#875”可能是“0”: 这不符合函数“CloseHandle”的规范。</DESCRIPTION>
     <FUNCTION>main</FUNCTION>
     <DECORATED>main</DECORATED>
-    <FUNCLINE>95</FUNCLINE>
+    <FUNCLINE>96</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -49,14 +49,8 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>101</LINE>
+        <LINE>102</LINE>
         <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
-        <FILENAME>main.cpp</FILENAME>
-        <LINE>103</LINE>
-        <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
@@ -68,12 +62,18 @@
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>105</LINE>
-        <COLUMN>5</COLUMN>
+        <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>106</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILENAME>main.cpp</FILENAME>
+        <LINE>107</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -85,13 +85,13 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>113</LINE>
+        <LINE>114</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>114</LINE>
+        <LINE>115</LINE>
         <COLUMN>13</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -103,19 +103,19 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>121</LINE>
+        <LINE>122</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>122</LINE>
+        <LINE>123</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>123</LINE>
+        <LINE>124</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -127,20 +127,14 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>129</LINE>
+        <LINE>130</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>130</LINE>
+        <LINE>131</LINE>
         <COLUMN>21</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
-        <FILENAME>main.cpp</FILENAME>
-        <LINE>132</LINE>
-        <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
@@ -152,42 +146,48 @@
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>134</LINE>
-        <COLUMN>15</COLUMN>
+        <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>135</LINE>
-        <COLUMN>6</COLUMN>
+        <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>136</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILENAME>main.cpp</FILENAME>
+        <LINE>137</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>137</LINE>
-        <COLUMN>61</COLUMN>
+        <LINE>138</LINE>
+        <COLUMN>55</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>137</LINE>
+        <LINE>138</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>139</LINE>
-        <COLUMN>27</COLUMN>
+        <COLUMN>21</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
           <KIND>branch</KIND>
           <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>跳过此分支(假定“gDnsAttackList.size()==0”为 false)</MESSAGE>
+          <MESSAGE>跳过此分支(假定“hostlist.size()==0”为 false)</MESSAGE>
         </KEYEVENT>
       </SFA>
       <SFA>
@@ -217,7 +217,13 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>148</LINE>
+        <LINE>149</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILENAME>main.cpp</FILENAME>
+        <LINE>150</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -229,13 +235,13 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>154</LINE>
+        <LINE>156</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>155</LINE>
+        <LINE>157</LINE>
         <COLUMN>17</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -247,19 +253,19 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>161</LINE>
-        <COLUMN>13</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
-        <FILENAME>main.cpp</FILENAME>
-        <LINE>162</LINE>
+        <LINE>163</LINE>
         <COLUMN>13</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>164</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILENAME>main.cpp</FILENAME>
+        <LINE>166</LINE>
         <COLUMN>17</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
@@ -271,7 +277,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>168</LINE>
+        <LINE>172</LINE>
         <COLUMN>22</COLUMN>
         <KEYEVENT>
           <ID>8</ID>
@@ -283,7 +289,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>172</LINE>
+        <LINE>178</LINE>
         <COLUMN>22</COLUMN>
         <KEYEVENT>
           <ID>9</ID>
@@ -295,31 +301,31 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>178</LINE>
+        <LINE>184</LINE>
         <COLUMN>32</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>178</LINE>
+        <LINE>184</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>178</LINE>
+        <LINE>184</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>179</LINE>
+        <LINE>185</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>180</LINE>
+        <LINE>186</LINE>
         <COLUMN>12</COLUMN>
         <KEYEVENT>
           <ID>10</ID>
@@ -331,7 +337,7 @@
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
-        <LINE>180</LINE>
+        <LINE>186</LINE>
         <COLUMN>12</COLUMN>
         <KEYEVENT>
           <ID>11</ID>

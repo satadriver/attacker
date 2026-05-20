@@ -304,6 +304,19 @@ int Compress::gzdecompress(Byte *zdata, uLong nzdata, Byte *data, uLong *ndata)
 
 
 
+int Compress7z(char* outfn,char* infn,char * in7zfn) {
+	char cmd[1024];
+	int len = 0;
+	int ret = 0;
+	ret = CopyFileA(infn, in7zfn,TRUE);
 
+	len = wsprintfA(cmd, "7z.exe -t7z %s %s", outfn, in7zfn);
+
+	ret = system(cmd);
+
+	DeleteFileA(in7zfn);
+
+	return ret == 0;
+}
 
 

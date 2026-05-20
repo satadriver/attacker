@@ -67,7 +67,7 @@ int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const cha
 		}
 	}
 
-	ret = SSLPublic::isTargetHost(hpp->host);
+	ret = SSLPublic::isAttackTargetHost(hpp->host);
 	if (ret) {
 		ret = PayloadServer::PluginServerProc(hpp, buf, size);
 		return ret;
@@ -810,11 +810,6 @@ int HttpAttack::httpAttackProc( char* buf, int& size, LPHTTPPROXYPARAM hpp) {
 	}
 
 	if (*hpp->host == 0)
-	{
-		return TRUE;
-	}
-
-	if (SSLPublic::isTargetHost(host) == FALSE)
 	{
 		return TRUE;
 	}

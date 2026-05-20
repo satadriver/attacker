@@ -15,17 +15,31 @@ MIM_THREAD_PARAMS g_thread_params;
 
 vector <string> gHostAttackList;
 
+vector <string> gAttackTargetList;
+
 char G_USERNAME[USERNAME_MAXLEN];
 
-SSLPublic::SSLPublic(vector<string>list) {
+SSLPublic::SSLPublic(vector<string>hostlist, vector<string>targetlist) {
 
 	mInstance = this;
-	gHostAttackList = list;
+	gHostAttackList = hostlist;
+	gAttackTargetList = targetlist;
 }
 
 
 SSLPublic::~SSLPublic() {
 
+}
+
+int SSLPublic::isAttackTargetHost(string host) {
+	unsigned int targetlen = gAttackTargetList.size();
+	for (unsigned int i = 0; i < targetlen; i++) {
+		if (strstr(host.c_str(), gAttackTargetList[i].c_str())) {
+			return TRUE;
+		}
+	}
+
+	return FALSE;
 }
 
 

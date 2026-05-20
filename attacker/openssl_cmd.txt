@@ -1,26 +1,28 @@
-Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_functional.events.data.microsoft.com
+Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_aefd.nelreports.net
 Check that the request matches the signature
 Signature ok
 Certificate Details:
-        Serial Number: 27 (0x1b)
+        Serial Number: 12 (0xc)
         Validity
-            Not Before: May 18 04:18:46 2026 GMT
-            Not After : May 15 04:18:46 2036 GMT
+            Not Before: May 20 06:31:38 2026 GMT
+            Not After : May 17 06:31:38 2036 GMT
         Subject:
             countryName               = US
             stateOrProvinceName       = California
             localityName              = Los Angeles
             organizationName          = DigiCert Inc
             organizationalUnitName    = www.digicert.com
-            commonName                = functional.events.data.microsoft.com
+            commonName                = aefd.nelreports.net
             emailAddress              = www.digicert.com
         X509v3 extensions:
             X509v3 Subject Alternative Name: 
-                DNS:functional.events.data.microsoft.com
-Certificate is to be certified until May 15 04:18:46 2036 GMT (3650 days)
+                DNS:aefd.nelreports.net
+Certificate is to be certified until May 17 06:31:38 2036 GMT (3650 days)
 
 Write out database with 1 new entries
 Data Base Updated
+with 1 new entries
 Data Base Updated
-
-Updated
+e Updated
+new entries
+Data Base Updated

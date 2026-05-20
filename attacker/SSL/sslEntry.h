@@ -15,8 +15,7 @@ using namespace std;
 
 class SSLEntry {
 public:
-	static int SslEntry(unsigned long serverip,unsigned long localip, string path, int control, 
-		vector<string>gDnsAttackList, vector<string>gHostAttackList, int mode);
+	static int SslEntry(unsigned long serverip,unsigned long localip, string path, int control, vector<string>hostlist, vector<string>targetlist);
 };
 
 #endif

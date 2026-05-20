@@ -185,7 +185,7 @@ extern MIM_THREAD_PARAMS	g_thread_params;
 class SSLPublic {
 public:
 
-	SSLPublic(vector<string>list);
+	SSLPublic::SSLPublic(vector<string>hostlist, vector<string>targetlist);
 	~SSLPublic();
 
 	SSLPublic* mInstance;
@@ -194,6 +194,8 @@ public:
 	static int prepareCertChain(string certname);
 
 	static int SSLPublic::freeSSLPort();
+
+	static int isAttackTargetHost(string host);
 };
 
 

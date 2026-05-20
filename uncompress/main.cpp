@@ -209,7 +209,7 @@ int mainproc(char* infile,char* outfile) {
 	else {
 		outfn = (char*)"sslout.txt";	
 	}	
-	HANDLE hfout = CreateFileA(outfn, GENERIC_WRITE, 0, 0, CREATE_ALWAYS, 0, 0);
+	HANDLE hfout = CreateFileA(outfn, GENERIC_READ|GENERIC_WRITE, 0, 0, CREATE_ALWAYS, 0, 0);
 	if (hfout == INVALID_HANDLE_VALUE) {
 		printf("open output file:%s\r\n error:%d\r\n", outfn, GetLastError());
 		return -1;
@@ -223,11 +223,11 @@ int mainproc(char* infile,char* outfile) {
 		infn = infile;	
 	}
 	else {
-		infn = (char*)"ssl.dat";
+		infn = (char*)"ssl.txt";
 	}
-	HANDLE hf = CreateFileA(infn, GENERIC_READ, 0, 0, OPEN_EXISTING, 0, 0);
+	HANDLE hf = CreateFileA(infn, GENERIC_READ, FILE_SHARE_READ, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
 	if (hf == INVALID_HANDLE_VALUE) {
-		printf("open input file:%s\r\n error:%d\r\n", infn, GetLastError());
+		printf("%s %d CreateFileA file:%s error:%d\r\n",__FUNCTION__,__LINE__, infn, GetLastError());
 		return -1;
 	}
 	else {
@@ -241,7 +241,7 @@ int mainproc(char* infile,char* outfile) {
 	ret = ReadFile(hf, buf, fs, &cnt, 0);
 	CloseHandle(hf);
 	if (ret == 0) {
-		printf("read file:%s\r\n error:%d\r\n", infn,GetLastError());
+		printf("%s %d ReadFile:%s\r\n error:%d\r\n", __FUNCTION__, __LINE__, infn,GetLastError());
 		return FALSE;
 	}
 	buf[fs] = 0;

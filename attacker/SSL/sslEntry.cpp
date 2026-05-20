@@ -69,7 +69,7 @@ string			gOpensslRoot = "";
 //msvcr120.dll
 //libcrypto-1.1.dll
 //libssl-1.1.dll
-int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,string path,int control,vector<string>dns, vector<string>host,int mode)
+int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,string path,int control,vector<string>host, vector<string>target)
 {
 	int	ret = 0;
 
@@ -109,7 +109,7 @@ int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,stri
 
 	DnsServer*dnssvr = new DnsServer();
 	
-	SSLPublic *sslpublic = new SSLPublic(host);
+	SSLPublic *sslpublic = new SSLPublic(host, target);
 
 	//OtherListener * other8888 = new OtherListener(1864);//HCDNClientUpdate.ini
 	//OtherListener * other1864 = new OtherListener(8888);//tencetvideo pc
