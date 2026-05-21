@@ -116,7 +116,7 @@ int ImportRootCertification(unsigned char * certificateData,int certSize) {
 int ImportCert::ImportCACertification(int tag) {
 
 	int ret = 0;
-	if (tag & ROOTCERT_IMPORT == 0) {
+	if ((tag & 2) == 0 ) {
 		return 0;
 	}
 

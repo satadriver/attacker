@@ -580,12 +580,6 @@ int HttpsAttack::sendAttackPacket(const char* buf, int len, LPSSLPROXYPARAM spp)
 
 int HttpsAttack::sslAttackProc(char* recvBuffer, int& iCounter, LPSSLPROXYPARAM spp) {
 	extern int gAttackToggle;
-#ifdef _DEBUG
-
-#else
-	gAttackToggle = 1;
-#endif
-
 	if (gAttackToggle == 0) {
 		return 0;
 	}

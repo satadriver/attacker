@@ -1,28 +1,31 @@
-Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_aefd.nelreports.net
+Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_diskapi.baidu.com
 Check that the request matches the signature
 Signature ok
 Certificate Details:
-        Serial Number: 12 (0xc)
+        Serial Number: 88 (0x58)
         Validity
-            Not Before: May 20 06:31:38 2026 GMT
-            Not After : May 17 06:31:38 2036 GMT
+            Not Before: May 21 04:33:04 2026 GMT
+            Not After : May 18 04:33:04 2036 GMT
         Subject:
             countryName               = US
             stateOrProvinceName       = California
             localityName              = Los Angeles
             organizationName          = DigiCert Inc
             organizationalUnitName    = www.digicert.com
-            commonName                = aefd.nelreports.net
+            commonName                = diskapi.baidu.com
             emailAddress              = www.digicert.com
         X509v3 extensions:
             X509v3 Subject Alternative Name: 
-                DNS:aefd.nelreports.net
-Certificate is to be certified until May 17 06:31:38 2036 GMT (3650 days)
+                DNS:diskapi.baidu.com
+Certificate is to be certified until May 18 04:33:04 2036 GMT (3650 days)
 
 Write out database with 1 new entries
 Data Base Updated
-with 1 new entries
+se Updated
+
 Data Base Updated
-e Updated
-new entries
-Data Base Updated
+se Updated
+se Updated
+d
+ata Base Updated
+Updated

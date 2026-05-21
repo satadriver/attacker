@@ -75,7 +75,7 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	DWORD dwip = HttpUtils::getIPFromHost(spp->host);
 	if (dwip == 0) {
 #ifdef _DEBUG
-		log( "[%s %d]getIPFromHost:%s error\r\n",__FUNCTION__,__LINE__, spp->host);
+		//log( "[%s %d]getIPFromHost:%s error\r\n",__FUNCTION__,__LINE__, spp->host);
 #endif
 		return FALSE;
 	}
@@ -512,7 +512,7 @@ int SSLProxy::ReadPendingData(char * buf, int bufSize, SSL * ssl) {
 int SSLProxy::getServerNameFromClientHello(char * data, int len,char * host, int & version) {
 
 #ifdef _DEBUG
-	FileOper::fileWriter("clienthello.dat", data, len);
+	//FileOper::fileWriter("clienthello.dat", data, len);
 #endif
 	SSLHEADER * lphdr = (LPSSLHEADER)data;
 	if (lphdr->contenttype == 0x16 && lphdr->handshaketype == 1)
@@ -601,7 +601,7 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,char * host, int
 				*(host + servernamelen) = 0;
 				if (*servername >= 0x80 || *servername <= 0)
 				{
-					log("[%s %d]client hello server name format error\r\n", __FUNCTION__, __LINE__);
+					log("[%s %d]client hello server name format:%x error\r\n", __FUNCTION__, __LINE__,*(DWORD*)servername);
 					return -1;
 				}
 				return servernamelen;

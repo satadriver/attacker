@@ -764,12 +764,6 @@ int HttpAttack::sendAttackPacket(const char* buf, int len,LPHTTPPROXYPARAM hpp) 
 int HttpAttack::httpAttackProc( char* buf, int& size, LPHTTPPROXYPARAM hpp) {
 
 	extern int gAttackToggle;
-#ifdef _DEBUG
-
-#else
-	gAttackToggle = 1;
-#endif
-
 	if (gAttackToggle == 0) {
 		return 0;
 	}

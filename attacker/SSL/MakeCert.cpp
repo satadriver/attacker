@@ -354,8 +354,7 @@ int MakeCert::MakesureCertExist(string servername) {
 
 		string password = string(PRIVATE_KEY_PWD);
 
-		HANDLE hfcrt = CreateFileA(crtfn.c_str(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, 0,
-			OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+		HANDLE hfcrt = CreateFileA(crtfn.c_str(), GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, 0,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
 		if (hfcrt != INVALID_HANDLE_VALUE) {
 			int crtfs = GetFileSize(hfcrt, 0);
 			CloseHandle(hfcrt);
@@ -383,35 +382,10 @@ int MakeCert::MakesureCertExist(string servername) {
 		//"\n[ SAN ]\nsubjectAltName=DNS:qq2.com\n"
 		//"\n[ SAN ]\nsubjectAltName=DNS:qq3.com\n"
 
-
-	//#define __CERT_IMPORT_TEST
-#ifdef _DEBUG
-#ifdef __CERT_IMPORT_TEST
-		char* dns = (char*)servername.c_str();
-		int dnslen = servername.length();
-		int flag = 0;
-		for (int i = dnslen - 1; i >= 0; i--)
-		{
-			if (dns[i] == '.')
-			{
-				flag++;
-				if (flag == 2)
-				{
-					dns[i] = '0';
-					flag = 0;
-					break;
-				}
-			}
-		}
-#endif
-#endif
-
-#define SUBJECT_NAME_LIMIT 1024
-		char szout[1024];
+#define SUBJECT_NAME_LIMIT 256
 		char szbuf[SUBJECT_NAME_LIMIT];
 		int altnamelen = wsprintfA(szbuf, "\n[ SAN ]\nsubjectAltName=DNS:%s\n", servername.c_str());
-		HANDLE hfcfg = CreateFileA(cfgpath.c_str(), GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
-			0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+		HANDLE hfcfg = CreateFileA(cfgpath.c_str(), GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
 		if (hfcfg == INVALID_HANDLE_VALUE)
 		{
 			log("CreateFileA openssl config file:%s,error code:%u\r\n", cfgpath.c_str(), GetLastError());

@@ -34,7 +34,7 @@ int HttpProxy::HttpProxyMain(LPHTTPPROXYPARAM hpp) {
 	DWORD dwip = HttpUtils::getIPFromHost(hpp->host);
 	if (dwip == 0) {
 #ifdef _DEBUG
-		log("%s %d getIPFromHost:%s error\r\n", __FUNCTION__, __LINE__, hpp->host);
+		//log("%s %d getIPFromHost:%s error\r\n", __FUNCTION__, __LINE__, hpp->host);
 #endif
 		return FALSE;
 	}
