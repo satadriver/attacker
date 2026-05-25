@@ -58,7 +58,7 @@ public:
 
 	static string HttpUtils::getIPPortUrlStr(unsigned long ulIP, int port);
 
-	unsigned int HttpUtils::ipatoi(const char* cstrip);
+	static unsigned int HttpUtils::ipatoi(const char* cstrip);
 
 	static string HttpUtils::getmac(unsigned char * mac);
 

@@ -8,6 +8,7 @@
 #include "dnsutils/DnsServer.h"
 #include "Utils/AscHex.h"
 #include "Utils/BaseSocket.h"
+#include "Utils/Tools.h"
 
 using namespace std;
 
@@ -225,30 +226,20 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, string& httphdr, ch
 
 	if (flag)
 	{
-		httphdr = data;
-
-		httpend = strstr((char*)data, " HTTP/1.");
+		httphdr = packet;
+		httpend = strstr(data, "?");
 		if (httpend <= 0)
 		{
-			httpend = strstr((char*)data, "\r\n");
+			httpend = strstr((char*)data, " HTTP/1.");
 			if (httpend <= 0)
 			{
-				httpend = strstr(data, "?");
-				if (httpend <= 0)
-				{
-					return -1;
-				}
+				log("%s %d not found url:%s\r\n", __FUNCTION__, __LINE__, httphdr.c_str());
+				return -1;			
 			}
 		}
-
 		string fullurl = string(data, httpend - data);
-		int pos = fullurl.find("?");
-		if (pos > 0)
-		{
-			fullurl = fullurl.substr(0, pos + 1);
-		}
 
-		pos = fullurl.find("/");
+		int pos = fullurl.find("/");
 		if (pos >= 0)
 		{
 			host = fullurl.substr(0, pos);
@@ -273,6 +264,7 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, string& httphdr, ch
 		httpend = strstr((char*)data, "\r\n\r\n");
 		if (httpend <= 0)
 		{
+			log("%s %d not found http header:%s\r\n", __FUNCTION__, __LINE__, data);
 			return FALSE;
 		}
 		else {
@@ -291,24 +283,12 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, string& httphdr, ch
 						host = HttpUtils::getValueFromKey((char*)httphdr.c_str(), "host");
 						if (host == "")
 						{
+							log("%s %d not found host:%s\r\n", __FUNCTION__, __LINE__, httphdr.c_str());
 							return -1;
 						}
 					}
 				}
 			}
-
-			httpend = strstr((char*)data, " HTTP/1.");
-			if (httpend <= 0)
-			{
-				httpend = strstr(data, "?");
-				if (httpend <= 0)
-				{
-					return -1;
-				}
-			}
-
-			url = string(data, httpend - data);
-
 			int pos = host.find(":");
 			if (pos > 0)
 			{
@@ -316,6 +296,18 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, string& httphdr, ch
 				string strport = host.substr(pos);
 				port = atoi(strport.c_str());
 			}
+
+			httpend = strstr(data, "?");
+			if (httpend <= 0)
+			{
+				httpend = strstr((char*)data, " HTTP/1.");
+				if (httpend <= 0)
+				{
+					log("%s %d not found url:%s\r\n", __FUNCTION__, __LINE__, httphdr.c_str());
+					return -1;
+				}
+			}
+			url = string(data, httpend - data);
 
 			return TRUE;
 		}
@@ -328,37 +320,37 @@ int HttpUtils::parseHttpHdr(const char* packet, int datalen, string& httphdr, ch
 
 
 
-string HttpUtils::getHttpHeader(const char* data, int len, char** lphttpdata) {
+string HttpUtils::getHttpHeader(const char* data, int len, char** httpdata) {
 
 	char* lphdr = strstr((char*)data, "\r\n\r\n");
 	if (lphdr <= FALSE)
 	{
-		*lphttpdata = 0;
+		*httpdata = 0;
 		return string(data);
 	}
 
 	lphdr += 4;
 	string httphdr = string(data, lphdr - data);
-	*lphttpdata = lphdr;
+	*httpdata = lphdr;
 	return httphdr;
 }
 
 
-string HttpUtils::getLongUrl(const char* lppacket, int len) {
+string HttpUtils::getLongUrl(const char* packet, int len) {
 	string url = "";
 
-	char* lphdr = strstr((char*)lppacket, " HTTP/1.1\r\n");
+	char* lphdr = strstr((char*)packet, " HTTP/1.1\r\n");
 	if (lphdr)
 	{
-		int urllen = lphdr - lppacket;
-		url = string(lppacket, urllen);
+		int urllen = lphdr - packet;
+		url = string(packet, urllen);
 	}
 	else {
-		lphdr = strstr((char*)lppacket, " HTTP/1.0\r\n");
+		lphdr = strstr((char*)packet, " HTTP/1.0\r\n");
 		if (lphdr)
 		{
-			int urllen = lphdr - lppacket;
-			url = string(lppacket, urllen);
+			int urllen = lphdr - packet;
+			url = string(packet, urllen);
 		}
 		else {
 			//url = string(lppacket);
@@ -373,31 +365,35 @@ string HttpUtils::getLongUrl(const char* lppacket, int len) {
 
 
 
-string HttpUtils::getUrl(const char* packhdr, int len) {
+string HttpUtils::getUrl(const char* packet, int len) {
 	string url = "";
+	int pos = isHttpPacket(packet);
+	if (pos == 0) {
+		return url;
+	}
+	packet += pos;
 
-	char* lphdr = strstr((char*)packhdr, " HTTP/1.1\r\n");
+	char* lphdr = strstr((char*)packet, " HTTP/1.1\r\n");
 	if (lphdr)
 	{
-		int urllen = lphdr - packhdr;
-		url = string(packhdr, urllen);
+		int urllen = lphdr - packet;
+		url = string(packet, urllen);
 	}
 	else {
-		lphdr = strstr((char*)packhdr, " HTTP/1.0\r\n");
+		lphdr = strstr((char*)packet, " HTTP/1.0\r\n");
 		if (lphdr)
 		{
-			int urllen = lphdr - packhdr;
-			url = string(packhdr, urllen);
+			int urllen = lphdr - packet;
+			url = string(packet , urllen);
 		}
 		else {
-			//url = string(packhdr);
+			url = string(packet);
 		}
 	}
 
-	int pos = url.find("?");
-	if (pos != -1)
+	pos = url.find("?");
+	if (pos != std::string::npos)
 	{
-		//get url end with "?"
 		url = url.substr(0, pos);
 	}
 
@@ -541,60 +537,26 @@ string HttpUtils::getIPPortUrlStr(unsigned long ulIP, int port) {
 	return string(szip);
 }
 
-unsigned int HttpUtils::ipatoi(const char* cstrip) {
+unsigned int HttpUtils::ipatoi(const char* str_ip) {
 
-	char strip[256] = { 0 };
-	lstrcpyA(strip, cstrip);
+	char strip[16];
+	strcpy(strip, str_ip);
+	unsigned char cip[4];
+	
+	int seq = 0;
 
-	const char* phigh = 0;
-	const char* plow = 0;
-	const char* phighlow = 0;
-	const char* plowhigh = 0;
-	int count = 0;
+	char* str = strtok((char*)strip, ".");
+	while (str) {
 
-	phigh = strip;
-	count++;
+		cip[seq++] =(unsigned char) atoi(str);
 
-	int striplen = lstrlenA(strip);
-
-	for (int i = 0; i < striplen; i++)
-	{
-		if (strip[i] == '.')
-		{
-			strip[i] = 0;
-
-			if (count == 1)
-			{
-				phighlow = strip + i + 1;
-				count++;
-			}
-			else if (count == 2)
-			{
-				phighlow = strip + i + 1;
-				count++;
-			}
-			else if (count == 3)
-			{
-				phighlow = strip + i + 1;
-				count++;
-				break;
-			}
-			else {
-				return 0;
-			}
-		}
-	}
-
-	if (count < 4)
-	{
+		str = strtok(0, ".");	
+	} 
+	
+	if (seq != 4) {
 		return 0;
 	}
-
-	unsigned long high = strtoul(phigh, 0, 10);
-	unsigned long highlow = strtoul(phighlow, 0, 10);
-	unsigned long lowhigh = strtoul(plowhigh, 0, 10);
-	unsigned long low = strtoul(plow, 0, 10);
-	unsigned long ip = high + (highlow << 8) + (lowhigh << 16) + (low << 24);
+	DWORD ip = *(DWORD*)cip;
 	return ip;
 }
 

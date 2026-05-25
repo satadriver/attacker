@@ -15,12 +15,30 @@
 		
 	},
 	{
-		"host":"",
-		"url":"",
+		"app":"ToDesk",
+		"valid":true,
+		"host":"st.todesk.com",
+		"url":"/config-center/sync-config?fullUpdate=true",
+		"version":"6.9.9.9",
 		"md5":"",
+		"format":"",
+		"httpFormat":"http.txt",
 		"payload":"",
-		"regex":"",
-		"respRegex":""
+		"regex":"UUUVSMMSSM",
+		"respRegex":"P"
+	},
+		{
+		"app":"youdao",
+		"valid":true,
+		"host":"cidian.youdao.com",
+		"url":"/apps/update5/dictupdate.xml",
+		"version":"9.9.9.9",
+		"md5":"",
+		"format":"",
+		"httpFormat":"http.txt",
+		"payload":"",
+		"regex":"UUUVSMMSSM",
+		"respRegex":"X"
 	}
 	]
 }

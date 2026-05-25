@@ -91,7 +91,7 @@ int gAttackMode = 0;
 
 
 void test() {
-	
+	HttpUtils::ipatoi("192.168.1.3");
 }
 
 int main(int argc, char** argv)
@@ -108,6 +108,9 @@ int main(int argc, char** argv)
 	int isattack = 0;
 	int isimport = 0;
 	int isalldns = 0;
+	string server = "";
+	int mode = 0;
+	unsigned long serverIP = 0;
 
 	for (int num = 1; num < argc; num++) {
 		if (lstrcmpiA(argv[num], "--p") == 0) {
@@ -115,6 +118,14 @@ int main(int argc, char** argv)
 		}
 		else if (lstrcmpiA(argv[num], "--u") == 0) {
 			username = argv[num + 1];
+		}
+		else if (lstrcmpiA(argv[num], "--m") == 0) {
+			mode = atoi(argv[num + 1]);
+			gAttackMode = mode;
+		}
+		else if (lstrcmpiA(argv[num], "--s") == 0) {
+			server = argv[num + 1];
+			serverIP = HttpUtils::ipatoi(server.c_str());
 		}
 		else if (lstrcmpiA(argv[num], "--n") == 0) {
 			netcard_target = atoi(argv[num+1]);
@@ -154,10 +165,10 @@ int main(int argc, char** argv)
 
 	int winpcapDelay = 1;
 	int opensslctrl_old = 0;
-	unsigned long serverIP = 0;
+	
 	char gwmac[64] = { 0 };
-	string servername = "";
-	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay,&opensslctrl_old, &gAttackMode, gwmac, servername);
+
+	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay,&opensslctrl_old, &gAttackMode, gwmac, server);
 	if (hostlist.size() == 0) {
 		//log("parse config file:%s error\r\n", CONFIG_FILENAME);
 		//return -1;
@@ -166,7 +177,7 @@ int main(int argc, char** argv)
 	int dnsItemCnt = Config::parseDnsCfg(DNS_FILENAME, hostlist);
 	printf("dns target total:%u\r\n", dnsItemCnt);
 
-	ret = ObjectParser(hostlist);
+	
 	
 	ret = SafeGuard::loginCheck(gAttackMode, username, password);
 	if (ret <= 0)
@@ -276,6 +287,8 @@ int main(int argc, char** argv)
 	}
 
 	if (gAttackMode == ATTACK_SERVER_MODE || gAttackMode == ATTACK_TEST_MODE || gAttackMode == ATTACK_STANDBY_MODE) {
+		ret = ObjectParser(hostlist);
+
 		string searchpath = gLocalPath + "plugin\\";
 		vector<string>usernames;
 		ret = FileOper::searchDir((char*)searchpath.c_str(), usernames);

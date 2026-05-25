@@ -59,6 +59,7 @@ int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const cha
 	int ret = 0;
 	int retlen = 0;
 
+
 	for (int i = 0; i < gUpdateData.size(); i++) {
 		if (strstr(gUpdateData[i].url.c_str(), url) && strstr(gUpdateData[i].host.c_str(), host)) {
 			string resp = gUpdateData[i].response;

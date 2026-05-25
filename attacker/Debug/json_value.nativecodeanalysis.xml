@@ -4,68 +4,6 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
       <FILENAME>json_value.cpp</FILENAME>
-      <LINE>87</LINE>
-      <COLUMN>24</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>取消对 NULL 指针“newString”的引用。查看第 86 行以找出可能会发生此情况的前一位置</DESCRIPTION>
-    <FUNCTION>Json::DefaultValueAllocator::duplicateStringValue</FUNCTION>
-    <DECORATED>?duplicateStringValue@DefaultValueAllocator@Json@@UAEPADPBDI@Z</DECORATED>
-    <FUNCLINE>76</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
-        <FILENAME>json_value.cpp</FILENAME>
-        <LINE>83</LINE>
-        <COLUMN>18</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
-        <FILENAME>json_value.cpp</FILENAME>
-        <LINE>85</LINE>
-        <COLUMN>12</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>“newString”可能为 NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
-        <FILENAME>json_value.cpp</FILENAME>
-        <LINE>86</LINE>
-        <COLUMN>12</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>“newString”是“memcpy”的输入/输出参数(在 d:\program files (x86)\microsoft visual studio\2019\community\vc\tools\msvc\14.29.30133\include\vcruntime_string.h:43 处声明)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
-        <FILENAME>json_value.cpp</FILENAME>
-        <LINE>87</LINE>
-        <COLUMN>24</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>已取消对“newString”的引用，但可能仍为 NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
-      <FILENAME>json_value.cpp</FILENAME>
       <LINE>86</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
@@ -120,6 +58,68 @@
           <KIND>usage</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>“newString”不应为 NULL，因为这与“memcpy”上的 SAL 批注不一致</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
+      <FILENAME>json_value.cpp</FILENAME>
+      <LINE>87</LINE>
+      <COLUMN>24</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>取消对 NULL 指针“newString”的引用。查看第 86 行以找出可能会发生此情况的前一位置</DESCRIPTION>
+    <FUNCTION>Json::DefaultValueAllocator::duplicateStringValue</FUNCTION>
+    <DECORATED>?duplicateStringValue@DefaultValueAllocator@Json@@UAEPADPBDI@Z</DECORATED>
+    <FUNCLINE>76</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
+        <FILENAME>json_value.cpp</FILENAME>
+        <LINE>83</LINE>
+        <COLUMN>18</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
+        <FILENAME>json_value.cpp</FILENAME>
+        <LINE>85</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“newString”可能为 NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
+        <FILENAME>json_value.cpp</FILENAME>
+        <LINE>86</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>“newString”是“memcpy”的输入/输出参数(在 d:\program files (x86)\microsoft visual studio\2019\community\vc\tools\msvc\14.29.30133\include\vcruntime_string.h:43 处声明)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\json\</FILEPATH>
+        <FILENAME>json_value.cpp</FILENAME>
+        <LINE>87</LINE>
+        <COLUMN>24</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>已取消对“newString”的引用，但可能仍为 NULL</MESSAGE>
         </KEYEVENT>
       </SFA>
     </PATH>

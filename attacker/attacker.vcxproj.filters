@@ -171,7 +171,7 @@
     <ClInclude Include="SSL\AttackSplitPacket.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
-    <ClInclude Include="SSL\OtherListener.h">
+    <ClInclude Include="SSL\MyListener.h">
       <Filter>头文件\ssl</Filter>
     </ClInclude>
     <ClInclude Include="support\JceStruct.h">
@@ -413,7 +413,7 @@
     <ClCompile Include="SSL\AttackSplitPacket.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
-    <ClCompile Include="SSL\OtherListener.cpp">
+    <ClCompile Include="SSL\MyListener.cpp">
       <Filter>源文件\ssl</Filter>
     </ClCompile>
     <ClCompile Include="support\JceStruct.cpp">
@@ -509,12 +509,6 @@
     <ClCompile Include="proxyPacket.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="clientMain.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="serverMain.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="json\json_reader.cpp">
       <Filter>json</Filter>
     </ClCompile>
@@ -523,9 +517,6 @@
     </ClCompile>
     <ClCompile Include="json\json_writer.cpp">
       <Filter>json</Filter>
-    </ClCompile>
-    <ClCompile Include="parser.cpp">
-      <Filter>源文件\ssl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

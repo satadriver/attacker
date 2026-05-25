@@ -4,7 +4,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>113</LINE>
+      <LINE>116</LINE>
       <COLUMN>15</COLUMN>
     </SFA>
     <DEFECTCODE>6400</DEFECTCODE>
@@ -18,7 +18,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>116</LINE>
+      <LINE>119</LINE>
       <COLUMN>20</COLUMN>
     </SFA>
     <DEFECTCODE>6400</DEFECTCODE>
@@ -32,7 +32,35 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>119</LINE>
+      <LINE>122</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6400</DEFECTCODE>
+    <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“--m”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>97</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>126</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>6400</DEFECTCODE>
+    <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“--s”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>97</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>130</LINE>
       <COLUMN>20</COLUMN>
     </SFA>
     <DEFECTCODE>6400</DEFECTCODE>
@@ -46,7 +74,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>122</LINE>
+      <LINE>133</LINE>
       <COLUMN>20</COLUMN>
     </SFA>
     <DEFECTCODE>6400</DEFECTCODE>
@@ -60,7 +88,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>125</LINE>
+      <LINE>136</LINE>
       <COLUMN>20</COLUMN>
     </SFA>
     <DEFECTCODE>6400</DEFECTCODE>
@@ -74,7 +102,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>128</LINE>
+      <LINE>139</LINE>
       <COLUMN>20</COLUMN>
     </SFA>
     <DEFECTCODE>6400</DEFECTCODE>
@@ -88,7 +116,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>167</LINE>
+      <LINE>178</LINE>
       <COLUMN>7</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
@@ -102,7 +130,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>324</LINE>
+      <LINE>337</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>

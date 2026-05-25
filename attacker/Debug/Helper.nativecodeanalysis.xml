@@ -4,19 +4,19 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>Helper.cpp</FILENAME>
-      <LINE>249</LINE>
+      <LINE>247</LINE>
       <COLUMN>7</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>“size”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“203”行(“d:\vsproject\attacker\attacker\helper.cpp”中)的声明。</DESCRIPTION>
+    <DESCRIPTION>“size”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“187”行(“d:\vsproject\attacker\attacker\helper.cpp”中)的声明。</DESCRIPTION>
     <FUNCTION>ObjectParser</FUNCTION>
     <DECORATED>?ObjectParser@@YAHAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@@Z</DECORATED>
-    <FUNCLINE>181</FUNCLINE>
+    <FUNCLINE>165</FUNCLINE>
     <PATH>
       <SFA>
         <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>Helper.cpp</FILENAME>
-        <LINE>203</LINE>
+        <LINE>187</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
     </PATH>

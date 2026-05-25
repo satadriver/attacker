@@ -6,301 +6,139 @@
 #include <memory.h>
 #include "compression.h"
 #include <conio.h>
+#include "utils.h"
+#include "FileOper.h"
 
 
 #pragma comment(lib,"lib/zlib.lib")
+#pragma comment(lib,"ws2_32.lib")
 
 using namespace std;
 
-
-int isHttpResponse(const char* lpdata) {
-
-	if (memcmp(lpdata, "HTTP/1.1 ", 9) == 0 || memcmp(lpdata, "HTTP/1.0 ", 9) == 0) {
-		return 9;
-	}
-	return FALSE;
-
-}
-
-string getHttpHeader(const char* data, int len, char** lphttpdata) {
-
-	char* lphdr = strstr((char*)data, "\r\n\r\n");
-	if (lphdr <= FALSE)
-	{
-		*lphttpdata = 0;
-		return string(data);
-	}
-
-	lphdr += 4;
-	string httphdr = string(data, lphdr - data);
-	*lphttpdata = lphdr;
-	return httphdr;
-}
-
-
-int isHttpPacket(const char* lpdata) {
-
-	//HTTP 1.0
-	if (memcmp(lpdata, "POST ", 5) == 0) {
-		return 5;
-	}
-	else if (memcmp(lpdata, "GET ", 4) == 0)
-	{
-		return 4;
-	}
-	else if (memcmp(lpdata, "HEAD ", 5) == 0)
-	{
-		return 5;
-	}
-	//HTTP 1.1
-	else if (memcmp(lpdata, "PUT ", 4) == 0)
-	{
-		return 4;
-	}
-	else if (memcmp(lpdata, "CONNECT ", 8) == 0)
-	{
-		return 8;
-	}
-	else if (memcmp(lpdata, "OPTIONS ", 8) == 0)
-	{
-		return 8;
-	}
-	else if (memcmp(lpdata, "DELETE ", 7) == 0)
-	{
-		return 7;
-	}
-	else if (memcmp(lpdata, "TRACE ", 6) == 0)
-	{
-		return 6;
-	}
-
-	return FALSE;
-}
-
-
-string getValueFromKey(const char* lphttphdr, string  searchkey) {
-
-	string key = "\r\n" + searchkey + ": ";
-	char* phdr = strstr((char*)lphttphdr, key.c_str());
-	if (phdr)
-	{
-		phdr += key.length();
-		char* pend = strstr(phdr, "\r\n");
-		if (pend)
-		{
-			int len = pend - phdr;
-			if (len > 0 && len < 256) {
-				string value = string(phdr, len);
-				return value;
-			}
-		}
-	}
-
-	return "";
-}
-
-int getNextPacket(char* httpdata) {
-	return 0;
-}
-
-
-int getPackLen(char* data) {
-	return 0;
-}
-
-int getChunkSize(char* data, int* value) {
-	char slen[16] = { 0 };
-	int len = 0;
-	for (int j = 0; j < sizeof(slen); j++) {
-		if (isalnum(data[j])) {
-			slen[j] = data[j];
-		}
-		else {
-			if (data[j] == '\r' && data[j + 1] == '\n') {
-				len = j + 2;
-				*value = stol(slen, 0, 16);
-			}
-			else {
-
-			}
-
-			break;
-		}
-	}
-
-	return len;
-}
+#define DEFAULT_INPUT_FILENAME		"ssl.txt"
+#define DEFAULT_OUTPUT_FILENAME		"sslout.txt"
 
 
 
-
-int getZipType(string httphdr,char * httpdata,char * gz,int * gzsize){
-	char* chunked = strstr((char*)httphdr.c_str(), "Transfer-Encoding: chunked\r\n");
-	if (chunked) {
-
-		int cslen = 0;
-		int chunklen = getChunkSize(httpdata, &cslen);
-		httpdata += chunklen;
-
-		if (cslen > 0) {
-			gz = httpdata;
-			*gzsize = cslen;
-			return 1;
-		}
-	}
-	else {
-		string cs = getValueFromKey(httphdr.c_str(), "Content-Length");
-		int cslen = atoi(cs.c_str());
-		if (cslen > 0) {
-			char* gzip = strstr((char*)httphdr.c_str(), "Content-Encoding: gzip\r\n");
-			if (gzip) {
-				gz = httpdata;
-				*gzsize = cslen;
-				return 2;
-			}
-		}
-	}
-	return 0;
-}
-
-
-int unzipWrite(HANDLE hfout, char* data, int size) {
-	int ret = 0;
-	DWORD unziplen = size << 6;
-	unsigned char* unzipbuf = new unsigned char[unziplen];
-	int result = 0;
-	if (unzipbuf) {
-
-		if (memcmp(data, "\x1f\x8b\x08\x00", 4) == 0) {
-
-			ret = Compress::gzdecompress((unsigned char*)data + 10, size - 10, unzipbuf, &unziplen);
-		}
-		else {
-			//ret = Compress::gzdecompress((unsigned char*)data, size, unzipbuf, &unziplen);
-		}
-
-		DWORD cnt = 0;
-		if (ret == 0) {
-			ret = WriteFile(hfout, unzipbuf, unziplen, &cnt, 0);
-			result = TRUE;
-		}
-		else {
-			printf("unzip http:%s size:%d error:%d\r\n",data, size, GetLastError());
-
-			//ret = WriteFile(hfout, data, size, &cnt, 0);
-		}
-
-		delete[] unzipbuf;
-	}
-
-	return result;
-}
-
-
-int mainproc(char* infile,char* outfile) {
+int unzip(char* infile,char* outfile) {
 
 	int ret = 0;
-
-	char* outfn = 0;
-
-	if (outfile) {
-		outfn = outfile;
-	}
-	else {
-		outfn = (char*)"sslout.txt";	
-	}	
-	HANDLE hfout = CreateFileA(outfn, GENERIC_READ|GENERIC_WRITE, 0, 0, CREATE_ALWAYS, 0, 0);
-	if (hfout == INVALID_HANDLE_VALUE) {
-		printf("open output file:%s\r\n error:%d\r\n", outfn, GetLastError());
-		return -1;
-	}
-	else {
-		//printf("open output file:%s\r\n successfully\r\n", outfn);
-	}
 
 	char* infn = 0;
 	if (infile) {
 		infn = infile;	
 	}
 	else {
-		infn = (char*)"ssl.txt";
+		infn = (char*)DEFAULT_INPUT_FILENAME;
 	}
-	HANDLE hf = CreateFileA(infn, GENERIC_READ, FILE_SHARE_READ, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
-	if (hf == INVALID_HANDLE_VALUE) {
+	HANDLE hfin = CreateFileA(infn, GENERIC_READ, FILE_SHARE_READ, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+	if (hfin == INVALID_HANDLE_VALUE) {
 		printf("%s %d CreateFileA file:%s error:%d\r\n",__FUNCTION__,__LINE__, infn, GetLastError());
 		return -1;
 	}
+
+	char* outfn = 0;
+	if (outfile) {
+		outfn = outfile;
+	}
+	else if (infile) {
+		int fp = -1;
+		int sp = -1;
+		SplitFileName(infile, &fp, &sp);
+		char outfn_new[MAX_PATH] = { 0 };
+		int mfnl = sp - fp;
+		int offset = 0;
+		memcpy(outfn_new+offset,infile+ fp, mfnl);
+		offset += mfnl;
+		memcpy(outfn_new + offset, "_out", 4);
+		offset += 4;
+		strcpy(outfn_new + offset, infile + sp);
+		outfn = outfn_new;
+	}
 	else {
-		//printf("open input file:%s\r\n successfully\r\n", infn);
+		outfn = (char*)DEFAULT_OUTPUT_FILENAME;
 	}
 
+	HANDLE hfout = CreateFileA(outfn, GENERIC_READ | GENERIC_WRITE, 0, 0, CREATE_ALWAYS, 0, 0);
+	if (hfout == INVALID_HANDLE_VALUE) {
+		printf("%s %d CreateFileA file:%s\r\n error:%d\r\n", __FUNCTION__, __LINE__, outfn, GetLastError());
+		return -1;
+	}
+
+
 	DWORD fs_high = 0;
-	int fs = GetFileSize(hf, &fs_high);
+	int fs = GetFileSize(hfin, &fs_high);
 	char* buf = new char[fs + 16];
 	DWORD cnt = 0;
-	ret = ReadFile(hf, buf, fs, &cnt, 0);
-	CloseHandle(hf);
+	ret = ReadFile(hfin, buf, fs, &cnt, 0);
+	CloseHandle(hfin);
 	if (ret == 0) {
 		printf("%s %d ReadFile:%s\r\n error:%d\r\n", __FUNCTION__, __LINE__, infn,GetLastError());
 		return FALSE;
 	}
 	buf[fs] = 0;
 
-	int notHttpTotal = 0;
 	int httpTotal = 0;
 	int unzipTotal = 0;
 
 	for (char * ptr = buf; ptr < buf + fs;  ) {
-		int len = isHttpPacket(ptr) || isHttpResponse(ptr);
+		int len = (isHttpPacket(ptr) || isHttpResponse(ptr));
 		if (len) {
-			//ptr += len;
 			char* data = strstr(ptr, "\r\n\r\n");
-			if (data <= 0) {
-				printf("http header format error at offset:%d\r\n", ptr - buf);
+			if (data == 0) {
+				printf("http header no data:\r\n%s\r\n", ptr);
 				ptr+=len;
 				continue;
 			}
 			data += 4;
-
-			string httphdr = string(ptr, data - (ptr));
+			string httphdr = string(ptr, data - ptr);
 
 			const char* tag = "\r\n\r\n--------------------------------------------------------------------------------\r\n\r\n";
 			ret = WriteFile(hfout, tag, lstrlenA(tag), &cnt, 0);
-			ret = WriteFile(hfout, ptr, (char*)data - (ptr), &cnt, 0);
+			ret = WriteFile(hfout, ptr, (char*)data - ptr, &cnt, 0);
 
 			httpTotal++;
 
 			char* gzip = strstr((char*)httphdr.c_str(), "Content-Encoding: gzip\r\n");
 			if (gzip) {
-				string cs = getValueFromKey(httphdr.c_str(), "Content-Length");
-				if (cs != "") {
-					int cslen = atoi(cs.c_str());
-					if (cslen > 0) {
-						ret = unzipWrite(hfout, data, cslen);
+				string cslen = getValueFromKey(httphdr.c_str(), "Content-Length");
+				if (cslen != "") {
+					int csl = atoi(cslen.c_str());
+					if (csl > 0) {
+						ret = unzipWrite(hfout, data, csl);
 						if (ret) {
 							unzipTotal++;
 						}
-						data += cslen;
+						else {
+							printf("%s %d http header uncompress error:\r\n[%s]\r\n", __FUNCTION__, __LINE__, httphdr.c_str());
+						}
+						data += csl;
+					}
+					else if (csl == 0) {
+
 					}
 					else {
-
+						printf("http header Content-Length error:\r\n[%s]\r\n", httphdr.c_str());			
 					}
 				}
 				else {
 					char* chunked = strstr((char*)httphdr.c_str(), "Transfer-Encoding: chunked\r\n");
 					if (chunked) {
 						int cslen = 0;
-						int chunklen = getChunkSize(data, &cslen);
-						data += chunklen;
+						int strchunklen = getChunkSize(data, &cslen);
+						data += strchunklen;
 
-						ret = unzipWrite(hfout, data, cslen);
-						if (ret) {
+						unsigned long unlen = unzipWrite(hfout, data, cslen);
+						if (unlen) {
 							unzipTotal++;
 						}
-
+						else {
+							printf("%s %d http header uncompress error:\r\n[%s]\r\n", __FUNCTION__, __LINE__, httphdr.c_str());
+						}
 						data += cslen;
 					}
 					else {
+						/*
 						string cs = getValueFromKey(httphdr.c_str(), "Content-Length");
 						if (cs != "") {
 							int cslen = atoi(cs.c_str());
@@ -311,19 +149,30 @@ int mainproc(char* infile,char* outfile) {
 						else {
 							//printf("gzip http Content-Length error:%s\r\n", httphdr.c_str());
 						}
+						*/
+						const char* lphdr = httphdr.c_str();
+						printf("http header no chunked:\r\n[%s]\r\n", httphdr.c_str());
+
 					}
 				}
 			}
 			else {
-				string cs = getValueFromKey(httphdr.c_str(), "Content-Length");
-				if (cs != "") {
-					int cslen = atoi(cs.c_str());
-					if (cslen > 0) {
-						ret = WriteFile(hfout, data, cslen, &cnt, 0);
+				string cslen = getValueFromKey(httphdr.c_str(), "Content-Length");
+				if (cslen!= "") {
+					int csl = atoi(cslen.c_str());
+					if (csl > 0) {
+						ret = WriteFile(hfout, data, csl, &cnt, 0);
 					}
+					else if (csl == 0) {
+
+					}
+					else {
+						printf("%s %d error:\r\n[%s]\r\n", __FUNCTION__, __LINE__, httphdr.c_str());
+					}
+					data += csl;
 				}
 				else {
-					//printf("no gzip http Content-Length error:%s\r\n", httphdr.c_str());
+					//printf("http header no Content-Length:\r\n[%s]\r\n", httphdr.c_str());
 				}
 			}
 			ptr = data;
@@ -337,7 +186,7 @@ int mainproc(char* infile,char* outfile) {
 
 	delete[]buf;
 
-	printf("process http packet:%d,unzip http packet:%d\r\n", httpTotal, unzipTotal);
+	printf("process http packet:%d,unzip packet:%d\r\n", httpTotal, unzipTotal);
 
 	return 0;
 }
@@ -346,19 +195,47 @@ int mainproc(char* infile,char* outfile) {
 
 int main(int argc, char** argv) {
 	int ret = 0;
-	if (argc >= 3) {
-		ret = mainproc(argv[1], argv[2]);
+	WSADATA wsa;
+	ret = WSAStartup(0x0202, &wsa);
+
+	char path[MAX_PATH];
+	int pathlen = GetModuleFileNameA(0, path,sizeof(path));
+	for (int i = pathlen-1; i >= 0 ; i--) {
+		if (path[i] == '\\') {
+			path[i] = 0;
+			break;
+		}
 	}
-	else if (argc >= 2) {
-		ret = mainproc(argv[1],0);
-	}
-	else {
-		ret = mainproc(0,0);
+	SetCurrentDirectoryA(path);
+
+	int seq = 0;
+	for (int seq = 1; seq < argc; seq++) {
+		if (lstrcmpA(argv[seq], "--unzip") == 0) {
+			if (argc > seq + 2) {
+				ret = unzip(argv[seq+1], argv[seq + 2]);
+			}
+			else if (argc >= seq + 1) {
+				ret = unzip(argv[seq + 1], 0);
+			}
+			else {
+				ret = unzip(0, 0);
+			}
+			return ret;
+		}
+		else if (lstrcmpiA(argv[seq], "--tv") == 0) {
+			char* fn = argv[seq + 1];
+			char* file = 0;
+			int fs = 0;
+			ret = FileOper::fileReader(fn, &file, &fs);
+			if (fs) {
+				ret = TestVersion(file);
+				delete file;
+			}
+		}
 	}
 
-	printf("Press any key to quit...\r\n");
-
-	ret = _getch();
+	//printf("Press any key to quit...\r\n");
+	//ret = _getch();
 
 	return ret;
 }

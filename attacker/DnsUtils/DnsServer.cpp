@@ -7,7 +7,7 @@
 #include "DnsServer.h"
 #include "../Packet.h"
 #include "../utils/lock.h"
-
+#include "../HttpUtils.h"
 
 
 DnsServer*gDnsCenter = 0;
@@ -71,7 +71,7 @@ unsigned long DnsServer::GetIPFromHost(string host){
 					retit = gDnsCenter->gDnsCenterMap.insert(pair<string, DOMAININFO>(host, info));
 					if (retit.second == 0)
 					{
-						printf("DnsServer insert ip:%x,dns:%s error:%u\r\n", ip, host.c_str(), GetLastError());
+						log("%s %d insert ip:%x,host:%s error:%u\r\n", __FUNCTION__, __LINE__, ip, host.c_str(), GetLastError());
 					}
 				}
 			}
@@ -82,7 +82,7 @@ unsigned long DnsServer::GetIPFromHost(string host){
 	}
 	__except(1) 
 	{
-		log("%s %d host:%s exception\r\n", host.c_str(), __FUNCTION__, __LINE__);
+		log("%s %d host:%s exception\r\n", __FUNCTION__, __LINE__,host.c_str() );
 	}
 
 	LeaveCriticalSection(&gDnsCenter->mCS);
@@ -130,9 +130,8 @@ unsigned int DnsServer::DnsQuery(string host,DWORD dnsserver) {
 			break;
 		}
 		else {
-			struct in_addr in;
-			in.S_un.S_addr = dnsserver;
-			log("%s %d host:%s dnsserver:%s error\r\n",__FUNCTION__, __LINE__, host.c_str(),inet_ntoa(in));
+			string strip = HttpUtils::ip2str(dnsserver);
+			log("%s %d host:%s dnsserver:%s error\r\n",__FUNCTION__, __LINE__, host.c_str(),strip.c_str());
 			return 0;
 		}
 	}
@@ -149,9 +148,8 @@ unsigned int DnsServer::DnsQuery(string host,DWORD dnsserver) {
 	int dnssock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if (dnssock == INVALID_SOCKET)
 	{
-		struct in_addr in;
-		in.S_un.S_addr = dnsserver;
-		log("%s %d host:%s dnsserver:%s error\r\n", __FUNCTION__, __LINE__, host.c_str(), inet_ntoa(in));
+		string strip = HttpUtils::ip2str(dnsserver);
+		log("%s %d host:%s dnsserver:%s error\r\n", __FUNCTION__, __LINE__, host.c_str(), strip.c_str());
 		return FALSE;
 	}
 
@@ -176,9 +174,8 @@ unsigned int DnsServer::DnsQuery(string host,DWORD dnsserver) {
 	if (sendsize != sendlen)
 	{
 		closesocket(dnssock);
-		struct in_addr in;
-		in.S_un.S_addr = dnsserver;
-		log("%s %d host:%s dnsserver:%s error\r\n", __FUNCTION__, __LINE__, host.c_str(), inet_ntoa(in));
+		string strip = HttpUtils::ip2str(dnsserver);
+		log("%s %d host:%s dnsserver:%s error\r\n", __FUNCTION__, __LINE__, host.c_str(), strip.c_str());
 		return FALSE;
 	}
 
@@ -203,9 +200,8 @@ unsigned int DnsServer::DnsQuery(string host,DWORD dnsserver) {
 	closesocket(dnssock);
 	if (recvsize <= 0)
 	{
-		struct in_addr in;
-		in.S_un.S_addr = dnsserver;
-		log("%s %d host:%s dnsserver:%s error\r\n", __FUNCTION__, __LINE__, host.c_str(), inet_ntoa(in));
+		string strip = HttpUtils::ip2str(dnsserver);
+		log("%s %d host:%s dnsserver:%s error\r\n", __FUNCTION__, __LINE__, host.c_str(), strip.c_str());
 		return 0;
 	}
 
@@ -230,9 +226,8 @@ unsigned int DnsServer::DnsQuery(string host,DWORD dnsserver) {
 	}
 
 	if (dwip == 0) {
-		struct in_addr in;
-		in.S_un.S_addr = dnsserver;
-		log("%s %d host:%s dnsserver:%s error\r\n", __FUNCTION__, __LINE__, host.c_str(), inet_ntoa(in));
+		string strip = HttpUtils::ip2str(dnsserver);
+		log("%s %d host:%s dnsserver:%s error\r\n", __FUNCTION__, __LINE__, host.c_str(), strip.c_str());
 	}
 	return dwip;
 }

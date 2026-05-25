@@ -269,10 +269,11 @@ int Compress::gzdecompress(Byte *zdata, uLong nzdata, Byte *data, uLong *ndata)
 	d_stream.next_in  = zdata;
 	d_stream.avail_in = 0;
 	d_stream.next_out = data;
+
 	if(inflateInit2(&d_stream, -MAX_WBITS) != Z_OK) 
 		return -1;
-	//if(inflateInit2(&d_stream, 47) != Z_OK) 
-	//return -1;
+	//if(inflateInit2(&d_stream, 31) != Z_OK) 
+	//	return -1;
 	while (d_stream.total_out < *ndata && d_stream.total_in < nzdata) {
 		d_stream.avail_in = d_stream.avail_out = 1; /* force small buffers */
 		if((err = inflate(&d_stream, Z_NO_FLUSH)) == Z_STREAM_END) 

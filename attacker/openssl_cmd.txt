@@ -1,31 +1,30 @@
-Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_diskapi.baidu.com
+Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_api.individual.githubcopilot.com
 Check that the request matches the signature
 Signature ok
 Certificate Details:
-        Serial Number: 88 (0x58)
+        Serial Number: 1 (0x1)
         Validity
-            Not Before: May 21 04:33:04 2026 GMT
-            Not After : May 18 04:33:04 2036 GMT
+            Not Before: May 25 07:33:30 2026 GMT
+            Not After : May 22 07:33:30 2036 GMT
         Subject:
             countryName               = US
             stateOrProvinceName       = California
             localityName              = Los Angeles
             organizationName          = DigiCert Inc
             organizationalUnitName    = www.digicert.com
-            commonName                = diskapi.baidu.com
+            commonName                = api.individual.githubcopilot.com
             emailAddress              = www.digicert.com
         X509v3 extensions:
             X509v3 Subject Alternative Name: 
-                DNS:diskapi.baidu.com
-Certificate is to be certified until May 18 04:33:04 2036 GMT (3650 days)
+                DNS:api.individual.githubcopilot.com
+Certificate is to be certified until May 22 07:33:30 2036 GMT (3650 days)
 
 Write out database with 1 new entries
 Data Base Updated
-se Updated
 
-Data Base Updated
-se Updated
-se Updated
 d
-ata Base Updated
+w entries
+Data Base Updated
 Updated
+se with 1 new entries
+Data Base Updated

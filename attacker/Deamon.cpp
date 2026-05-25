@@ -73,13 +73,15 @@ int __stdcall Deamon::clearHttp(Deamon * instance) {
 
 		__try
 		{
-			unordered_map <LPHTTPPROXYPARAM, LPHTTPPROXYPARAM>::iterator it;
+			unordered_map <LPHTTPPROXYPARAM, LPHTTPPROXYPARAM>::iterator it = instance->gHttpDeamon.begin(); ;
 			time_t now = time(0);
-			for (it = instance->gHttpDeamon.begin(); it != instance->gHttpDeamon.end(); it++) {
+			while (it != instance->gHttpDeamon.end()) {
 				LPHTTPPROXYPARAM lphttp = it->second;
+				it++;
 				if ((now - lphttp->timeclient > instance->gOverTime) || (now - lphttp->timeserver > instance->gOverTime)) {
 					instance->closeHTTP(lphttp);
 				}
+				
 			}
 		}
 		__except(1) 
@@ -313,14 +315,16 @@ int __stdcall Deamon::clearSSL(Deamon *instance) {
 
 		__try {
 			time_t now = time(0);
-			unordered_map <LPSSLPROXYPARAM, LPSSLPROXYPARAM>::iterator it;
-			for (it = instance->gSSLDeamon.begin(); it != instance->gSSLDeamon.end(); it++) {
+			unordered_map <LPSSLPROXYPARAM, LPSSLPROXYPARAM>::iterator it = instance->gSSLDeamon.begin();
+			while ( it != instance->gSSLDeamon.end()) {
+
 				LPSSLPROXYPARAM lpssl = it->second;
-				
+				it++;
 				if ((now - lpssl->timeclient > instance->gOverTime) || (now - lpssl->timeserver > instance->gOverTime)) {
 					instance->closeSSL(lpssl);
 					continue;
 				}
+				
 			}
 		}
 		__except (1) {

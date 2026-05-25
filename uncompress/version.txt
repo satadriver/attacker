@@ -1,0 +1,17 @@
+POST /common/app-version-update-v3 HTTP/1.1
+clientVersion: 300027
+platform: GAME_CENTER
+mnqVersion: 0900051300-64
+deviceId: 358523025170985,ROG,ASUS_AI2501_A,E03991B2_1A85_42cf_AF66_34EBA44E50B9
+appId: 58
+gns: 3
+Content-Type: application/json; charset=utf-8
+Content-Length: 39
+Host: game-service.ldmnq.com
+Connection: Keep-Alive
+Accept-Encoding: gzip
+User-Agent: okhttp/4.12.0
+
+[{"appType":1,"currentVersion":300027}]
+
+

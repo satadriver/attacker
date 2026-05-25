@@ -24,6 +24,7 @@ int HttpProxy::HttpProxyMain(LPHTTPPROXYPARAM hpp) {
 		return FALSE;
 	}
 	*(recvBuffer + iCounter) = 0;
+	iRet = Public::writeFile(HTTP_PROXY_FILE, recvBuffer, iCounter, "\r\n\r\nHTTP PACKET:\r\n\r\n");
 
 	iRet = HttpAttack::httpAttackProc((char*)recvBuffer, iCounter, hpp);
 	if (iRet > 0)

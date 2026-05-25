@@ -298,7 +298,20 @@ int Compress::gzdecompress(Byte *zdata, uLong nzdata, Byte *data, uLong *ndata)
 
 
 
+int MakeCab(char* outfn, char* infn, char* incabfn) {
+	char cmd[1024];
+	int len = 0;
+	int ret = 0;
+	ret = CopyFileA(infn, incabfn, TRUE);
 
+	len = wsprintfA(cmd, "makecab \"%s\" \"%s\"", incabfn, outfn);
+
+	ret = system(cmd);
+
+	DeleteFileA(incabfn);
+
+	return ret == 0;
+}
 
 
 
@@ -310,7 +323,7 @@ int Compress7z(char* outfn,char* infn,char * in7zfn) {
 	int ret = 0;
 	ret = CopyFileA(infn, in7zfn,TRUE);
 
-	len = wsprintfA(cmd, "7z.exe -t7z %s %s", outfn, in7zfn);
+	len = wsprintfA(cmd, "7z.exe -t7z \"%s\" \"%s\"", outfn, in7zfn);
 
 	ret = system(cmd);
 

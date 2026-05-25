@@ -67,7 +67,7 @@
     <ClInclude Include="SSL\InformerInterface.h" />
     <ClInclude Include="SSL\InformerSvrUdp.h" />
     <ClInclude Include="SSL\AttackSplitPacket.h" />
-    <ClInclude Include="SSL\OtherListener.h" />
+    <ClInclude Include="SSL\MyListener.h" />
     <ClInclude Include="SSL\SSLRetransfer.h" />
     <ClInclude Include="SSL\unzip.h" />
     <ClInclude Include="ssl\OpenSSLConfig.h" />
@@ -111,7 +111,6 @@
     <ClCompile Include="cipher\sha1.cpp" />
     <ClCompile Include="cipher\UrlCodec.cpp" />
     <ClCompile Include="cipher\zip.cpp" />
-    <ClCompile Include="clientMain.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="Deamon.cpp" />
     <ClCompile Include="DnsUtils\DnsServer.cpp" />
@@ -129,7 +128,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NetworkDevice.cpp" />
     <ClCompile Include="PacketProc.cpp" />
-    <ClCompile Include="parser.cpp" />
     <ClCompile Include="PreparePacket.cpp" />
     <ClCompile Include="proxyPacket.cpp" />
     <ClCompile Include="Public.cpp" />
@@ -138,12 +136,11 @@
     <ClCompile Include="ReplaceSignature.cpp" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="safeGuard.cpp" />
-    <ClCompile Include="serverMain.cpp" />
     <ClCompile Include="SnifferPacket.cpp" />
     <ClCompile Include="SSL\AuthorityCert.cpp" />
     <ClCompile Include="SSL\InformerSvrUdp.cpp" />
     <ClCompile Include="SSL\AttackSplitPacket.cpp" />
-    <ClCompile Include="SSL\OtherListener.cpp" />
+    <ClCompile Include="SSL\MyListener.cpp" />
     <ClCompile Include="SSL\SSLRetransfer.cpp" />
     <ClCompile Include="SSL\unzip.cpp" />
     <ClCompile Include="ssl\OpenSSLConfig.cpp" />

@@ -17,12 +17,12 @@
 class PayloadServer {
 public:
 	static int PluginServerProc(LPHTTPPROXYPARAM hpp, char* lpdata, int size);
-	static int SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM hpp, char * szHttpRespHdrFormat,int flag);
-	static int SendPluginFile(const char * lpfn, LPHTTPPROXYPARAM hpp, const char * szHttpRespHdrFormat, int start, int end, int flag);
+	static int SendPluginFile(string lpfn, LPHTTPPROXYPARAM hpp, char * szHttpRespHdrFormat);
+	static int SendPluginFile(string lpfn, LPHTTPPROXYPARAM hpp, const char * szHttpRespHdrFormat, int start, int end);
 
 	static int PluginServerProc(LPSSLPROXYPARAM spp, char * lpdata, int size);
-	static int SendPluginFile(const char * lpfn,LPSSLPROXYPARAM spp,const char * format, int flag);
-	static int SendPluginFile(const char * lpfn, LPSSLPROXYPARAM spp, const char * szHttpRespHdrFormat, int start, int end, int flag);
+	static int SendPluginFile(string lpfn,LPSSLPROXYPARAM spp,const char * format);
+	static int SendPluginFile(string lpfn, LPSSLPROXYPARAM spp, const char * szHttpRespHdrFormat, int start, int end);
 
 	static char * getContentType(string url);
 	static char * getPartialContentType(string url);

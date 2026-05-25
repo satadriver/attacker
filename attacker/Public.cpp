@@ -193,21 +193,20 @@ string Public::getPluginPathWithoutSlash() {
 }
 
 //why error here?
-//filename = "D:\\vsproject\\attacker_thread\\attacker\\Plugin\\jy20200303"
 string Public::getUserPluginPath(string username) {
 	if (gLocalPath == "")
 	{
 		gLocalPath = getpath();
 	}
 
-	char path[MAX_PATH];
-	lstrcpyA(path, gLocalPath.c_str());
-	lstrcatA(path, "plugin\\");
-	lstrcatA(path, username.c_str());
-	lstrcatA(path, "\\");
-	return string(path);
+	//char path[MAX_PATH];
+	//lstrcpyA(path, gLocalPath.c_str());
+	//lstrcatA(path, "plugin\\");
+	//lstrcatA(path, username.c_str());
+	//lstrcatA(path, "\\");
+	//return string(path);
 
-	//return gLocalPath + "Plugin\\" +  username + "\\";
+	return gLocalPath + "Plugin\\" +  username + "\\";
 }
 
 
