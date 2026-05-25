@@ -1,6 +1,6 @@
 
 
-#include "Confiig.h"
+#include "Config.h"
 #include "FileOper.h"
 #include "Public.h"
 #include <winsock2.h>
@@ -13,7 +13,8 @@
 
 
 
-vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* speed, int* opensslflag, int* runmode, char* gwmac, string& servername) {
+vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* speed, int* opensslflag, int* runmode, char* gwmac,
+	string& servername,int &netcard) {
 	char* buf = 0;
 	int fs = 0;
 
@@ -60,12 +61,13 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 
 		const char* end = 0;
 		const char* hdr = 0;
-		char* speedhdr = "speed=";
-		string opensslcfg = "opensslcfg=";
-		string dnsserver = "dataserver=";
+		char* speedhdr = "winpcap=";
+		string opensslcfg = "openssl=";
+		string dnsserver = "server=";
 		char* mode = "mode=";
 		char* username = "username=";
-		char* macaddr = "gatewaymac=";
+		char* macaddr = "gateway=";
+		string cardnum = "netcard=";
 
 		hdr = strstr(substr.c_str(), "[");
 		if (hdr > 0) {
@@ -113,6 +115,13 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 					*opensslflag = atoi(opensslconfig.c_str());
 					printf("config openssl param:%d\r\n", *opensslflag);
 				}
+				else if (memcmp(value.c_str(), cardnum.c_str(), cardnum.length()) == 0)
+				{
+					string strcard = value.substr(cardnum.length());
+					netcard = atoi(strcard.c_str());
+					printf("config net card:%d\r\n",netcard);
+				}
+				
 				else if (memcmp(value.c_str(), speedhdr, strlen(speedhdr)) == 0)
 				{
 					string strspeed = value.substr(strlen(speedhdr));
@@ -168,6 +177,104 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 }
 
 
+
+int Config::reviseConfig(string fn, string  key,string value) {
+
+	char* buf = 0;
+	int fs = 0;
+	int result = 0;
+
+	int ret = FileOper::fileReader(fn, &buf, &fs);
+	if (ret <= 0) {
+		return 0;
+	}
+
+	int cfglen = Public::removespace(buf, buf);
+	char* str = buf;
+	int flag = 0;
+	char sub[1024];
+	char* pos = str;
+	int len = 0;
+	while (1) {
+		char * ptr = strstr(str,CRLN);
+		if (ptr > 0) {
+			pos = str;
+
+			len = ptr - str;
+			memcpy(sub, str, len);
+			sub[len] = 0;
+
+			str = ptr + strlen(CRLN);
+		}
+		else {
+			ptr = strstr(str,CRLNLINUX);
+			if (ptr > 0) {
+				pos = str;
+				len = ptr - str;
+				memcpy(sub, str, len);
+				sub[len] = 0;
+				str = ptr + strlen(CRLNLINUX);
+			}
+			else {
+				pos = str;
+				len = strlen(str);
+				memcpy(sub, str, len);
+				sub[len] = 0;
+				str = str + len;
+				flag = 1;
+			}
+		}
+		if ( ( str[0] == '#') || (str[0]== '/' && str[1] == '/') )
+		{
+			continue;
+		}
+		const char* end = 0;
+		const char* hdr = 0;
+		hdr = strstr(sub, "[");
+		if (hdr > 0) {
+			hdr += strlen("[");
+			end = strstr(hdr, "]");
+			if (end > 0 && (end - hdr > 0)) {
+				string kv = string(hdr, end - hdr);
+				int offset = kv.find("=");
+				if (offset != std::string::npos) {
+					string k = kv.substr(0, offset);
+					string v = kv.substr(offset + 1);
+					if (k == key) {
+						if (v == value) {
+							result = 1;
+							break;
+						}
+						else {
+							
+							string s = key + "=" + value;
+							string fstr = string(buf, pos) + "\r\n[" +  s + "]\r\n" + string(str);
+							FileOper::fileWriter(fn, fstr.c_str(), fstr.length(), 1);
+							result = 1;
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		if (flag > 0) {
+			break;
+		}
+
+		continue;
+	}
+	if (result == 0)
+	{
+		char s[1024];
+		wsprintfA(s, "\r\n[%s=%s]\r\n", key.c_str(), value.c_str());
+		string fstr = string(buf) + s;
+		FileOper::fileWriter(fn, fstr.c_str(), fstr.length(),1);
+	}
+	delete buf;
+	
+	return result;
+}
 
 
 int Config::parseDnsCfg(string fn, vector <string>& dns) {
@@ -234,7 +341,6 @@ int Config::parseDnsCfg(string fn, vector <string>& dns) {
 	}
 
 	return cnt;
-
 }
 
 

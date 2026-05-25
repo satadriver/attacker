@@ -10,6 +10,7 @@
 #include "FileOper.h"
 #include "HttpUtils.h"
 #include "utils/Tools.h"
+#include "config.h"
 
 
 #define NETCARD_SELECTED_FILE	"cardNum.conf"
@@ -27,15 +28,14 @@ string NetworkDevice::ChooseNetcard(unsigned long* localip, unsigned long* mask,
 
 	if (cardNum == -1)
 	{
-		printf("%s(1-%d):", "ÇëÑ¡Ôñ×¥°üÍø¿¨ÐòºÅ", num);
-		scanf_s("%d", &cardNum);
-		printf("\n");
-	}
-
-	if (cardNum < 1 || cardNum > num)
-	{
-		printf("Interface number out of range\n");
-		return "";
+		do {
+			printf("%s(1-%d):", "ÇëÑ¡Ôñ×¥°üÍø¿¨ÐòºÅ", num);
+			scanf_s("%d", &cardNum);
+			printf("\n");
+			if (cardNum < 1 || cardNum > num) {
+				printf("Interface number out of range\n");
+			}
+		} while (cardNum < 1 || cardNum > num);	
 	}
 
 	PIP_ADAPTER_INFO pAdapter = GetNetCardAdapter(padpterInfo, cardNum - 1);
@@ -68,9 +68,12 @@ string NetworkDevice::ChooseNetcard(unsigned long* localip, unsigned long* mask,
 		HttpUtils::getmac(mac).c_str(), HttpUtils::getIPstr(*mask).c_str(),
 		HttpUtils::getIPstr(*gate).c_str());
 
-	char szcardno[1024];
-	int cardnolen = wsprintfA(szcardno, "%d", cardNum);
-	FileOper::fileWriter(NETCARD_SELECTED_FILE, (const char*)szcardno, cardnolen, TRUE);
+	char cardno[1024];
+	//int cardnolen = wsprintfA(szcardno, "%d", cardNum);
+	//FileOper::fileWriter(NETCARD_SELECTED_FILE, (const char*)szcardno, cardnolen, TRUE);
+	wsprintfA(cardno, "%d", cardNum);
+	
+	Config::reviseConfig(CONFIG_FILENAME,"netcard", cardno);
 
 	return adaptername;
 }
