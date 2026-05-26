@@ -33,7 +33,7 @@ int HttpProxy::HttpProxyMain(LPHTTPPROXYPARAM hpp) {
 	}
 	
 	DWORD dwip = HttpUtils::getIPFromHost(hpp->host);
-	if (dwip == 0) {
+	if (dwip == 0 || dwip == gServerIP || dwip == gLocalIP) {
 #ifdef _DEBUG
 		//log("%s %d getIPFromHost:%s error\r\n", __FUNCTION__, __LINE__, hpp->host);
 #endif

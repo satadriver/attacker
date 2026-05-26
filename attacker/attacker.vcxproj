@@ -52,6 +52,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="myDvert.h" />
     <ClInclude Include="NetworkDevice.h" />
+    <ClInclude Include="nghttp2\nghttp2.h" />
     <ClInclude Include="Packet.h" />
     <ClInclude Include="PacketProc.h" />
     <ClInclude Include="PreparePacket.h" />
@@ -234,7 +235,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>./include;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
+    <IncludePath>./include;..;.;./support\oss_c_sdk;./support;./support/third_party\include/mxml;./support/third_party\include/curl;./support/third_party\include/aprutil;./support/third_party\include/apr;./support/third_party\include</IncludePath>
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
     <LibraryPath>lib;$(LibraryPath)</LibraryPath>
     <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>

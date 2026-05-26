@@ -50,7 +50,6 @@ int CryptoUtils::getDataMd5(char* lpdata, int size, char* szmd5, int lowercase) 
 	}
 	*(szmd5 + 32) = 0;
 
-
 	return TRUE;
 }
 

@@ -72,7 +72,6 @@ string NetworkDevice::ChooseNetcard(unsigned long* localip, unsigned long* mask,
 	//int cardnolen = wsprintfA(szcardno, "%d", cardNum);
 	//FileOper::fileWriter(NETCARD_SELECTED_FILE, (const char*)szcardno, cardnolen, TRUE);
 	wsprintfA(cardno, "%d", cardNum);
-	
 	Config::reviseConfig(CONFIG_FILENAME,"netcard", cardno);
 
 	return adaptername;

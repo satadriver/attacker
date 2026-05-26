@@ -116,7 +116,28 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>178</LINE>
+      <LINE>321</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>“pluginPath”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“257”行(“d:\vsproject\attacker\attacker\main.cpp”中)的声明。</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>97</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILENAME>main.cpp</FILENAME>
+        <LINE>257</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILENAME>main.cpp</FILENAME>
+      <LINE>177</LINE>
       <COLUMN>7</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
@@ -130,7 +151,7 @@
     <SFA>
       <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
-      <LINE>335</LINE>
+      <LINE>336</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>

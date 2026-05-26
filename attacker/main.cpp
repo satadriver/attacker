@@ -165,10 +165,9 @@ int main(int argc, char** argv)
 
 	int winpcap = 1;
 	int opensslctl = 0;
-	
-	char gwmac[64] = { 0 };
-
-	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcap,&opensslctl, &gAttackMode, gwmac,server, netcardNum);
+	string sign = "";
+	vector<string> hostlist = Config::parseAttackCfg(path + CONFIG_FILENAME, &serverIP, &winpcap,&opensslctl, &gAttackMode, sign
+		,server, netcardNum,username,password);
 	if (hostlist.size() == 0) {
 		//log("parse config file:%s error\r\n", CONFIG_FILENAME);
 		//return -1;
@@ -190,7 +189,10 @@ int main(int argc, char** argv)
 		log("Choose Netcard error\r\n");
 		return -1;
 	}
-	
+
+	string dmackey = HttpUtils::getmac(gLocalMac);
+	SafeGuard::signCheck(dmackey, username, password, sign);
+
 	if (isattack) {
 		gAttackToggle = 1;
 	}
@@ -222,15 +224,6 @@ int main(int argc, char** argv)
 	DWORD debugTd = 0;
 	CloseHandle(CreateThread(0, 0, (LPTHREAD_START_ROUTINE)SafeGuard::antiDebug, 0,0, &debugTd));
 #endif
-
-	string devname = string(WINPCAP_NETCARD_NAME_PREFIX) + adaptername;
-	pcap_t* pcapt = Winpcap::init(devname, winpcap, gNetmask);
-	if (pcapt == 0)
-	{
-		log("winpcap init error\r\n");
-		return -1;
-	}
-	printf("device:%s,mask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcap);
 	
 	// 标准去重模式,vector、set、map这些容器的end()取出来的值不是最后一个、end的前一个才是最后一个,prev(xxx.end())取出最后一个
 	sort(hostlist.begin(), hostlist.end());  // 先排序
@@ -272,7 +265,6 @@ int main(int argc, char** argv)
 	HttpUtils::ipv4toipv6((unsigned char*)&gLocalIP, gLocalIPV6);
 
 	if (gAttackMode == ATTACK_SERVER_MODE || gAttackMode == ATTACK_TEST_MODE) {
-
 		ret = Tools::addFirewallPort(HTTP_PORT, "HTTP", "TCP");
 		ret = Tools::addFirewallPort(SSL_PORT, "SSL", "TCP");
 		ret = Tools::addFirewallPort(INFORMER_PORT, "INFORMER", "TCP");
@@ -298,7 +290,7 @@ int main(int argc, char** argv)
 		do
 		{
 			int packnum = 0;
-			printf("\r\nPlease select the number of the server packet:\r\n");
+			//printf("\r\nPlease select the number of the server packet:\r\n");
 			//scanf("%d", &packnum);
 			if (packnum < usernames.size() && packnum >= 0) {
 				//lstrcpyA(G_USERNAME, usernames[packnum].c_str());
@@ -317,8 +309,17 @@ int main(int argc, char** argv)
 
 	if (gAttackMode == ATTACK_CLIENT_MODE || gAttackMode == ATTACK_TEST_MODE || gAttackMode == ATTACK_STANDBY_MODE)
 	{
-		string userpluginPath = Public::getDefaultUserPluginPath();
-		ret = access(userpluginPath.c_str(), 0);
+		string devname = string(WINPCAP_NETCARD_NAME_PREFIX) + adaptername;
+		pcap_t* pcapt = Winpcap::init(devname, winpcap, gNetmask);
+		if (pcapt == 0)
+		{
+			log("winpcap init error\r\n");
+			return -1;
+		}
+		printf("device:%s,mask:%08x,winpcap delay:%d\r\n", devname.c_str(), gNetmask, winpcap);
+
+		string pluginPath = Public::getDefaultUserPluginPath();
+		ret = access(pluginPath.c_str(), 0);
 		if (ret)
 		{
 			log( "data path:%s not exist!\r\n", G_USERNAME);
@@ -339,7 +340,7 @@ int main(int argc, char** argv)
 		printf("Client mode is ready to work...\r\n");
 
 #ifndef WINDIVERT_APPROACH
-		ret = SnifferPacket::peeping(pcapt, serverIP, gLocalIP, userpluginPath, gAttackMode);
+		ret = SnifferPacket::peeping(pcapt, serverIP, gLocalIP, pluginPath, gAttackMode);
 		pcap_close(pcapt);
 #else
 		ret = CloseHandle(CreateThread(0,0,(LPTHREAD_START_ROUTINE) winDivert,(LPVOID)gLocalIP,0,0));

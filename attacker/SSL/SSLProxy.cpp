@@ -73,7 +73,7 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	}
 
 	DWORD dwip = HttpUtils::getIPFromHost(spp->host);
-	if (dwip == 0) {
+	if (dwip == 0 || dwip == gServerIP || dwip == gLocalIP) {
 #ifdef _DEBUG
 		//log( "[%s %d]getIPFromHost:%s error\r\n",__FUNCTION__,__LINE__, spp->host);
 #endif

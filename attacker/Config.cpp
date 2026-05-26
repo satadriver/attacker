@@ -13,8 +13,7 @@
 
 
 
-vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* speed, int* opensslflag, int* runmode, char* gwmac,
-	string& servername,int &netcard) {
+vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* speed, int* openssl, int* mode, string& sign,string& servername,int &netcard,string &user,string& pw) {
 	char* buf = 0;
 	int fs = 0;
 
@@ -61,29 +60,29 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 
 		const char* end = 0;
 		const char* hdr = 0;
-		char* speedhdr = "winpcap=";
-		string opensslcfg = "openssl=";
-		string dnsserver = "server=";
-		char* mode = "mode=";
-		char* username = "username=";
-		char* macaddr = "gateway=";
-		string cardnum = "netcard=";
+		char* winpcapkey = "winpcap=";
+		string opensslkey = "openssl=";
+		string cardkey = "netcard=";
+		string serverkey = "server=";
+		char* modekey = "mode=";
+		//char* mackey = "gateway=";
+		char* userkey = "username=";
+		string pwkey = "password=";
+		char* signkey = "sign=";
 
 		hdr = strstr(substr.c_str(), "[");
 		if (hdr > 0) {
 			hdr += strlen("[");
 			end = strstr(hdr, "]");
 			if (end > 0 && (end - hdr > 0)) {
-
 				string value = string(hdr, end - hdr);
-
-				int pos = value.find(dnsserver);
+				int pos = value.find(serverkey);
 				if (pos != std::string::npos) {
-					value.replace(pos, dnsserver.length(), "");
+					value.replace(pos, serverkey.length(), "");
 					if (value == "auto")
 					{
 						*serverip = 0;
-						printf("get config server ip:%s\r\n", value.c_str());
+						printf("config server ip:%s\r\n", value.c_str());
 					}
 					else {
 						servername = value;
@@ -98,51 +97,60 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 								*serverip = DnsServer::DnsQuery(value,DNS_SERVER_ADDRESS);
 								if (*serverip == -1 || *serverip == 0)
 								{
-									Sleep(1000);
+									Sleep(100);
 								}
 								else {
 									break;
 								}
 							} while (*serverip == -1 || *serverip == 0);
 						}
-
 						printf("config server:%s ip:%x\r\n", value.c_str(), *serverip);
 					}
 				}
-				else if (memcmp(value.c_str(), opensslcfg.c_str(), opensslcfg.length()) == 0)
+				else if (memcmp(value.c_str(), opensslkey.c_str(), opensslkey.length()) == 0)
 				{
-					string opensslconfig = value.substr(opensslcfg.length());
-					*opensslflag = atoi(opensslconfig.c_str());
-					printf("config openssl param:%d\r\n", *opensslflag);
+					string opensslconfig = value.substr(opensslkey.length());
+					*openssl = atoi(opensslconfig.c_str());
+					//printf("config openssl param:%d\r\n", *openssl);
 				}
-				else if (memcmp(value.c_str(), cardnum.c_str(), cardnum.length()) == 0)
+				else if (memcmp(value.c_str(), cardkey.c_str(), cardkey.length()) == 0)
 				{
-					string strcard = value.substr(cardnum.length());
+					string strcard = value.substr(cardkey.length());
 					netcard = atoi(strcard.c_str());
 					printf("config net card:%d\r\n",netcard);
 				}
-				
-				else if (memcmp(value.c_str(), speedhdr, strlen(speedhdr)) == 0)
+				else if (memcmp(value.c_str(), winpcapkey, strlen(winpcapkey)) == 0)
 				{
-					string strspeed = value.substr(strlen(speedhdr));
+					string strspeed = value.substr(strlen(winpcapkey));
 					*speed = atoi(strspeed.c_str());
-					printf("config winpcap param:%d\r\n", *speed);
+					//printf("config winpcap param:%d\r\n", *speed);
 				}
-				else if (memcmp(value.c_str(), mode, strlen(mode)) == 0)
+				else if (memcmp(value.c_str(), modekey, strlen(modekey)) == 0)
 				{
-					string strmode = value.substr(strlen(mode));
-					*runmode = atoi(strmode.c_str());
-					printf("config attack mode:%d\r\n", *runmode);
+					string strmode = value.substr(strlen(modekey));
+					*mode = atoi(strmode.c_str());
+					//printf("config attack mode:%d\r\n", *mode);
 				}
-				else if (memcmp(value.c_str(), username, strlen(username)) == 0)
+				else if (memcmp(value.c_str(), signkey, strlen(signkey)) == 0)
 				{
-					string struser = value.substr(strlen(username));
-					lstrcpyA(G_USERNAME, struser.c_str());
-					printf("config user name:%s\r\n", G_USERNAME);
+					sign = value.substr(strlen(signkey));
+					//printf("config attack mode:%d\r\n", *mode);
 				}
-				else if (memcmp(value.c_str(), macaddr, lstrlenA(macaddr)) == 0)
+				else if (memcmp(value.c_str(), pwkey.c_str(), pwkey.length()) == 0)
 				{
-					string strmac = value.substr(strlen(macaddr));
+					pw = value.substr(pwkey.length());
+					//printf("config attack mode:%d\r\n", pw.c_str());
+				}
+				else if (memcmp(value.c_str(), userkey, strlen(userkey)) == 0)
+				{
+					user = value.substr(strlen(userkey));
+					//lstrcpyA(G_USERNAME, user.c_str());
+					//printf("config user name:%s\r\n", G_USERNAME);
+				}
+				/*
+				else if (memcmp(value.c_str(), mackey, lstrlenA(mackey)) == 0)
+				{
+					string strmac = value.substr(strlen(mackey));
 					while (1) {
 						int p = strmac.find("-");
 						if (p >= 0)
@@ -157,8 +165,9 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 					unsigned char dbmac[64] = { 0 };
 					AscHex::asc2hex((unsigned char*)strmac.c_str(), strmac.length(), dbmac);
 					memcpy(gwmac, (char*)dbmac, 6);
-					printf("config gateway mac:%s\r\n", strmac.c_str());
+					//printf("config gateway mac:%s\r\n", strmac.c_str());
 				}
+				*/
 				else {
 					dnslist.push_back(value);
 					//printf("config host:%s\r\n", value.c_str());
@@ -246,7 +255,6 @@ int Config::reviseConfig(string fn, string  key,string value) {
 							break;
 						}
 						else {
-							
 							string s = key + "=" + value;
 							string fstr = string(buf, pos) + "\r\n[" +  s + "]\r\n" + string(str);
 							FileOper::fileWriter(fn, fstr.c_str(), fstr.length(), 1);
@@ -264,6 +272,7 @@ int Config::reviseConfig(string fn, string  key,string value) {
 
 		continue;
 	}
+
 	if (result == 0)
 	{
 		char s[1024];
