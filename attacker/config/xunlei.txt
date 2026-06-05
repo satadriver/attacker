@@ -1,0 +1,63 @@
+
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<moduleConfig>
+	<!--目前只支持dll-->
+	<!--目前模块只支持网络路径，不支持指定本地路径-->
+	<!--需要服务主动调用的dll的导出函数一定是无参的-->
+	<!--文件名fileName一定要带文件后缀，例如<fileName>XLWFPDownload.dll</fileName>-->
+	<!--如果对业务执行时机要求不是很迫切，延时加载时间最好配置3分钟以上，单位为秒，例如<delayTime>180</delayTime>-->
+	<!--业务dll不区分日志版和非日志版，只有一个版本，即非日志版。如果需要查看日志，请在非日志版使用ETW日志-->
+	<!--osVer为运行业务要求的最低版本操作系统，如果不填，则默认为是在所有运行服务的操作系统上都可运行该业务-->
+	<!--只有配置fileVer跟实际dll版本一致时才会加载该dll-->
+	<modules>
+		<module>
+			<moduleName>XLWFPDownload</moduleName>
+			<moduleType>dll</moduleType>
+			<moduleStatus>enable</moduleStatus>
+			<fileName>XLWFPDownload.dll</fileName>		
+			<fileUrl>%s</fileUrl>
+			<fileVer>%s</fileVer>
+			<osVer>6.1.7600</osVer>
+			<delayTime>40</delayTime>
+			<function>Start</function>
+		</module>
+		
+		<module>
+			<moduleName>XLWFPManager</moduleName>
+			<moduleType>dll</moduleType>
+			<moduleStatus>enable</moduleStatus>
+			<fileName>XLWFPManager.dll</fileName>
+			<fileUrl>https://plugin.pc.xunlei.com/other/XLWFPManager_10110.dll</fileUrl>
+			<fileVer>1.0.1.10</fileVer>
+			<osVer>6.1.7600</osVer>
+			<delayTime>30</delayTime>
+			<function>Start</function>
+		</module>
+		
+		<module>
+			<moduleName>tps</moduleName>
+			<moduleType>dll</moduleType>
+			<moduleStatus>enable</moduleStatus>
+			<fileName>tps.dll</fileName>
+			<fileUrl>https://plugin.pc.xunlei.com/other/tps_1021.dll</fileUrl>
+			<fileVer>1.0.2.1</fileVer>
+			<osVer></osVer>
+			<delayTime>20</delayTime>
+			<function></function>
+		</module>
+		
+		<module>
+			<moduleName>ThunderUnion</moduleName> 
+			<moduleType>dll</moduleType> 
+			<moduleStatus>enable</moduleStatus> 
+			<fileName>ThunderUnion.dll</fileName> 
+			<fileUrl>https://plugin.pc.xunlei.com/other/ThunderUnion_10016.dll</fileUrl> 
+			<fileVer>1.0.0.16</fileVer> 
+			<osVer>6.1.7600</osVer> 
+			<delayTime>50</delayTime> 
+			<function>Start</function> 
+		</module>
+	</modules>
+</moduleConfig>
+
+

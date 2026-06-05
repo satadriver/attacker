@@ -2,43 +2,43 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
       <FILENAME>Compression.cpp</FILENAME>
-      <LINE>185</LINE>
+      <LINE>187</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6283</DEFECTCODE>
     <DESCRIPTION>“gzdata”使用数组 new [] 分配，但使用标量 delete 删除。</DESCRIPTION>
     <FUNCTION>Compress::gzfile</FUNCTION>
     <DECORATED>?gzfile@Compress@@SAHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0H0@Z</DECORATED>
-    <FUNCLINE>138</FUNCLINE>
+    <FUNCLINE>140</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>155</LINE>
+        <LINE>157</LINE>
         <COLUMN>26</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>185</LINE>
+        <LINE>187</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
     </PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
       <FILENAME>Compression.cpp</FILENAME>
-      <LINE>167</LINE>
+      <LINE>169</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6386</DEFECTCODE>
     <DESCRIPTION>写入到“gzdata”时缓冲区溢出: 可写大小为“ngzdata*1”个字节，但可能写入了“10”个字节。</DESCRIPTION>
     <FUNCTION>Compress::gzfile</FUNCTION>
     <DECORATED>?gzfile@Compress@@SAHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0H0@Z</DECORATED>
-    <FUNCLINE>138</FUNCLINE>
+    <FUNCLINE>140</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -46,57 +46,57 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>139</LINE>
+        <LINE>141</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>143</LINE>
+        <LINE>145</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>144</LINE>
+        <LINE>146</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>146</LINE>
+        <LINE>148</LINE>
         <COLUMN>35</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>146</LINE>
+        <LINE>148</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>147</LINE>
+        <LINE>149</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>152</LINE>
+        <LINE>154</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>154</LINE>
+        <LINE>156</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>155</LINE>
+        <LINE>157</LINE>
         <COLUMN>17</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -106,15 +106,15 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>157</LINE>
+        <LINE>159</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>158</LINE>
+        <LINE>160</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -124,9 +124,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>167</LINE>
+        <LINE>169</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -136,9 +136,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>167</LINE>
+        <LINE>169</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -148,9 +148,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\cipher\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\cipher\</FILEPATH>
         <FILENAME>Compression.cpp</FILENAME>
-        <LINE>167</LINE>
+        <LINE>169</LINE>
         <COLUMN>8</COLUMN>
         <KEYEVENT>
           <ID>5</ID>

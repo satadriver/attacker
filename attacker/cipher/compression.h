@@ -8,8 +8,8 @@
 
 using namespace std;
 
-int Compress7z(char* outfn, char* infn, char* in7zfn);
-int MakeCab(char* outfn, char* infn, char* incabfn);
+int Compress7z(char* outfn, char* infn);
+int MakeCab(char* outfn, char* infn);
 
 class Compress {
 public:

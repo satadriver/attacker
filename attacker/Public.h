@@ -12,7 +12,7 @@ using namespace std;
 
 #define ATTACKER_MUTEX_NAME "global_attacker"
 
-
+char* SearchBinary(char* data, int size, char* hdr, int hdrlen);
 
 class Public {
 public:
@@ -46,6 +46,8 @@ public:
 	static string Public::getDefaultUserPluginPath();
 
 	static string Public::getDateTime();
+
+	static int Public::zipFolder(string izname, string srcpath, string zipfn);
 
 	static int Public::zipFile(string inzipfn, string srcfn, string zipfn);
 

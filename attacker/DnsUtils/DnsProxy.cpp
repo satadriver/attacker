@@ -73,13 +73,12 @@ int __stdcall DnsProxy::DnsProxyListener(DnsProxy * instance){
 // 	iRet += ::setsockopt(instance->mSockDns, SOL_SOCKET, SO_SNDTIMEO, (char *)&TimeOut, sizeof(TimeOut));
 
 	//windows
-// 	int timeout = 360000;
-// 	iRet = ::setsockopt(instance->mSockDns, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(timeout));
-// 	//iRet += ::setsockopt(instance->mSockDns, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(timeout));
-// 	if (iRet) {
-// 		printf("DnsProxyListener setsockopt error\n");
-// 		Public::WriteLogFile("DnsProxyListener setsockopt error\r\n");
-// 	}
+ 	int timeout = 1000;
+ 	iRet = ::setsockopt(instance->mSockDns, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout, sizeof(timeout));
+ 	iRet += ::setsockopt(instance->mSockDns, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof(timeout));
+ 	if (iRet) {
+ 		printf("DnsProxyListener setsockopt error\n");
+ 	}
 
 	int counter = 0;
 	char lpdns[DNS_PACKET_LIMIT + 16];

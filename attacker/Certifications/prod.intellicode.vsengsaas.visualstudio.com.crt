@@ -1,12 +1,12 @@
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number: 24 (0x18)
+        Serial Number: 8 (0x8)
         Signature Algorithm: sha256WithRSAEncryption
         Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
         Validity
-            Not Before: May 26 11:37:05 2026 GMT
-            Not After : May 23 11:37:05 2036 GMT
+            Not Before: Jun  5 05:36:11 2026 GMT
+            Not After : Jun  2 05:36:11 2036 GMT
         Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=prod.intellicode.vsengsaas.visualstudio.com/emailAddress=www.digicert.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
@@ -26,27 +26,27 @@ Certificate:
             X509v3 Subject Alternative Name: 
                 DNS:prod.intellicode.vsengsaas.visualstudio.com
     Signature Algorithm: sha256WithRSAEncryption
-         5b:34:e5:d4:52:dd:90:50:7d:10:77:01:cd:62:00:e3:2f:69:
-         6a:ed:ea:34:9d:60:fc:40:d4:74:98:44:e2:3c:df:ad:cd:f3:
-         06:83:04:d1:c9:a4:d5:f8:ec:36:bc:56:5d:5c:90:f2:0f:6e:
-         a7:20:38:bd:67:c3:bb:f0:3f:b2:b3:a7:9c:e8:83:16:f7:88:
-         1d:8a:f1:d0:53:85:03:cd:a7:2c:ac:49:91:a8:a6:4e:79:87:
-         74:8b:2d:0d:cd:10:8c:3a:d6:1e:8a:55:4b:86:85:72:a8:00:
-         dd:2f:b7:93:ad:d1:cf:0c:0f:3b:dd:e7:47:08:81:e9:2f:d2:
-         5c:88:f6:f4:98:5c:1d:7e:3a:14:d5:ea:f9:96:85:84:12:fa:
-         f0:ee:f9:58:48:da:06:9e:15:38:6f:ac:1a:9b:97:05:70:09:
-         79:1e:5d:eb:0d:4f:39:d4:0f:41:17:0b:d4:20:27:c0:e3:d3:
-         f6:2f:2e:f2:80:54:cc:88:e4:cc:f5:22:bc:48:88:69:3b:27:
-         0e:47:b9:26:84:64:f1:41:48:35:24:80:b9:9f:64:16:7a:bc:
-         fd:ec:43:95:91:f4:ad:f1:5b:cd:dc:a7:b2:b9:38:08:ff:2e:
-         e0:94:b5:0b:a7:e4:50:bd:27:3f:12:6e:02:3d:40:04:f4:49:
-         35:98:95:0d
+         b9:4b:8d:dd:0a:02:19:c7:10:50:bd:f3:4d:f0:1d:a4:7a:0c:
+         d1:a6:9c:2e:0b:a8:70:9a:79:85:92:44:52:e2:44:14:68:73:
+         3a:fc:a7:cc:42:b4:f9:72:f6:4d:62:cf:a9:78:b1:24:c2:11:
+         af:0f:d9:91:88:ef:81:8d:43:86:0c:5d:5e:67:86:ec:ad:6b:
+         3c:16:9e:9a:7b:30:ac:e4:08:0a:61:21:87:a1:58:b4:f2:cf:
+         38:77:ae:9e:23:23:f8:23:7f:fe:0b:03:3a:60:a0:bb:56:30:
+         4a:5e:ae:85:19:f6:7b:56:c6:44:09:65:7e:05:b9:38:f8:6e:
+         0b:8e:2b:49:c9:73:20:2a:3c:dd:80:e8:a5:d3:58:39:3d:56:
+         9c:47:1f:e9:13:97:db:8c:a2:21:c7:e5:9d:b9:f9:93:d5:f2:
+         a9:fd:2e:7e:b1:2f:fd:d7:c8:3d:e4:b5:58:24:b3:7c:bd:4b:
+         64:49:49:53:ea:9d:7a:e5:47:43:8e:f9:b3:7d:39:e8:53:3a:
+         14:25:85:ec:e9:d3:f3:d9:3a:18:dd:fa:95:1c:0b:9c:c8:81:
+         0e:69:d4:80:a2:9b:1a:fc:96:0c:a2:c3:62:ac:6f:04:c9:ff:
+         ea:29:99:39:4e:38:0b:ee:78:c8:f1:15:f6:71:67:91:c9:41:
+         d7:d3:ed:54
 -----BEGIN CERTIFICATE-----
-MIIDoTCCAomgAwIBAgIBGDANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+MIIDoTCCAomgAwIBAgIBCDANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
 EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
 VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
 BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
-d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUyNjExMzcwNVoXDTM2MDUyMzExMzcwNVow
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYwNTA1MzYxMVoXDTM2MDYwMjA1MzYxMVow
 gcExCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
 b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
 ZGlnaWNlcnQuY29tMTQwMgYDVQQDDCtwcm9kLmludGVsbGljb2RlLnZzZW5nc2Fh
@@ -56,10 +56,10 @@ Y29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDuNm8jOGk0zgqGvFkM6AK/
 XAE7ustw5naZchAhDIwAn8lRSZXgl5LcqkaSASHDkCgbB97XS4OxVcZ+K12AKhoy
 fz61JjlQgJCgul8r4vnGJwIDAQABozowODA2BgNVHREELzAtgitwcm9kLmludGVs
 bGljb2RlLnZzZW5nc2Fhcy52aXN1YWxzdHVkaW8uY29tMA0GCSqGSIb3DQEBCwUA
-A4IBAQBbNOXUUt2QUH0QdwHNYgDjL2lq7eo0nWD8QNR0mETiPN+tzfMGgwTRyaTV
-+Ow2vFZdXJDyD26nIDi9Z8O78D+ys6ec6IMW94gdivHQU4UDzacsrEmRqKZOeYd0
-iy0NzRCMOtYeilVLhoVyqADdL7eTrdHPDA873edHCIHpL9JciPb0mFwdfjoU1er5
-loWEEvrw7vlYSNoGnhU4b6wam5cFcAl5Hl3rDU851A9BFwvUICfA49P2Ly7ygFTM
-iOTM9SK8SIhpOycOR7kmhGTxQUg1JIC5n2QWerz97EOVkfSt8VvN3KeyuTgI/y7g
-lLULp+RQvSc/Em4CPUAE9Ek1mJUN
+A4IBAQC5S43dCgIZxxBQvfNN8B2kegzRppwuC6hwmnmFkkRS4kQUaHM6/KfMQrT5
+cvZNYs+peLEkwhGvD9mRiO+BjUOGDF1eZ4bsrWs8Fp6aezCs5AgKYSGHoVi08s84
+d66eIyP4I3/+CwM6YKC7VjBKXq6FGfZ7VsZECWV+Bbk4+G4LjitJyXMgKjzdgOil
+01g5PVacRx/pE5fbjKIhx+WdufmT1fKp/S5+sS/918g95LVYJLN8vUtkSUlT6p16
+5UdDjvmzfTnoUzoUJYXs6dPz2ToY3fqVHAucyIEOadSAopsa/JYMosNirG8Eyf/q
+KZk5TjgL7njI8RX2cWeRyUHX0+1U
 -----END CERTIFICATE-----

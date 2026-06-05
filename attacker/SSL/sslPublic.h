@@ -179,6 +179,8 @@ extern string			gOpensslPath;
 extern string			gOpensslWinPath;
 extern string			gOpensslRoot;
 
+extern vector <unsigned long> g_server_ip;
+
 extern MIM_THREAD_PARAMS	g_thread_params;
 
 

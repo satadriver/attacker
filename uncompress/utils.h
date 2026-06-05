@@ -9,11 +9,13 @@ using namespace std;
 
 int SplitFileName(char* fn, int* filepos, int* surfix_pos);
 
-int TestVersion(char* httphdr);
+int TestVersion(char* pack,int len);
+
+int isAscIP(string ip);
 
 int isHttpResponse(const char* lpdata);
 
-string getHttpHeader(const char* data, int len, char** lphttpdata);
+string SplitHttpPacket(const char* data, int len, char** lphttpdata);
 
 int isHttpPacket(const char* lpdata);
 

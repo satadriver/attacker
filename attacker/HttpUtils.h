@@ -16,6 +16,8 @@ std::string get_http_time();
 
 unsigned long GetInetIPAddress();
 
+int IsInternalAddress(unsigned long addr, string host);
+
 class HttpUtils {
 public:
 	static int getContentLen(string lphttpdata, int len);

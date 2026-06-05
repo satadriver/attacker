@@ -1,8 +1,7 @@
 HTTP/1.1 200 OK
 Server: nginx/1.20.2
 Date: %s
-Content-Type: %s
 Content-Length: %d
+Content-Type: %s
 Connection: keep-alive
 
-%s

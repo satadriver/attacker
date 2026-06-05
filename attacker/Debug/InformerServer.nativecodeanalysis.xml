@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>InformerServer.cpp</FILENAME>
       <LINE>67</LINE>
       <COLUMN>12</COLUMN>
@@ -19,25 +19,25 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>61</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>63</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>65</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>67</LINE>
         <COLUMN>12</COLUMN>
@@ -49,7 +49,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>67</LINE>
         <COLUMN>12</COLUMN>
@@ -64,7 +64,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>InformerServer.cpp</FILENAME>
       <LINE>100</LINE>
       <COLUMN>27</COLUMN>
@@ -81,121 +81,121 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>79</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>80</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>89</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>90</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>92</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>93</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>94</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>95</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>97</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>98</LINE>
         <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>100</LINE>
         <COLUMN>14</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>101</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>90</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>92</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>93</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>94</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>95</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>97</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>98</LINE>
         <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>100</LINE>
         <COLUMN>14</COLUMN>
@@ -207,13 +207,13 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>101</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>100</LINE>
         <COLUMN>27</COLUMN>
@@ -228,7 +228,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>InformerServer.cpp</FILENAME>
       <LINE>100</LINE>
       <COLUMN>14</COLUMN>
@@ -245,13 +245,13 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>79</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>80</LINE>
         <COLUMN>16</COLUMN>
@@ -263,13 +263,13 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>89</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>90</LINE>
         <COLUMN>8</COLUMN>
@@ -281,37 +281,37 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>92</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>93</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>94</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>95</LINE>
         <COLUMN>24</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>97</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>98</LINE>
         <COLUMN>23</COLUMN>
@@ -323,7 +323,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>100</LINE>
         <COLUMN>14</COLUMN>
@@ -335,7 +335,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerServer.cpp</FILENAME>
         <LINE>100</LINE>
         <COLUMN>14</COLUMN>

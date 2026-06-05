@@ -21,7 +21,7 @@ unsigned char gkey[64] = { 0 };
 int FileOper::isFileExist(string filename) {
 
 	FILE* fp = fopen(filename.c_str(), "rb");
-	if (fp <= 0)
+	if (fp == 0)
 	{
 		return FALSE;
 	}
@@ -34,7 +34,7 @@ int FileOper::isFileExist(string filename) {
 
 int FileOper::getFileSize(string filename) {
 	FILE* fp = fopen(filename.c_str(), "rb");
-	if (fp <= 0)
+	if (fp == 0)
 	{
 		return FALSE;
 	}
@@ -68,7 +68,7 @@ int FileOper::fileReader(string filename, char** lpbuf, int* lpfs) {
 	int ret = 0;
 
 	FILE* fp = fopen(filename.c_str(), "rb");
-	if (fp <= 0)
+	if (fp == 0)
 	{
 		printf("fileReader fopen file:%s error\r\n", filename.c_str());
 		return FALSE;
@@ -102,7 +102,7 @@ int FileOper::fileWriter(string filename, const char* lpdata, int size) {
 	int ret = 0;
 
 	FILE* fp = fopen(filename.c_str(), "ab+");
-	if (fp <= 0)
+	if (fp == 0)
 	{
 		printf("fileReader fopen file:%s error\r\n", filename.c_str());
 		return FALSE;
@@ -130,7 +130,7 @@ int FileOper::fileWriter(string filename, const char* data, int datasize, int cl
 		fp = fopen(filename.c_str(), "ab+");
 	}
 
-	if (fp <= 0)
+	if (fp == 0)
 	{
 		printf("fileReader fopen file:%s error\r\n", filename.c_str());
 		return FALSE;

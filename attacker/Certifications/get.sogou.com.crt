@@ -1,12 +1,12 @@
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number: 6 (0x6)
+        Serial Number: 75 (0x4b)
         Signature Algorithm: sha256WithRSAEncryption
         Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
         Validity
-            Not Before: May 26 11:31:02 2026 GMT
-            Not After : May 23 11:31:02 2036 GMT
+            Not Before: Jun  5 06:27:21 2026 GMT
+            Not After : Jun  2 06:27:21 2036 GMT
         Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=get.sogou.com/emailAddress=www.digicert.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
@@ -26,27 +26,27 @@ Certificate:
             X509v3 Subject Alternative Name: 
                 DNS:get.sogou.com
     Signature Algorithm: sha256WithRSAEncryption
-         78:4d:5c:d6:de:6e:8e:2d:90:1d:6d:72:75:9b:cf:0a:80:72:
-         11:fc:d2:5a:af:55:ad:ac:67:59:d7:61:0b:36:31:3d:a3:62:
-         f0:54:f6:19:8b:9d:8a:f4:6c:da:6a:1e:aa:cd:6b:b3:8c:17:
-         56:40:e2:f2:d6:26:c6:7f:f0:b2:de:e8:25:18:23:6a:8f:22:
-         5b:c4:39:f9:3d:7b:ab:22:60:6c:dc:25:1b:ee:aa:7f:da:97:
-         ef:c1:d2:b6:ea:73:97:60:52:89:5d:61:f8:de:38:52:84:09:
-         ef:2d:37:d1:69:5b:b8:a9:4c:61:cb:ad:01:21:d3:01:c4:31:
-         1d:ca:f1:65:92:b3:97:ef:9c:96:fd:16:b9:1d:e0:d6:6f:46:
-         b1:8a:26:1c:07:e1:67:84:ff:a2:e7:44:82:05:83:81:85:1b:
-         fe:96:af:f2:12:82:22:be:64:c5:f1:6d:32:cc:f4:46:0c:e6:
-         e7:bf:86:12:ad:5b:5a:15:78:31:19:c6:8d:78:4b:6e:ae:ec:
-         5d:3f:23:14:4e:1d:28:17:60:d6:e3:fd:0e:09:f2:4b:7a:2c:
-         c1:13:d7:50:43:f4:60:e4:3f:e0:7a:34:b9:fb:9c:57:af:e1:
-         d8:83:68:a0:71:bb:c2:6a:d7:48:41:10:c2:9a:88:8a:b0:57:
-         fa:93:71:71
+         83:e7:c5:b7:c7:99:bc:a9:3a:b0:2c:9b:04:5a:3f:ed:5d:3a:
+         16:a7:07:5b:a8:73:e7:96:5a:68:8b:b2:1e:9d:60:55:63:8f:
+         39:d8:9a:09:46:61:da:53:53:29:23:ee:c6:fd:75:0e:72:bc:
+         2b:2b:9c:98:ac:2d:c0:99:50:d6:6d:d3:dc:8c:cc:f5:13:2e:
+         bf:78:dc:6b:60:a7:14:d8:44:ce:63:a1:73:4a:33:51:51:fc:
+         33:85:3e:81:ab:89:f8:76:b6:b6:4a:11:ac:1f:8f:67:00:67:
+         66:7d:36:3d:ba:2b:25:f5:59:e9:58:ce:bb:bd:21:0c:0f:52:
+         f6:db:51:b2:00:fb:2d:64:b0:ba:02:5c:75:b5:1e:6a:1b:4f:
+         4b:99:aa:ff:93:5b:06:f5:60:55:4a:86:9a:85:86:6b:6b:da:
+         fc:c6:7b:ea:46:9e:2d:f2:39:26:8b:12:0e:6d:4c:33:b7:c2:
+         f8:a9:f0:45:50:5f:89:e6:02:00:b2:fd:bb:4d:19:be:d7:a4:
+         b2:31:49:15:f8:18:12:87:4c:5f:eb:f9:e0:10:3f:16:d9:99:
+         2e:7d:9c:95:55:e0:82:c9:1d:3c:8e:1e:5a:6b:63:dd:f4:12:
+         d8:ca:74:b0:09:fe:e8:f0:f5:1f:cd:d3:c8:84:26:82:7b:12:
+         59:26:fb:35
 -----BEGIN CERTIFICATE-----
-MIIDZTCCAk2gAwIBAgIBBjANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+MIIDZTCCAk2gAwIBAgIBSzANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
 EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
 VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
 BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
-d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUyNjExMzEwMloXDTM2MDUyMzExMzEwMlow
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYwNTA2MjcyMVoXDTM2MDYwMjA2MjcyMVow
 gaMxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
 b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
 ZGlnaWNlcnQuY29tMRYwFAYDVQQDDA1nZXQuc29nb3UuY29tMR8wHQYJKoZIhvcN
@@ -54,11 +54,11 @@ AQkBFhB3d3cuZGlnaWNlcnQuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKB
 gQDuNm8jOGk0zgqGvFkM6AK/8A0BuOHf3g5UDA9ZhIx+BitjqYkI8KtbhVrIku6h
 F6W2ShnfdRuvDiQ8M29Pzbh2XAE7ustw5naZchAhDIwAn8lRSZXgl5LcqkaSASHD
 kCgbB97XS4OxVcZ+K12AKhoyfz61JjlQgJCgul8r4vnGJwIDAQABoxwwGjAYBgNV
-HREEETAPgg1nZXQuc29nb3UuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQB4TVzW3m6O
-LZAdbXJ1m88KgHIR/NJar1WtrGdZ12ELNjE9o2LwVPYZi52K9Gzaah6qzWuzjBdW
-QOLy1ibGf/Cy3uglGCNqjyJbxDn5PXurImBs3CUb7qp/2pfvwdK26nOXYFKJXWH4
-3jhShAnvLTfRaVu4qUxhy60BIdMBxDEdyvFlkrOX75yW/Ra5HeDWb0axiiYcB+Fn
-hP+i50SCBYOBhRv+lq/yEoIivmTF8W0yzPRGDObnv4YSrVtaFXgxGcaNeEturuxd
-PyMUTh0oF2DW4/0OCfJLeizBE9dQQ/Rg5D/gejS5+5xXr+HYg2igcbvCatdIQRDC
-moiKsFf6k3Fx
+HREEETAPgg1nZXQuc29nb3UuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQCD58W3x5m8
+qTqwLJsEWj/tXToWpwdbqHPnllpoi7IenWBVY4852JoJRmHaU1MpI+7G/XUOcrwr
+K5yYrC3AmVDWbdPcjMz1Ey6/eNxrYKcU2ETOY6FzSjNRUfwzhT6Bq4n4dra2ShGs
+H49nAGdmfTY9uisl9VnpWM67vSEMD1L221GyAPstZLC6Alx1tR5qG09Lmar/k1sG
+9WBVSoaahYZra9r8xnvqRp4t8jkmixIObUwzt8L4qfBFUF+J5gIAsv27TRm+16Sy
+MUkV+BgSh0xf6/ngED8W2ZkufZyVVeCCyR08jh5aa2Pd9BLYynSwCf7o8PUfzdPI
+hCaCexJZJvs1
 -----END CERTIFICATE-----

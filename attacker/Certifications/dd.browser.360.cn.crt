@@ -1,0 +1,64 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 44 (0x2c)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
+        Validity
+            Not Before: Jun  5 05:49:04 2026 GMT
+            Not After : Jun  2 05:49:04 2036 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=dd.browser.360.cn/emailAddress=www.digicert.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (1024 bit)
+                Modulus:
+                    00:ee:36:6f:23:38:69:34:ce:0a:86:bc:59:0c:e8:
+                    02:bf:f0:0d:01:b8:e1:df:de:0e:54:0c:0f:59:84:
+                    8c:7e:06:2b:63:a9:89:08:f0:ab:5b:85:5a:c8:92:
+                    ee:a1:17:a5:b6:4a:19:df:75:1b:af:0e:24:3c:33:
+                    6f:4f:cd:b8:76:5c:01:3b:ba:cb:70:e6:76:99:72:
+                    10:21:0c:8c:00:9f:c9:51:49:95:e0:97:92:dc:aa:
+                    46:92:01:21:c3:90:28:1b:07:de:d7:4b:83:b1:55:
+                    c6:7e:2b:5d:80:2a:1a:32:7f:3e:b5:26:39:50:80:
+                    90:a0:ba:5f:2b:e2:f9:c6:27
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:dd.browser.360.cn
+    Signature Algorithm: sha256WithRSAEncryption
+         25:4f:53:84:3d:b8:66:e3:9d:e3:b6:c5:42:12:c5:cf:e1:f9:
+         0c:b4:82:89:31:61:29:97:f1:9b:14:1b:00:8b:fa:ce:cd:27:
+         48:61:e7:54:36:51:0e:a0:19:95:c2:c2:99:de:42:73:11:7b:
+         ec:0d:d2:aa:09:5f:0d:b4:cd:98:dc:f6:d9:7b:c9:bf:38:a1:
+         67:8d:29:da:47:20:95:01:3f:ed:2a:df:f5:76:de:76:0a:53:
+         91:d0:95:90:cb:58:08:b5:ed:e9:c0:47:14:ae:27:7e:b9:dd:
+         e0:88:62:41:99:e5:c6:a0:f1:f4:5c:53:7e:21:de:d8:a4:98:
+         4e:2c:46:1b:10:b4:58:b4:41:7e:92:dd:47:d1:72:ad:bc:75:
+         f3:41:8b:2d:ce:73:a4:eb:21:c9:99:ab:4f:39:07:08:60:4f:
+         21:a0:42:2f:c0:23:da:24:57:bb:e7:bc:57:08:df:86:13:9b:
+         cf:4a:e8:80:e2:fe:83:66:e7:e6:15:1c:39:87:bd:a2:02:4d:
+         19:ea:71:4a:db:c2:6d:37:29:50:9a:c2:df:5d:04:8b:24:72:
+         0b:cb:01:ba:4f:9b:30:b7:ab:33:70:a1:76:b7:9a:a2:52:9c:
+         b7:0b:6e:1d:6b:fb:05:15:72:4d:f0:88:67:86:f8:ef:d3:4f:
+         3d:bc:e9:7c
+-----BEGIN CERTIFICATE-----
+MIIDbTCCAlWgAwIBAgIBLDANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
+VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
+BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYwNTA1NDkwNFoXDTM2MDYwMjA1NDkwNFow
+gacxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
+b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
+ZGlnaWNlcnQuY29tMRowGAYDVQQDDBFkZC5icm93c2VyLjM2MC5jbjEfMB0GCSqG
+SIb3DQEJARYQd3d3LmRpZ2ljZXJ0LmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAw
+gYkCgYEA7jZvIzhpNM4KhrxZDOgCv/ANAbjh394OVAwPWYSMfgYrY6mJCPCrW4Va
+yJLuoReltkoZ33Ubrw4kPDNvT824dlwBO7rLcOZ2mXIQIQyMAJ/JUUmV4JeS3KpG
+kgEhw5AoGwfe10uDsVXGfitdgCoaMn8+tSY5UICQoLpfK+L5xicCAwEAAaMgMB4w
+HAYDVR0RBBUwE4IRZGQuYnJvd3Nlci4zNjAuY24wDQYJKoZIhvcNAQELBQADggEB
+ACVPU4Q9uGbjneO2xUISxc/h+Qy0gokxYSmX8ZsUGwCL+s7NJ0hh51Q2UQ6gGZXC
+wpneQnMRe+wN0qoJXw20zZjc9tl7yb84oWeNKdpHIJUBP+0q3/V23nYKU5HQlZDL
+WAi17enARxSuJ3653eCIYkGZ5cag8fRcU34h3tikmE4sRhsQtFi0QX6S3UfRcq28
+dfNBiy3Oc6TrIcmZq085BwhgTyGgQi/AI9okV7vnvFcI34YTm89K6IDi/oNm5+YV
+HDmHvaICTRnqcUrbwm03KVCawt9dBIskcgvLAbpPmzC3qzNwoXa3mqJSnLcLbh1r
++wUVck3wiGeG+O/TTz286Xw=
+-----END CERTIFICATE-----

@@ -1,134 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <updater>
 	<version></version>
-	<des>	<item>	<ver>10</ver>    <log>      <line><![CDATA[<h2 style="margin:0 -13px;font-size:13px;">更新至 3.1.17.9555:</h2><div style="margin:-10px -13px 0;padding-left:5px;line-height:160%">	  <br/>修复了无法在Firefox浏览器中对英文词组进行取词的问题	  <br/>修复了鼠标中键取词和剪贴板取词偶尔失效的问题	  </div>]]>	  </line>	</log>	</item>	<item>	<ver>8</ver>    <log>      <line><![CDATA[<div style="margin:-30px -13px 0;padding-left:5px;line-height:160%">	  <br/>新增Chrome浏览器划词翻译插件，安装后即可使用完美支持Chrome浏览器的划词翻译功能 <a href="http://cidian.youdao.com/chromeplus/?keyfrom=3.1update">安装介绍</a>	  <br/>支持对PDF-XChange Viewer、CAJViewer、Foxit Reader 3.0及以上版本的PDF取词	  <br/>支持对WPS 2009、Skype、千千静听等常用软件的取词	  <br/>优化了对FireFox浏览器的取词响应速度	  <br/>例句数据中新增了权威词典中的例句	  <br/>优化了查词和屏幕取词的用户体验	  <br/>新增窗口关闭时最小化到托盘设置选项	  </div>]]></line>    </log>	</item>    </des>
+	<des>	<item>	<ver>%s</ver>    <log>      <line><![CDATA[<h2 style="margin:0 -13px;font-size:13px;">更新至 3.1.17.9555:</h2><div style="margin:-10px -13px 0;padding-left:5px;line-height:160%">	  <br/>修复了无法在Firefox浏览器中对英文词组进行取词的问题	  <br/>修复了鼠标中键取词和剪贴板取词偶尔失效的问题	  </div>]]>	  </line>	</log>	</item>	<item>	<ver>98</ver>    <log>      <line><![CDATA[<div style="margin:-30px -13px 0;padding-left:5px;line-height:160%">	  <br/>新增Chrome浏览器划词翻译插件，安装后即可使用完美支持Chrome浏览器的划词翻译功能 <a href="http://cidian.youdao.com/chromeplus/?keyfrom=3.1update">安装介绍</a>	  <br/>支持对PDF-XChange Viewer、CAJViewer、Foxit Reader 3.0及以上版本的PDF取词	  <br/>支持对WPS 2009、Skype、千千静听等常用软件的取词	  <br/>优化了对FireFox浏览器的取词响应速度	  <br/>例句数据中新增了权威词典中的例句	  <br/>优化了查词和屏幕取词的用户体验	  <br/>新增窗口关闭时最小化到托盘设置选项	  </div>]]></line>    </log>	</item>    </des>
 	<modules>
-		<module>
-			<name>Acrobat2Dict.dll</name>
-			<link>20100519/Acrobat2Dict.dll.cab</link>
-			<md5>0f4050b916334e0cc7891564d6313f97</md5>
-			<ver>2</ver>
-			<mode>user</mode>
-			<initiallog><![CDATA[]]></initiallog>
-		</module>
-		<module>
-			<name>dictcn.db</name>
-			<link>20100423/dictcn.db.cab</link>
-			<md5>0da71688192d5a276affcc70c384bd3e</md5>
-			<ver>1</ver>
-			<mode>user</mode>
-			<initiallog><![CDATA[]]></initiallog>
-		</module>
-		<module>
-			<name>dicten.db</name>
-			<link>20100423/dicten.db.cab</link>
-			<md5>358af85e8f1df9894edb2e0f6e6eae45</md5>
-			<ver>1</ver>
-			<mode>user</mode>
-			<initiallog><![CDATA[]]></initiallog>
-		</module>
-		<module>
-			<name>intro</name>
-			<link>20100423/intro.cab</link>
-			<md5>37da4f8218d998a8b32f7a04aa653ae2</md5>
-			<ver>1</ver>
-			<mode>user</mode>
-			<initiallog><![CDATA[]]></initiallog>
-		</module>
-		<module>
-			<name>res</name>
-			<link>20100423/res.cab</link>
-			<md5>8065837bef1f70adc3e0ffaacca109a4</md5>
-			<ver>2</ver>
-			<mode>user</mode>
-		<initiallog><![CDATA[]]></initiallog>
-		</module>
-		<module>
-			<name>resultui</name>
-			<link>20100423/resultui.cab</link>
-			<md5>c85a2f80ce701887cd68c7251e37ea4a</md5>
-			<ver>6</ver>
-			<mode>user</mode>
-			<initiallog><![CDATA[]]></initiallog>
-		</module>
-	<module>
-		<name>RunDict.exe</name>
-			<link>20100519/RunDict.exe.cab</link>
-			<md5>b5f3f3495a46159576daa0f479652065</md5>
-		<ver>3</ver>
-		<mode>user</mode>
-		<initiallog><![CDATA[]]></initiallog>
-		</module>
-	<module>
-		<name>skins</name>
-			<link>20100519/skins.cab</link>
-			<md5>7ff21982cf2e3cab6c192d9a0d3229e2</md5>
-		<ver>2</ver>
-		<mode>user</mode>
-		<initiallog><![CDATA[]]></initiallog>
-	</module>
-		<module>
-			<name>tessdata</name>
-			<link>20100423/tessdata.cab</link>
-			<md5>995547c54e508be667585e822f3b01bf</md5>
-			<ver>1</ver>
-			<mode>user</mode>
-			<initiallog><![CDATA[]]></initiallog>
-		</module>
-		<module>
-			<name>tessdll.dll</name>
-			<link>20100519/tessdll.dll.cab</link>
-			<md5>e68127b58c12ecf38765a68c269998c5</md5>
-			<ver>2</ver>
-			<mode>user</mode>
-			<initiallog><![CDATA[]]></initiallog>
-		</module>		<module>
-			<name>TextExtractor2.dll</name>
-			<link>20100519/TextExtractor2.dll.cab</link>
-			<md5>57a1d63b72c1450f2578a2c6177feff3</md5>
-			<ver>5</ver>
-			<mode>user</mode>
-			<initiallog><![CDATA[]]></initiallog>
-		</module>
-	<module>
-		<name>uninst.exe</name>
-			<link>20100519/uninst.exe.cab</link>
-			<md5>d5aa2861bf1d9f060d589ea93dad5628</md5>
-			<ver>9</ver>
-		<mode>user</mode>
-		<initiallog><![CDATA[]]></initiallog>
-		</module>
-	<module>
-		<name>WordBook.exe</name>
-			<link>20100519/WordBook.exe.cab</link>
-			<md5>941eb29759d4233b52fc6d59b1c0bcd7</md5>
-		<ver>2</ver>
-		<mode>user</mode>
-		<initiallog><![CDATA[]]></initiallog>
-	</module>
-	<module>
-		<name>YodaoDict.api</name>
-			<link>20100423/YodaoDict.api.cab</link>
-			<md5>42858f266fce251e6802d2f6cce34690</md5>
-		<ver>2</ver>
-		<mode>user</mode>
-		<initiallog><![CDATA[]]></initiallog>
-	</module>
+
 	<module>
 		<name>YodaoDict.exe</name>
 			<link>20100519/YodaoDict.exe.cab</link>
-			<md5>1633c4df010e9717c6216436d0dd0a9c</md5>
-			<ver>10</ver>
+			<md5>%s</md5>
+			<ver>%s</ver>
 		<mode>user</mode>
 		<initiallog><![CDATA[]]></initiallog>
 		</module>
-	<module>
-		<name>YodaoOcr.exe</name>
-			<link>20100519/YodaoOcr.exe.cab</link>
-			<md5>4f1304f1b0cba4cc55e1d476e762e15a</md5>
-		<ver>2</ver>
-		<mode>user</mode>
-		<initiallog><![CDATA[]]></initiallog>
-	</module>		<module>			<name>install.exe</name>			<link>20100519/install.exe.cab</link>			<md5>9908c45309033190f48db687868f05b1</md5>			<ver>1</ver>			<mode>user</mode>			<initiallog><![CDATA[]]></initiallog>		</module>		<module>			<name>TBDownload.exe</name>			<link>20100519/TBDownload.exe.cab</link>			<md5>e8368e9b56a970901fc794f2652131d7</md5>			<ver>1</ver>			<mode>user</mode>			<initiallog><![CDATA[]]></initiallog>		</module>
+
 	</modules>
 </updater>

@@ -1,0 +1,64 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 68 (0x44)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
+        Validity
+            Not Before: Jun  5 06:07:57 2026 GMT
+            Not After : Jun  2 06:07:57 2036 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=cisguanjia.lenovo.com/emailAddress=www.digicert.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (1024 bit)
+                Modulus:
+                    00:ee:36:6f:23:38:69:34:ce:0a:86:bc:59:0c:e8:
+                    02:bf:f0:0d:01:b8:e1:df:de:0e:54:0c:0f:59:84:
+                    8c:7e:06:2b:63:a9:89:08:f0:ab:5b:85:5a:c8:92:
+                    ee:a1:17:a5:b6:4a:19:df:75:1b:af:0e:24:3c:33:
+                    6f:4f:cd:b8:76:5c:01:3b:ba:cb:70:e6:76:99:72:
+                    10:21:0c:8c:00:9f:c9:51:49:95:e0:97:92:dc:aa:
+                    46:92:01:21:c3:90:28:1b:07:de:d7:4b:83:b1:55:
+                    c6:7e:2b:5d:80:2a:1a:32:7f:3e:b5:26:39:50:80:
+                    90:a0:ba:5f:2b:e2:f9:c6:27
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:cisguanjia.lenovo.com
+    Signature Algorithm: sha256WithRSAEncryption
+         5e:c9:23:12:2f:60:d6:b5:74:8f:3b:ad:ea:f6:ba:d7:cb:68:
+         3e:79:7e:d5:8e:51:f1:d3:d7:71:03:24:1d:0f:03:f1:2d:0b:
+         62:91:82:e4:f2:08:33:11:be:5f:db:5e:98:57:33:b9:8a:3c:
+         fb:f0:51:69:6c:87:e4:d1:60:35:ca:45:56:f8:ae:e5:24:e6:
+         54:45:5e:5c:44:cb:e3:34:b5:37:f5:e8:8b:d1:a6:b4:df:a0:
+         a6:d7:f7:11:94:5e:34:19:fd:d4:69:be:98:68:8b:c1:bf:d3:
+         90:9c:62:83:ba:c1:5f:62:fc:6e:2d:ca:98:31:c4:80:1b:07:
+         ee:cf:3e:1e:d2:7e:d0:0c:f4:63:d5:d0:36:ae:ad:65:b4:7e:
+         9b:4a:2a:4b:f5:1d:4c:c5:b8:e1:66:c9:61:13:41:b0:cc:9f:
+         5d:c6:5c:4e:49:f7:99:6b:ed:41:88:34:40:87:50:f0:13:62:
+         d6:63:f8:87:c1:eb:fb:58:85:f5:f4:f5:17:29:f7:4d:ca:ab:
+         d4:76:ad:73:07:b7:04:8a:79:98:84:68:18:2d:ce:6e:6d:06:
+         42:09:23:ce:13:63:e2:c8:13:ea:9b:ff:52:ce:fb:b4:ae:52:
+         17:68:5e:72:63:c1:79:4a:cf:ea:8a:ac:d7:40:11:db:5c:93:
+         72:37:92:d9
+-----BEGIN CERTIFICATE-----
+MIIDdTCCAl2gAwIBAgIBRDANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
+VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
+BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYwNTA2MDc1N1oXDTM2MDYwMjA2MDc1N1ow
+gasxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
+b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
+ZGlnaWNlcnQuY29tMR4wHAYDVQQDDBVjaXNndWFuamlhLmxlbm92by5jb20xHzAd
+BgkqhkiG9w0BCQEWEHd3dy5kaWdpY2VydC5jb20wgZ8wDQYJKoZIhvcNAQEBBQAD
+gY0AMIGJAoGBAO42byM4aTTOCoa8WQzoAr/wDQG44d/eDlQMD1mEjH4GK2OpiQjw
+q1uFWsiS7qEXpbZKGd91G68OJDwzb0/NuHZcATu6y3DmdplyECEMjACfyVFJleCX
+ktyqRpIBIcOQKBsH3tdLg7FVxn4rXYAqGjJ/PrUmOVCAkKC6Xyvi+cYnAgMBAAGj
+JDAiMCAGA1UdEQQZMBeCFWNpc2d1YW5qaWEubGVub3ZvLmNvbTANBgkqhkiG9w0B
+AQsFAAOCAQEAXskjEi9g1rV0jzut6va618toPnl+1Y5R8dPXcQMkHQ8D8S0LYpGC
+5PIIMxG+X9temFczuYo8+/BRaWyH5NFgNcpFVviu5STmVEVeXETL4zS1N/Xoi9Gm
+tN+gptf3EZReNBn91Gm+mGiLwb/TkJxig7rBX2L8bi3KmDHEgBsH7s8+HtJ+0Az0
+Y9XQNq6tZbR+m0oqS/UdTMW44WbJYRNBsMyfXcZcTkn3mWvtQYg0QIdQ8BNi1mP4
+h8Hr+1iF9fT1Fyn3Tcqr1Hatcwe3BIp5mIRoGC3Obm0GQgkjzhNj4sgT6pv/Us77
+tK5SF2hecmPBeUrP6oqs10AR21yTcjeS2Q==
+-----END CERTIFICATE-----

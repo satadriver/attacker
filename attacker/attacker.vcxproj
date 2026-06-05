@@ -26,12 +26,12 @@
     <ClInclude Include="cipher\compression.h" />
     <ClInclude Include="cipher\CryptoUtils.h" />
     <ClInclude Include="cipher\RSA.h" />
-    <ClInclude Include="cipher\sha1.h" />
+    <ClInclude Include="cipher\sha.h" />
     <ClInclude Include="cipher\UrlCodec.h" />
     <ClInclude Include="cipher\zip.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Deamon.h" />
-    <ClInclude Include="DnsUtils\DnsServer.h" />
+    <ClInclude Include="DnsUtils\DnsParser.h" />
     <ClInclude Include="DnsUtils\DnsProxy.h" />
     <ClInclude Include="DnsUtils\DnsProxyIPV6.h" />
     <ClInclude Include="DnsUtils\dnsUtils.h" />
@@ -109,12 +109,12 @@
     <ClCompile Include="cipher\Compression.cpp" />
     <ClCompile Include="cipher\CryptoUtils.cpp" />
     <ClCompile Include="cipher\RSA.cpp" />
-    <ClCompile Include="cipher\sha1.cpp" />
+    <ClCompile Include="cipher\sha.cpp" />
     <ClCompile Include="cipher\UrlCodec.cpp" />
     <ClCompile Include="cipher\zip.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="Deamon.cpp" />
-    <ClCompile Include="DnsUtils\DnsServer.cpp" />
+    <ClCompile Include="DnsUtils\DnsParser.cpp" />
     <ClCompile Include="DnsUtils\DnsProxy.cpp" />
     <ClCompile Include="DnsUtils\DnsProxyIPV6.cpp" />
     <ClCompile Include="DnsUtils\dnsUtils.cpp" />
@@ -205,13 +205,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>

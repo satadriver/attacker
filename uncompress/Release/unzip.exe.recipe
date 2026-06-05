@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\vsproject\attacker\Release\unzip.exe</FullPath>
+      <FullPath>D:\vsproject\attacker_new\attacker\Release\unzip.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

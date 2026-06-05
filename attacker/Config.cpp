@@ -9,11 +9,11 @@
 #include "HttpUtils.h"
 #include "DnsUtils/dnsUtils.h"
 #include "Utils/AscHex.h"
-#include "../DnsUtils/DnsServer.h"
+#include "../DnsUtils/Dnsparser.h"
 
 
 
-vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* speed, int* openssl, int* mode, string& sign,string& servername,int &netcard,string &user,string& pw) {
+vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip,  int* openssl, int* mode, string& sign,string& servername,int &netcard,string &user,string& pw) {
 	char* buf = 0;
 	int fs = 0;
 
@@ -94,7 +94,7 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 						else {
 							do
 							{
-								*serverip = DnsServer::DnsQuery(value,DNS_SERVER_ADDRESS);
+								*serverip = DnsParser::DnsQuery(value,DNS_SERVER_ADDRESS);
 								if (*serverip == -1 || *serverip == 0)
 								{
 									Sleep(100);
@@ -118,12 +118,6 @@ vector<string> Config::parseAttackCfg(string fn, unsigned long* serverip, int* s
 					string strcard = value.substr(cardkey.length());
 					netcard = atoi(strcard.c_str());
 					printf("config net card:%d\r\n",netcard);
-				}
-				else if (memcmp(value.c_str(), winpcapkey, strlen(winpcapkey)) == 0)
-				{
-					string strspeed = value.substr(strlen(winpcapkey));
-					*speed = atoi(strspeed.c_str());
-					//printf("config winpcap param:%d\r\n", *speed);
 				}
 				else if (memcmp(value.c_str(), modekey, strlen(modekey)) == 0)
 				{

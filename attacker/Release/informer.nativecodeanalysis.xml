@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILENAME>informer.cpp</FILENAME>
+      <LINE>113</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>“Temp_value_#848”可能是“0”: 这不符合函数“CloseHandle”的规范。</DESCRIPTION>
+    <FUNCTION>Informer::{ctor}</FUNCTION>
+    <DECORATED>??0Informer@@QAE@PAX@Z</DECORATED>
+    <FUNCLINE>107</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILENAME>informer.cpp</FILENAME>
+        <LINE>109</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILENAME>informer.cpp</FILENAME>
+        <LINE>111</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILENAME>informer.cpp</FILENAME>
+        <LINE>113</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>“&lt;符号&gt;”接收来自“CreateThread”的返回值(在 d:\windows kits\10\include\10.0.19041.0\um\processthreadsapi.h:170 处声明)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILENAME>informer.cpp</FILENAME>
+        <LINE>113</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“Temp_value_#848”不应为 NULL，因为这与“CloseHandle”上的 SAL 批注不一致</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

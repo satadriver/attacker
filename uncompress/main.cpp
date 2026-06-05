@@ -228,7 +228,7 @@ int main(int argc, char** argv) {
 			int fs = 0;
 			ret = FileOper::fileReader(fn, &file, &fs);
 			if (fs) {
-				ret = TestVersion(file);
+				ret = TestVersion(file,fs);
 				delete file;
 			}
 		}

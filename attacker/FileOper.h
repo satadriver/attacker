@@ -17,13 +17,13 @@ class FileOper {
 public:
 	
 	static int isExecutable(char * data);
-	
-	static int FileOper::fileWriter(string filename, const char * lpdate, int datesize, int clear);
-	static	int FileOper::isFileExist(string filename);
-	static	int FileOper::getFileSize(string filename);
-	static	string FileOper::getDateTime();
-	static	int FileOper::fileReader(string filename, char ** lpbuf, int*bufsize);
-	static	int FileOper::fileWriter(string filename, const char * lpdate, int datesize);
+	static int GetFileType(string filename);
+	static int fileWriter(string filename, const char * lpdate, int datesize, int clear);
+	static	int isFileExist(string filename);
+	static	int getFileSize(string filename);
+	static	string getDateTime();
+	static	int fileReader(string filename, char ** lpbuf, int*bufsize);
+	static	int fileWriter(string filename, const char * lpdate, int datesize);
 
 	static DWORD GetCryptKey(unsigned char * pKey);
 	static void CryptData(unsigned char * pdata, int size, unsigned char * pkey, int keylen);
@@ -44,6 +44,8 @@ public:
 
 	static int searchDir(CHAR* srcpath, vector<string>& strs);
 	static int delFolder(CHAR* path);
+
+	static int FileSearchSet(string fn, char* tag, int taglen, char* data, int size);
 };
 
 #endif

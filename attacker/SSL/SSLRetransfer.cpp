@@ -55,22 +55,14 @@ int SSLRetransfer::RetransferProxyMain(LPHTTPPROXYPARAM hpp) {
 		return TRUE;
 	}
 
-	if (strstr(hpp->host, "127.0.0.1") || hpp->saToClient.sin_addr.S_un.S_addr == 0x0100007f ||
-		(hpp->saToClient.sin_addr.S_un.S_addr == gLocalIP && gAttackMode != 3) )
-	{
-		return FALSE;
-	}
-
-	if (strstr(hpp->host, gstrServerIP.c_str()) ||
-		strstr(hpp->host, gstrLocalIP.c_str()) ||
-		strstr(hpp->host, MYOWNSITE_ATTACK_DOMAINNAME) )
-	{
-		return FALSE;
-	}
-
 	DWORD dwip = HttpUtils::getIPFromHost(host);
 	if (dwip == 0 || *hpp->host == 0)
 	{
+		log("%s %d error\r\n", __FUNCTION__, __LINE__);
+		return FALSE;
+	}
+
+	if (IsInternalAddress(dwip, hpp->host)) {
 		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		return FALSE;
 	}

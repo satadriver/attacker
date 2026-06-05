@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\cipher\</FILEPATH>
+      <FILENAME>Code.cpp</FILENAME>
+      <LINE>77</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>6287</DEFECTCODE>
+    <DESCRIPTION>冗余代码: 左右两侧的子表达式完全相同。</DESCRIPTION>
+    <FUNCTION>urlencode</FUNCTION>
+    <DECORATED>?urlencode@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@Z</DECORATED>
+    <FUNCLINE>58</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

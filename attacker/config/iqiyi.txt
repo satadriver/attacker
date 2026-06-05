@@ -1,0 +1,35 @@
+{
+	"version": "%s",
+	"installer": {
+		"x64": {
+			"url": "%s",
+			"size": %d,
+			"md5": "%s"
+		},
+		"x86": {
+			"url": "%s",
+			"size": %d,
+			"md5": "%s"
+		}
+	},
+	"fixedversion": {
+		"x64": {
+			"url": "%s",
+			"size": %d,
+			"md5": "%s"
+		},
+		"x86": {
+			"url": "%s",
+			"size": %d,
+			"md5": "%s"
+		}
+	},
+	"liteversion": {
+		"x64": {
+			"url": "%s",
+			"size": %d,
+			"md5": "%s",
+			"ratio": 50
+		}
+	}
+}

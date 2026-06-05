@@ -31,12 +31,17 @@ int HttpProxy::HttpProxyMain(LPHTTPPROXYPARAM hpp) {
 	{
 		return FALSE;
 	}
-	
+
 	DWORD dwip = HttpUtils::getIPFromHost(hpp->host);
-	if (dwip == 0 || dwip == gServerIP || dwip == gLocalIP) {
+	if (dwip == 0  ) {
 #ifdef _DEBUG
 		//log("%s %d getIPFromHost:%s error\r\n", __FUNCTION__, __LINE__, hpp->host);
 #endif
+		return FALSE;
+	}
+
+	if (IsInternalAddress(dwip, hpp->host)) {
+		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		return FALSE;
 	}
 

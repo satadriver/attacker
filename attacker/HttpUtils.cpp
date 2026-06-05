@@ -5,10 +5,11 @@
 #include "attacker.h"
 #include "Packet.h"
 #include "Public.h"
-#include "dnsutils/DnsServer.h"
+#include "dnsutils/DnsParser.h"
 #include "Utils/AscHex.h"
 #include "Utils/BaseSocket.h"
 #include "Utils/Tools.h"
+#include "SSL/sslPublic.h"
 
 using namespace std;
 
@@ -185,7 +186,7 @@ DWORD HttpUtils::getIPFromHost(string host)
 		}
 	}
 	else {
-		dwip = DnsServer::GetIPFromHost(host);
+		dwip = DnsParser::GetIPFromHost(host);
 	}
 	return dwip;
 }
@@ -707,4 +708,25 @@ unsigned long GetInetIPAddress() {
 	}
 
 	return FALSE;
+}
+
+
+int IsInternalAddress(unsigned long addr,string host) {
+
+	if ( (addr & 0xff) == 0x0000007f) {
+		return TRUE;
+	}
+
+	if (host.find("127.") != std::string::npos)
+		return TRUE;
+
+	int max = g_server_ip.size();
+
+	for (int i = 0; i < max; i++) {
+		unsigned long ip = g_server_ip[i];
+		if (addr == ip) {
+			return TRUE;
+		}
+	}
+	return 0;
 }

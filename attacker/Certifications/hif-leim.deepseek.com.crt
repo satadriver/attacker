@@ -1,12 +1,12 @@
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number: 2 (0x2)
+        Serial Number: 9 (0x9)
         Signature Algorithm: sha256WithRSAEncryption
         Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
         Validity
-            Not Before: May 26 11:30:30 2026 GMT
-            Not After : May 23 11:30:30 2036 GMT
+            Not Before: Jun  5 05:36:31 2026 GMT
+            Not After : Jun  2 05:36:31 2036 GMT
         Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=hif-leim.deepseek.com/emailAddress=www.digicert.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
@@ -26,27 +26,27 @@ Certificate:
             X509v3 Subject Alternative Name: 
                 DNS:hif-leim.deepseek.com
     Signature Algorithm: sha256WithRSAEncryption
-         1e:9d:46:5d:16:a2:5f:98:c5:ab:54:30:47:df:9d:b0:7b:b8:
-         a1:e5:a5:e6:68:9d:77:8d:df:c6:59:0b:90:2b:f0:f6:e6:38:
-         31:4c:5b:e4:b0:5d:34:82:89:b7:41:a2:06:ca:8d:e5:5c:cd:
-         4a:49:62:a4:ee:69:94:1b:27:d0:e9:a9:13:9c:14:02:85:f9:
-         22:c2:44:9a:02:1d:8d:8c:57:c1:48:72:81:7e:bf:67:a4:8e:
-         01:23:74:c0:72:1e:90:d8:b9:3f:23:ba:b4:4c:2a:5c:10:fc:
-         e3:a4:98:5a:aa:ac:6c:ba:88:0b:3d:57:b3:95:5c:df:21:00:
-         a7:87:78:65:4d:de:e0:04:c8:2e:b9:d1:5a:95:78:5b:84:57:
-         2a:f1:d8:2d:5e:27:81:11:d5:f5:53:04:3a:28:71:af:f6:68:
-         a8:a1:eb:d2:4a:c0:03:32:30:fc:e2:0c:4b:fc:fc:06:9b:89:
-         24:62:b1:2d:49:04:58:80:d3:5b:39:84:e3:84:42:a7:c8:15:
-         7e:fb:42:1e:98:d3:b3:14:7c:ed:6f:f6:33:60:ee:77:e8:72:
-         17:a2:67:5f:30:01:d7:ad:49:6e:e7:d6:e2:ef:94:cd:db:dc:
-         da:5a:f7:46:48:d4:53:d1:21:3c:19:c4:4a:4b:d7:7f:7c:66:
-         23:8d:cd:79
+         cf:22:ca:e7:23:7f:4f:46:69:87:45:c0:3d:31:e3:7f:6a:99:
+         67:b8:3e:58:38:4e:d8:e5:28:cd:61:cc:89:83:7a:f8:5e:72:
+         90:dc:69:75:c5:af:56:ab:6b:36:90:a6:99:9c:33:79:53:99:
+         31:d8:e3:75:e9:53:f6:b7:c1:9b:e7:04:83:70:7d:76:c4:7f:
+         65:59:7d:e1:d7:00:44:fa:6d:a4:a8:b4:c5:03:0f:f9:1b:e6:
+         b8:77:78:ea:8d:6f:ab:28:3b:7a:20:4b:b0:18:2a:7e:ce:5f:
+         71:44:18:ea:e8:76:45:4b:28:bb:5f:bf:2d:18:8d:da:1c:91:
+         b4:fa:13:b2:16:6c:1e:2d:10:2d:32:d4:e7:23:ae:76:06:43:
+         57:d6:03:62:cc:8f:0b:41:44:2b:80:58:f5:93:7b:87:ce:2f:
+         3a:7e:81:30:b2:3f:39:a0:df:5b:30:8f:22:67:3c:a1:b5:4e:
+         7e:a6:8f:2d:5b:17:fb:e7:cc:d9:a5:4d:eb:a8:4d:54:7e:14:
+         75:e8:32:f2:d6:28:db:60:5e:fd:34:68:77:20:fd:af:8f:f0:
+         bd:33:e7:43:5c:82:39:07:77:89:b2:0a:69:6a:4c:5b:ca:e4:
+         f1:9b:c0:55:71:31:af:12:93:df:ec:3c:bc:3f:d9:45:53:d1:
+         2b:fd:fb:ec
 -----BEGIN CERTIFICATE-----
-MIIDdTCCAl2gAwIBAgIBAjANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+MIIDdTCCAl2gAwIBAgIBCTANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
 EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
 VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
 BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
-d3cuZGlnaWNlcnQuY29tMB4XDTI2MDUyNjExMzAzMFoXDTM2MDUyMzExMzAzMFow
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYwNTA1MzYzMVoXDTM2MDYwMjA1MzYzMVow
 gasxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
 b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
 ZGlnaWNlcnQuY29tMR4wHAYDVQQDDBVoaWYtbGVpbS5kZWVwc2Vlay5jb20xHzAd
@@ -55,10 +55,10 @@ gY0AMIGJAoGBAO42byM4aTTOCoa8WQzoAr/wDQG44d/eDlQMD1mEjH4GK2OpiQjw
 q1uFWsiS7qEXpbZKGd91G68OJDwzb0/NuHZcATu6y3DmdplyECEMjACfyVFJleCX
 ktyqRpIBIcOQKBsH3tdLg7FVxn4rXYAqGjJ/PrUmOVCAkKC6Xyvi+cYnAgMBAAGj
 JDAiMCAGA1UdEQQZMBeCFWhpZi1sZWltLmRlZXBzZWVrLmNvbTANBgkqhkiG9w0B
-AQsFAAOCAQEAHp1GXRaiX5jFq1QwR9+dsHu4oeWl5midd43fxlkLkCvw9uY4MUxb
-5LBdNIKJt0GiBsqN5VzNSklipO5plBsn0OmpE5wUAoX5IsJEmgIdjYxXwUhygX6/
-Z6SOASN0wHIekNi5PyO6tEwqXBD846SYWqqsbLqICz1Xs5Vc3yEAp4d4ZU3e4ATI
-LrnRWpV4W4RXKvHYLV4ngRHV9VMEOihxr/ZoqKHr0krAAzIw/OIMS/z8BpuJJGKx
-LUkEWIDTWzmE44RCp8gVfvtCHpjTsxR87W/2M2Dud+hyF6JnXzAB161JbufW4u+U
-zdvc2lr3RkjUU9EhPBnESkvXf3xmI43NeQ==
+AQsFAAOCAQEAzyLK5yN/T0Zph0XAPTHjf2qZZ7g+WDhO2OUozWHMiYN6+F5ykNxp
+dcWvVqtrNpCmmZwzeVOZMdjjdelT9rfBm+cEg3B9dsR/ZVl94dcARPptpKi0xQMP
++RvmuHd46o1vqyg7eiBLsBgqfs5fcUQY6uh2RUsou1+/LRiN2hyRtPoTshZsHi0Q
+LTLU5yOudgZDV9YDYsyPC0FEK4BY9ZN7h84vOn6BMLI/OaDfWzCPImc8obVOfqaP
+LVsX++fM2aVN66hNVH4Udegy8tYo22Be/TRodyD9r4/wvTPnQ1yCOQd3ibIKaWpM
+W8rk8ZvAVXExrxKT3+w8vD/ZRVPRK/377A==
 -----END CERTIFICATE-----

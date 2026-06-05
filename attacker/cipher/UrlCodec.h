@@ -6,6 +6,6 @@ using namespace std;
 
 class UrlCodec {
 public:
-	static int urlencode(char * src,char *dst);
-	static int urldecode(char * src);
+	static int UrlCodec::urlencode(char* in_str, int insize, char* out_str, int outsize);
+	static int urldecode(char * src,int srclen);
 };

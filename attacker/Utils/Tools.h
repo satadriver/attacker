@@ -57,7 +57,7 @@ LPSTR ConvertErr2Str(DWORD errcode);
 
 class Tools {
 public:
-	static int setNetworkParams();
+	static int setNetworkParameter();
 
 	static int Tools::getNumberOfCPU();
 
@@ -71,7 +71,7 @@ public:
 
 	static DWORD QueryRegistryValue(HKEY hMainKey, char * szSubKey, char * szKeyName, unsigned char * szKeyValue, int iCpuBits);
 
-	static int Tools::addFirewallPort(unsigned int port, string name, string protocol);
+	static int Tools::AllowFirewallPort(unsigned int port, string name, string protocol);
 
 	static int Tools::getInstallPath(int cpubits, string appname, string & installpath);
 

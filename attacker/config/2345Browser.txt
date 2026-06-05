@@ -1,0 +1,1 @@
+{"has_data":"1","version":"%s","url":"%s","download_type":"1","file_md5":"%s","file_size":"%u","file_type":"0","file_flag":"1","limit_speed":"0"}

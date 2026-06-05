@@ -1,17 +1,8 @@
-POST /common/app-version-update-v3 HTTP/1.1
-clientVersion: 300027
-platform: GAME_CENTER
-mnqVersion: 0900051300-64
-deviceId: 358523025170985,ROG,ASUS_AI2501_A,E03991B2_1A85_42cf_AF66_34EBA44E50B9
-appId: 58
-gns: 3
-Content-Type: application/json; charset=utf-8
-Content-Length: 39
-Host: game-service.ldmnq.com
-Connection: Keep-Alive
-Accept-Encoding: gzip
-User-Agent: okhttp/4.12.0
+POST /app/upgrade/v2/check HTTP/1.1
+Host: sl-canary-m.xunlei.com
+Accept: */*
+Content-Type: application/json
+Content-Length: 227
 
-[{"appType":1,"currentVersion":300027}]
-
+{"app_id":20001,"channel_id":"100022","device_id":"3C970EDA4452IQ2Q","version_code":0804073858,"package_name":"thunder_pc","version_name":"08.4.7.3858","last_version_code":204073858,"sign":"0d2965e0d319738075bb2e13647e2c2d"}
 

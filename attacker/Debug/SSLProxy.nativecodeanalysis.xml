@@ -2,9 +2,9 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
-      <LINE>101</LINE>
+      <LINE>106</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
@@ -16,100 +16,100 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
-      <LINE>418</LINE>
+      <LINE>425</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6320</DEFECTCODE>
     <DESCRIPTION>异常筛选器表达式为常量 EXCEPTION_EXECUTE_HANDLER。这样可能会屏蔽不打算处理的异常。</DESCRIPTION>
     <FUNCTION>SSLProxy::SSL_Proxy</FUNCTION>
     <DECORATED>?SSL_Proxy@SSLProxy@@SGHPAUMIM_THREAD_PARAMS@@@Z</DECORATED>
-    <FUNCLINE>394</FUNCLINE>
+    <FUNCLINE>401</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
-      <LINE>553</LINE>
+      <LINE>560</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(4) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>SSLProxy::getServerNameFromClientHello</FUNCTION>
     <DECORATED>?getServerNameFromClientHello@SSLProxy@@SAHPADH0AAH@Z</DECORATED>
-    <FUNCLINE>512</FUNCLINE>
+    <FUNCLINE>519</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
-      <LINE>553</LINE>
+      <LINE>560</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(5) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>SSLProxy::getServerNameFromClientHello</FUNCTION>
     <DECORATED>?getServerNameFromClientHello@SSLProxy@@SAHPADH0AAH@Z</DECORATED>
-    <FUNCLINE>512</FUNCLINE>
+    <FUNCLINE>519</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
-      <LINE>578</LINE>
+      <LINE>585</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(4) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>SSLProxy::getServerNameFromClientHello</FUNCTION>
     <DECORATED>?getServerNameFromClientHello@SSLProxy@@SAHPADH0AAH@Z</DECORATED>
-    <FUNCLINE>512</FUNCLINE>
+    <FUNCLINE>519</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
-      <LINE>578</LINE>
+      <LINE>585</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(5) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>SSLProxy::getServerNameFromClientHello</FUNCTION>
     <DECORATED>?getServerNameFromClientHello@SSLProxy@@SAHPADH0AAH@Z</DECORATED>
-    <FUNCLINE>512</FUNCLINE>
+    <FUNCLINE>519</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
-      <LINE>578</LINE>
+      <LINE>585</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(6) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>SSLProxy::getServerNameFromClientHello</FUNCTION>
     <DECORATED>?getServerNameFromClientHello@SSLProxy@@SAHPADH0AAH@Z</DECORATED>
-    <FUNCLINE>512</FUNCLINE>
+    <FUNCLINE>519</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
-      <LINE>596</LINE>
+      <LINE>603</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(5) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
     <FUNCTION>SSLProxy::getServerNameFromClientHello</FUNCTION>
     <DECORATED>?getServerNameFromClientHello@SSLProxy@@SAHPADH0AAH@Z</DECORATED>
-    <FUNCLINE>512</FUNCLINE>
+    <FUNCLINE>519</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

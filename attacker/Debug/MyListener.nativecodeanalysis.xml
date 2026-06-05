@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
       <FILENAME>MyListener.cpp</FILENAME>
       <LINE>22</LINE>
       <COLUMN>12</COLUMN>
@@ -19,19 +19,19 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>MyListener.cpp</FILENAME>
         <LINE>19</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>MyListener.cpp</FILENAME>
         <LINE>20</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>MyListener.cpp</FILENAME>
         <LINE>22</LINE>
         <COLUMN>12</COLUMN>
@@ -43,7 +43,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>MyListener.cpp</FILENAME>
         <LINE>22</LINE>
         <COLUMN>12</COLUMN>
@@ -58,7 +58,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
       <FILENAME>MyListener.cpp</FILENAME>
       <LINE>85</LINE>
       <COLUMN>12</COLUMN>

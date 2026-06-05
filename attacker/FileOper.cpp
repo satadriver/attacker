@@ -6,6 +6,7 @@
 #include "cipher/CryptoUtils.h"
 #include <string>
 #include "Utils/AscHex.h"
+#include "Public.h"
 
 using namespace std;
 
@@ -31,6 +32,12 @@ int FileOper::isFileExist(string filename) {
 	}
 }
 
+int FileOper::GetFileType(string filename) {
+
+	int attr = GetFileAttributesA(filename.c_str());
+	return attr;
+}
+
 
 int FileOper::getFileSize(string filename) {
 	FILE* fp = fopen(filename.c_str(), "rb");
@@ -46,7 +53,26 @@ int FileOper::getFileSize(string filename) {
 	return filesize;
 }
 
+int FileOper::FileSearchSet(string fn,char *tag,int taglen,char * data,int size) {
 
+	char* file = 0;
+	int fs = 0;
+	int ret = 0;
+	int result = 0;
+	ret = fileReader(fn, &file, &fs);
+	if (ret == 0) {
+		return 0;
+	}
+
+	char* ptr = SearchBinary(file, fs, tag, taglen);
+	if (ptr) {
+		memcpy(ptr, data, size);
+		ret = fileWriter(fn, file, fs, 1);
+		result = TRUE;
+	}
+	delete file;
+	return result;
+}
 
 string FileOper::getDateTime() {
 

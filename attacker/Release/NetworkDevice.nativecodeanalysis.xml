@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILENAME>NetworkDevice.cpp</FILENAME>
+      <LINE>115</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>6340</DEFECTCODE>
+    <DESCRIPTION>符号不匹配: 已将“unsigned int”作为 _Param_(6) 传递，但需要使用一些 signed 类型来调用“printf”。</DESCRIPTION>
+    <FUNCTION>NetworkDevice::DisplayNetCard</FUNCTION>
+    <DECORATED>?DisplayNetCard@NetworkDevice@@SAPAU_IP_ADAPTER_INFO@@PAH@Z</DECORATED>
+    <FUNCLINE>84</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILENAME>NetworkDevice.cpp</FILENAME>
+      <LINE>211</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>6303</DEFECTCODE>
+    <DESCRIPTION>格式字符串不匹配: 传递了宽字符字符串作为 _Param_(2)，而对“printf”的调用需要字符字符串，实际类型: “wchar_t *”。</DESCRIPTION>
+    <FUNCTION>GetAllAddress</FUNCTION>
+    <DECORATED>?GetAllAddress@@YAHAAV?$vector@KV?$allocator@K@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>168</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILENAME>NetworkDevice.cpp</FILENAME>
+      <LINE>217</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>6303</DEFECTCODE>
+    <DESCRIPTION>格式字符串不匹配: 传递了宽字符字符串作为 _Param_(2)，而对“printf”的调用需要字符字符串，实际类型: “wchar_t *”。</DESCRIPTION>
+    <FUNCTION>GetAllAddress</FUNCTION>
+    <DECORATED>?GetAllAddress@@YAHAAV?$vector@KV?$allocator@K@std@@@std@@@Z</DECORATED>
+    <FUNCLINE>168</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

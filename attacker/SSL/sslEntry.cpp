@@ -20,7 +20,7 @@
 #include "../cipher/CryptoUtils.h"
 #include "ImportCert.h"
 #include "opensslconfig.h"
-
+#include "../NetworkDevice.h"
 #include "MakeCert.h"
 
 #include "../FileOper.h"
@@ -28,7 +28,7 @@
 #include "InformerInterface.h"
 #include "../attacker.h"
 #include "SSLRetransfer.h"
-#include "../DnsUtils/DnsServer.h"
+#include "../DnsUtils/Dnsparser.h"
 
 #include "HttpProxy.h"
 #include "SSLProxy.h"
@@ -66,10 +66,12 @@ string			gOpensslPath = "";
 string			gOpensslWinPath = "";
 string			gOpensslRoot = "";
 
+vector <unsigned long> g_server_ip;
+
 //msvcr120.dll
 //libcrypto-1.1.dll
 //libssl-1.1.dll
-int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,string path,int control,vector<string>host, vector<string>target)
+int __cdecl SSLEntry::SslEntry(int control,vector<string>host, vector<string>target)
 {
 	int	ret = 0;
 
@@ -104,10 +106,12 @@ int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,stri
 
 	Deamon * deamon = new Deamon();
 
+	GetAllAddress(g_server_ip);
+
 	//DnsProxy *dnsproxy = new DnsProxy(serverIP);
 	//DnsProxyIPV6 *dnsproxyipv6 = new DnsProxyIPV6(serverIP);
 
-	DnsServer*dnssvr = new DnsServer();
+	DnsParser*dnssvr = new DnsParser();
 	
 	SSLPublic *sslpublic = new SSLPublic(host, target);
 
@@ -119,7 +123,7 @@ int __cdecl SSLEntry::SslEntry(unsigned long serverIP,unsigned long localIP,stri
 
 	KillProcessPort(443);
 
-	HttpProxyListener *httplistener = new HttpProxyListener();
+	//HttpProxyListener *httplistener = new HttpProxyListener();
 
 	SSLProxyListener *ssllistener = new SSLProxyListener();
 

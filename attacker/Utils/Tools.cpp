@@ -17,7 +17,7 @@
 
 //发现大量TIME_WAIT wait_close
 //netstat -an | find "TIME_WAIT" /C
-int Tools::setNetworkParams() {
+int Tools::setNetworkParameter() {
 	int ret = 0;
 
 	closeException();
@@ -26,20 +26,17 @@ int Tools::setNetworkParams() {
 	//该值的范围是从5000到65534，缺省值为5000，建议将该值设置为65534
 	//该项的缺省值是十进制的5000，这也是系统允许的最小值。Windows默认为匿名（临时）端口保留的端口号范围是从1024到5000。
 	//为了获得更高的并发量，建议将该值至少设为32768以上，甚至设为理论最大值65534
-	char maxportcmd[1024];
-	wsprintfA(maxportcmd,
-		"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"MaxUserPort\" /t REG_DWORD /d %u /f",
-		maxuserport);
-	ret = system(maxportcmd);
-	printf("set MaxUserPort:%u return:%u\r\n", maxuserport, ret);
+	char maxport[1024];
+	wsprintfA(maxport,
+		"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"MaxUserPort\" /t REG_DWORD /d %u /f",maxuserport);
+	ret = system(maxport);
 
 	//该项的缺省值是240，即等待4分钟后释放资源；系统支持的最小值为30，即等待时间为30秒
-	string timewaitcmdformat =
+	string timewaitformat =
 		"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"TcpTimedWaitDelay\" /t REG_DWORD /d %u /f";
-	char timewaitcmd[1024];
-	wsprintfA(timewaitcmd, timewaitcmdformat.c_str(), SOCKET_ALIVE_SECOND);
-	ret = system(timewaitcmd);
-	printf("set time_wait return:%u\r\n", ret);
+	char timewait[1024];
+	wsprintfA(timewait, timewaitformat.c_str(), SOCKET_ALIVE_SECOND);
+	ret = system(timewait);
 
 	//缺省情况下，如果空闲连接在7200000毫秒（2小时）内没有活动，系统就会发送保持连接的消息
 	// 通常建议把该值设为1800000毫秒，从而丢失的连接会在30分钟内被检测到
@@ -48,26 +45,21 @@ int Tools::setNetworkParams() {
 	char kpalive[1024];
 	wsprintfA(kpalive, kpaliveformat.c_str(), SOCKET_ALIVE_SECOND *1000);
 	ret = system(kpalive);
-	printf("set keep alive retcode:%u\r\n", ret);
 
-	
 	//KeepAliveInterval的值表示未收到另一方对“保持连接”信号的响应时，系统重复发送“保持连接”信号的频率。
 	//在无任何响应的情况下，连续发送“保持连接”信号的次数超过TcpMaxDataRetransmissions（下文将介绍）的值时，将放弃该连接
-	string kpaliveintervalformat =
+	string kpaInternalformat =
 		"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"KeepAliveInterval\" /t REG_DWORD /d %u /f";
-	char kpaliveinternalcmd[1024];
-	wsprintfA(kpaliveinternalcmd, kpaliveintervalformat.c_str(), SOCKET_ALIVE_SECOND * 1000);
-	ret = system(kpaliveinternalcmd);
-	printf("setalive internal retcode:%u\r\n", ret);
+	char kpaInternal[1024];
+	wsprintfA(kpaInternal, kpaInternalformat.c_str(), SOCKET_ALIVE_SECOND * 1000);
+	ret = system(kpaInternal);
 
 	//TcpMaxDataRetransmissions的值表示TCP数据重发，系统在现有连接上对无应答的数据段进行重发的次数
-	string tcpretransformat =
+	string retransformat =
 		"reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"TcpMaxDataRetransmissions\" /t REG_DWORD /d %u /f";
-	char tcpretrans[1024];
-	wsprintfA(tcpretrans, tcpretransformat.c_str(), 3);
-	ret = system(tcpretrans);
-	printf("set tcp retrransfer times retcode:%u\r\n", ret);
-
+	char retrans[1024];
+	wsprintfA(retrans, retransformat.c_str(), 3);
+	ret = system(retrans);
 	
 	//Default = RAM dependent, but usual Pro = 1000, Srv=2000
 	ret = system("reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"MaxFreeTcbs\" /t REG_DWORD /d 65536 /f");
@@ -76,9 +68,7 @@ int Tools::setNetworkParams() {
 	//该值的范围是从1到65536，并且必须为2的N次方，缺省值为处理器个数的平方，建议设为处理器核心数的4倍
 	ret = system("reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"MaxHashTableSize\" /t REG_DWORD /d 65536 /f");
 
-
 	ret = system("reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"TcpNumConnections\" /t REG_DWORD /d 16777214 /f");
-
 
 	//TCPWindowSize的值表示TCP的窗口大小。
 	//TCP Receive Window（TCP数据接收缓冲）定义了发送端在没有获得接收端的确认信息的状态下可以发送的最大字节数。
@@ -97,13 +87,11 @@ int Tools::setNetworkParams() {
 	//通过更加频繁地计算来提高RTT值的估测值，此选项特别有助于估测更长距离的广域网上连接的RTT值，并更加精确地调整TCP重发超时时间
 	//system("reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"TCP1323Opts\" /t REG_DWORD /d 65536 /f");
 
-
 	//TcpMaxConnectRetransmisstions的值表示TCP连接重发，TCP退出前重发非确认连接请求（SYN）的次数。对于每次尝试，重发超时是成功重发的两倍。
 	//在Windows Server 2003中默认超时次数是2，默认超时时间为3秒（在注册表项TCPInitialRTT中）
 	ret = system("reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"TcpMaxConnectRetransmisstions\" /t REG_DWORD /d 2 /f");
 
 	ret = system("reg add \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\Tcpip\\Parameters\" /v \"MaxDataRetries\" /t REG_DWORD /d 2 /f");
-
 	
 	//TcpAckFrequency的值表示系统发送应答消息的频率。
 	//如果值为2，那么系统将在接收到2个分段之后发送应答，或是在接收到1个分段但在200毫秒内没有接收到任何其他分段的情况下发送应答；
@@ -307,7 +295,7 @@ DWORD Tools::QueryRegistryValue(HKEY hMainKey, char * szSubKey, char * szKeyName
 	}
 }
 
-int Tools::addFirewallPort(unsigned int port, string name, string protocol) {
+int Tools::AllowFirewallPort(unsigned int port, string name, string protocol) {
 
 	//int iRet = WinExec("cmd /c net stop mpssvc",SW_HIDE);
 	//int iRet = WinExec("cmd /c netsh advfirewall set privateprofile state off",SW_HIDE);
@@ -320,11 +308,10 @@ int Tools::addFirewallPort(unsigned int port, string name, string protocol) {
 	int iRet = system(szCmd);
 	if (iRet)
 	{
-		printf("firewall open port:%u error\r\n", port);
+		printf("%s %d port:%u error\r\n",__FUNCTION__,__LINE__, port);
 		return FALSE;
 	}
 
-	printf("firewall open port:%u ok\r\n", port);
 	return 0;
 }
 

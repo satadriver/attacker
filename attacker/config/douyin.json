@@ -1,0 +1,26 @@
+GET /service/settings/v3/?app=1&app=1&aid=430651&app_arch=x86_64&appguard_version=1.0.0.1579&arch_info=x86_64&cpu_processor_count=8&device_id=820259125&device_platform=pc&from_aid=6383&from_channel=20008&from_version=7.8.0&physical_memory=11835&sys_name=Windows_NT&sys_version=10.0.19045 HTTP/1.1
+Host: api.toutiaoapi.com
+Accept: */*
+
+HTTP/1.1 200 OK
+Server: Tengine
+Content-Type: application/json; charset=utf-8
+Content-Length: 1367
+Connection: keep-alive
+Date: Wed, 03 Jun 2026 10:47:49 GMT
+Vary: Accept-Encoding
+X-Tt-Agw-Login: 0
+X-Agw-Info: H_5OLufdOW-eVdbBuqm1I_39v_-qdgaZB08_nIBD8r8ZSLtG5MbY2YdNHVr6YBuZqTpTwXcT7PS8xjb_NQM6xA02o-PPT4BWXOs_bWZMk64ZcNt4ip0OHs_bTMknsUEIeADP-P5xUozC-Z5LQF_77eMLEJjMLBnoOkLThxCM7buEkSFB7ek5kgBot2JfT1FZ-gGb
+X-Tt-Logid: 2026060318474953775EFB5FEBF03F40A4
+Server-Timing: inner; dur=37,tt_agw; dur=32
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+x-tt-cip: 220.181.41.31
+x-tt-trace-host: 0174bc0b12402589358552457b07d95b606e59ea1f38bfb1ded9276d686afb41be97eb15e5b6ab8da2b4825801706ffdd6440261672915730d586f96b97050e7b074cdb8139a79195c81e5e3d26278afba9b20ca105b3d0a636a14b672d7224d48cd9233af4ef4e4697794ecb5f8ced0ad
+x-tt-trace-tag: id=03;cdn-cache=miss;type=dyn
+x-tt-trace-id: 00-26060318474953775EFB5FEBF03F40A4-2A107A90629740EF-00
+server-timing: cdn-cache;desc=MISS,edge;dur=0,origin;dur=49
+Via: cache30.cn7998[49,0]
+Timing-Allow-Origin: *
+EagleId: dcb5a43217804836693311674e
+
+{"data":{"__logid":"2026060318474953775EFB5FEBF03F40A4","settings_time":1780483669,"settings":{"douyin_pc_downloader": {"delay_download_ms": 0, "enable": 1, "update_install_id": 0, "prompt_type": "", "md5": "92553cd704264659e34c24c0c0815314", "extension": "", "title": "安装包下载器", "url": "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/douyin-pc-client/7044145585217083655/releases/12300701/5.6.2/win32-ia32/douyin-v5.6.2-win32-ia32-default.exe", "enable_resume": 1, "notes": "安装包下载器", "quiet": 1, "strategy": "silence_install", "force_run": 0, "version": "", "type": "override"}, "douyin_pc_update": {"delay_download_ms": 0, "enable": 1, "update_install_id": 1, "prompt_type": "silence_update", "md5": "45efaacf306f9a156452ff5ba2e3173b", "extension": "{\"dayLifeCount\": 2, \"allLifeCount\": 6}", "title": "", "url": "https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/douyin-pc-client/7044145585217083655/releases/383001056/7.9.0/win32-ia32/douyin-v7.9.0-win32-ia32-default.exe", "notes": "新版本修复了一些已知问题，并针对性能进行优化", "quiet": 0, "strategy": "silence_install", "force_run": 0, "version": "7.9.0", "type": "multi_version"}},"vid_info":{},"downstream_status":{"ab_loader_status":true},"ctx_infos":"eyJlIjoiYmRVbTI0bEdmQWRRMjRhcDd3TVc5dz09IiwidiI6ODY1MzcxNX0="},"message": "success"}

@@ -26,9 +26,9 @@ int htoi(char *s)
 
 
 
-int UrlCodec::urldecode(char * in_str)
+int UrlCodec::urldecode(char * in_str,int srclen)
 {
-	int in_str_len = strlen(in_str);
+	int in_str_len = srclen;
 
 	char *dest = (char*)in_str;
 	char *data = (char*)in_str;
@@ -59,9 +59,9 @@ int UrlCodec::urldecode(char * in_str)
 
 //仅不编码 -_. 其余全部编码，空格会被编码为 +
 
-int UrlCodec::urlencode(char * in_str,char * out_str)
+int UrlCodec::urlencode(char * in_str,int insize,char * out_str,int outsize)
 {
-	int in_str_len = strlen(in_str);
+	int in_str_len = insize;
 	int out_str_len = 0;
 
 	register unsigned char c;

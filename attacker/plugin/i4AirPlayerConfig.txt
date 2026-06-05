@@ -1,0 +1,1 @@
+{"code":0,"msg":"Success","data":{"update":0,"newVersion":"%s","url":"%s","fileSize":0,"fileMd5":"","fileType":"xml","versionUpdateDate":"2026-05-08","versionUpdate":"版本:6.2.2.08 [2026-05-08 00:00]\n1、新增投屏窗口右侧工具栏窗口复位功能\n2、修改投屏窗口右侧工具栏UI大小\n3、优化部分功能模块\n4、修复部分已知Bug\n","lastchangesUrl":"","updateNoticePop":0}}

@@ -19,5 +19,5 @@ using namespace std;
 
 class Winpcap {
 public:
-	static pcap_t * init(string devname, int delay,unsigned long netmask);
+	static pcap_t * init(string devname,unsigned long netmask);
 };

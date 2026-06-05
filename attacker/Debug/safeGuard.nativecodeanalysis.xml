@@ -2,16 +2,16 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>safeGuard.cpp</FILENAME>
-      <LINE>155</LINE>
+      <LINE>177</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>6386</DEFECTCODE>
     <DESCRIPTION>写入到“pw”时缓冲区溢出: 可写大小为“256”个字节，但可能写入了“-1”个字节。</DESCRIPTION>
-    <FUNCTION>SafeGuard::loginCheck</FUNCTION>
-    <DECORATED>?loginCheck@SafeGuard@@SAHHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
-    <FUNCLINE>113</FUNCLINE>
+    <FUNCTION>SafeGuard::userCheck</FUNCTION>
+    <DECORATED>?userCheck@SafeGuard@@SAHHAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z</DECORATED>
+    <FUNCLINE>135</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -19,69 +19,69 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>115</LINE>
+        <LINE>137</LINE>
         <COLUMN>39</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>115</LINE>
+        <LINE>137</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>116</LINE>
+        <LINE>138</LINE>
         <COLUMN>38</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>116</LINE>
+        <LINE>138</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>118</LINE>
+        <LINE>140</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>120</LINE>
+        <LINE>142</LINE>
         <COLUMN>60</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>125</LINE>
+        <LINE>147</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>126</LINE>
+        <LINE>148</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>136</LINE>
+        <LINE>158</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>139</LINE>
+        <LINE>161</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>140</LINE>
+        <LINE>162</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -91,9 +91,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>141</LINE>
+        <LINE>163</LINE>
         <COLUMN>10</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -103,33 +103,33 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>143</LINE>
+        <LINE>165</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>145</LINE>
+        <LINE>167</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>146</LINE>
+        <LINE>168</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>149</LINE>
+        <LINE>171</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>150</LINE>
+        <LINE>172</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -139,9 +139,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>154</LINE>
+        <LINE>176</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -151,9 +151,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>safeGuard.cpp</FILENAME>
-        <LINE>155</LINE>
+        <LINE>177</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>5</ID>

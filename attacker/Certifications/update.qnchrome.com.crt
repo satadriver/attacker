@@ -1,0 +1,64 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 86 (0x56)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
+        Validity
+            Not Before: Jun  5 07:12:03 2026 GMT
+            Not After : Jun  2 07:12:03 2036 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=update.qnchrome.com/emailAddress=www.digicert.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (1024 bit)
+                Modulus:
+                    00:ee:36:6f:23:38:69:34:ce:0a:86:bc:59:0c:e8:
+                    02:bf:f0:0d:01:b8:e1:df:de:0e:54:0c:0f:59:84:
+                    8c:7e:06:2b:63:a9:89:08:f0:ab:5b:85:5a:c8:92:
+                    ee:a1:17:a5:b6:4a:19:df:75:1b:af:0e:24:3c:33:
+                    6f:4f:cd:b8:76:5c:01:3b:ba:cb:70:e6:76:99:72:
+                    10:21:0c:8c:00:9f:c9:51:49:95:e0:97:92:dc:aa:
+                    46:92:01:21:c3:90:28:1b:07:de:d7:4b:83:b1:55:
+                    c6:7e:2b:5d:80:2a:1a:32:7f:3e:b5:26:39:50:80:
+                    90:a0:ba:5f:2b:e2:f9:c6:27
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:update.qnchrome.com
+    Signature Algorithm: sha256WithRSAEncryption
+         80:1f:5c:19:60:d8:98:45:14:c5:c7:84:a0:49:6f:4f:e6:c0:
+         75:cb:4a:50:c5:64:42:d1:c7:12:da:d0:f4:bf:93:c1:1b:43:
+         b0:d2:8d:7d:aa:10:df:7f:54:d9:34:40:57:df:89:2c:e6:14:
+         28:7f:45:80:12:ed:a5:49:40:60:76:04:47:f5:04:c7:a3:69:
+         b3:94:0a:73:04:39:42:ed:31:f4:6a:b7:25:9b:7d:d4:7f:9e:
+         cf:71:44:a3:03:c0:bc:63:9a:7a:b1:99:57:f9:60:0c:6a:62:
+         ca:f4:d2:4d:28:32:30:d1:d8:05:09:11:83:a0:b7:bd:3d:ef:
+         ef:e2:de:38:a4:e7:72:71:6a:9e:e9:e5:3e:82:d7:8e:e4:0f:
+         e8:cf:29:32:8f:51:f2:0f:1e:30:f2:a5:01:8f:06:e8:1d:c7:
+         86:6a:c6:a3:d7:0f:1c:b4:ff:f2:36:95:60:41:f8:68:5c:ef:
+         44:d5:5f:d2:7e:f9:a0:e8:c3:98:78:c4:7e:71:51:c2:1c:ac:
+         35:97:94:cd:59:ae:f0:2d:ef:34:07:81:e5:79:ef:2f:75:5d:
+         dc:85:af:7e:98:30:14:50:6a:42:b2:08:31:d1:c6:89:0f:c1:
+         13:13:de:2e:bb:a0:87:de:7c:ab:09:dc:5f:5a:77:76:5e:aa:
+         b7:ef:09:85
+-----BEGIN CERTIFICATE-----
+MIIDcTCCAlmgAwIBAgIBVjANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
+VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
+BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYwNTA3MTIwM1oXDTM2MDYwMjA3MTIwM1ow
+gakxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
+b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
+ZGlnaWNlcnQuY29tMRwwGgYDVQQDDBN1cGRhdGUucW5jaHJvbWUuY29tMR8wHQYJ
+KoZIhvcNAQkBFhB3d3cuZGlnaWNlcnQuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GN
+ADCBiQKBgQDuNm8jOGk0zgqGvFkM6AK/8A0BuOHf3g5UDA9ZhIx+BitjqYkI8Ktb
+hVrIku6hF6W2ShnfdRuvDiQ8M29Pzbh2XAE7ustw5naZchAhDIwAn8lRSZXgl5Lc
+qkaSASHDkCgbB97XS4OxVcZ+K12AKhoyfz61JjlQgJCgul8r4vnGJwIDAQABoyIw
+IDAeBgNVHREEFzAVghN1cGRhdGUucW5jaHJvbWUuY29tMA0GCSqGSIb3DQEBCwUA
+A4IBAQCAH1wZYNiYRRTFx4SgSW9P5sB1y0pQxWRC0ccS2tD0v5PBG0Ow0o19qhDf
+f1TZNEBX34ks5hQof0WAEu2lSUBgdgRH9QTHo2mzlApzBDlC7TH0arclm33Uf57P
+cUSjA8C8Y5p6sZlX+WAMamLK9NJNKDIw0dgFCRGDoLe9Pe/v4t44pOdycWqe6eU+
+gteO5A/ozykyj1HyDx4w8qUBjwboHceGasaj1w8ctP/yNpVgQfhoXO9E1V/Sfvmg
+6MOYeMR+cVHCHKw1l5TNWa7wLe80B4Hlee8vdV3cha9+mDAUUGpCsggx0caJD8ET
+E94uu6CH3nyrCdxfWnd2Xqq37wmF
+-----END CERTIFICATE-----

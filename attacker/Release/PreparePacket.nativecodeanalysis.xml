@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILENAME>PreparePacket.cpp</FILENAME>
+      <LINE>150</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6283</DEFECTCODE>
+    <DESCRIPTION>“buf”使用数组 new [] 分配，但使用标量 delete 删除。</DESCRIPTION>
+    <FUNCTION>PreparePacket::prepareIqiyi</FUNCTION>
+    <DECORATED>?prepareIqiyi@PreparePacket@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAUHTTPPROXYPARAM@@@Z</DECORATED>
+    <FUNCLINE>129</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILENAME>PreparePacket.cpp</FILENAME>
+        <LINE>132</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILENAME>PreparePacket.cpp</FILENAME>
+        <LINE>150</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

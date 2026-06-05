@@ -73,10 +73,15 @@ int SSLProxy::SSL_ProxyMain(LPSSLPROXYPARAM spp) {
 	}
 
 	DWORD dwip = HttpUtils::getIPFromHost(spp->host);
-	if (dwip == 0 || dwip == gServerIP || dwip == gLocalIP) {
+	if (dwip == 0 ) {
 #ifdef _DEBUG
 		//log( "[%s %d]getIPFromHost:%s error\r\n",__FUNCTION__,__LINE__, spp->host);
 #endif
+		return FALSE;
+	}
+
+	if (IsInternalAddress(dwip, spp->host)) {
+		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		return FALSE;
 	}
 
@@ -255,13 +260,15 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 			iRet = getServerNameFromClientHello(szpeekbuf, peeklen,( char*)spp->host, spp->version);
 			if (iRet > 0)
 			{
-				iRet = SSLPublic::isTargetHost(spp->host);
-				if (iRet )
-				{
-				}
-				else {
-					return FALSE;
-					//return SSLRetransfer::RetransferProxyMain((LPHTTPPROXYPARAM)pstSSLProxyParam);
+				if (0) {
+					iRet = SSLPublic::isTargetHost(spp->host);
+					if (iRet)
+					{
+					}
+					else {
+						return FALSE;
+						//return SSLRetransfer::RetransferProxyMain((LPHTTPPROXYPARAM)pstSSLProxyParam);
+					}
 				}
 			}
 			else if (iRet == 0) {
@@ -377,8 +384,8 @@ int SSLProxy::SSL_ProxyClient(LPSSLPROXYPARAM spp) {
 	iRet = SSL_accept(spp->SSLToClient);
 	if (iRet != 1)
 	{
-		printf("[%s %d]SSL_accept %s error:%d,state string:%s,description:%s,return:%d\n", __FUNCTION__, __LINE__, spp->host,
-			SSL_get_error(spp->SSLToClient, iRet), SSL_state_string(spp->SSLToClient),SSL_state_string_long(spp->SSLToClient), iRet);
+		//printf("[%s %d]SSL_accept %s error:%d,state string:%s,description:%s,return:%d\n", __FUNCTION__, __LINE__, spp->host,
+		//	SSL_get_error(spp->SSLToClient, iRet), SSL_state_string(spp->SSLToClient),SSL_state_string_long(spp->SSLToClient), iRet);
 		return FALSE;
 	}
 
@@ -529,7 +536,7 @@ int SSLProxy::getServerNameFromClientHello(char * data, int len,char * host, int
 
 		}
 		else {
-			log("[%s %d]client hello major version:%u,minor version:%u,handshake major version:%u,sub version:%u\r\n",
+			log("[%s %d]client hello major version:%u,minor version:%u,handshake major version:%u,sub version:%u\r\n", __FUNCTION__, __LINE__,
 				mainver,subver, hsmainver, hssubver);
 		}
 	}

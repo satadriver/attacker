@@ -1,0 +1,63 @@
+GET /product/QYAppPlugin/webview2/webview2pro.cfg HTTP/1.1
+Host: dl-static.iqiyi.com
+Accept: */*
+X-B3-TraceId: 3ddc95eafc9dd668019e85e78c010f8e
+X-B3-SpanId: ce6878c411a0e72f
+X-B3-Sampled: 0
+User-Agent: QTP;QTP/2.0.138.1
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 02 Jun 2026 01:16:40 GMT
+Content-Type: application/octet-stream
+Content-Length: 1213
+Connection: keep-alive
+Last-Modified: Wed, 13 May 2026 08:35:40 GMT
+Cache-Control: max-age=1800
+Age: 1543
+Accept-Ranges: bytes
+Content-Disposition: attachment;filename="webview2pro.cfg"
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+X-Cache: EXPIRED from QWS-61-225-73
+Ohc-Global-Saved-Time: Tue, 02 Jun 2026 00:50:37 GMT
+Ohc-Cache-HIT: zz11ct56 [2], wzix67 [2]
+Ohc-File-Size: 1213
+X-Cache-Status: HIT
+alt-svc: h3-29="opencdnh3.jomodns.com:443"; ma=300
+
+{
+	"version": "109.0.1518.78",
+	"installer": {
+		"x64": {
+			"url": "https://dl-static.iqiyi.com/product/QYAppPlugin/webview2/109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
+			"size": 145772880,
+			"md5": "10de434605516b8ea70f49757ccc2ff8"
+		},
+		"x86": {
+			"url": "https://dl-static.iqiyi.com/product/QYAppPlugin/webview2/109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX86.exe",
+			"size": 133220176,
+			"md5": "f68874daf244c15f1e0ba84023903f89"
+		}
+	},
+	"fixedversion": {
+		"x64": {
+			"url": "https://dl-static.iqiyi.com/product/QYAppPlugin/webview2/109.0.1518.78/MicrosoftEdgeWebView2FixedVersionRuntimeX64.7z",
+			"size": 149010675,
+			"md5": "cf7cfde56620b4d965cf1490b0c422f6"
+		},
+		"x86": {
+			"url": "https://dl-static.iqiyi.com/product/QYAppPlugin/webview2/109.0.1518.78/MicrosoftEdgeWebView2FixedVersionRuntimeX86.7z",
+			"size": 135661836,
+			"md5": "f69e59e23c971f988cbc169454fe6fb6"
+		}
+	},
+	"liteversion": {
+		"x64": {
+			"url": "https://dl-static.iqiyi.com/product/QYAppPlugin/webview2/109.0.1518.78/MicrosoftEdgeWebView2FixedVersionRuntimeLiteX64.7z",
+			"size": 125937917,
+			"md5": "254b9acf28cad553d1324303de572927",
+			"ratio": 50
+		}
+	}
+}

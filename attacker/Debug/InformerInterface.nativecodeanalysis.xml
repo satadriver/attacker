@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>InformerInterface.cpp</FILENAME>
       <LINE>83</LINE>
       <COLUMN>12</COLUMN>
@@ -19,49 +19,49 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>70</LINE>
         <COLUMN>39</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>72</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>74</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>76</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>78</LINE>
         <COLUMN>21</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>80</LINE>
         <COLUMN>26</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>82</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>83</LINE>
         <COLUMN>12</COLUMN>
@@ -73,7 +73,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
         <FILENAME>InformerInterface.cpp</FILENAME>
         <LINE>83</LINE>
         <COLUMN>12</COLUMN>

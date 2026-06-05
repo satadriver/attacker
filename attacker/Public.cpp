@@ -29,6 +29,45 @@ int Public::zipFile(string inzipfn, string srcfn, string zipfn) {
 	return FALSE;
 }
 
+// 这是一个递归遍历文件夹并添加文件的函数框架
+void AddFolderToZip(HZIP hz, const string& realFolderPath, const string& pathInsideZip) {
+	WIN32_FIND_DATA findData;
+	string searchPath = realFolderPath + "\\*.*";
+	HANDLE hFind = FindFirstFile(searchPath.c_str(), &findData);
+
+	if (hFind == INVALID_HANDLE_VALUE) return;
+
+	do {
+		// 跳过当前目录(.)和上级目录(..)的标记
+		if (strcmp(findData.cFileName, ".") == 0 || strcmp(findData.cFileName, "..") == 0) {
+			continue;
+		}
+
+		string fullRealPath = realFolderPath + "\\" + findData.cFileName;
+		string fullZipPath = pathInsideZip + "\\" + findData.cFileName;
+
+		// 关键判断：如果是目录，就递归调用自己
+		if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
+			// 重要：先在zip里创建一个"目录项"，这样解压后目录结构才完整
+			ZipAddFolder(hz, fullZipPath.c_str());
+			// 递归处理子文件夹
+			AddFolderToZip(hz, fullRealPath, fullZipPath);
+		}
+		else {
+			// 是文件，就调用 ZipAdd 添加
+			ZipAdd(hz, fullZipPath.c_str(), fullRealPath.c_str());
+		}
+	} while (FindNextFile(hFind, &findData));
+
+	FindClose(hFind);
+}
+
+int Public::zipFolder(string izname, string srcpath, string zipfn) {
+	HZIP hz = CreateZip(zipfn.c_str(), 0);
+	AddFolderToZip(hz, srcpath.c_str(), izname); // 将 C:\MyFolder 打包，内部文件夹名为 MyFolder
+	CloseZip(hz);
+	return 0;
+}
 
 int Public::zipFiles(vector<string> inzipfns, vector<string> srcfns, string zipfn) {
 	ZRESULT ret = 0;
@@ -505,3 +544,26 @@ int Public::isPrivateIPAddress(DWORD dwip) {
 
 	return FALSE;
 }
+
+
+
+char* SearchBinary(char* data, int size, char* hdr, int hdrlen) {
+	int len = size - hdrlen;
+	for (int i = 0; i <= len; i++) {
+		if (memcmp(data + i, hdr, hdrlen) == 0) {
+			return data + i;
+		}
+	}
+	return 0;
+}
+
+
+string GetMainFileName(string fn) {
+	int pos = fn.find(".");
+	if (pos != -1) {
+		return fn.substr(0, pos);
+	}
+	return fn;
+}
+
+

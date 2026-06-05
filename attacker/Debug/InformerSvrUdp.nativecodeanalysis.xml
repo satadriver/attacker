@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
       <FILENAME>InformerSvrUdp.cpp</FILENAME>
       <LINE>18</LINE>
       <COLUMN>12</COLUMN>
@@ -19,19 +19,19 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>InformerSvrUdp.cpp</FILENAME>
         <LINE>16</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>InformerSvrUdp.cpp</FILENAME>
         <LINE>17</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>InformerSvrUdp.cpp</FILENAME>
         <LINE>18</LINE>
         <COLUMN>12</COLUMN>
@@ -43,7 +43,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>InformerSvrUdp.cpp</FILENAME>
         <LINE>18</LINE>
         <COLUMN>12</COLUMN>

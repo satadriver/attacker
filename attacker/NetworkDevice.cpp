@@ -39,7 +39,9 @@ string NetworkDevice::ChooseNetcard(unsigned long* localip, unsigned long* mask,
 	}
 
 	PIP_ADAPTER_INFO pAdapter = GetNetCardAdapter(padpterInfo, cardNum - 1);
-
+	if (pAdapter == 0) {
+		return "";
+	}
 	string adaptername = pAdapter->AdapterName;
 	*localip = inet_addr(pAdapter->IpAddressList.IpAddress.String);
 	*mask = inet_addr(pAdapter->IpAddressList.IpMask.String);
@@ -68,7 +70,7 @@ string NetworkDevice::ChooseNetcard(unsigned long* localip, unsigned long* mask,
 		HttpUtils::getmac(mac).c_str(), HttpUtils::getIPstr(*mask).c_str(),
 		HttpUtils::getIPstr(*gate).c_str());
 
-	char cardno[1024];
+	char cardno[256];
 	//int cardnolen = wsprintfA(szcardno, "%d", cardNum);
 	//FileOper::fileWriter(NETCARD_SELECTED_FILE, (const char*)szcardno, cardnolen, TRUE);
 	wsprintfA(cardno, "%d", cardNum);
@@ -161,4 +163,67 @@ PIP_ADAPTER_INFO NetworkDevice::GetNetCardAdapter(PIP_ADAPTER_INFO pAdapterInfo,
 }
 
 
+#include <ws2tcpip.h>
 
+int GetAllAddress(vector<unsigned long> &ips) {
+
+	ULONG bufferSize = sizeof(PIP_ADAPTER_ADDRESSES);
+	PIP_ADAPTER_ADDRESSES pAddresses = (PIP_ADAPTER_ADDRESSES)malloc(bufferSize);
+	if (pAddresses == NULL) {
+		log("%s %d error\r\n",__FUNCTION__,__LINE__);
+		return -1;
+	}
+
+	DWORD result = GetAdaptersAddresses(
+		AF_UNSPEC,          
+		GAA_FLAG_INCLUDE_PREFIX,
+		NULL,
+		pAddresses,
+		&bufferSize
+	);
+
+	if (result == ERROR_BUFFER_OVERFLOW) {
+		free(pAddresses);
+		pAddresses = (PIP_ADAPTER_ADDRESSES)malloc(bufferSize);
+		if (pAddresses == NULL) {
+			log("%s %d error\r\n", __FUNCTION__, __LINE__);
+			return 1;
+		}
+		result = GetAdaptersAddresses(AF_UNSPEC, GAA_FLAG_INCLUDE_PREFIX, NULL, pAddresses, &bufferSize);
+	}
+
+	if (result != NO_ERROR) {
+		log("%s %d error\r\n", __FUNCTION__, __LINE__);
+		free(pAddresses);
+		return -1;
+	}
+
+	PIP_ADAPTER_ADDRESSES pAdapter = pAddresses;
+	while (pAdapter) {
+		if (pAdapter->OperStatus == IfOperStatusUp) {
+			PIP_ADAPTER_UNICAST_ADDRESS pUnicast = pAdapter->FirstUnicastAddress;
+			while (pUnicast) {
+				char ipAddress[INET6_ADDRSTRLEN];
+				SOCKADDR* pSockAddr = pUnicast->Address.lpSockaddr;
+				if (pSockAddr->sa_family == AF_INET) {
+					struct sockaddr_in* pIPv4 = (struct sockaddr_in*)pSockAddr;
+					inet_ntop(AF_INET, &(pIPv4->sin_addr), ipAddress, INET6_ADDRSTRLEN);
+					printf("%-20s %-15s %-10s\n", pAdapter->FriendlyName, ipAddress, "IPv4");
+					ips.push_back(pIPv4->sin_addr.S_un.S_addr);
+				}
+				else if (pSockAddr->sa_family == AF_INET6) {
+					struct sockaddr_in6* pIPv6 = (struct sockaddr_in6*)pSockAddr;
+					inet_ntop(AF_INET6, &(pIPv6->sin6_addr), ipAddress, INET6_ADDRSTRLEN);
+					printf("%-20s %-15s %-10s\n", pAdapter->FriendlyName, ipAddress, "IPv6");
+					//ips.push_back(pIPv6->sin6_addr.u);
+				}
+
+				pUnicast = pUnicast->Next;
+			}
+		}
+		pAdapter = pAdapter->Next;
+	}
+
+	free(pAddresses);
+	return 0;
+}

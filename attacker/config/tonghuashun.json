@@ -1,0 +1,23 @@
+GET /d/client/auto_renewal/external/get_latest_update_package?local_version=9.40.70.0088&app_code=tyb&trigger_type=auto&systembit=64 HTTP/1.1
+Host: apigate.10jqka.com.cn
+Accept: */*
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Thu, 04 Jun 2026 10:36:52 GMT
+Server: Stargate
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,POST,PUT,DELETE,PATCH,HEAD,OPTIONS,CONNECT,TRACE
+Access-Control-Max-Age: 3600
+Access-Control-Expose-Headers: **
+Access-Control-Allow-Credentials: true
+Vary: Accept-Encoding
+X-Cache: MISS from cachemd5210.10jqka.com.cn
+Via: 1.1 cachemd5210.10jqka.com.cn (squid), http/1.1 cacheyzdx49-155.10jqka.com.cn (ApacheTrafficServer/10.0.3 [cMsSf ])
+Age: 0
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+408
+{"data":{"package_version":"9.50.90.0038","package_type":"40","package_strategy":"normal","package_desc":"[新增]同花顺指数盘口支持编辑并新增系统模块；港美股新增异动解读； \n[优化]热点复盘放开至工具栏； \n[修复]部分已知线上问题修复；","app_code":"tyb","file_info":{"checksum":"6a064eac2b0e23c6567448d7d0c9206a","file_name":"THS_v9.50.90.0038_UPDATA_OUTTER_20260409.exe","file_address":["http://sp.thsi.cn/tyb_client_normal/THS_v9.50.90.0038_UPDATA_OUTTER_20260409.exe"]},"result_flow":"white(177)[not in white]->white(171)[not in white]->inner(28)[not in inner]->grey(175)[not in grey]->grey(173)[not in grey]->grey(174)[not in grey]->regular(168)[hit]","company_site_url":"http://download.10jqka.com.cn/index/download/id/7/","newest_install_package_address":"http://download.10jqka.com.cn/index/download/id/7/","target_version_install_package_address":"http://sp.thsi.cn/tyb_client_normal/THS_v9.50.90.0038_UPDATA_OUTTER_20260409.exe"},"status_code":0,"status_msg":"success"}
+0

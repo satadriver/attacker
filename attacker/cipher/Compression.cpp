@@ -6,6 +6,8 @@
 #include "compression.h"
 #include "../FileOper.h"
 #include "../Public.h"
+#include <cstdlib>
+#include <string>
 
 /* Compress data */
 int Compress::zcompress(Bytef *data, uLong ndata, Bytef *zdata, uLong *nzdata)
@@ -298,17 +300,15 @@ int Compress::gzdecompress(Byte *zdata, uLong nzdata, Byte *data, uLong *ndata)
 
 
 
-int MakeCab(char* outfn, char* infn, char* incabfn) {
-	char cmd[1024];
+int MakeCab(char* outfn, char* infn) {
+	
 	int len = 0;
 	int ret = 0;
-	ret = CopyFileA(infn, incabfn, TRUE);
 
-	len = wsprintfA(cmd, "makecab \"%s\" \"%s\"", incabfn, outfn);
+	char cmd[1024];
+	len = wsprintfA(cmd, "makecab \"%s\" \"%s\"", infn, outfn);
 
 	ret = system(cmd);
-
-	DeleteFileA(incabfn);
 
 	return ret == 0;
 }
@@ -316,18 +316,36 @@ int MakeCab(char* outfn, char* infn, char* incabfn) {
 
 
 
+int CompressToCab(const std::string& sourcePath, const std::string& outputCab) {
+	// ππΩ®7z√¸¡Ó––
+	std::string cmd = "7z.exe a -tcab \"" + outputCab + "\" \"" + sourcePath + "\"";
 
-int Compress7z(char* outfn,char* infn,char * in7zfn) {
-	char cmd[1024];
+	// ÷¥––—πÀı
+	int ret = system(cmd.c_str());
+
+	if (ret == 0) {
+		std::cout << "CAB—πÀı≥…π¶£°" << std::endl;
+	}
+	else {
+		std::cerr << "CAB—πÀı ß∞‹£¨¥ÌŒÛ¬Î£∫" << ret << std::endl;
+	}
+
+	return ret;
+}
+
+
+
+
+
+
+int Compress7z(char* outfn,char* infn) {
+	
 	int len = 0;
 	int ret = 0;
-	ret = CopyFileA(infn, in7zfn,TRUE);
-
-	len = wsprintfA(cmd, "7z.exe -t7z \"%s\" \"%s\"", outfn, in7zfn);
+	char cmd[1024];
+	len = wsprintfA(cmd, "7z.exe a -t7z \"%s\" \"%s\"", outfn, infn);
 
 	ret = system(cmd);
-
-	DeleteFileA(in7zfn);
 
 	return ret == 0;
 }

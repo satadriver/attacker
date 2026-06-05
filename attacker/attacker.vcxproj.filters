@@ -186,7 +186,7 @@
     <ClInclude Include="DnsUtils\dnsUtils.h">
       <Filter>头文件\DnsUtils</Filter>
     </ClInclude>
-    <ClInclude Include="DnsUtils\DnsServer.h">
+    <ClInclude Include="DnsUtils\DnsParser.h">
       <Filter>头文件\DnsUtils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Tools.h">
@@ -216,7 +216,7 @@
     <ClInclude Include="cipher\RSA.h">
       <Filter>头文件\cipher</Filter>
     </ClInclude>
-    <ClInclude Include="cipher\sha1.h">
+    <ClInclude Include="cipher\sha.h">
       <Filter>头文件\cipher</Filter>
     </ClInclude>
     <ClInclude Include="cipher\UrlCodec.h">
@@ -428,7 +428,7 @@
     <ClCompile Include="DnsUtils\dnsUtils.cpp">
       <Filter>源文件\DnsUtils</Filter>
     </ClCompile>
-    <ClCompile Include="DnsUtils\DnsServer.cpp">
+    <ClCompile Include="DnsUtils\DnsParser.cpp">
       <Filter>源文件\DnsUtils</Filter>
     </ClCompile>
     <ClCompile Include="Utils\Tools.cpp">
@@ -449,7 +449,7 @@
     <ClCompile Include="cipher\RSA.cpp">
       <Filter>源文件\cipher</Filter>
     </ClCompile>
-    <ClCompile Include="cipher\sha1.cpp">
+    <ClCompile Include="cipher\sha.cpp">
       <Filter>源文件\cipher</Filter>
     </ClCompile>
     <ClCompile Include="cipher\UrlCodec.cpp">

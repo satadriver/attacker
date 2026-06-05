@@ -5,9 +5,9 @@
 #include <conio.h>
 #include "Utils/Tools.h"
 
-pcap_t* Winpcap::init(string devname, int delay, unsigned long netmask) {
+pcap_t* Winpcap::init(string devname, unsigned long netmask) {
 	int ret = 0;
-	delay = 0;
+	int delay = 0;
 	char errBuf[PCAP_ERRBUF_SIZE ] = { 0 };
 	pcap_t* pcapt = 0;
 	if (1) {

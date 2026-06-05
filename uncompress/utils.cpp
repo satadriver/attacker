@@ -17,7 +17,7 @@ int isHttpResponse(const char* lpdata) {
 
 }
 
-string getHttpHeader(const char* data, int len, char** lphttpdata) {
+string SplitHttpPacket(const char* data, int len, char** lphttpdata) {
 
 	char* lphdr = strstr((char*)data, "\r\n\r\n");
 	if (lphdr == FALSE)
@@ -198,15 +198,22 @@ int unzipWrite(HANDLE hfout, char* data, int size) {
 }
 
 
-int TestVersion(char * httphdr) {
+int TestVersion(char * packet,int len) {
 
 	int ret = 0;
 
-	string host = getValueFromKey(httphdr, "Host");
+	char* httpdata = 0;
+	string httphdr = SplitHttpPacket(packet, len, &httpdata);
+	int httpdatalen = 0;
+	if(httpdata)
+		httpdatalen=strlen(httpdata);
+
+	string host = getValueFromKey(httphdr.c_str(), "Host");
 
 	hostent* pHostent = gethostbyname(host.c_str());
 	if (pHostent == 0)
 	{
+		printf("host:%s can not be resolved\r\n", host.c_str());
 		return 0;
 	}
 	ULONG  pPIp = *(DWORD*)((CHAR*)pHostent + sizeof(hostent) - sizeof(DWORD_PTR));
@@ -216,6 +223,7 @@ int TestVersion(char * httphdr) {
 	int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (sock < 0)
 	{
+		printf("socket error\r\n");
 		return -1;
 	}
 
@@ -227,12 +235,14 @@ int TestVersion(char * httphdr) {
 	ret = connect(sock, (sockaddr*)&sa, sizeof(sockaddr_in));
 	if (ret < 0)
 	{
+		printf("connect error\r\n");
 		closesocket(sock);
 		return -1;
 	}
 
-	int sendlen = send(sock, httphdr, strlen(httphdr), 0);
+	int sendlen = send(sock, packet, len, 0);
 	if (sendlen <= 0) {
+		printf("send error\r\n");
 		closesocket(sock);
 		return -1;
 	}
@@ -242,8 +252,9 @@ int TestVersion(char * httphdr) {
 	int recvlen = recv(sock, recvbuf,recvbufsize,0);
 	closesocket(sock);
 
-	if (recvlen < 0)
+	if (recvlen <= 0)
 	{	
+		printf("recv error\r\n");
 		return -1;
 	}
 	
@@ -253,6 +264,8 @@ int TestVersion(char * httphdr) {
 	FileOper::fileWriter("version_out.txt", recvbuf, recvlen,1);
 	return 0;
 }
+
+
 int SplitFileName(char* fn,int * filepos,int *surfix_pos) {
 	int len = strlen(fn);
 	*filepos = -1;
@@ -269,4 +282,53 @@ int SplitFileName(char* fn,int * filepos,int *surfix_pos) {
 	if(*filepos == -1)
 		*filepos = 0;
 	return 0;
+}
+
+
+int isAscIP(string ip) {
+	if (ip.length() >= 16) {
+		return 0;
+	}
+	int len = 0;
+	int num = 0;
+	char str[16];
+	int prev_pos = 0;
+	for (DWORD j = 0; j < ip.length(); j++)
+	{
+		char c = ip.at(j);
+		if (c >= '0' && c <= '9')
+		{
+			str[len++] = c;
+			if (len > 3) {
+				return FALSE;
+			}
+			continue;
+		}
+		else if (c == '.') {
+			num++;
+			if (j == 0 || (prev_pos - j == 1)) {
+				return FALSE;
+			}
+			if (len >= 3 && str[0] > '2') {
+				return FALSE;
+			}
+			else if (len >= 3 && str[0] == '2' && str[1] >= '6') {
+				return FALSE;
+			}
+			else if (len >= 3 && str[0] == '2' && str[1] == '5' && str[2] >= '6') {
+				return FALSE;
+			}
+			len = 0;
+
+			prev_pos = j;
+		}
+		else {
+			return FALSE;
+		}
+	}
+
+	if (num != 3) {
+		return FALSE;
+	}
+	return TRUE;
 }

@@ -85,7 +85,8 @@ string GetUserPassFromStr(string src) {
 }
 
 
-int SafeGuard::signCheck(string  tag,string user,string pass,string sign) {
+int SafeGuard::signCheck(string  tag,string user,string pass,string sign,int flag) {
+	//return 0;
 
 	int ret = 0;
 	char md5[64] = { 0 };
@@ -96,21 +97,42 @@ int SafeGuard::signCheck(string  tag,string user,string pass,string sign) {
 	lstrcatA(str, pass.c_str());
 	lstrcatA(str, g_macsalt);
 	CryptoUtils::getDataMd5((char*)str, strlen(str), md5, 1);
-	if (md5 == sign) {
-		ret = TRUE;
-	}
-	if (sign == "") {
+
+	if (flag == 0) {
 		Config::reviseConfig(CONFIG_FILENAME, "sign", md5);
 		ret = TRUE;
 	}
+	if (md5 == sign) {
+		ret = TRUE;
+	}
+
 	if (ret == 0) {
+		log("check sign error\r\n");
 		exit(0);
 	}
 	return ret;
 }
 
 
-int SafeGuard::loginCheck(int mode,string user,string pass) {
+void LoginCheck(int mode,string username,string password,string sign) {
+	int tag = 1;
+	if (username == "" && password == "" && sign == "") {
+		tag = 0;
+	}
+
+	int ret = 0;
+	ret = SafeGuard::userCheck(gAttackMode, username, password);
+
+	char computerName[MAX_PATH] = { 0 };
+	DWORD namelen = sizeof(computerName);
+	GetComputerNameA(computerName, &namelen);
+	
+	SafeGuard::signCheck(computerName, username, password, sign,tag);
+	return;
+}
+
+
+int SafeGuard::userCheck(int mode,string& user,string& pass) {
 
 	string password = GetUserPassFromStr( g_password);
 	string username = GetUserPassFromStr(g_username);
@@ -119,7 +141,7 @@ int SafeGuard::loginCheck(int mode,string user,string pass) {
 
 	if (mode == ATTACK_TEST_MODE || mode == ATTACK_CLIENT_MODE || mode == ATTACK_STANDBY_MODE)
 	{
-		return TRUE;
+		//return TRUE;
 	}
 
 	char usermd5[256] = { 0 };
@@ -198,6 +220,7 @@ int SafeGuard::loginCheck(int mode,string user,string pass) {
 	{
 		Config::reviseConfig(CONFIG_FILENAME, "username", usermd5);
 	}
-
+	user = usermd5;
+	pass = passmd5;
 	return TRUE;
 }

@@ -1,0 +1,64 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 27 (0x1b)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
+        Validity
+            Not Before: Jun  5 05:41:15 2026 GMT
+            Not After : Jun  2 05:41:15 2036 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=dict-trans.youdao.com/emailAddress=www.digicert.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (1024 bit)
+                Modulus:
+                    00:ee:36:6f:23:38:69:34:ce:0a:86:bc:59:0c:e8:
+                    02:bf:f0:0d:01:b8:e1:df:de:0e:54:0c:0f:59:84:
+                    8c:7e:06:2b:63:a9:89:08:f0:ab:5b:85:5a:c8:92:
+                    ee:a1:17:a5:b6:4a:19:df:75:1b:af:0e:24:3c:33:
+                    6f:4f:cd:b8:76:5c:01:3b:ba:cb:70:e6:76:99:72:
+                    10:21:0c:8c:00:9f:c9:51:49:95:e0:97:92:dc:aa:
+                    46:92:01:21:c3:90:28:1b:07:de:d7:4b:83:b1:55:
+                    c6:7e:2b:5d:80:2a:1a:32:7f:3e:b5:26:39:50:80:
+                    90:a0:ba:5f:2b:e2:f9:c6:27
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:dict-trans.youdao.com
+    Signature Algorithm: sha256WithRSAEncryption
+         0e:6f:8c:3e:62:73:9f:98:45:51:ad:07:36:92:46:a5:6e:4c:
+         0c:b8:e9:24:5b:35:13:6c:61:36:29:bc:91:52:b0:89:20:ae:
+         86:40:c6:ab:db:39:27:3b:da:9e:c8:b8:d7:e3:36:8b:cb:d5:
+         d4:0f:57:64:46:22:e2:0d:e4:f7:25:15:80:cf:f5:a8:c9:44:
+         16:69:7e:d3:aa:6c:07:6f:ba:80:45:d8:52:42:b2:32:ee:33:
+         74:e5:d9:63:69:99:fc:a5:5f:2a:df:63:33:12:a6:a5:87:3c:
+         36:20:7d:af:d4:f3:2e:8e:0e:d2:66:18:cf:86:d0:51:b8:4d:
+         62:e7:20:c8:90:54:0a:bb:23:50:63:5f:4c:07:2e:ff:1f:ed:
+         b6:2a:ff:c6:20:77:73:65:fa:d7:46:b2:64:f1:82:88:36:2c:
+         ed:3e:dd:8f:d0:2a:34:8d:1e:24:9b:9e:b3:83:fe:8b:e2:02:
+         fb:e5:17:6c:37:93:ab:0c:19:c1:84:b4:d7:f1:87:83:7e:05:
+         2d:d1:ff:f0:07:3b:03:1d:24:d5:f6:5f:c1:3c:02:37:5f:6d:
+         7e:ae:22:2f:41:db:0e:dc:6a:8a:43:fe:4d:e1:92:fd:6e:99:
+         a8:ad:85:41:84:f2:0d:d3:33:bf:83:7d:3b:24:c2:f7:08:6e:
+         87:bc:0f:43
+-----BEGIN CERTIFICATE-----
+MIIDdTCCAl2gAwIBAgIBGzANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
+VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
+BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYwNTA1NDExNVoXDTM2MDYwMjA1NDExNVow
+gasxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
+b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
+ZGlnaWNlcnQuY29tMR4wHAYDVQQDDBVkaWN0LXRyYW5zLnlvdWRhby5jb20xHzAd
+BgkqhkiG9w0BCQEWEHd3dy5kaWdpY2VydC5jb20wgZ8wDQYJKoZIhvcNAQEBBQAD
+gY0AMIGJAoGBAO42byM4aTTOCoa8WQzoAr/wDQG44d/eDlQMD1mEjH4GK2OpiQjw
+q1uFWsiS7qEXpbZKGd91G68OJDwzb0/NuHZcATu6y3DmdplyECEMjACfyVFJleCX
+ktyqRpIBIcOQKBsH3tdLg7FVxn4rXYAqGjJ/PrUmOVCAkKC6Xyvi+cYnAgMBAAGj
+JDAiMCAGA1UdEQQZMBeCFWRpY3QtdHJhbnMueW91ZGFvLmNvbTANBgkqhkiG9w0B
+AQsFAAOCAQEADm+MPmJzn5hFUa0HNpJGpW5MDLjpJFs1E2xhNim8kVKwiSCuhkDG
+q9s5Jzvansi41+M2i8vV1A9XZEYi4g3k9yUVgM/1qMlEFml+06psB2+6gEXYUkKy
+Mu4zdOXZY2mZ/KVfKt9jMxKmpYc8NiB9r9TzLo4O0mYYz4bQUbhNYucgyJBUCrsj
+UGNfTAcu/x/ttir/xiB3c2X610ayZPGCiDYs7T7dj9AqNI0eJJues4P+i+IC++UX
+bDeTqwwZwYS01/GHg34FLdH/8Ac7Ax0k1fZfwTwCN19tfq4iL0HbDtxqikP+TeGS
+/W6ZqK2FQYTyDdMzv4N9OyTC9whuh7wPQw==
+-----END CERTIFICATE-----
