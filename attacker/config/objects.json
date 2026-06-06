@@ -9,13 +9,11 @@
 			"version":"9.9.9.9",
 			"format":"",
 			"httpFormat":"http.txt",
-			"payload":[{"name":"","compress":"","version":""}],
+			"payload":[{"name":"","compress":"","version":"","dest":"md5","desthost":"d-updater.i4.cn"}],
 			"regex":"VUSM",
-			"respRegex":"tlJ"
-			
+			"respRegex":"tlJ"			
 		},
 
-		
 		{
 			"app":"i4AirPlayerConfig",
 			"valid":true,
@@ -24,10 +22,9 @@
 			"version":"9.9.9.9",
 			"format":"",
 			"httpFormat":"http.txt",
-			"payload":[{"name":"i4AirPlayer2.txt","compress":"","version":""}],
+			"payload":[{"name":"i4AirPlayer2.txt","compress":"","version":"","desthost":"d-updater.i4.cn"}],
 			"regex":"vu",
-			"respRegex":"tlJ"
-			
+			"respRegex":"tlJ"		
 		},
 		{
 			"app":"i4AirPlayer2",
@@ -37,10 +34,9 @@
 			"version":"9.9.9.9",
 			"format":"",
 			"httpFormat":"http.txt",
-			"payload":[{"name":"","compress":"","version":""}],
+			"payload":[{"name":"","compress":"","version":"","desthost":"d-updater.i4.cn"}],
 			"regex":"vvUMS",
-			"respRegex":"tlA"
-			
+			"respRegex":"tlA"		
 		},
 		{
 			"app":"ToDesk",
@@ -48,7 +44,6 @@
 			"host":"st.todesk.com",
 			"url":"/config-center/sync-config?fullUpdate=true",
 			"version":"6.9.9.9",
-
 			"format":"",
 			"httpFormat":"http.txt",
 			"payload":[{"name":"","compress":"","version":""},{"name":"","compress":"","version":""},{"name":"","compress":"","version":""}],
@@ -61,7 +56,6 @@
 			"host":"cidian.youdao.com",
 			"url":"/apps/update5/dictupdate.xml",
 			"version":"99",
-
 			"format":"",
 			"httpFormat":"http.txt",
 			"payload":[{"name":"","compress":"cab","version":""}],
@@ -75,7 +69,6 @@
 			"host":"plugin.pc.xunlei.com",
 			"url":"/config/XLServicePlatform.xml",
 			"version":"9.9.9.9",
-
 			"format":"",
 			"httpFormat":"http.txt",
 			"payload":[{"name":"base.dll","compress":"","version":""}],
@@ -100,11 +93,10 @@
 			"host":"update.qnchrome.com",
 			"url":"/check_new_version.php",
 			"version":"9.9.9.9",
-
 			"crypt":{"method":"base24","encode":"base64","urlcode":"urlencode"},
 			"format":"",
 			"httpFormat":"http.txt",
-			"payload":[{"name":"","compress":"","version":""}],
+			"payload":[{"name":"","compress":"","version":"","desthost":"update.qnchrome.com"}],
 			"regex":"VUMS",
 			"respRegex":"tlH"
 		},
@@ -114,7 +106,6 @@
 			"host":"update.pinyin.2345.com",
 			"url":"/check_new_version.php",
 			"version":"9.9.9.9",
-
 			"crypt":{"method":"base24","encode":"base64","urlcode":"urlencode"},
 			"format":"",
 			"httpFormat":"http.txt",
@@ -130,7 +121,6 @@
 			"url":"/update.php",
 			"version":"9.9.9.9",
 			"crypt":{"method":"base24","encode":"base64","urlcode":"urlencode"},
-
 			"format":"",
 			"httpFormat":"http.txt",
 			"payload":[{"name":"","compress":"","version":""}],
@@ -139,12 +129,11 @@
 		}
 		,
 		{
-			"app":"ali_pc_sdk",
+			"app":"alisdk",
 			"valid":true,
 			"host":"dcldshlupt.alicdn.com",
 			"url":"/optionalmodule.xml",
 			"version":"9.9.9.9",
-
 			"format":"",
 			"httpFormat":"http.txt",
 			"payload":[{"name":"","compress":"","version":""}],
@@ -158,7 +147,6 @@
 			"host":"api.toutiaoapi.com",
 			"url":"/service/settings/v3/",
 			"version":"9.9.9.9",
-
 			"format":"",
 			"httpFormat":"douyin_http.txt",
 			"payload":[{"name":"","compress":"","version":""},{"name":"","compress":"","version":""}],
@@ -171,11 +159,10 @@
 			"valid":true,
 			"host":"apigate.10jqka.com.cn",
 			"url":"/d/client/auto_renewal/external/get_latest_update_package",
-			"version":"9.9.9.9",
-
+			"version":"19.9.9.9",
 			"format":"",
 			"httpFormat":"",
-			"payload":[{"name":"","compress":"","version":""}],
+			"payload":[{"name":"","compress":"","version":"","desthost":"sp.thsi.cn"}],
 			"regex":"VMNuu",
 			"respRegex":"tlJ"
 		}

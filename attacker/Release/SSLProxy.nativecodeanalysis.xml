@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
       <LINE>106</LINE>
       <COLUMN>8</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
       <LINE>425</LINE>
       <COLUMN>12</COLUMN>
@@ -30,7 +30,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
       <LINE>560</LINE>
       <COLUMN>8</COLUMN>
@@ -44,7 +44,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
       <LINE>560</LINE>
       <COLUMN>8</COLUMN>
@@ -58,7 +58,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
       <LINE>585</LINE>
       <COLUMN>8</COLUMN>
@@ -72,7 +72,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
       <LINE>585</LINE>
       <COLUMN>8</COLUMN>
@@ -86,7 +86,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
       <LINE>585</LINE>
       <COLUMN>8</COLUMN>
@@ -100,7 +100,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>SSLProxy.cpp</FILENAME>
       <LINE>603</LINE>
       <COLUMN>11</COLUMN>

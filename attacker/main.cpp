@@ -267,7 +267,7 @@ int main(int argc, char** argv)
 		if (ret)
 		{
 			log( "data path:%s not exist!\r\n", G_USERNAME);
-			exit(-1);
+			//exit(-1);
 		}	
 	}
 
@@ -320,7 +320,7 @@ int main(int argc, char** argv)
 				//lstrcpyA(G_USERNAME, usernames[packnum].c_str());
 				break;
 			}
-		} while (1);
+		} while (0);
 	}
 
 	if (gAttackMode == ATTACK_CLIENT_MODE || gAttackMode == ATTACK_TEST_MODE) {

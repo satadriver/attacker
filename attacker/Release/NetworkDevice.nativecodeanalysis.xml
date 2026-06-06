@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>NetworkDevice.cpp</FILENAME>
       <LINE>115</LINE>
       <COLUMN>9</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>NetworkDevice.cpp</FILENAME>
       <LINE>211</LINE>
       <COLUMN>11</COLUMN>
@@ -30,7 +30,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>NetworkDevice.cpp</FILENAME>
       <LINE>217</LINE>
       <COLUMN>11</COLUMN>

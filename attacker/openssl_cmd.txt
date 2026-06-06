@@ -1,32 +1,33 @@
-Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_cmsg.qy.net
+Using configuration from d:\Program Files (x86)\OpenSSL-Win32\bin\demoCA\mycerts\openssl.cfg_conf-m-ssl.xunlei.com
 Check that the request matches the signature
 Signature ok
 Certificate Details:
-        Serial Number: 165 (0xa5)
+        Serial Number: 13 (0xd)
         Validity
-            Not Before: Jun  5 09:04:44 2026 GMT
-            Not After : Jun  2 09:04:44 2036 GMT
+            Not Before: Jun  6 12:27:14 2026 GMT
+            Not After : Jun  3 12:27:14 2036 GMT
         Subject:
             countryName               = US
             stateOrProvinceName       = California
             localityName              = Los Angeles
             organizationName          = DigiCert Inc
             organizationalUnitName    = www.digicert.com
-            commonName                = cmsg.qy.net
+            commonName                = conf-m-ssl.xunlei.com
             emailAddress              = www.digicert.com
         X509v3 extensions:
             X509v3 Subject Alternative Name: 
-                DNS:cmsg.qy.net
-Certificate is to be certified until Jun  2 09:04:44 2036 GMT (3650 days)
+                DNS:conf-m-ssl.xunlei.com
+Certificate is to be certified until Jun  3 12:27:14 2036 GMT (3650 days)
 
 Write out database with 1 new entries
 Data Base Updated
-abase with 1 new entries
+ new entries
 Data Base Updated
-
-Data Base Updated
-Updated
+ted
+ated
  entries
 Data Base Updated
+
+
 ase with 1 new entries
 Data Base Updated

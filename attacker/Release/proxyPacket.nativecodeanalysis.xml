@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>proxyPacket.cpp</FILENAME>
       <LINE>120</LINE>
       <COLUMN>9</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>proxyPacket.cpp</FILENAME>
       <LINE>184</LINE>
       <COLUMN>10</COLUMN>
@@ -30,7 +30,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>proxyPacket.cpp</FILENAME>
       <LINE>89</LINE>
       <COLUMN>8</COLUMN>
@@ -47,67 +47,67 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>50</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>52</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>56</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>58</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>63</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>65</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>69</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>70</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>71</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>73</LINE>
         <COLUMN>19</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>75</LINE>
         <COLUMN>6</COLUMN>
@@ -119,19 +119,19 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>85</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>87</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>proxyPacket.cpp</FILENAME>
         <LINE>89</LINE>
         <COLUMN>8</COLUMN>

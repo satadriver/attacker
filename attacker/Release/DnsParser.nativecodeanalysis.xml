@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsParser.cpp</FILENAME>
       <LINE>85</LINE>
       <COLUMN>10</COLUMN>

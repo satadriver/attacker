@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>PreparePacket.cpp</FILENAME>
       <LINE>150</LINE>
       <COLUMN>8</COLUMN>
@@ -14,13 +14,13 @@
     <FUNCLINE>129</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>PreparePacket.cpp</FILENAME>
         <LINE>132</LINE>
         <COLUMN>13</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>PreparePacket.cpp</FILENAME>
         <LINE>150</LINE>
         <COLUMN>8</COLUMN>

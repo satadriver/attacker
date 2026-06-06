@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
       <FILENAME>HttpProxy.cpp</FILENAME>
       <LINE>174</LINE>
       <COLUMN>12</COLUMN>

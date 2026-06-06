@@ -2,19 +2,19 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\SSL\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
       <FILENAME>SSLRetransfer.cpp</FILENAME>
       <LINE>32</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>“host”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“26”行(“d:\vsproject\attacker_new\attacker\attacker\ssl\sslretransfer.cpp”中)的声明。</DESCRIPTION>
+    <DESCRIPTION>“host”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“26”行(“d:\vsproject\attacker_new\attacker\ssl\sslretransfer.cpp”中)的声明。</DESCRIPTION>
     <FUNCTION>SSLRetransfer::RetransferProxyMain</FUNCTION>
     <DECORATED>?RetransferProxyMain@SSLRetransfer@@SAHPAUHTTPPROXYPARAM@@@Z</DECORATED>
     <FUNCLINE>14</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\SSL\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\SSL\</FILEPATH>
         <FILENAME>SSLRetransfer.cpp</FILENAME>
         <LINE>26</LINE>
         <COLUMN>8</COLUMN>

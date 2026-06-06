@@ -12,6 +12,22 @@ using namespace std;
 
 #define ATTACKER_MUTEX_NAME "global_attacker"
 
+
+#pragma pack(1)
+
+typedef struct {
+	EXCEPTION_REGISTRATION_RECORD exp;
+	DWORD esp;
+	DWORD ebp;
+	DWORD ebx;
+	DWORD esi;
+	DWORD edi;
+	char* tag;
+	char* retaddr;
+}MY_EXCEPTION_STRUCT;
+
+#pragma pack()
+
 char* SearchBinary(char* data, int size, char* hdr, int hdrlen);
 
 class Public {

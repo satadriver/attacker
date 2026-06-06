@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxy.cpp</FILENAME>
       <LINE>28</LINE>
       <COLUMN>12</COLUMN>
@@ -19,43 +19,43 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
         <FILENAME>DnsProxy.cpp</FILENAME>
         <LINE>17</LINE>
         <COLUMN>43</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
         <FILENAME>DnsProxy.cpp</FILENAME>
         <LINE>19</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
         <FILENAME>DnsProxy.cpp</FILENAME>
         <LINE>21</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
         <FILENAME>DnsProxy.cpp</FILENAME>
         <LINE>23</LINE>
         <COLUMN>20</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
         <FILENAME>DnsProxy.cpp</FILENAME>
         <LINE>25</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
         <FILENAME>DnsProxy.cpp</FILENAME>
         <LINE>27</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
         <FILENAME>DnsProxy.cpp</FILENAME>
         <LINE>28</LINE>
         <COLUMN>12</COLUMN>
@@ -67,7 +67,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
         <FILENAME>DnsProxy.cpp</FILENAME>
         <LINE>28</LINE>
         <COLUMN>12</COLUMN>
@@ -82,7 +82,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxy.cpp</FILENAME>
       <LINE>209</LINE>
       <COLUMN>12</COLUMN>
@@ -96,7 +96,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxy.cpp</FILENAME>
       <LINE>132</LINE>
       <COLUMN>24</COLUMN>
@@ -110,7 +110,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\DnsUtils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\DnsUtils\</FILEPATH>
       <FILENAME>DnsProxy.cpp</FILENAME>
       <LINE>281</LINE>
       <COLUMN>11</COLUMN>

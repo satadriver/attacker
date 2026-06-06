@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>PacketProc.cpp</FILENAME>
       <LINE>252</LINE>
       <COLUMN>9</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>PacketProc.cpp</FILENAME>
       <LINE>260</LINE>
       <COLUMN>9</COLUMN>

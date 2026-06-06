@@ -2,170 +2,86 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
       <LINE>30</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“wsprintfA”。</DESCRIPTION>
-    <FUNCTION>Tools::setNetworkParams</FUNCTION>
-    <DECORATED>?setNetworkParams@Tools@@SAHXZ</DECORATED>
+    <FUNCTION>Tools::setNetworkParameter</FUNCTION>
+    <DECORATED>?setNetworkParameter@Tools@@SAHXZ</DECORATED>
     <FUNCLINE>20</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>34</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(2) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
-    <FUNCTION>Tools::setNetworkParams</FUNCTION>
-    <DECORATED>?setNetworkParams@Tools@@SAHXZ</DECORATED>
-    <FUNCLINE>20</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>34</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
-    <FUNCTION>Tools::setNetworkParams</FUNCTION>
-    <DECORATED>?setNetworkParams@Tools@@SAHXZ</DECORATED>
-    <FUNCLINE>20</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>42</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(2) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
-    <FUNCTION>Tools::setNetworkParams</FUNCTION>
-    <DECORATED>?setNetworkParams@Tools@@SAHXZ</DECORATED>
-    <FUNCLINE>20</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>51</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(2) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
-    <FUNCTION>Tools::setNetworkParams</FUNCTION>
-    <DECORATED>?setNetworkParams@Tools@@SAHXZ</DECORATED>
-    <FUNCLINE>20</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>61</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(2) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
-    <FUNCTION>Tools::setNetworkParams</FUNCTION>
-    <DECORATED>?setNetworkParams@Tools@@SAHXZ</DECORATED>
-    <FUNCLINE>20</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>69</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(2) 传递，但需要使用一些 unsigned 类型来调用“printf”。</DESCRIPTION>
-    <FUNCTION>Tools::setNetworkParams</FUNCTION>
-    <DECORATED>?setNetworkParams@Tools@@SAHXZ</DECORATED>
-    <FUNCLINE>20</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>138</LINE>
+      <LINE>126</LINE>
       <COLUMN>10</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(6) 传递，但需要使用一些 unsigned 类型来调用“wsprintfA”。</DESCRIPTION>
     <FUNCTION>Tools::autorun</FUNCTION>
     <DECORATED>?autorun@Tools@@SAHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0H@Z</DECORATED>
-    <FUNCLINE>134</FUNCLINE>
+    <FUNCLINE>122</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>146</LINE>
+      <LINE>134</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>28159</DEFECTCODE>
     <DESCRIPTION>考虑使用“CreateProcess”而不是“WinExec”。原因: Deprecated. See MSDN for details</DESCRIPTION>
     <FUNCTION>Tools::autorun</FUNCTION>
     <DECORATED>?autorun@Tools@@SAHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0H@Z</DECORATED>
-    <FUNCLINE>134</FUNCLINE>
+    <FUNCLINE>122</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>149</LINE>
+      <LINE>137</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>28159</DEFECTCODE>
     <DESCRIPTION>考虑使用“CreateProcess”而不是“WinExec”。原因: Deprecated. See MSDN for details</DESCRIPTION>
     <FUNCTION>Tools::autorun</FUNCTION>
     <DECORATED>?autorun@Tools@@SAHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0H@Z</DECORATED>
-    <FUNCLINE>134</FUNCLINE>
+    <FUNCLINE>122</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>152</LINE>
+      <LINE>140</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>28159</DEFECTCODE>
     <DESCRIPTION>考虑使用“CreateProcess”而不是“WinExec”。原因: Deprecated. See MSDN for details</DESCRIPTION>
     <FUNCTION>Tools::autorun</FUNCTION>
     <DECORATED>?autorun@Tools@@SAHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0H@Z</DECORATED>
-    <FUNCLINE>134</FUNCLINE>
+    <FUNCLINE>122</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>234</LINE>
+      <LINE>222</LINE>
       <COLUMN>21</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>“lpDllKernel32”可能是“0”: 这不符合函数“GetProcAddress”的规范。</DESCRIPTION>
     <FUNCTION>Tools::getSysBits</FUNCTION>
     <DECORATED>?getSysBits@Tools@@SAHXZ</DECORATED>
-    <FUNCLINE>227</FUNCLINE>
+    <FUNCLINE>215</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -173,27 +89,27 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>229</LINE>
+        <LINE>217</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>230</LINE>
+        <LINE>218</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>232</LINE>
+        <LINE>220</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>233</LINE>
+        <LINE>221</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -203,9 +119,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>234</LINE>
+        <LINE>222</LINE>
         <COLUMN>21</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -215,9 +131,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>234</LINE>
+        <LINE>222</LINE>
         <COLUMN>21</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -230,126 +146,16 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
       <LINE>262</LINE>
-      <COLUMN>37</COLUMN>
-    </SFA>
-    <DEFECTCODE>6387</DEFECTCODE>
-    <DESCRIPTION>“lpDllKernel32”可能是“0”: 这不符合函数“GetProcAddress”的规范。</DESCRIPTION>
-    <FUNCTION>Tools::QueryRegistryValue</FUNCTION>
-    <DECORATED>?QueryRegistryValue@Tools@@SAKPAUHKEY__@@PAD1PAEH@Z</DECORATED>
-    <FUNCLINE>247</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>249</LINE>
-        <COLUMN>15</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>250</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>251</LINE>
-        <COLUMN>6</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>252</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>254</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>255</LINE>
-        <COLUMN>7</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>256</LINE>
-        <COLUMN>9</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>258</LINE>
-        <COLUMN>21</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>260</LINE>
-        <COLUMN>11</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>declaration</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>“lpDllKernel32”可能为 NULL</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>261</LINE>
-        <COLUMN>27</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>262</LINE>
-        <COLUMN>37</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>“lpDllKernel32”是对“GetProcAddress”的输入(在 d:\windows kits\10\include\10.0.19041.0\um\libloaderapi.h:342 处声明)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>262</LINE>
-        <COLUMN>37</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>usage</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>“lpDllKernel32”不应为 NULL，因为这与“GetProcAddress”上的 SAL 批注不一致</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>274</LINE>
       <COLUMN>6</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>“hMainKey”可能是“0”: 这不符合函数“RegCreateKeyExA”的规范。</DESCRIPTION>
     <FUNCTION>Tools::QueryRegistryValue</FUNCTION>
     <DECORATED>?QueryRegistryValue@Tools@@SAKPAUHKEY__@@PAD1PAEH@Z</DECORATED>
-    <FUNCLINE>247</FUNCLINE>
+    <FUNCLINE>235</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -357,51 +163,51 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>249</LINE>
+        <LINE>237</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>250</LINE>
+        <LINE>238</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>251</LINE>
+        <LINE>239</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>252</LINE>
+        <LINE>240</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>254</LINE>
+        <LINE>242</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>255</LINE>
+        <LINE>243</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>256</LINE>
+        <LINE>244</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>258</LINE>
+        <LINE>246</LINE>
         <COLUMN>21</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -411,33 +217,33 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>260</LINE>
+        <LINE>248</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>261</LINE>
+        <LINE>249</LINE>
         <COLUMN>27</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>262</LINE>
+        <LINE>250</LINE>
         <COLUMN>37</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>264</LINE>
+        <LINE>252</LINE>
         <COLUMN>40</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>274</LINE>
+        <LINE>262</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -447,9 +253,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>274</LINE>
+        <LINE>262</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -462,72 +268,16 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>546</LINE>
-      <COLUMN>16</COLUMN>
+      <LINE>250</LINE>
+      <COLUMN>37</COLUMN>
     </SFA>
-    <DEFECTCODE>6400</DEFECTCODE>
-    <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“TCP”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
-    <FUNCTION>KillProcessPort</FUNCTION>
-    <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
-    <FUNCLINE>531</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>552</LINE>
-      <COLUMN>18</COLUMN>
-    </SFA>
-    <DEFECTCODE>6400</DEFECTCODE>
-    <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“LISTENING”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
-    <FUNCTION>KillProcessPort</FUNCTION>
-    <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
-    <FUNCLINE>531</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>534</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“wsprintfA”。</DESCRIPTION>
-    <FUNCTION>KillProcessPort</FUNCTION>
-    <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
-    <FUNCLINE>531</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>538</LINE>
-      <COLUMN>10</COLUMN>
-    </SFA>
-    <DEFECTCODE>6340</DEFECTCODE>
-    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“wsprintfA”。</DESCRIPTION>
-    <FUNCTION>KillProcessPort</FUNCTION>
-    <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
-    <FUNCLINE>531</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-      <FILENAME>Tools.cpp</FILENAME>
-      <LINE>581</LINE>
-      <COLUMN>3</COLUMN>
-    </SFA>
-    <DEFECTCODE>6011</DEFECTCODE>
-    <DESCRIPTION>取消对 NULL 指针“p”的引用。</DESCRIPTION>
-    <FUNCTION>adjustPrivileges</FUNCTION>
-    <DECORATED>?adjustPrivileges@@YAHXZ</DECORATED>
-    <FUNCLINE>571</FUNCLINE>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>“lpDllKernel32”可能是“0”: 这不符合函数“GetProcAddress”的规范。</DESCRIPTION>
+    <FUNCTION>Tools::QueryRegistryValue</FUNCTION>
+    <DECORATED>?QueryRegistryValue@Tools@@SAKPAUHKEY__@@PAD1PAEH@Z</DECORATED>
+    <FUNCLINE>235</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -535,39 +285,205 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>572</LINE>
-        <COLUMN>8</COLUMN>
+        <LINE>237</LINE>
+        <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>573</LINE>
+        <LINE>238</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>239</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>240</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>574</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
-        <FILENAME>Tools.cpp</FILENAME>
-        <LINE>575</LINE>
+        <LINE>242</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>576</LINE>
+        <LINE>243</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>244</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>246</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>248</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“lpDllKernel32”可能为 NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>249</LINE>
+        <COLUMN>27</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>250</LINE>
+        <COLUMN>37</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>“lpDllKernel32”是对“GetProcAddress”的输入(在 d:\windows kits\10\include\10.0.19041.0\um\libloaderapi.h:342 处声明)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>250</LINE>
+        <COLUMN>37</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“lpDllKernel32”不应为 NULL，因为这与“GetProcAddress”上的 SAL 批注不一致</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILENAME>Tools.cpp</FILENAME>
+      <LINE>533</LINE>
+      <COLUMN>16</COLUMN>
+    </SFA>
+    <DEFECTCODE>6400</DEFECTCODE>
+    <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“TCP”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
+    <FUNCTION>KillProcessPort</FUNCTION>
+    <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
+    <FUNCLINE>518</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILENAME>Tools.cpp</FILENAME>
+      <LINE>539</LINE>
+      <COLUMN>18</COLUMN>
+    </SFA>
+    <DEFECTCODE>6400</DEFECTCODE>
+    <DESCRIPTION>使用“lstrcmpiA”执行与常量字符串“LISTENING”的不区分大小写的比较。 这样会在非英语区域设置中产生意外结果。</DESCRIPTION>
+    <FUNCTION>KillProcessPort</FUNCTION>
+    <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
+    <FUNCLINE>518</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILENAME>Tools.cpp</FILENAME>
+      <LINE>521</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>6340</DEFECTCODE>
+    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“wsprintfA”。</DESCRIPTION>
+    <FUNCTION>KillProcessPort</FUNCTION>
+    <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
+    <FUNCLINE>518</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILENAME>Tools.cpp</FILENAME>
+      <LINE>525</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>6340</DEFECTCODE>
+    <DESCRIPTION>符号不匹配: 已将“int”作为 _Param_(3) 传递，但需要使用一些 unsigned 类型来调用“wsprintfA”。</DESCRIPTION>
+    <FUNCTION>KillProcessPort</FUNCTION>
+    <DECORATED>?KillProcessPort@@YAXH@Z</DECORATED>
+    <FUNCLINE>518</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILENAME>Tools.cpp</FILENAME>
+      <LINE>568</LINE>
+      <COLUMN>3</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>取消对 NULL 指针“p”的引用。</DESCRIPTION>
+    <FUNCTION>adjustPrivileges</FUNCTION>
+    <DECORATED>?adjustPrivileges@@YAHXZ</DECORATED>
+    <FUNCLINE>558</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>559</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>577</LINE>
+        <LINE>560</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>561</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>562</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>563</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+        <FILENAME>Tools.cpp</FILENAME>
+        <LINE>564</LINE>
         <COLUMN>20</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -577,9 +493,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>581</LINE>
+        <LINE>568</LINE>
         <COLUMN>3</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -589,9 +505,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>581</LINE>
+        <LINE>568</LINE>
         <COLUMN>3</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -604,37 +520,37 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>806</LINE>
+      <LINE>793</LINE>
       <COLUMN>8</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>“flags”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“768”行(“d:\vsproject\attacker_new\attacker\attacker\utils\tools.cpp”中)的声明。</DESCRIPTION>
+    <DESCRIPTION>“flags”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“755”行(“d:\vsproject\attacker_new\attacker\utils\tools.cpp”中)的声明。</DESCRIPTION>
     <FUNCTION>RunProcess</FUNCTION>
     <DECORATED>?RunProcess@@YAHPBD00HH@Z</DECORATED>
-    <FUNCLINE>768</FUNCLINE>
+    <FUNCLINE>755</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>768</LINE>
+        <LINE>755</LINE>
         <COLUMN>76</COLUMN>
       </SFA>
     </PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
       <FILENAME>Tools.cpp</FILENAME>
-      <LINE>822</LINE>
+      <LINE>809</LINE>
       <COLUMN>14</COLUMN>
     </SFA>
     <DEFECTCODE>6387</DEFECTCODE>
     <DESCRIPTION>“pi.hProcess”可能是“0”: 这不符合函数“CloseHandle”的规范。</DESCRIPTION>
     <FUNCTION>RunProcess</FUNCTION>
     <DECORATED>?RunProcess@@YAHPBD00HH@Z</DECORATED>
-    <FUNCLINE>768</FUNCLINE>
+    <FUNCLINE>755</FUNCLINE>
     <PROBABILITY>1</PROBABILITY>
     <RANK>4</RANK>
     <CATEGORY>
@@ -642,21 +558,21 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>769</LINE>
+        <LINE>756</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>770</LINE>
+        <LINE>757</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>772</LINE>
+        <LINE>759</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>1</ID>
@@ -666,9 +582,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>786</LINE>
+        <LINE>773</LINE>
         <COLUMN>5</COLUMN>
         <KEYEVENT>
           <ID>2</ID>
@@ -678,69 +594,69 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>787</LINE>
+        <LINE>774</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>788</LINE>
+        <LINE>775</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>798</LINE>
+        <LINE>785</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>799</LINE>
+        <LINE>786</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>800</LINE>
+        <LINE>787</LINE>
         <COLUMN>13</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>801</LINE>
+        <LINE>788</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>802</LINE>
+        <LINE>789</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>803</LINE>
+        <LINE>790</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>805</LINE>
+        <LINE>792</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>806</LINE>
+        <LINE>793</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>807</LINE>
+        <LINE>794</LINE>
         <COLUMN>15</COLUMN>
         <KEYEVENT>
           <ID>3</ID>
@@ -750,15 +666,15 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>808</LINE>
+        <LINE>795</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>810</LINE>
+        <LINE>797</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>4</ID>
@@ -768,9 +684,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>811</LINE>
+        <LINE>798</LINE>
         <COLUMN>6</COLUMN>
         <KEYEVENT>
           <ID>5</ID>
@@ -780,9 +696,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>812</LINE>
+        <LINE>799</LINE>
         <COLUMN>9</COLUMN>
         <KEYEVENT>
           <ID>6</ID>
@@ -792,9 +708,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>822</LINE>
+        <LINE>809</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>7</ID>
@@ -804,9 +720,9 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\Utils\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
         <FILENAME>Tools.cpp</FILENAME>
-        <LINE>822</LINE>
+        <LINE>809</LINE>
         <COLUMN>14</COLUMN>
         <KEYEVENT>
           <ID>8</ID>

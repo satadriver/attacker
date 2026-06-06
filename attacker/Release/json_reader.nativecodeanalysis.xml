@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
       <FILENAME>json_reader.cpp</FILENAME>
       <LINE>566</LINE>
       <COLUMN>64</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
       <FILENAME>json_reader.cpp</FILENAME>
       <LINE>630</LINE>
       <COLUMN>21</COLUMN>
@@ -33,37 +33,37 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
         <FILENAME>json_reader.cpp</FILENAME>
         <LINE>622</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
         <FILENAME>json_reader.cpp</FILENAME>
         <LINE>623</LINE>
         <COLUMN>13</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
         <FILENAME>json_reader.cpp</FILENAME>
         <LINE>624</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
         <FILENAME>json_reader.cpp</FILENAME>
         <LINE>625</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
         <FILENAME>json_reader.cpp</FILENAME>
         <LINE>626</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
         <FILENAME>json_reader.cpp</FILENAME>
         <LINE>628</LINE>
         <COLUMN>11</COLUMN>
@@ -75,7 +75,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
         <FILENAME>json_reader.cpp</FILENAME>
         <LINE>629</LINE>
         <COLUMN>12</COLUMN>
@@ -87,7 +87,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\json\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\json\</FILEPATH>
         <FILENAME>json_reader.cpp</FILENAME>
         <LINE>630</LINE>
         <COLUMN>21</COLUMN>

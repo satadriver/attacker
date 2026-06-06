@@ -2,22 +2,145 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
       <FILENAME>Helper.cpp</FILENAME>
-      <LINE>289</LINE>
-      <COLUMN>7</COLUMN>
+      <LINE>474</LINE>
+      <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>“size”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“230”行(“d:\vsproject\attacker_new\attacker\attacker\helper.cpp”中)的声明。</DESCRIPTION>
+    <DESCRIPTION>“url”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“337”行(“d:\vsproject\attacker_new\attacker\helper.cpp”中)的声明。</DESCRIPTION>
     <FUNCTION>ObjectParser</FUNCTION>
     <DECORATED>?ObjectParser@@YAHAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@1@Z</DECORATED>
-    <FUNCLINE>210</FUNCLINE>
+    <FUNCLINE>295</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
         <FILENAME>Helper.cpp</FILENAME>
-        <LINE>230</LINE>
-        <COLUMN>5</COLUMN>
+        <LINE>337</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILENAME>Helper.cpp</FILENAME>
+      <LINE>519</LINE>
+      <COLUMN>15</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>“i”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“330”行(“d:\vsproject\attacker_new\attacker\helper.cpp”中)的声明。</DESCRIPTION>
+    <FUNCTION>ObjectParser</FUNCTION>
+    <DECORATED>?ObjectParser@@YAHAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@1@Z</DECORATED>
+    <FUNCLINE>295</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILENAME>Helper.cpp</FILENAME>
+        <LINE>330</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILENAME>Helper.cpp</FILENAME>
+      <LINE>535</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>“url”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“337”行(“d:\vsproject\attacker_new\attacker\helper.cpp”中)的声明。</DESCRIPTION>
+    <FUNCTION>ObjectParser</FUNCTION>
+    <DECORATED>?ObjectParser@@YAHAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@1@Z</DECORATED>
+    <FUNCLINE>295</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILENAME>Helper.cpp</FILENAME>
+        <LINE>337</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILENAME>Helper.cpp</FILENAME>
+      <LINE>544</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>6283</DEFECTCODE>
+    <DESCRIPTION>“tmpbuf”使用数组 new [] 分配，但使用标量 delete 删除。</DESCRIPTION>
+    <FUNCTION>ObjectParser</FUNCTION>
+    <DECORATED>?ObjectParser@@YAHAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@1@Z</DECORATED>
+    <FUNCLINE>295</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILENAME>Helper.cpp</FILENAME>
+        <LINE>514</LINE>
+        <COLUMN>21</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILENAME>Helper.cpp</FILENAME>
+        <LINE>544</LINE>
+        <COLUMN>13</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILENAME>Helper.cpp</FILENAME>
+      <LINE>533</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>6283</DEFECTCODE>
+    <DESCRIPTION>“base64buf”使用数组 new [] 分配，但使用标量 delete 删除。</DESCRIPTION>
+    <FUNCTION>ObjectParser</FUNCTION>
+    <DECORATED>?ObjectParser@@YAHAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@1@Z</DECORATED>
+    <FUNCLINE>295</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILENAME>Helper.cpp</FILENAME>
+        <LINE>529</LINE>
+        <COLUMN>25</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILENAME>Helper.cpp</FILENAME>
+        <LINE>533</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILENAME>Helper.cpp</FILENAME>
+      <LINE>541</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>6283</DEFECTCODE>
+    <DESCRIPTION>“urlbuf”使用数组 new [] 分配，但使用标量 delete 删除。</DESCRIPTION>
+    <FUNCTION>ObjectParser</FUNCTION>
+    <DECORATED>?ObjectParser@@YAHAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@1@Z</DECORATED>
+    <FUNCLINE>295</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILENAME>Helper.cpp</FILENAME>
+        <LINE>537</LINE>
+        <COLUMN>22</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILENAME>Helper.cpp</FILENAME>
+        <LINE>541</LINE>
+        <COLUMN>14</COLUMN>
       </SFA>
     </PATH>
   </DEFECT>

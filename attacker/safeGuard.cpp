@@ -10,28 +10,26 @@
 #include "cipher/CryptoUtils.h"
 #include "Config.h"
 #include "Utils/Tools.h"
+#include <intrin.h>
 
 using namespace std;
 
 int  SafeGuard::isDebuggered ()
 {
-	return IsDebuggerPresent();
-#ifndef _WIN64
-	int result = 0;
-	__asm
-	{
-		// 进程的PEB
-		mov eax, fs:[30h]
-		mov eax, [eax + 68h]
-		// 操作系统会加上这些标志位FLG_HEAP_ENABLE_TAIL_CHECK,  FLG_HEAP_ENABLE_FREE_CHECK and FLG_HEAP_VALIDATE_PARAMETERS， 它们的并集就是x70
-		and eax, 0x70
-		mov result, eax
-	}
+	//return IsDebuggerPresent();
 
-	return result != 0;
-#else
-	return IsDebuggerPresent();
-#endif
+	char *pPeb = (char*)__readfsdword(0x30); // 获取PEB地址
+	// 检查 Heap Flags 和 ForceFlags
+	// 典型调试标志组合: (FLG_HEAP_ENABLE_TAIL_CHECK | FLG_HEAP_ENABLE_FREE_CHECK | FLG_HEAP_VALIDATE_PARAMETERS) = 0x70
+	// ForceFlags 正常为 0, 被调试时常为 0x40000060
+	if (*(PDWORD)((PBYTE)pPeb + 0x68) & 0x70) { // 检查 Heap->Flags
+		return TRUE;
+	}
+	if (*(PDWORD)((PBYTE)pPeb + 0x6C) & 0x70) { // 检查 Heap->ForceFlags
+		return TRUE;
+	}
+	return FALSE;
+
 }
 
 

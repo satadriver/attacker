@@ -39,6 +39,8 @@ struct UpdateData {
 
 #pragma pack()
 
+int Try(char* tag,char * retaddr);
+
 extern vector < UpdateData> gUpdateData;
 
 string GetMainFileName(string fn);

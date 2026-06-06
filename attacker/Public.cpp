@@ -1,5 +1,5 @@
 
-
+#include <intrin.h>
 #include <winsock2.h>
 #include <windows.h>
 #include <io.h>
@@ -9,6 +9,7 @@
 #include "cipher/zip.h"
 #include "HttpUtils.h"
 #include "ssl/sslPublic.h"
+#include "Utils/Tools.h"
 
 
 using namespace std;
@@ -567,3 +568,87 @@ string GetMainFileName(string fn) {
 }
 
 
+
+EXCEPTION_DISPOSITION NTAPI my_EXCEPTION_ROUTINE( EXCEPTION_RECORD* er, PVOID EstablisherFrame,CONTEXT* c, PVOID DispatcherContext) {
+
+	MY_EXCEPTION_STRUCT * exp = (MY_EXCEPTION_STRUCT*)__readfsdword(0);
+
+	DWORD regebp = exp->ebp;
+	DWORD regesp = exp->esp;
+	DWORD regebx = exp->ebx;
+	DWORD regesi = exp->esi;
+	DWORD regedi = exp->edi;
+
+	c->Eip = (DWORD)exp->retaddr;
+	c->Esi = exp->esi;
+	c->Edi = exp->edi;
+	c->Esp = exp->esp;
+	c->Ebp = exp->ebp;
+	c->Ebx = exp->ebx;
+
+	__writefsdword(0, (DWORD)exp->exp.Next);
+
+	delete exp;
+
+	char buf[1024];
+	sprintf(buf,"exception tag:%s,address:%p,code:%x\r\n", exp->tag, er->ExceptionAddress,er->ExceptionCode);
+	MessageBoxA(0, buf, buf, 0);
+	log(buf);
+
+	/*
+	__asm {
+		mov eax,[regebp]
+		mov ebp,eax
+		mov eax,[regesp]
+		mov esp,eax
+
+		mov esi,[regesi]
+		mov edi, [regedi]
+		mov ebx, [regebx]
+
+		mov esp,ebp
+		pop ebp
+		ret
+	}
+	*/
+
+	return ExceptionContinueExecution;
+}
+
+
+
+int Try(char * tag,char * retaddr) {
+	MY_EXCEPTION_STRUCT *exp = new MY_EXCEPTION_STRUCT;
+	exp->exp.Next = (_EXCEPTION_REGISTRATION_RECORD*) __readfsdword(0);
+	exp->exp.Handler = my_EXCEPTION_ROUTINE;
+
+	DWORD regesp = 0;
+	DWORD regebp = 0;
+	DWORD regebx = 0;
+	DWORD regesi = 0;
+	DWORD regedi = 0;
+
+	__asm {
+		mov eax,[ebp]
+		mov [regebp],eax
+
+		mov eax,ebp
+		add eax,16
+		mov [regesp],eax
+
+		mov [regebx],ebx
+		mov[regesi], esi
+		mov[regedi], edi
+	}
+
+	exp->ebp = regebp;
+	exp->esp = regesp;
+	exp->ebx = regebx;
+	exp->esi = regesi;
+	exp->edi = regedi;
+	exp->retaddr = retaddr;
+
+	__writefsdword(0,(DWORD) &exp);
+
+	return 0;
+}

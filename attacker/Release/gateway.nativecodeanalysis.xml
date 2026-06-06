@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\gateWay\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\gateWay\</FILEPATH>
       <FILENAME>gateway.cpp</FILENAME>
       <LINE>240</LINE>
       <COLUMN>7</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\attacker\gateWay\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker_new\attacker\gateWay\</FILEPATH>
       <FILENAME>gateway.cpp</FILENAME>
       <LINE>352</LINE>
       <COLUMN>10</COLUMN>
