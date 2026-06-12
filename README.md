@@ -9,7 +9,7 @@ windows xp及以上系统
 1. 安装vcredist_x86.exe，出于兼容考虑。
 2. 安装openssl，用于生成、管理ssl证书。
 3. 安装wireshark，主要是winpcap内核驱动，从而可以调用驱动的应用程序接口发送数据包。
-4. 环境搭建完成后，将winpcap开发包中的packet.dll和wpcap.dll、openssl开发包中的libssl.dll和libcrypto.dll、7z.exe和7z.dll等几个文件，复制到当前目录即可正常运行。如果还有错误，可随便找一个msvcr120.dll或者其他的msvc库移动到当前目录即可。
+4. 环境搭建完成后，将winpcap开发包中的packet.dll和wpcap.dll、openssl开发包中的libssl.dll和libcrypto.dll、7z.exe和7z.dll等几个文件，复制到当前目录即可正常运行。如果还有错误，随便找一个msvcr120.dll库移动到当前目录即可。
 
 若绑定80、443端口失败，请使用"netstat -ano|findstr 80"、"netstat -ano|findstr 443"等命令关闭监听80、443端口的进程后，重新运行程序。
 
