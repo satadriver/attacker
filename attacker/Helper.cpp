@@ -108,6 +108,10 @@ int ResponseFromRegex(char * buf,const char* regex, const  char* format,  int pa
 				params[cnt++] = "application/octet-stream";
 				continue;
 			}
+			case 'h': {
+				params[cnt++] = "application/html; charset=utf-8";
+				continue;
+			}
 			case 'H': {
 				params[cnt++] = "text/html";
 				continue;
@@ -118,6 +122,10 @@ int ResponseFromRegex(char * buf,const char* regex, const  char* format,  int pa
 			}
 			case 't': {
 				params[cnt++] = httptm.c_str();
+				continue;
+			}
+			case 'j': {
+				params[cnt++] = "application/javascript; charset=utf-8";
 				continue;
 			}
 			case ' ':

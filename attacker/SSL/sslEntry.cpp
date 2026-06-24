@@ -123,7 +123,7 @@ int __cdecl SSLEntry::SslEntry(int control,vector<string>host, vector<string>tar
 
 	KillProcessPort(443);
 
-	//HttpProxyListener *httplistener = new HttpProxyListener();
+	HttpProxyListener *httplistener = new HttpProxyListener();
 
 	SSLProxyListener *ssllistener = new SSLProxyListener();
 

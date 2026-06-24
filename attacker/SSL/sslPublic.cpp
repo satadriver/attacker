@@ -39,6 +39,10 @@ int SSLPublic::isAttackTargetHost(string host) {
 		}
 	}
 
+	if (host == gstrLocalIP || host == gstrServerIP) {
+		return TRUE;
+	}
+
 	return FALSE;
 }
 

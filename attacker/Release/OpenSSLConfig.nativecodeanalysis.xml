@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
       <FILENAME>OpenSSLConfig.cpp</FILENAME>
       <LINE>188</LINE>
       <COLUMN>15</COLUMN>
@@ -14,151 +14,151 @@
     <FUNCLINE>174</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>175</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>176</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>178</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>179</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>185</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>186</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>187</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>188</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>189</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>190</LINE>
         <COLUMN>21</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>192</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>193</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>195</LINE>
         <COLUMN>6</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>200</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>201</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>203</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>203</LINE>
         <COLUMN>23</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>203</LINE>
         <COLUMN>15</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>204</LINE>
         <COLUMN>26</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>209</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>209</LINE>
         <COLUMN>31</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>209</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>223</LINE>
         <COLUMN>1</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>176</LINE>
         <COLUMN>17</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>d:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>d:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>opensslconfig.cpp</FILENAME>
         <LINE>224</LINE>
         <COLUMN>1</COLUMN>
@@ -167,7 +167,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
       <FILENAME>OpenSSLConfig.cpp</FILENAME>
       <LINE>278</LINE>
       <COLUMN>14</COLUMN>

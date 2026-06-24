@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>117</LINE>
       <COLUMN>15</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>121</LINE>
       <COLUMN>20</COLUMN>
@@ -30,7 +30,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>125</LINE>
       <COLUMN>20</COLUMN>
@@ -44,7 +44,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>132</LINE>
       <COLUMN>20</COLUMN>
@@ -58,7 +58,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>138</LINE>
       <COLUMN>20</COLUMN>
@@ -72,7 +72,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>142</LINE>
       <COLUMN>20</COLUMN>
@@ -86,7 +86,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>145</LINE>
       <COLUMN>20</COLUMN>
@@ -100,7 +100,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>148</LINE>
       <COLUMN>20</COLUMN>
@@ -114,19 +114,19 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>265</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>“pluginPath”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“243”行(“d:\vsproject\attacker_new\attacker\main.cpp”中)的声明。</DESCRIPTION>
+    <DESCRIPTION>“pluginPath”的局部声明遮蔽了外部作用域中具有相同名称的声明。有关其他信息，请参见此前位于“243”行(“d:\vsproject\attacker\attacker\main.cpp”中)的声明。</DESCRIPTION>
     <FUNCTION>main</FUNCTION>
     <DECORATED>main</DECORATED>
     <FUNCLINE>99</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>243</LINE>
         <COLUMN>8</COLUMN>
@@ -135,7 +135,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>192</LINE>
       <COLUMN>7</COLUMN>
@@ -149,7 +149,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>342</LINE>
       <COLUMN>10</COLUMN>
@@ -163,7 +163,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>main.cpp</FILENAME>
       <LINE>210</LINE>
       <COLUMN>12</COLUMN>
@@ -180,67 +180,67 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>101</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>107</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>108</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>109</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>110</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>111</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>112</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>113</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>114</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>116</LINE>
         <COLUMN>10</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>116</LINE>
         <COLUMN>23</COLUMN>
@@ -252,13 +252,13 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>156</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>157</LINE>
         <COLUMN>13</COLUMN>
@@ -270,19 +270,19 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>164</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>165</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>166</LINE>
         <COLUMN>5</COLUMN>
@@ -294,49 +294,49 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>172</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>173</LINE>
         <COLUMN>21</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>175</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>177</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>178</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>179</LINE>
         <COLUMN>55</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>179</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>181</LINE>
         <COLUMN>17</COLUMN>
@@ -348,7 +348,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>186</LINE>
         <COLUMN>39</COLUMN>
@@ -360,109 +360,109 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>191</LINE>
         <COLUMN>38</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>191</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>192</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>194</LINE>
         <COLUMN>45</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>194</LINE>
         <COLUMN>35</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>194</LINE>
         <COLUMN>25</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>194</LINE>
         <COLUMN>11</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>199</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>201</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>202</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>203</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>204</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>205</LINE>
         <COLUMN>16</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>208</LINE>
         <COLUMN>32</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>208</LINE>
         <COLUMN>22</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>208</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>209</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>210</LINE>
         <COLUMN>12</COLUMN>
@@ -474,7 +474,7 @@
         </KEYEVENT>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
         <FILENAME>main.cpp</FILENAME>
         <LINE>210</LINE>
         <COLUMN>12</COLUMN>

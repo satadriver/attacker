@@ -1,12 +1,12 @@
 Certificate:
     Data:
         Version: 3 (0x2)
-        Serial Number: 40 (0x28)
+        Serial Number: 30 (0x1e)
         Signature Algorithm: sha256WithRSAEncryption
         Issuer: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Global Root CA/emailAddress=www.digicert.com
         Validity
-            Not Before: Jun  5 05:47:59 2026 GMT
-            Not After : Jun  2 05:47:59 2036 GMT
+            Not Before: Jun 24 10:24:14 2026 GMT
+            Not After : Jun 21 10:24:14 2036 GMT
         Subject: C=US, ST=California, L=Los Angeles, O=DigiCert Inc, OU=www.digicert.com, CN=ue.lenovomm.cn/emailAddress=www.digicert.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
@@ -26,27 +26,27 @@ Certificate:
             X509v3 Subject Alternative Name: 
                 DNS:ue.lenovomm.cn
     Signature Algorithm: sha256WithRSAEncryption
-         3b:28:fd:af:94:aa:cd:fe:1f:f3:16:44:49:bd:96:ea:fb:e6:
-         9b:8e:38:ad:9c:31:24:f1:2b:58:0a:07:5b:fc:74:74:2b:ea:
-         1b:51:f2:62:cd:0c:fd:2f:65:19:cc:7a:c4:7a:ff:82:a9:9f:
-         37:d9:c3:7b:56:20:a4:b3:c8:f3:2c:b3:c5:0d:f4:4e:2b:20:
-         59:7c:a3:23:2c:4a:28:1d:95:ba:13:81:96:78:85:66:fc:93:
-         40:b4:fd:5b:f8:6b:0d:d7:84:06:40:b7:04:03:48:e1:66:fa:
-         fa:54:7e:a2:22:6d:86:a1:09:27:3b:55:06:dd:51:2e:ab:ae:
-         61:44:34:e9:d5:18:87:99:67:e9:77:00:a2:a6:00:ae:49:a0:
-         59:cc:ab:d6:c1:2a:df:f4:c8:f0:4f:4c:ea:a2:cc:20:51:34:
-         d0:ad:31:58:df:17:b0:05:46:27:2f:8a:2b:ba:3f:cb:7f:ba:
-         47:a2:31:9e:ad:c9:74:cf:30:c0:b1:fa:fd:f8:b0:c9:5a:29:
-         ab:21:09:31:04:ca:69:62:a3:6b:c2:db:51:2a:a0:2b:06:59:
-         f8:71:04:a6:c2:f3:c4:ca:eb:b4:4d:76:86:b8:19:7e:f5:9b:
-         ef:76:f5:9c:6b:ec:5a:3a:9e:fb:e8:47:57:c2:3d:cd:55:c8:
-         e2:fd:77:07
+         86:01:c8:85:51:3a:3e:0f:7a:51:35:f1:67:e6:7d:19:dc:19:
+         c2:7f:da:a4:bf:33:e2:12:1b:f0:3b:40:9f:29:26:76:e4:9d:
+         69:b3:08:2d:24:8f:8c:c4:16:eb:13:cd:8a:fc:bc:7a:98:26:
+         c4:ee:21:89:96:1f:d5:c8:6d:f0:f8:9f:3b:d7:99:a3:b7:22:
+         67:3b:73:9b:0f:a9:db:6c:eb:c8:01:cf:94:f6:11:3b:67:72:
+         87:84:86:e3:7f:16:13:15:81:47:2a:0a:de:90:17:a6:b5:6e:
+         05:2d:83:92:4d:58:1f:5a:4b:07:3e:90:9c:29:5d:53:a3:2d:
+         4c:4a:6e:66:de:a7:ad:90:d7:93:d7:6d:fe:2f:d3:76:61:ff:
+         2a:e4:bd:bf:41:24:a5:77:ea:28:2a:2c:fe:6e:d1:72:2c:48:
+         ba:2f:da:1a:93:e3:ca:a8:58:ab:6e:18:3c:7c:44:7c:6f:92:
+         98:22:0e:18:c1:47:ae:94:7e:cc:38:77:7f:34:a5:cb:8e:af:
+         7a:72:21:15:e3:a6:d7:d1:76:74:ea:65:1e:27:91:86:8e:6a:
+         7f:6f:27:11:cf:43:a3:67:ea:01:8a:f7:16:04:87:b9:2e:75:
+         da:ca:92:f0:43:57:5b:a8:de:24:eb:50:ce:84:80:84:75:26:
+         f0:94:d3:85
 -----BEGIN CERTIFICATE-----
-MIIDZzCCAk+gAwIBAgIBKDANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
+MIIDZzCCAk+gAwIBAgIBHjANBgkqhkiG9w0BAQsFADCBrTELMAkGA1UEBhMCVVMx
 EzARBgNVBAgMCkNhbGlmb3JuaWExFDASBgNVBAcMC0xvcyBBbmdlbGVzMRUwEwYD
 VQQKDAxEaWdpQ2VydCBJbmMxGTAXBgNVBAsMEHd3dy5kaWdpY2VydC5jb20xIDAe
 BgNVBAMMF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMR8wHQYJKoZIhvcNAQkBFhB3
-d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYwNTA1NDc1OVoXDTM2MDYwMjA1NDc1OVow
+d3cuZGlnaWNlcnQuY29tMB4XDTI2MDYyNDEwMjQxNFoXDTM2MDYyMTEwMjQxNFow
 gaQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRQwEgYDVQQHDAtM
 b3MgQW5nZWxlczEVMBMGA1UECgwMRGlnaUNlcnQgSW5jMRkwFwYDVQQLDBB3d3cu
 ZGlnaWNlcnQuY29tMRcwFQYDVQQDDA51ZS5sZW5vdm9tbS5jbjEfMB0GCSqGSIb3
@@ -54,11 +54,11 @@ DQEJARYQd3d3LmRpZ2ljZXJ0LmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkC
 gYEA7jZvIzhpNM4KhrxZDOgCv/ANAbjh394OVAwPWYSMfgYrY6mJCPCrW4VayJLu
 oReltkoZ33Ubrw4kPDNvT824dlwBO7rLcOZ2mXIQIQyMAJ/JUUmV4JeS3KpGkgEh
 w5AoGwfe10uDsVXGfitdgCoaMn8+tSY5UICQoLpfK+L5xicCAwEAAaMdMBswGQYD
-VR0RBBIwEIIOdWUubGVub3ZvbW0uY24wDQYJKoZIhvcNAQELBQADggEBADso/a+U
-qs3+H/MWREm9lur75puOOK2cMSTxK1gKB1v8dHQr6htR8mLNDP0vZRnMesR6/4Kp
-nzfZw3tWIKSzyPMss8UN9E4rIFl8oyMsSigdlboTgZZ4hWb8k0C0/Vv4aw3XhAZA
-twQDSOFm+vpUfqIibYahCSc7VQbdUS6rrmFENOnVGIeZZ+l3AKKmAK5JoFnMq9bB
-Kt/0yPBPTOqizCBRNNCtMVjfF7AFRicviiu6P8t/ukeiMZ6tyXTPMMCx+v34sMla
-KashCTEEymlio2vC21EqoCsGWfhxBKbC88TK67RNdoa4GX71m+929Zxr7Fo6nvvo
-R1fCPc1VyOL9dwc=
+VR0RBBIwEIIOdWUubGVub3ZvbW0uY24wDQYJKoZIhvcNAQELBQADggEBAIYByIVR
+Oj4PelE18WfmfRncGcJ/2qS/M+ISG/A7QJ8pJnbknWmzCC0kj4zEFusTzYr8vHqY
+JsTuIYmWH9XIbfD4nzvXmaO3Imc7c5sPqdts68gBz5T2ETtncoeEhuN/FhMVgUcq
+Ct6QF6a1bgUtg5JNWB9aSwc+kJwpXVOjLUxKbmbep62Q15PXbf4v03Zh/yrkvb9B
+JKV36igqLP5u0XIsSLov2hqT48qoWKtuGDx8RHxvkpgiDhjBR66Ufsw4d380pcuO
+r3pyIRXjptfRdnTqZR4nkYaOan9vJxHPQ6Nn6gGK9xYEh7kuddrKkvBDV1uo3iTr
+UM6EgIR1JvCU04U=
 -----END CERTIFICATE-----

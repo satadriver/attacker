@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>HttpUtils.cpp</FILENAME>
       <LINE>528</LINE>
       <COLUMN>20</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>HttpUtils.cpp</FILENAME>
       <LINE>537</LINE>
       <COLUMN>20</COLUMN>

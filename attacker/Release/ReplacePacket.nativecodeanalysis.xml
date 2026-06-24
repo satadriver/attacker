@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>ReplacePacket.cpp</FILENAME>
       <LINE>21</LINE>
       <COLUMN>8</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\</FILEPATH>
       <FILENAME>ReplacePacket.cpp</FILENAME>
       <LINE>21</LINE>
       <COLUMN>8</COLUMN>

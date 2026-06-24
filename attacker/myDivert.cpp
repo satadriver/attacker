@@ -1,4 +1,6 @@
 
+#ifdef WINDIVERT_APPROACH
+
 #include <windows.h>
 #include <stdio.h>
 
@@ -88,3 +90,4 @@
 	return 0;
 }
 
+#endif

@@ -68,7 +68,8 @@ int HttpAttack::httpAttackPacket(char* buf, int size, const char* url, const cha
 	}
 
 	ret = SSLPublic::isAttackTargetHost(hpp->host);
-	if (ret) {
+	if (ret) 
+	{
 		ret = PayloadServer::PluginServerProc(hpp, buf, size);
 		return ret;
 	}

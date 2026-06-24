@@ -40,7 +40,7 @@ int HttpProxy::HttpProxyMain(LPHTTPPROXYPARAM hpp) {
 		return FALSE;
 	}
 
-	if (IsInternalAddress(dwip, hpp->host)) {
+	if (IsInternalAddress(dwip, hpp->host) ) {
 		log("%s %d error\r\n", __FUNCTION__, __LINE__);
 		return FALSE;
 	}

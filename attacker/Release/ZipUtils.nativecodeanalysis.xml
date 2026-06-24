@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
       <FILENAME>ZipUtils.cpp</FILENAME>
       <LINE>23</LINE>
       <COLUMN>2</COLUMN>
@@ -19,61 +19,61 @@
     </CATEGORY>
     <PATH>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>7</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>8</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>13</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>15</LINE>
         <COLUMN>8</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>17</LINE>
         <COLUMN>7</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>18</LINE>
         <COLUMN>5</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>19</LINE>
         <COLUMN>12</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>20</LINE>
         <COLUMN>9</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>22</LINE>
         <COLUMN>2</COLUMN>
       </SFA>
       <SFA>
-        <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+        <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
         <FILENAME>ZipUtils.cpp</FILENAME>
         <LINE>23</LINE>
         <COLUMN>2</COLUMN>

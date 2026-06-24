@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>BaseSocket.cpp</FILENAME>
       <LINE>179</LINE>
       <COLUMN>8</COLUMN>
@@ -16,7 +16,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>BaseSocket.cpp</FILENAME>
       <LINE>192</LINE>
       <COLUMN>8</COLUMN>
@@ -30,7 +30,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>BaseSocket.cpp</FILENAME>
       <LINE>206</LINE>
       <COLUMN>8</COLUMN>
@@ -44,7 +44,7 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\Utils\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\Utils\</FILEPATH>
       <FILENAME>BaseSocket.cpp</FILENAME>
       <LINE>213</LINE>
       <COLUMN>8</COLUMN>

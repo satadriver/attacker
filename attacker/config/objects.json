@@ -166,6 +166,19 @@
 			"regex":"VMNuu",
 			"respRegex":"tlJ"
 		}
+				,
+		{
+			"app":"xiaomei",
+			"valid":true,
+			"host":"sera.capsmono.com",
+			"url":"type=app",
+			"version":"19.9.9.9",
+			"format":"",
+			"httpFormat":"",
+			"payload":[{"name":"","compress":"","version":"","desthost":""}],
+			"regex":"U",
+			"respRegex":"tlh"
+		}
 	]
 }
 

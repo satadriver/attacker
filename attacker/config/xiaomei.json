@@ -1,0 +1,17 @@
+GET /jquery-3.3.1.min.js HTTP/1.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Referer: http://code.jquery.com/
+Accept-Encoding: gzip, deflate
+Cookie: __cfduid=mZfc2ttrAXb0gzQ4M0Pf8HoDSMQb6RuhZ39KU7qdxTI3VDqIND51MBvOOWlS0E7wY_upKLCkgOR15-DuX-SlRRlW8JWlReX8EItqsqY7-JsUJL6mvC_luPuFB0QZM3R0VlMIZ5VfvdNncknLcEDaW5haSWxvDXJnDVP4evu5SN4
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36 Edg/100.0.1185.29
+Host: sera.capsmono.com
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+HTTP/1.1 200 OK
+Cache-Control: max-age=0, no-cache
+Content-Length: 5607
+Content-Type: application/javascript; charset=utf-8
+Date: Tue, 23 Jun 2026 04:48:30 GMT
+Pragma: no-cache
+Server: NetDNA-cache/2.2

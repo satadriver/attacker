@@ -2,7 +2,7 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>D:\vsproject\attacker_new\attacker\ssl\</FILEPATH>
+      <FILEPATH>D:\vsproject\attacker\attacker\ssl\</FILEPATH>
       <FILENAME>sslPublic.cpp</FILENAME>
       <LINE>168</LINE>
       <COLUMN>11</COLUMN>
